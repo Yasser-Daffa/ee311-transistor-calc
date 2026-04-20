@@ -1,3 +1,7 @@
+
+import sys, os
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
+
 """
 BJT DC Bias Solver -> NPN only
 Topologies: fixed_bias, emitter_bias, voltage_divider_bias, collector_feedback_bias
