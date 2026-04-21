@@ -7,13 +7,13 @@
     <x>0</x>
     <y>0</y>
     <width>545</width>
-    <height>857</height>
+    <height>700</height>
    </rect>
   </property>
   <property name="minimumSize">
    <size>
     <width>545</width>
-    <height>800</height>
+    <height>700</height>
    </size>
   </property>
   <property name="windowTitle">
@@ -48,7 +48,7 @@
        <item>
         <layout class="QVBoxLayout" name="verticalLayout">
          <property name="sizeConstraint">
-          <enum>QLayout::SizeConstraint::SetMinAndMaxSize</enum>
+          <enum>QLayout::SizeConstraint::SetDefaultConstraint</enum>
          </property>
          <item>
           <widget class="QLabel" name="labelInput">
@@ -773,7 +773,7 @@ QLineEdit:focus {
            </property>
            <property name="minimumSize">
             <size>
-             <width>150</width>
+             <width>200</width>
              <height>300</height>
             </size>
            </property>
@@ -799,78 +799,30 @@ QLineEdit:focus {
             <string/>
            </property>
            <property name="pixmap">
-            <pixmap>fixed_bias.png</pixmap>
+            <pixmap>images/emitter_bias.png</pixmap>
            </property>
            <property name="scaledContents">
             <bool>true</bool>
            </property>
           </widget>
          </item>
-         <item>
-          <spacer name="horizontalSpacer">
-           <property name="orientation">
-            <enum>Qt::Orientation::Horizontal</enum>
-           </property>
-           <property name="sizeHint" stdset="0">
-            <size>
-             <width>40</width>
-             <height>20</height>
-            </size>
-           </property>
-          </spacer>
-         </item>
         </layout>
        </item>
       </layout>
      </item>
-     <item row="1" column="0">
-      <widget class="QPushButton" name="pushButtonClear">
-       <property name="maximumSize">
-        <size>
-         <width>100</width>
-         <height>40</height>
-        </size>
-       </property>
-       <property name="cursor">
-        <cursorShape>PointingHandCursor</cursorShape>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">QPushButton {
-    background-color: #f5576c;
-    color: white;
-    border: none;
-    border-radius: 8px;
-    font-size: 14px;
-    font-weight: bold;
-    padding: 10px 20px;
-}
-
-QPushButton:hover {
-    background-color: #e5475c;
-}
-
-QPushButton:pressed {
-    background-color: #d93f53; /* slightly darker for click feedback */
-}
-
-QPushButton:disabled {
-    background-color: #e0e0e0;
-    color: #999999;
-}
-</string>
-       </property>
-       <property name="text">
-        <string>Clear</string>
-       </property>
-      </widget>
-     </item>
-     <item row="2" column="0">
+     <item row="3" column="0">
       <layout class="QVBoxLayout" name="verticalLayout_5">
        <property name="spacing">
         <number>10</number>
        </property>
        <item>
         <widget class="QLabel" name="labelOutput">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
          <property name="styleSheet">
           <string notr="true">QLabel {
     color: #374151;
@@ -933,7 +885,7 @@ QPushButton:disabled {
          <item>
           <layout class="QHBoxLayout" name="statsLayout">
            <property name="spacing">
-            <number>20</number>
+            <number>10</number>
            </property>
            <item>
             <widget class="QFrame" name="totalUsersFrame">
@@ -945,7 +897,7 @@ QPushButton:disabled {
              </property>
              <property name="minimumSize">
               <size>
-               <width>80</width>
+               <width>100</width>
                <height>80</height>
               </size>
              </property>
@@ -979,10 +931,16 @@ QPushButton:disabled {
               </property>
               <item>
                <widget class="QLabel" name="labelIconVb">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                  <horstretch>40</horstretch>
+                  <verstretch>40</verstretch>
+                 </sizepolicy>
+                </property>
                 <property name="minimumSize">
                  <size>
-                  <width>50</width>
-                  <height>50</height>
+                  <width>40</width>
+                  <height>30</height>
                  </size>
                 </property>
                 <property name="maximumSize">
@@ -1013,16 +971,6 @@ font: 700 14pt &quot;Rockwell&quot;;</string>
                 </property>
                </widget>
               </item>
-              <item>
-               <widget class="QLabel" name="labelVolts1">
-                <property name="styleSheet">
-                 <string notr="true">font-size: 12px; color: #7f8c8d; background: transparent;</string>
-                </property>
-                <property name="text">
-                 <string>Volts</string>
-                </property>
-               </widget>
-              </item>
              </layout>
             </widget>
            </item>
@@ -1036,7 +984,7 @@ font: 700 14pt &quot;Rockwell&quot;;</string>
              </property>
              <property name="minimumSize">
               <size>
-               <width>80</width>
+               <width>100</width>
                <height>80</height>
               </size>
              </property>
@@ -1075,8 +1023,8 @@ border-top: 4px solid #f5576c;  /* same color as Edit Profile button */
                <widget class="QLabel" name="labelIconVc">
                 <property name="minimumSize">
                  <size>
-                  <width>50</width>
-                  <height>50</height>
+                  <width>40</width>
+                  <height>30</height>
                  </size>
                 </property>
                 <property name="maximumSize">
@@ -1107,16 +1055,6 @@ font: 700 14pt &quot;Rockwell&quot;;</string>
                 </property>
                </widget>
               </item>
-              <item>
-               <widget class="QLabel" name="labelVolts2">
-                <property name="styleSheet">
-                 <string notr="true">font-size: 12px; color: #7f8c8d; background: transparent;</string>
-                </property>
-                <property name="text">
-                 <string>Volts</string>
-                </property>
-               </widget>
-              </item>
              </layout>
             </widget>
            </item>
@@ -1130,7 +1068,7 @@ font: 700 14pt &quot;Rockwell&quot;;</string>
              </property>
              <property name="minimumSize">
               <size>
-               <width>80</width>
+               <width>100</width>
                <height>80</height>
               </size>
              </property>
@@ -1166,8 +1104,8 @@ font: 700 14pt &quot;Rockwell&quot;;</string>
                <widget class="QLabel" name="labelIconVe">
                 <property name="minimumSize">
                  <size>
-                  <width>50</width>
-                  <height>50</height>
+                  <width>40</width>
+                  <height>30</height>
                  </size>
                 </property>
                 <property name="maximumSize">
@@ -1198,16 +1136,6 @@ font: 700 14pt &quot;Rockwell&quot;;</string>
                 </property>
                </widget>
               </item>
-              <item>
-               <widget class="QLabel" name="labelVolts3">
-                <property name="styleSheet">
-                 <string notr="true">font-size: 12px; color: #7f8c8d; background: transparent;</string>
-                </property>
-                <property name="text">
-                 <string>Volts</string>
-                </property>
-               </widget>
-              </item>
              </layout>
             </widget>
            </item>
@@ -1216,7 +1144,7 @@ font: 700 14pt &quot;Rockwell&quot;;</string>
          <item>
           <layout class="QHBoxLayout" name="statsLayout_2">
            <property name="spacing">
-            <number>20</number>
+            <number>10</number>
            </property>
            <item>
             <widget class="QFrame" name="totalUsersFrame_2">
@@ -1228,7 +1156,7 @@ font: 700 14pt &quot;Rockwell&quot;;</string>
              </property>
              <property name="minimumSize">
               <size>
-               <width>80</width>
+               <width>100</width>
                <height>80</height>
               </size>
              </property>
@@ -1264,8 +1192,8 @@ font: 700 14pt &quot;Rockwell&quot;;</string>
                <widget class="QLabel" name="labelIconIb">
                 <property name="minimumSize">
                  <size>
-                  <width>50</width>
-                  <height>50</height>
+                  <width>40</width>
+                  <height>30</height>
                  </size>
                 </property>
                 <property name="maximumSize">
@@ -1296,16 +1224,6 @@ font: 700 14pt &quot;Rockwell&quot;;</string>
                 </property>
                </widget>
               </item>
-              <item>
-               <widget class="QLabel" name="labelMicroAmps">
-                <property name="styleSheet">
-                 <string notr="true">font-size: 12px; color: #7f8c8d; background: transparent;</string>
-                </property>
-                <property name="text">
-                 <string>micro Amps (μA)</string>
-                </property>
-               </widget>
-              </item>
              </layout>
             </widget>
            </item>
@@ -1319,7 +1237,7 @@ font: 700 14pt &quot;Rockwell&quot;;</string>
              </property>
              <property name="minimumSize">
               <size>
-               <width>80</width>
+               <width>100</width>
                <height>80</height>
               </size>
              </property>
@@ -1358,8 +1276,8 @@ border-top: 4px solid #f5576c;  /* same color as Edit Profile button */
                <widget class="QLabel" name="labelIconIc">
                 <property name="minimumSize">
                  <size>
-                  <width>50</width>
-                  <height>50</height>
+                  <width>40</width>
+                  <height>30</height>
                  </size>
                 </property>
                 <property name="maximumSize">
@@ -1390,16 +1308,6 @@ font: 700 14pt &quot;Rockwell&quot;;</string>
                 </property>
                </widget>
               </item>
-              <item>
-               <widget class="QLabel" name="labelMiliAmps1">
-                <property name="styleSheet">
-                 <string notr="true">font-size: 12px; color: #7f8c8d; background: transparent;</string>
-                </property>
-                <property name="text">
-                 <string>mili Amps (mA)</string>
-                </property>
-               </widget>
-              </item>
              </layout>
             </widget>
            </item>
@@ -1413,7 +1321,7 @@ font: 700 14pt &quot;Rockwell&quot;;</string>
              </property>
              <property name="minimumSize">
               <size>
-               <width>80</width>
+               <width>100</width>
                <height>80</height>
               </size>
              </property>
@@ -1449,8 +1357,8 @@ font: 700 14pt &quot;Rockwell&quot;;</string>
                <widget class="QLabel" name="labelIconIe">
                 <property name="minimumSize">
                  <size>
-                  <width>50</width>
-                  <height>50</height>
+                  <width>40</width>
+                  <height>30</height>
                  </size>
                 </property>
                 <property name="maximumSize">
@@ -1481,16 +1389,6 @@ font: 700 14pt &quot;Rockwell&quot;;</string>
                 </property>
                </widget>
               </item>
-              <item>
-               <widget class="QLabel" name="labelMiliAmps2">
-                <property name="styleSheet">
-                 <string notr="true">font-size: 12px; color: #7f8c8d; background: transparent;</string>
-                </property>
-                <property name="text">
-                 <string>mili Amps (mA)</string>
-                </property>
-               </widget>
-              </item>
              </layout>
             </widget>
            </item>
@@ -1504,7 +1402,7 @@ font: 700 14pt &quot;Rockwell&quot;;</string>
              </property>
              <property name="minimumSize">
               <size>
-               <width>80</width>
+               <width>100</width>
                <height>80</height>
               </size>
              </property>
@@ -1540,8 +1438,8 @@ font: 700 14pt &quot;Rockwell&quot;;</string>
                <widget class="QLabel" name="labelIconRpi">
                 <property name="minimumSize">
                  <size>
-                  <width>50</width>
-                  <height>50</height>
+                  <width>40</width>
+                  <height>30</height>
                  </size>
                 </property>
                 <property name="maximumSize">
@@ -1572,16 +1470,6 @@ font: 700 14pt &quot;Rockwell&quot;;</string>
                 </property>
                </widget>
               </item>
-              <item>
-               <widget class="QLabel" name="labelOhm">
-                <property name="styleSheet">
-                 <string notr="true">font-size: 12px; color: #7f8c8d; background: transparent;</string>
-                </property>
-                <property name="text">
-                 <string>Ohm</string>
-                </property>
-               </widget>
-              </item>
              </layout>
             </widget>
            </item>
@@ -1590,6 +1478,76 @@ font: 700 14pt &quot;Rockwell&quot;;</string>
         </layout>
        </item>
       </layout>
+     </item>
+     <item row="4" column="0">
+      <spacer name="verticalSpacer_2">
+       <property name="orientation">
+        <enum>Qt::Orientation::Vertical</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>20</width>
+         <height>40</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item row="2" column="0">
+      <spacer name="verticalSpacer">
+       <property name="orientation">
+        <enum>Qt::Orientation::Vertical</enum>
+       </property>
+       <property name="sizeType">
+        <enum>QSizePolicy::Policy::Fixed</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>20</width>
+         <height>30</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item row="1" column="0">
+      <widget class="QPushButton" name="pushButtonClear">
+       <property name="maximumSize">
+        <size>
+         <width>100</width>
+         <height>40</height>
+        </size>
+       </property>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton {
+    background-color: #f5576c;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 10px 20px;
+}
+
+QPushButton:hover {
+    background-color: #e5475c;
+}
+
+QPushButton:pressed {
+    background-color: #d93f53; /* slightly darker for click feedback */
+}
+
+QPushButton:disabled {
+    background-color: #e0e0e0;
+    color: #999999;
+}
+</string>
+       </property>
+       <property name="text">
+        <string>Clear</string>
+       </property>
+      </widget>
      </item>
     </layout>
    </item>

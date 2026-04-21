@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>StudentDashboard</class>
- <widget class="QMainWindow" name="StudentDashboard">
+ <class>EE311Calculator</class>
+ <widget class="QMainWindow" name="EE311Calculator">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -17,7 +17,7 @@
    </size>
   </property>
   <property name="windowTitle">
-   <string>Student Dashboard - ECE Registration System</string>
+   <string>EE311 - Calculator</string>
   </property>
   <property name="styleSheet">
    <string notr="true">QMainWindow { background-color: #f5f7fa; }</string>
@@ -224,7 +224,7 @@ QScrollBar::sub-page:vertical {
             <x>0</x>
             <y>0</y>
             <width>284</width>
-            <height>719</height>
+            <height>643</height>
            </rect>
           </property>
           <property name="styleSheet">
@@ -252,12 +252,12 @@ QScrollBar::sub-page:vertical {
               <string notr="true">color: #a0aec0; font-size: 11px; font-weight: 800; background: transparent;</string>
              </property>
              <property name="text">
-              <string>BJT Transistors</string>
+              <string>NPN BJT Transistors</string>
              </property>
             </widget>
            </item>
            <item>
-            <widget class="QPushButton" name="buttonProfile">
+            <widget class="QPushButton" name="buttonBjtTransistor">
              <property name="minimumSize">
               <size>
                <width>0</width>
@@ -269,7 +269,7 @@ QScrollBar::sub-page:vertical {
              </property>
              <property name="styleSheet">
               <string notr="true">QPushButton {
-    background-color: rgb(235, 235, 235);
+    background-color: rgb(245, 245, 245);
     border: none;
     border-radius: 10px;
     color: #5a6c7d;
@@ -299,7 +299,7 @@ QPushButton:pressed {
 </string>
              </property>
              <property name="text">
-              <string>Transistors</string>
+              <string>BJT Transistors</string>
              </property>
              <property name="checkable">
               <bool>true</bool>
@@ -315,12 +315,12 @@ QPushButton:pressed {
               <string notr="true">color: #a0aec0; font-size: 11px; font-weight: 800; background: transparent;</string>
              </property>
              <property name="text">
-              <string>USER MANAGEMENT</string>
+              <string>Common Emitter &amp; Common Collector</string>
              </property>
             </widget>
            </item>
            <item>
-            <widget class="QPushButton" name="buttonCurrentSchedule">
+            <widget class="QPushButton" name="buttonCommonEmitter">
              <property name="minimumSize">
               <size>
                <width>0</width>
@@ -332,7 +332,7 @@ QPushButton:pressed {
              </property>
              <property name="styleSheet">
               <string notr="true">QPushButton {
-    background-color: transparent;
+    background-color: rgb(245, 245, 245);
     border: none;
     border-radius: 10px;
     color: #5a6c7d;
@@ -342,7 +342,7 @@ QPushButton:pressed {
 }
 
 QPushButton:hover {
-    background-color: #f8f9fa;
+    background-color: rgb(200, 200, 200);
     color: #8c6fff;  /* slightly purple-ish on hover */
 }
 
@@ -362,7 +362,7 @@ QPushButton:pressed {
 </string>
              </property>
              <property name="text">
-              <string>📅 Current Schedule</string>
+              <string>Common Emitter</string>
              </property>
              <property name="checkable">
               <bool>true</bool>
@@ -373,17 +373,7 @@ QPushButton:pressed {
             </widget>
            </item>
            <item>
-            <widget class="QLabel" name="courseMgmtLabel">
-             <property name="styleSheet">
-              <string notr="true">color: #a0aec0; font-size: 11px; font-weight: 800; background: transparent;</string>
-             </property>
-             <property name="text">
-              <string>COURSE MANAGEMENT</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QPushButton" name="buttonRegisterCourses">
+            <widget class="QPushButton" name="buttonCommonCollector">
              <property name="minimumSize">
               <size>
                <width>0</width>
@@ -395,7 +385,7 @@ QPushButton:pressed {
              </property>
              <property name="styleSheet">
               <string notr="true">QPushButton {
-    background-color: transparent;
+    background-color: rgb(245, 245, 245);
     border: none;
     border-radius: 10px;
     color: #5a6c7d;
@@ -405,7 +395,7 @@ QPushButton:pressed {
 }
 
 QPushButton:hover {
-    background-color: #f8f9fa;
+    background-color: rgb(200, 200, 200);
     color: #8c6fff;  /* slightly purple-ish on hover */
 }
 
@@ -425,7 +415,67 @@ QPushButton:pressed {
 </string>
              </property>
              <property name="text">
-              <string> 📝 Register Courses </string>
+              <string>Common Collector</string>
+             </property>
+             <property name="checkable">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="courseMgmtLabel">
+             <property name="styleSheet">
+              <string notr="true">color: #a0aec0; font-size: 11px; font-weight: 800; background: transparent;</string>
+             </property>
+             <property name="text">
+              <string>Others</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QPushButton" name="buttonFrequencyCalculations">
+             <property name="minimumSize">
+              <size>
+               <width>0</width>
+               <height>48</height>
+              </size>
+             </property>
+             <property name="cursor">
+              <cursorShape>PointingHandCursor</cursorShape>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">QPushButton {
+    background-color: rgb(245, 245, 245);
+    border: none;
+    border-radius: 10px;
+    color: #5a6c7d;
+    font-size: 14px;
+    text-align: left;
+    padding-left: 15px;
+}
+
+QPushButton:hover {
+    background-color: rgb(200, 200, 200);
+    color: #8c6fff;  /* slightly purple-ish on hover */
+}
+
+/* CHECKED / TOGGLED STATE */
+QPushButton:checked {
+    background-color: rgba(140, 111, 255, 0.10);  /* faint purple */
+    color: #8c6fff; 
+    font-weight: bold;
+    border-left: 4px solid #8c6fff;
+    padding-left: 11px; /* adjust so bar doesn’t push content too far */
+}
+
+/* PRESSED STATE (optional but clean) */
+QPushButton:pressed {
+    background-color: rgba(140, 111, 255, 0.18);  /* slightly darker purple on press */
+}
+</string>
+             </property>
+             <property name="text">
+              <string>Frequency Calculations</string>
              </property>
              <property name="checkable">
               <bool>true</bool>
@@ -448,7 +498,7 @@ QPushButton:pressed {
              </property>
              <property name="styleSheet">
               <string notr="true">QPushButton {
-    background-color: transparent;
+    background-color: rgb(245, 245, 245);
     border: none;
     border-radius: 10px;
     color: #5a6c7d;
@@ -458,7 +508,7 @@ QPushButton:pressed {
 }
 
 QPushButton:hover {
-    background-color: #f8f9fa;
+    background-color: rgb(200, 200, 200);
     color: #8c6fff;  /* slightly purple-ish on hover */
 }
 
@@ -478,113 +528,7 @@ QPushButton:pressed {
 </string>
              </property>
              <property name="text">
-              <string>🔗  View Prerequisetes</string>
-             </property>
-             <property name="checkable">
-              <bool>true</bool>
-             </property>
-             <attribute name="buttonGroup">
-              <string notr="true">buttonGroupSubmenus</string>
-             </attribute>
-            </widget>
-           </item>
-           <item>
-            <widget class="QPushButton" name="buttonViewProgramPlans">
-             <property name="minimumSize">
-              <size>
-               <width>0</width>
-               <height>48</height>
-              </size>
-             </property>
-             <property name="cursor">
-              <cursorShape>PointingHandCursor</cursorShape>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">QPushButton {
-    background-color: transparent;
-    border: none;
-    border-radius: 10px;
-    color: #5a6c7d;
-    font-size: 14px;
-    text-align: left;
-    padding-left: 15px;
-}
-
-QPushButton:hover {
-    background-color: #f8f9fa;
-    color: #8c6fff;  /* slightly purple-ish on hover */
-}
-
-/* CHECKED / TOGGLED STATE */
-QPushButton:checked {
-    background-color: rgba(140, 111, 255, 0.10);  /* faint purple */
-    color: #8c6fff; 
-    font-weight: bold;
-    border-left: 4px solid #8c6fff;
-    padding-left: 11px; /* adjust so bar doesn’t push content too far */
-}
-
-/* PRESSED STATE (optional but clean) */
-QPushButton:pressed {
-    background-color: rgba(140, 111, 255, 0.18);  /* slightly darker purple on press */
-}
-</string>
-             </property>
-             <property name="text">
-              <string>📋  View Program Plans</string>
-             </property>
-             <property name="checkable">
-              <bool>true</bool>
-             </property>
-             <attribute name="buttonGroup">
-              <string notr="true">buttonGroupSubmenus</string>
-             </attribute>
-            </widget>
-           </item>
-           <item>
-            <widget class="QPushButton" name="buttonTranscript">
-             <property name="minimumSize">
-              <size>
-               <width>0</width>
-               <height>48</height>
-              </size>
-             </property>
-             <property name="cursor">
-              <cursorShape>PointingHandCursor</cursorShape>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">QPushButton {
-    background-color: transparent;
-    border: none;
-    border-radius: 10px;
-    color: #5a6c7d;
-    font-size: 14px;
-    text-align: left;
-    padding-left: 15px;
-}
-
-QPushButton:hover {
-    background-color: #f8f9fa;
-    color: #8c6fff;  /* slightly purple-ish on hover */
-}
-
-/* CHECKED / TOGGLED STATE */
-QPushButton:checked {
-    background-color: rgba(140, 111, 255, 0.10);  /* faint purple */
-    color: #8c6fff; 
-    font-weight: bold;
-    border-left: 4px solid #8c6fff;
-    padding-left: 11px; /* adjust so bar doesn’t push content too far */
-}
-
-/* PRESSED STATE (optional but clean) */
-QPushButton:pressed {
-    background-color: rgba(140, 111, 255, 0.18);  /* slightly darker purple on press */
-}
-</string>
-             </property>
-             <property name="text">
-              <string> 📊 Transcript </string>
+              <string>MOSFETs</string>
              </property>
              <property name="checkable">
               <bool>true</bool>
@@ -647,7 +591,7 @@ QPushButton:pressed {
 </string>
              </property>
              <property name="text">
-              <string>🚪  Logout</string>
+              <string>🚪  Exit</string>
              </property>
             </widget>
            </item>
