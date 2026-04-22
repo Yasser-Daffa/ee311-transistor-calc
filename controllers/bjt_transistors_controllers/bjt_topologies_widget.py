@@ -1,15 +1,15 @@
 import sys, os
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../..")))
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-UI_PATH  = os.path.join(BASE_DIR, "..", "ui", "bjt_transistors", "topologies_menu.ui")
+UI_PATH  = os.path.join(BASE_DIR, "..", "..", "ui", "bjt_transistors", "topologies_menu.ui")
 
 from PyQt6.QtWidgets import QApplication, QWidget, QVBoxLayout, QButtonGroup
 from PyQt6.uic import loadUi
 
-from controllers.bjt_emitter_fixed_bias_widget   import BJTEmitterBiasWidget
-from controllers.bjt_voltage_divider_bias_widget       import BJTVoltageDividerBiasWidget
-from controllers.bjt_collector_feedback_bias_widget    import BJTCollectorFeedbackBiasWidget
+from controllers.bjt_transistors_controllers.bjt_emitter_fixed_bias_widget         import BJTEmitterBiasWidget
+from controllers.bjt_transistors_controllers.bjt_voltage_divider_bias_widget       import BJTVoltageDividerBiasWidget
+from controllers.bjt_transistors_controllers.bjt_collector_feedback_bias_widget    import BJTCollectorFeedbackBiasWidget
 
 
 class BJTTopologiesWidget(QWidget):

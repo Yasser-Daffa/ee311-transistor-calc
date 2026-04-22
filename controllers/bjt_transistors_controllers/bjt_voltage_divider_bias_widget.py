@@ -1,37 +1,37 @@
 
 import sys, os
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../..")))
 
 # always finds the .ui file next to this .py file, regardless of where you run from
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))  # controllers/
-UI_PATH = os.path.join(BASE_DIR, "..", "ui", "bjt_transistors", "bjt_collector_feedback_bias.ui")
+UI_PATH = os.path.join(BASE_DIR, "..", "..", "ui", "bjt_transistors", "bjt_voltage_divider_bias.ui")
 
 
 # bjt_widget.py
 from PyQt6.QtWidgets import QApplication, QLineEdit, QWidget
 from PyQt6.uic import loadUi
 from PyQt6.QtWidgets import QWidget
-from core.bjt_transistor import BJT, fmt, solve_collector_feedback_bias, solve_fixed_or_emitter_bias
+from core.bjt_transistor import BJT, fmt, solve_voltage_divider_bias
 from PyQt6.QtGui import QIntValidator
 
 
-class BJTCollectorFeedbackBiasWidget(QWidget):
+class BJTVoltageDividerBiasWidget(QWidget):
     def __init__(self, parent=None):
         super().__init__(parent)
         loadUi(UI_PATH, self)
 
         # Set up validators for input fields
         self.lineEditVcc.setValidator(QIntValidator())
-        self.lineEditRcb.setValidator(QIntValidator())
+        self.lineEditR1.setValidator(QIntValidator())
+        self.lineEditR2.setValidator(QIntValidator())
         self.lineEditRc.setValidator(QIntValidator())
         self.lineEditVee.setValidator(QIntValidator())
         self.lineEditRe.setValidator(QIntValidator())
         self.lineEditBeta.setValidator(QIntValidator())
 
         for field in [self.lineEditVcc, self.lineEditVee,
-                      self.lineEditRcb, self.lineEditRc, self.lineEditRe, self.lineEditBeta]:
+                      self.lineEditR1, self.lineEditR2, self.lineEditRc, self.lineEditRe, self.lineEditBeta]:
             field.textChanged.connect(self.calculate)
-
 
         self.pushButtonClear.clicked.connect(self.clear_fields)   # change name if your button is named differently
 
@@ -53,12 +53,12 @@ class BJTCollectorFeedbackBiasWidget(QWidget):
             if hasattr(self, name):
                 getattr(self, name).setText("-")
 
-
     def calculate(self):
         # --- step 1: wait silently until all fields have valid numbers ---
         try:
             vcc  = float(self.lineEditVcc.text())
-            rcb  = float(self.lineEditRcb.text())
+            r1   = float(self.lineEditR1.text())
+            r2   = float(self.lineEditR2.text())
             rc   = float(self.lineEditRc.text())
             vee = float(self.lineEditVee.text() or 0)
             re  = float(self.lineEditRe.text()  or 0)
@@ -69,9 +69,9 @@ class BJTCollectorFeedbackBiasWidget(QWidget):
 
         # --- step 2: run solver, catch bad values (Rb=0 etc.) ---
         try:
-            result = solve_collector_feedback_bias(
+            result = solve_voltage_divider_bias(
                 bjt=BJT(beta=beta),
-                Vcc=vcc, Rcb=rcb, Rc=rc, Re=re, Vee=vee,
+                Vcc=vcc, R1=r1, R2=r2, Rc=rc, Re=re, Vee=vee,
             )
         except ValueError as e:
             self._set_mode(f"Error: {e}", "#f8d7da", "#721c24")
@@ -104,7 +104,7 @@ class BJTCollectorFeedbackBiasWidget(QWidget):
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
-    window = BJTCollectorFeedbackBiasWidget()
+    window = BJTVoltageDividerBiasWidget()
     window.setWindowTitle("BJT DC Bias — Test")
     window.show()
     sys.exit(app.exec())

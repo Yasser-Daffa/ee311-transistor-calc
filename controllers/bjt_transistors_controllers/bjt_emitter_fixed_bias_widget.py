@@ -1,10 +1,10 @@
 
 import sys, os
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../..")))
 
 # always finds the .ui file next to this .py file, regardless of where you run from
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))  # controllers/
-UI_PATH = os.path.join(BASE_DIR, "..", "ui", "bjt_transistors", "bjt_emitter_bias.ui")
+UI_PATH = os.path.join(BASE_DIR, "..", "..", "ui", "bjt_transistors", "bjt_emitter_bias.ui")
 
 
 # bjt_widget.py

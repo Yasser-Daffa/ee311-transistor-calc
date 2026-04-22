@@ -282,7 +282,7 @@ QLineEdit:focus {
 }</string>
              </property>
              <property name="text">
-              <string>B</string>
+              <string>β</string>
              </property>
             </widget>
            </item>
@@ -388,7 +388,7 @@ QLineEdit:focus {
     border: none;
     border-radius: 8px;
     font-size: 14px;
-    font-weight: bold;
+    font-weight: 600; /* 'Semi-bold' for the Inter font vibe */
     padding: 10px 20px;
 }
 
@@ -1171,30 +1171,33 @@ font: 700 13pt &quot;Rockwell&quot;;</string>
          </property>
          <property name="styleSheet">
           <string notr="true">QPushButton {
-    background-color: rgb(34, 104, 190);
+    /* Your original blue */
+    background-color: rgb(34, 104, 190); 
     color: white;
     border: none;
     border-radius: 8px;
     font-size: 14px;
-    font-weight: bold;
+    font-weight: 600;
     padding: 10px 20px;
 }
 
 QPushButton:hover {
-    background-color: #e5475c;
+    /* A slightly brighter, more vibrant version of your blue */
+    background-color: rgb(46, 126, 219); 
 }
 
 QPushButton:pressed {
-    background-color: #d93f53; /* slightly darker for click feedback */
+    /* A deeper, more saturated version for tactile feedback */
+    background-color: rgb(26, 86, 161); 
 }
 
 QPushButton:disabled {
-    background-color: #e0e0e0;
-    color: #999999;
+    background-color: #e2e8f0;
+    color: #94a3b8;
 }</string>
          </property>
          <property name="text">
-          <string>Send to AC Analysis →</string>
+          <string>Send to AC Analysis ➤</string>
          </property>
         </widget>
        </item>
@@ -1266,7 +1269,7 @@ QPushButton:disabled {
        </property>
        <property name="minimumSize">
         <size>
-         <width>350</width>
+         <width>370</width>
          <height>300</height>
         </size>
        </property>
