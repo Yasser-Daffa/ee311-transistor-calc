@@ -940,7 +940,7 @@ QLineEdit:focus {
                 <property name="minimumSize">
                  <size>
                   <width>40</width>
-                  <height>30</height>
+                  <height>25</height>
                  </size>
                 </property>
                 <property name="maximumSize">
@@ -951,7 +951,7 @@ QLineEdit:focus {
                 </property>
                 <property name="styleSheet">
                  <string notr="true">background-color: #e8eaf6; border-radius: 10px; font-size: 24px; color: rgb(80, 80, 80);
-font: 700 14pt &quot;Rockwell&quot;;</string>
+font: 700 13pt &quot;Rockwell&quot;;</string>
                 </property>
                 <property name="text">
                  <string>VB</string>
@@ -963,6 +963,12 @@ font: 700 14pt &quot;Rockwell&quot;;</string>
               </item>
               <item>
                <widget class="QLabel" name="labelOutputVb">
+                <property name="minimumSize">
+                 <size>
+                  <width>0</width>
+                  <height>20</height>
+                 </size>
+                </property>
                 <property name="styleSheet">
                  <string notr="true">font-size: 16px; font-weight: bold; color: #2c3e50; background: transparent;</string>
                 </property>
@@ -1024,7 +1030,7 @@ border-top: 4px solid #f5576c;  /* same color as Edit Profile button */
                 <property name="minimumSize">
                  <size>
                   <width>40</width>
-                  <height>30</height>
+                  <height>25</height>
                  </size>
                 </property>
                 <property name="maximumSize">
@@ -1035,7 +1041,7 @@ border-top: 4px solid #f5576c;  /* same color as Edit Profile button */
                 </property>
                 <property name="styleSheet">
                  <string notr="true">background-color: #e8eaf6; border-radius: 10px; font-size: 24px; color: rgb(80, 80, 80);
-font: 700 14pt &quot;Rockwell&quot;;</string>
+font: 700 13pt &quot;Rockwell&quot;;</string>
                 </property>
                 <property name="text">
                  <string>VC</string>
@@ -1047,6 +1053,12 @@ font: 700 14pt &quot;Rockwell&quot;;</string>
               </item>
               <item>
                <widget class="QLabel" name="labelOutputVc">
+                <property name="minimumSize">
+                 <size>
+                  <width>0</width>
+                  <height>20</height>
+                 </size>
+                </property>
                 <property name="styleSheet">
                  <string notr="true">font-size: 16px; font-weight: bold; color: #2c3e50; background: transparent;</string>
                 </property>
@@ -1105,7 +1117,7 @@ font: 700 14pt &quot;Rockwell&quot;;</string>
                 <property name="minimumSize">
                  <size>
                   <width>40</width>
-                  <height>30</height>
+                  <height>25</height>
                  </size>
                 </property>
                 <property name="maximumSize">
@@ -1116,7 +1128,7 @@ font: 700 14pt &quot;Rockwell&quot;;</string>
                 </property>
                 <property name="styleSheet">
                  <string notr="true">background-color: #e8eaf6; border-radius: 10px; font-size: 24px; color: rgb(80, 80, 80);
-font: 700 14pt &quot;Rockwell&quot;;</string>
+font: 700 13pt &quot;Rockwell&quot;;</string>
                 </property>
                 <property name="text">
                  <string>VE</string>
@@ -1128,6 +1140,12 @@ font: 700 14pt &quot;Rockwell&quot;;</string>
               </item>
               <item>
                <widget class="QLabel" name="labelOutputVe">
+                <property name="minimumSize">
+                 <size>
+                  <width>0</width>
+                  <height>20</height>
+                 </size>
+                </property>
                 <property name="styleSheet">
                  <string notr="true">font-size: 16px; font-weight: bold; color: #2c3e50; background: transparent;</string>
                 </property>
@@ -1193,7 +1211,7 @@ font: 700 14pt &quot;Rockwell&quot;;</string>
                 <property name="minimumSize">
                  <size>
                   <width>40</width>
-                  <height>30</height>
+                  <height>25</height>
                  </size>
                 </property>
                 <property name="maximumSize">
@@ -1204,7 +1222,7 @@ font: 700 14pt &quot;Rockwell&quot;;</string>
                 </property>
                 <property name="styleSheet">
                  <string notr="true">background-color: #e8eaf6; border-radius: 10px; font-size: 24px; color: rgb(80, 80, 80);
-font: 700 14pt &quot;Rockwell&quot;;</string>
+font: 700 13pt &quot;Rockwell&quot;;</string>
                 </property>
                 <property name="text">
                  <string>IB</string>
@@ -1216,6 +1234,12 @@ font: 700 14pt &quot;Rockwell&quot;;</string>
               </item>
               <item>
                <widget class="QLabel" name="labelOutputIb">
+                <property name="minimumSize">
+                 <size>
+                  <width>0</width>
+                  <height>20</height>
+                 </size>
+                </property>
                 <property name="styleSheet">
                  <string notr="true">font-size: 16px; font-weight: bold; color: #2c3e50; background: transparent;</string>
                 </property>
@@ -1277,7 +1301,7 @@ border-top: 4px solid #f5576c;  /* same color as Edit Profile button */
                 <property name="minimumSize">
                  <size>
                   <width>40</width>
-                  <height>30</height>
+                  <height>25</height>
                  </size>
                 </property>
                 <property name="maximumSize">
@@ -1288,7 +1312,7 @@ border-top: 4px solid #f5576c;  /* same color as Edit Profile button */
                 </property>
                 <property name="styleSheet">
                  <string notr="true">background-color: #e8eaf6; border-radius: 10px; font-size: 24px; color: rgb(80, 80, 80);
-font: 700 14pt &quot;Rockwell&quot;;</string>
+font: 700 13pt &quot;Rockwell&quot;;</string>
                 </property>
                 <property name="text">
                  <string>IC</string>
@@ -1300,6 +1324,12 @@ font: 700 14pt &quot;Rockwell&quot;;</string>
               </item>
               <item>
                <widget class="QLabel" name="labelOutputIc">
+                <property name="minimumSize">
+                 <size>
+                  <width>0</width>
+                  <height>20</height>
+                 </size>
+                </property>
                 <property name="styleSheet">
                  <string notr="true">font-size: 16px; font-weight: bold; color: #2c3e50; background: transparent;</string>
                 </property>
@@ -1358,7 +1388,7 @@ font: 700 14pt &quot;Rockwell&quot;;</string>
                 <property name="minimumSize">
                  <size>
                   <width>40</width>
-                  <height>30</height>
+                  <height>25</height>
                  </size>
                 </property>
                 <property name="maximumSize">
@@ -1369,7 +1399,7 @@ font: 700 14pt &quot;Rockwell&quot;;</string>
                 </property>
                 <property name="styleSheet">
                  <string notr="true">background-color: #e8eaf6; border-radius: 10px; font-size: 24px; color: rgb(80, 80, 80);
-font: 700 14pt &quot;Rockwell&quot;;</string>
+font: 700 13pt &quot;Rockwell&quot;;</string>
                 </property>
                 <property name="text">
                  <string>IE</string>
@@ -1381,6 +1411,12 @@ font: 700 14pt &quot;Rockwell&quot;;</string>
               </item>
               <item>
                <widget class="QLabel" name="labelOutputIe">
+                <property name="minimumSize">
+                 <size>
+                  <width>0</width>
+                  <height>20</height>
+                 </size>
+                </property>
                 <property name="styleSheet">
                  <string notr="true">font-size: 16px; font-weight: bold; color: #2c3e50; background: transparent;</string>
                 </property>
@@ -1439,7 +1475,7 @@ font: 700 14pt &quot;Rockwell&quot;;</string>
                 <property name="minimumSize">
                  <size>
                   <width>40</width>
-                  <height>30</height>
+                  <height>25</height>
                  </size>
                 </property>
                 <property name="maximumSize">
@@ -1450,7 +1486,7 @@ font: 700 14pt &quot;Rockwell&quot;;</string>
                 </property>
                 <property name="styleSheet">
                  <string notr="true">background-color: #e8eaf6; border-radius: 10px; font-size: 24px; color: rgb(80, 80, 80);
-font: 700 14pt &quot;Rockwell&quot;;</string>
+font: 700 13pt &quot;Rockwell&quot;;</string>
                 </property>
                 <property name="text">
                  <string>Rπ</string>
@@ -1462,6 +1498,12 @@ font: 700 14pt &quot;Rockwell&quot;;</string>
               </item>
               <item>
                <widget class="QLabel" name="labelOutputRpi">
+                <property name="minimumSize">
+                 <size>
+                  <width>0</width>
+                  <height>20</height>
+                 </size>
+                </property>
                 <property name="styleSheet">
                  <string notr="true">font-size: 16px; font-weight: bold; color: #2c3e50; background: transparent;</string>
                 </property>

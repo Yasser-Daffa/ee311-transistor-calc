@@ -45,20 +45,20 @@
     <item>
      <widget class="QFrame" name="sidebarFrame">
       <property name="sizePolicy">
-       <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+       <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
         <horstretch>0</horstretch>
         <verstretch>0</verstretch>
        </sizepolicy>
       </property>
       <property name="minimumSize">
        <size>
-        <width>90</width>
+        <width>100</width>
         <height>0</height>
        </size>
       </property>
       <property name="maximumSize">
        <size>
-        <width>240</width>
+        <width>260</width>
         <height>16777215</height>
        </size>
       </property>
@@ -228,9 +228,9 @@ QScrollBar::sub-page:vertical {
           <property name="geometry">
            <rect>
             <x>0</x>
-            <y>0</y>
-            <width>236</width>
-            <height>489</height>
+            <y>-60</y>
+            <width>244</width>
+            <height>719</height>
            </rect>
           </property>
           <property name="styleSheet">
@@ -238,19 +238,19 @@ QScrollBar::sub-page:vertical {
           </property>
           <layout class="QVBoxLayout" name="navMainLayout">
            <property name="spacing">
-            <number>1</number>
+            <number>28</number>
            </property>
            <property name="leftMargin">
-            <number>6</number>
+            <number>20</number>
            </property>
            <property name="topMargin">
-            <number>10</number>
+            <number>28</number>
            </property>
            <property name="rightMargin">
-            <number>5</number>
+            <number>20</number>
            </property>
            <property name="bottomMargin">
-            <number>10</number>
+            <number>28</number>
            </property>
            <item>
             <widget class="QLabel" name="dashboardSectionLabel">
@@ -275,9 +275,9 @@ QScrollBar::sub-page:vertical {
              </property>
              <property name="styleSheet">
               <string notr="true">QPushButton {
-    background-color: transparent;
+    background-color: rgb(245, 245, 245);
     border: none;
-    border-radius: 8px;
+    border-radius: 10px;
     color: #5a6c7d;
     font-size: 14px;
     text-align: left;
@@ -285,7 +285,7 @@ QScrollBar::sub-page:vertical {
 }
 
 QPushButton:hover {
-    background-color: rgb(245, 248, 248);
+    background-color: rgb(200, 200, 200);
     color: #8c6fff;  /* slightly purple-ish on hover */
 }
 
@@ -294,8 +294,8 @@ QPushButton:checked {
     background-color: rgba(140, 111, 255, 0.10);  /* faint purple */
     color: #8c6fff; 
     font-weight: bold;
-    border-left: 3px solid #8c6fff;
-    padding-left: 10px; /* adjust so bar doesn’t push content too far */
+    border-left: 4px solid #8c6fff;
+    padding-left: 11px; /* adjust so bar doesn’t push content too far */
 }
 
 /* PRESSED STATE (optional but clean) */
@@ -321,7 +321,7 @@ QPushButton:pressed {
               <string notr="true">color: rgb(137, 147, 156); font-size: 11px; font-weight: 800; background: transparent;</string>
              </property>
              <property name="text">
-              <string>BJT Amplifiers</string>
+              <string>CE &amp; CC Amplifier Analysis and design</string>
              </property>
             </widget>
            </item>
@@ -338,9 +338,9 @@ QPushButton:pressed {
              </property>
              <property name="styleSheet">
               <string notr="true">QPushButton {
-    background-color: transparent;
+    background-color: rgb(245, 245, 245);
     border: none;
-    border-radius: 8px;
+    border-radius: 10px;
     color: #5a6c7d;
     font-size: 14px;
     text-align: left;
@@ -348,7 +348,7 @@ QPushButton:pressed {
 }
 
 QPushButton:hover {
-    background-color: rgb(245, 248, 248);
+    background-color: rgb(200, 200, 200);
     color: #8c6fff;  /* slightly purple-ish on hover */
 }
 
@@ -357,8 +357,8 @@ QPushButton:checked {
     background-color: rgba(140, 111, 255, 0.10);  /* faint purple */
     color: #8c6fff; 
     font-weight: bold;
-    border-left: 3px solid #8c6fff;
-    padding-left: 10px; /* adjust so bar doesn’t push content too far */
+    border-left: 4px solid #8c6fff;
+    padding-left: 11px; /* adjust so bar doesn’t push content too far */
 }
 
 /* PRESSED STATE (optional but clean) */
@@ -391,9 +391,9 @@ QPushButton:pressed {
              </property>
              <property name="styleSheet">
               <string notr="true">QPushButton {
-    background-color: transparent;
+    background-color: rgb(245, 245, 245);
     border: none;
-    border-radius: 8px;
+    border-radius: 10px;
     color: #5a6c7d;
     font-size: 14px;
     text-align: left;
@@ -401,7 +401,7 @@ QPushButton:pressed {
 }
 
 QPushButton:hover {
-    background-color: rgb(245, 248, 248);
+    background-color: rgb(200, 200, 200);
     color: #8c6fff;  /* slightly purple-ish on hover */
 }
 
@@ -410,8 +410,8 @@ QPushButton:checked {
     background-color: rgba(140, 111, 255, 0.10);  /* faint purple */
     color: #8c6fff; 
     font-weight: bold;
-    border-left: 3px solid #8c6fff;
-    padding-left: 10px; /* adjust so bar doesn’t push content too far */
+    border-left: 4px solid #8c6fff;
+    padding-left: 11px; /* adjust so bar doesn’t push content too far */
 }
 
 /* PRESSED STATE (optional but clean) */
@@ -444,9 +444,9 @@ QPushButton:pressed {
              </property>
              <property name="styleSheet">
               <string notr="true">QPushButton {
-    background-color: transparent;
+    background-color: rgb(245, 245, 245);
     border: none;
-    border-radius: 8px;
+    border-radius: 10px;
     color: #5a6c7d;
     font-size: 14px;
     text-align: left;
@@ -454,7 +454,7 @@ QPushButton:pressed {
 }
 
 QPushButton:hover {
-    background-color: rgb(245, 248, 248);
+    background-color: rgb(200, 200, 200);
     color: #8c6fff;  /* slightly purple-ish on hover */
 }
 
@@ -463,8 +463,8 @@ QPushButton:checked {
     background-color: rgba(140, 111, 255, 0.10);  /* faint purple */
     color: #8c6fff; 
     font-weight: bold;
-    border-left: 3px solid #8c6fff;
-    padding-left: 10px; /* adjust so bar doesn’t push content too far */
+    border-left: 4px solid #8c6fff;
+    padding-left: 11px; /* adjust so bar doesn’t push content too far */
 }
 
 /* PRESSED STATE (optional but clean) */
@@ -507,9 +507,9 @@ QPushButton:pressed {
              </property>
              <property name="styleSheet">
               <string notr="true">QPushButton {
-    background-color: transparent;
+    background-color: rgb(245, 245, 245);
     border: none;
-    border-radius: 8px;
+    border-radius: 10px;
     color: #5a6c7d;
     font-size: 14px;
     text-align: left;
@@ -517,7 +517,7 @@ QPushButton:pressed {
 }
 
 QPushButton:hover {
-    background-color: rgb(245, 248, 248);
+    background-color: rgb(200, 200, 200);
     color: #8c6fff;  /* slightly purple-ish on hover */
 }
 
@@ -526,8 +526,8 @@ QPushButton:checked {
     background-color: rgba(140, 111, 255, 0.10);  /* faint purple */
     color: #8c6fff; 
     font-weight: bold;
-    border-left: 3px solid #8c6fff;
-    padding-left: 10px; /* adjust so bar doesn’t push content too far */
+    border-left: 4px solid #8c6fff;
+    padding-left: 11px; /* adjust so bar doesn’t push content too far */
 }
 
 /* PRESSED STATE (optional but clean) */
@@ -560,9 +560,9 @@ QPushButton:pressed {
              </property>
              <property name="styleSheet">
               <string notr="true">QPushButton {
-    background-color: transparent;
+    background-color: rgb(245, 245, 245);
     border: none;
-    border-radius: 8px;
+    border-radius: 10px;
     color: #5a6c7d;
     font-size: 14px;
     text-align: left;
@@ -570,7 +570,7 @@ QPushButton:pressed {
 }
 
 QPushButton:hover {
-    background-color: rgb(245, 248, 248);
+    background-color: rgb(200, 200, 200);
     color: #8c6fff;  /* slightly purple-ish on hover */
 }
 
@@ -579,8 +579,8 @@ QPushButton:checked {
     background-color: rgba(140, 111, 255, 0.10);  /* faint purple */
     color: #8c6fff; 
     font-weight: bold;
-    border-left: 3px solid #8c6fff;
-    padding-left: 10px; /* adjust so bar doesn’t push content too far */
+    border-left: 4px solid #8c6fff;
+    padding-left: 11px; /* adjust so bar doesn’t push content too far */
 }
 
 /* PRESSED STATE (optional but clean) */
@@ -794,7 +794,7 @@ QScrollBar::sub-page:horizontal {
               <rect>
                <x>0</x>
                <y>0</y>
-               <width>622</width>
+               <width>602</width>
                <height>555</height>
               </rect>
              </property>
