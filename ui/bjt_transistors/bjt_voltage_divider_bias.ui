@@ -1510,7 +1510,7 @@ QLineEdit:focus {
             <string/>
            </property>
            <property name="pixmap">
-            <pixmap>images/voltage_divider_bias.png</pixmap>
+            <pixmap>../../assets/images/voltage_divider_bias.png</pixmap>
            </property>
            <property name="scaledContents">
             <bool>true</bool>

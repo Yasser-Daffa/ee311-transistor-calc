@@ -1414,7 +1414,7 @@ QLineEdit:focus {
             <string/>
            </property>
            <property name="pixmap">
-            <pixmap>images/collector_feedback_bias.png</pixmap>
+            <pixmap>../../assets/images/collector_feedback_bias.png</pixmap>
            </property>
            <property name="scaledContents">
             <bool>true</bool>

@@ -2,7 +2,7 @@
 import sys, os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 
-from core_helpers import fmt, _check
+from core.core_helpers import fmt, _check
 
 """
 BJT DC Bias Solver -> NPN only

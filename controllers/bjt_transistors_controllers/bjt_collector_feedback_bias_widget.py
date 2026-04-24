@@ -11,7 +11,8 @@ UI_PATH = os.path.join(BASE_DIR, "..", "..", "ui", "bjt_transistors", "bjt_colle
 from PyQt6.QtWidgets import QApplication, QLineEdit, QWidget
 from PyQt6.uic import loadUi
 from PyQt6.QtWidgets import QWidget
-from core.bjt_transistor import BJT, fmt, solve_collector_feedback_bias, solve_fixed_or_emitter_bias
+from core.bjt_transistor import BJT, solve_collector_feedback_bias, solve_fixed_or_emitter_bias
+from core.core_helpers import fmt
 from PyQt6.QtGui import QIntValidator
 
 
