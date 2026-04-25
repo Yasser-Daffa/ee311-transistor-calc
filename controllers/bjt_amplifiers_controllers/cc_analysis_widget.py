@@ -132,32 +132,39 @@ class CCAnalysisWidget(QWidget):
         self._push_outputs(result)
         self._set_mode("CC ANALYZED", "#d4edda", "#155724")
 
+
     def _push_outputs(self, r):
-        # DC outputs
-        self._set_label("labelOutputIb", fmt(r["Ib"], "A", scale="µA"))
-        self._set_label("labelOutputRb", fmt(r["Rb"], "Ω"))
+        def _fmt_gain(value):
+            return f"{value:.4f}" if value is not None else "—"
+
+        def _fmt_val(value, unit):
+            return fmt(value, unit) if value is not None else "—"
+
+        # DC outputs — these are always present
+        self._set_label("labelOutputIb",  fmt(r["Ib"], "A", scale="µA"))
+        self._set_label("labelOutputRb",  fmt(r["Rb"], "Ω"))
         self._set_label("labelOutputRpi", fmt(r["rpi"], "Ω"))
         self._set_label("labelOutputVbb", "—")
-        self._set_label("labelOutputVc", fmt(r["Vc"], "V"))
-        self._set_label("labelOutputVb", fmt(r["Vb"], "V"))
+        self._set_label("labelOutputVc",  fmt(r["Vc"], "V"))
+        self._set_label("labelOutputVb",  fmt(r["Vb"], "V"))
 
-        # AC outputs
-        self._set_label("labelOutputRx", "—")
-        self._set_label("labelOutputRxx", fmt(r["Rxx"], "Ω"))
-        self._set_label("labelOutputRi", fmt(r["Ri"], "Ω"))
-        self._set_label("labelOutputRo", fmt(r["Ro"], "Ω"))
-        self._set_label("labelOutputKo", f"{r['Ko']:.4f}")
-        self._set_label("labelOutputAvo", f"{r['Av0']:.4f}")
-        self._set_label("labelOutputAvt", f"{r['AvT']:.4f}")
-        self._set_label("labelOutputAvot", f"{r['Av_loaded']:.4f}")
+        # AC outputs — depend on RL and/or Rs, may be None
+        self._set_label("labelOutputRx",   "—")
+        self._set_label("labelOutputRxx",  _fmt_val(r["Rxx"],  "Ω"))
+        self._set_label("labelOutputRi",   _fmt_val(r["Ri"],   "Ω"))
+        self._set_label("labelOutputRo",   _fmt_val(r["Ro"],   "Ω"))
+        self._set_label("labelOutputKo",   _fmt_gain(r["Ko"]))
+        self._set_label("labelOutputAvo",  _fmt_gain(r["Av0"]))
+        self._set_label("labelOutputAvt",  _fmt_gain(r["AvT"]))
+        self._set_label("labelOutputAvot", _fmt_gain(r.get("Av_loaded")))
 
         # Limits
-        self._set_label("labelAvoMin", f"{r['av0_min']:.4f}")
-        self._set_label("labelAvoMax", f"{r['av0_max']:.4f}")
-        self._set_label("labelRiMin", fmt(r["ri_min"], "Ω"))
-        self._set_label("labelRiMax", fmt(r["ri_max"], "Ω"))
-        self._set_label("labelRxMin", "—")
-        self._set_label("labelRxMax", "—")
+        self._set_label("labelAvoMin", _fmt_gain(r["av0_min"]))
+        self._set_label("labelAvoMax", _fmt_gain(r["av0_max"]))
+        self._set_label("labelRiMin",  _fmt_val(r["ri_min"], "Ω"))
+        self._set_label("labelRiMax",  _fmt_val(r["ri_max"], "Ω"))
+        self._set_label("labelRxMin",  "—")
+        self._set_label("labelRxMax",  "—")
 
     def _set_label(self, name, text):
         if hasattr(self, name):

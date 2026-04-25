@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1029</width>
-    <height>888</height>
+    <width>1200</width>
+    <height>850</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -19,7 +19,7 @@
   <property name="minimumSize">
    <size>
     <width>1000</width>
-    <height>888</height>
+    <height>850</height>
    </size>
   </property>
   <property name="mouseTracking">
@@ -3478,7 +3478,7 @@ color: #1e293b;</string>
               <widget class="QLabel" name="labelAvoMin">
                <property name="minimumSize">
                 <size>
-                 <width>60</width>
+                 <width>80</width>
                  <height>0</height>
                 </size>
                </property>
@@ -3510,7 +3510,7 @@ color: #1e293b;</string>
               <widget class="QLabel" name="labelAvoMax">
                <property name="minimumSize">
                 <size>
-                 <width>60</width>
+                 <width>80</width>
                  <height>0</height>
                 </size>
                </property>
@@ -3541,7 +3541,7 @@ color: #1e293b;</string>
               <widget class="QLabel" name="labelRiMin">
                <property name="minimumSize">
                 <size>
-                 <width>60</width>
+                 <width>80</width>
                  <height>0</height>
                 </size>
                </property>
@@ -3573,7 +3573,7 @@ color: #1e293b;</string>
               <widget class="QLabel" name="labelRiMax">
                <property name="minimumSize">
                 <size>
-                 <width>60</width>
+                 <width>80</width>
                  <height>0</height>
                 </size>
                </property>
@@ -3604,7 +3604,7 @@ color: #1e293b;</string>
               <widget class="QLabel" name="labelRxMin">
                <property name="minimumSize">
                 <size>
-                 <width>60</width>
+                 <width>80</width>
                  <height>0</height>
                 </size>
                </property>
@@ -3636,7 +3636,7 @@ color: #1e293b;</string>
               <widget class="QLabel" name="labelRxMax">
                <property name="minimumSize">
                 <size>
-                 <width>60</width>
+                 <width>80</width>
                  <height>0</height>
                 </size>
                </property>

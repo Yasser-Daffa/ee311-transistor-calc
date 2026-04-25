@@ -1,122 +1,89 @@
-
 import sys, os
-
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 
 """
-This file contains core design functions for BJT amplifier design, such as the classic "thirds" CE design.
-The functions here are not tied to any specific GUI, and can be used by any controller or widget that needs to 
-perform amplifier design calculations.
+Core BJT amplifier design/analysis calculations.
+
+Conventions:
+- Resistances passed into core functions are in ohms.
+- Voltages are in volts.
+- Currents are in amps unless the argument name says mA.
+- GUI should convert kΩ/mA/etc. before calling these functions.
+- Missing optional values return None for dependent outputs.
 """
 
-
-# core/bjt_amplifiers.py
-
 from core.core_helpers import _check
+
+VT_DEFAULT = 0.025
+VBE_DEFAULT = 0.7
 
 
 def parallel(*values):
     values = [v for v in values if v is not None]
-
     if not values:
         return None
-
     if any(v == 0 for v in values):
         return 0.0
-
     return 1.0 / sum(1.0 / v for v in values)
 
+
+def _require_positive_optional(name, value):
+    if value is not None and value <= 0:
+        raise ValueError(f"{name} must be positive if provided.")
+
+
+def _require_nonnegative_optional(name, value):
+    if value is not None and value < 0:
+        raise ValueError(f"{name} must be zero or positive if provided.")
 
 
 # ---------------- CE DESIGN ----------------
 
-def design_ce_from_specs(*, Vcc, Icmax_mA, beta):
+def design_ce_from_specs(*, Vcc, Icmax_mA, beta, Vs=None, VT=VT_DEFAULT, VBE=VBE_DEFAULT):
     _check(Vcc=Vcc, Icmax_mA=Icmax_mA, beta=beta)
-
-    Ic = Icmax_mA * 1e-3
-    Ie = Ic * (1 + 1 / beta)
-
-    Rc = (Vcc / 3) / Ic
-    Re = (Vcc / 3) / Ie
-
-    # values chosen to match your worksheet
-    Rb = 14.4e3
-    Vbb = 7.3
-
-    R1 = Rb * Vcc / Vbb
-    R2 = Rb * Vcc / (Vcc - Vbb)
-
-    rpi = beta * 0.025 / Ic
-
-    av0_min = 0.025
-    av0_max = Rc / (0.025 / Ic)
-    ri_min = 0.0
-    ri_max = Rb
-    rx_min = 0.0
-    rx_max = Re
-
-    return {
-        "Rc": Rc,
-        "Re": Re,
-        "Rb": Rb,
-        "Vbb": Vbb,
-        "R1": R1,
-        "R2": R2,
-        "rpi": rpi,
-        "av0_min": av0_min,
-        "av0_max": av0_max,
-        "ri_min": ri_min,
-        "ri_max": ri_max,
-        "rx_min": rx_min,
-        "rx_max": rx_max,
-    }
-
-
-
-# ---------------- CC DESIGN ----------------
-
-def design_cc_from_specs(*, Vcc, Icmax_mA, beta):
-    _check(Vcc=Vcc, Icmax_mA=Icmax_mA, beta=beta)
+    _require_nonnegative_optional("Vs", Vs)
 
     Ic = Icmax_mA * 1e-3
     Ib = Ic / beta
     Ie = Ic + Ib
 
-    # midpoint emitter bias
-    Ve = Vcc / 2
-    Vb = Ve + 0.7
+    # Classic thirds design: about 1/3 Vcc across RC, 1/3 across RE, 1/3 across VCE.
+    Rc = (Vcc / 3.0) / Ic
+    Re = (Vcc / 3.0) / Ie
 
-    # collector tied directly to Vcc in CC
-    Rc = 0.0
+    Ve = Ie * Re
+    Vb = Ve + VBE
 
-    # emitter resistor
-    Re = Ve / Ie
+    # Thevenin resistance of the divider. Smaller Rb gives better beta stability.
+    # Rule of thumb: divider current around 10x base current -> Rb ~= beta*Re/10.
+    Rb = beta * Rc / 10.0
 
-    # single base resistor from Vcc to base
-    Rb = (Vcc - Vb) / Ib
+    # The Thevenin source must overcome the base-current drop across Rb.
+    Vbb = Vb + Ib * Rb
 
-    # not actually used in this topology, but kept so GUI fields don't break
-    R1 = 0.0
-    R2 = 0.0
-    Vbb = Vb
+    if not (0 < Vbb < Vcc):
+        raise ValueError("Invalid CE design bias: calculated Vbb must be between 0 and Vcc.")
 
-    VT = 0.025
+    # From: Vbb = Vcc*R2/(R1+R2), Rb = R1 || R2
+    R1 = Rb * Vcc / Vbb
+    R2 = Rb * Vcc / (Vcc - Vbb)
+
     rpi = beta * VT / Ic
-    re_small = VT / Ie
 
-    # emitter follower voltage gain ~ 1
-    av0 = Re / (Re + re_small)
+    rx_min = 0.0
+    rx_max = Re
 
-    # input resistance looking into base
-    ri_base = rpi + (beta + 1) * Re
+    rxx_min = rpi + (beta + 1) * rx_min
+    rxx_max = rpi + (beta + 1) * rx_max
 
-    # total input seen by source
-    ri_total = (Rb * ri_base) / (Rb + ri_base)
+    av0_max = abs(beta * Rc / rxx_min)
+    av0_min = abs(beta * Rc / rxx_max)
 
-    # approximate output resistance
-    rx_out = re_small + (rpi / (beta + 1))
-    # simpler lower estimate
-    rx_min = re_small
+    ri_min = parallel(Rb, rxx_min)
+    ri_max = parallel(Rb, rxx_max)
+
+    vo_min = av0_min * Vs if Vs is not None else None
+    vo_max = av0_max * Vs if Vs is not None else None
 
     return {
         "Rc": Rc,
@@ -125,13 +92,73 @@ def design_cc_from_specs(*, Vcc, Icmax_mA, beta):
         "R1": R1,
         "R2": R2,
         "Vbb": Vbb,
+        "Vb": Vb,
+        "Ve": Ve,
         "rpi": rpi,
-        "av0_min": av0,
-        "av0_max": av0,
-        "ri_min": ri_total,
-        "ri_max": ri_base,
         "rx_min": rx_min,
-        "rx_max": rx_out,
+        "rx_max": rx_max,
+        "ri_min": ri_min,
+        "ri_max": ri_max,
+        "av0_min": av0_min,
+        "av0_max": av0_max,
+        "vo_min": vo_min,
+        "vo_max": vo_max,
+    }
+
+
+# ---------------- CC DESIGN ----------------
+
+def design_cc_from_specs(*, Vcc, Icmax_mA, beta, Vs=None, VT=VT_DEFAULT, VBE=VBE_DEFAULT):
+    _check(Vcc=Vcc, Icmax_mA=Icmax_mA, beta=beta)
+    _require_nonnegative_optional("Vs", Vs)
+
+    Ic = Icmax_mA * 1e-3
+    Ib = Ic / beta
+    Ie = Ic + Ib
+
+    # Emitter follower midpoint design.
+    Ve = Vcc / 2.0
+    Vb = Ve + VBE
+
+    if Vb >= Vcc:
+        raise ValueError("Invalid CC design bias: calculated base voltage is at/above Vcc.")
+
+    Rc = 0.0
+    Re = Ve / Ie
+    Rb = (Vcc - Vb) / Ib
+
+    # Kept for GUI compatibility. CC uses a single base resistor, not a divider.
+    R1 = 0.0
+    R2 = 0.0
+    Vbb = Vb
+
+    rpi = beta * VT / Ic
+
+    av0_unloaded = ((beta + 1) * Re) / (rpi + (beta + 1) * Re)
+    rxx_unloaded = rpi + (beta + 1) * Re
+    ri_unloaded = parallel(Rb, rxx_unloaded)
+
+    vo_min = 0.0 if Vs is not None else None
+    vo_max = av0_unloaded * Vs if Vs is not None else None
+
+    return {
+        "Rc": Rc,
+        "Re": Re,
+        "Rb": Rb,
+        "R1": R1,
+        "R2": R2,
+        "Vbb": Vbb,
+        "Vb": Vb,
+        "Ve": Ve,
+        "rpi": rpi,
+        "av0_min": 0.0,
+        "av0_max": av0_unloaded,
+        "ri_min": parallel(Rb, rpi),
+        "ri_max": ri_unloaded,
+        "rx_min": 0.0,
+        "rx_max": Re,
+        "vo_min": vo_min,
+        "vo_max": vo_max,
     }
 
 
@@ -147,89 +174,52 @@ def analyze_ce_general(
     Re,
     Rs=0.0,
     RL=None,
+    Vs=None,
     mode="given_rx",
     choice_value=0.0,
+    VT=VT_DEFAULT,
+    VBE=VBE_DEFAULT,
 ):
-    """
-    General CE amplifier AC/DC analysis.
-
-    Units expected:
-        Vcc          volts
-        beta         unitless
-        R1,R2,Rc,Re  ohms
-        Rs,RL        ohms
-        choice_value ohms if mode='given_rx' or 'given_ri'
-                     absolute gain if mode='given_av0' or 'given_avt'
-
-    Modes:
-        given_rx   : user gives Rx, find Av0 and Ri
-        given_av0  : user gives |Av0|, find Rx
-        given_ri   : user gives Ri, find Rx
-        given_avt  : user gives |AvT|, find Rx
-
-    Returns:
-        dictionary with DC, AC, and limits.
-    """
-
     _check(Vcc=Vcc, beta=beta, R1=R1, R2=R2, Rc=Rc, Re=Re)
-
     if Rs < 0:
         raise ValueError("Rs must be zero or positive.")
-
-    if RL is not None and RL <= 0:
-        raise ValueError("RL must be positive if provided.")
-
+    _require_positive_optional("RL", RL)
+    _require_nonnegative_optional("Vs", Vs)
     if choice_value < 0:
         raise ValueError("Choice value cannot be negative.")
 
-    VT = 0.025
-
-    # -------------------------
-    # DC ANALYSIS
-    # -------------------------
     Rb = parallel(R1, R2)
     Vbb = Vcc * R2 / (R1 + R2)
 
-    Ib = (Vbb - 0.7) / (Rb + (beta + 1) * Re)
-
+    Ib = (Vbb - VBE) / (Rb + (beta + 1) * Re)
     if Ib <= 0:
         raise ValueError("Invalid bias: base current is zero or negative. Check R1/R2/Vcc.")
 
     Ic = beta * Ib
     Ie = (beta + 1) * Ib
 
-    Vb = Vbb - Ib * Rb
     Ve = Ie * Re
+    Vb = Ve + VBE
     Vc = Vcc - Ic * Rc
+    Vce = Vc - Ve
 
-    rpi = VT / Ib
+    rpi = beta * VT / Ic
 
-    # -------------------------
-    # LIMITS
-    # -------------------------
     rx_min = 0.0
     rx_max = Re
 
     rxx_min = rpi + (beta + 1) * rx_min
     rxx_max = rpi + (beta + 1) * rx_max
 
-    avo_max = abs(beta * Rc / rxx_min)
-    avo_min = abs(beta * Rc / rxx_max)
+    av0_max = abs(beta * Rc / rxx_min)
+    av0_min = abs(beta * Rc / rxx_max)
 
     ri_min = parallel(Rb, rxx_min)
     ri_max = parallel(Rb, rxx_max)
 
-    # output loading factor
-    if RL is None:
-        ko = 1.0
-        ro_parallel_rl = Rc
-    else:
-        ko = RL / (Rc + RL)
-        ro_parallel_rl = parallel(Rc, RL)
+    ko = RL / (Rc + RL) if RL is not None else None
+    rc_parallel_rl = parallel(Rc, RL) if RL is not None else None
 
-    # -------------------------
-    # SOLVE RX FROM MODE
-    # -------------------------
     mode = mode.lower().strip()
 
     if mode == "given_rx":
@@ -237,39 +227,28 @@ def analyze_ce_general(
 
     elif mode == "given_av0":
         target_av0 = abs(choice_value)
-
         if target_av0 == 0:
             raise ValueError("Av0 must be greater than zero.")
-
         Rxx_target = beta * Rc / target_av0
         Rx = (Rxx_target - rpi) / (beta + 1)
 
     elif mode == "given_ri":
         target_ri = choice_value
-
         if target_ri <= 0:
             raise ValueError("Ri must be greater than zero.")
-
         if target_ri >= Rb:
             raise ValueError("Impossible Ri: Ri must be less than Rb.")
-
         Rxx_target = (target_ri * Rb) / (Rb - target_ri)
         Rx = (Rxx_target - rpi) / (beta + 1)
 
     elif mode == "given_avt":
+        if RL is None:
+            raise ValueError("RL is required when solving from AvT.")
         target_avt = abs(choice_value)
-
         if target_avt == 0:
             raise ValueError("AvT must be greater than zero.")
-
-        # AvT = Av0 * input_factor * output_factor
-        # Av0 = beta*Rc/Rxx
-        # Ri = Rb//Rxx
-        #
-        # input_factor = Ri/(Rs+Ri)
-        # output_factor = ko
-        #
-        # This is easier and safer solved numerically.
+        if rx_max == rx_min:
+            raise ValueError("Cannot solve AvT when Re is zero.")
         Rx = _solve_ce_rx_for_avt(
             target_avt=target_avt,
             beta=beta,
@@ -285,12 +264,8 @@ def analyze_ce_general(
     else:
         raise ValueError(f"Unknown CE analysis mode: {mode}")
 
-    # -------------------------
-    # VALIDATE RX
-    # -------------------------
     possible = True
     warning = ""
-
     if Rx < rx_min:
         possible = False
         warning = "Impossible result: Rx is negative."
@@ -298,12 +273,8 @@ def analyze_ce_general(
         possible = False
         warning = "Impossible result: Rx is greater than Re."
 
-    # clamp only for safe calculations
     Rx_calc = max(rx_min, min(Rx, rx_max))
 
-    # -------------------------
-    # FINAL AC VALUES
-    # -------------------------
     Rxx = rpi + (beta + 1) * Rx_calc
     Ri = parallel(Rb, Rxx)
     Ro = Rc
@@ -312,11 +283,27 @@ def analyze_ce_general(
     Av0 = abs(Av0_signed)
 
     input_factor = Ri / (Rs + Ri) if Rs > 0 else 1.0
-    AvT_signed = Av0_signed * input_factor * ko
-    AvT = abs(AvT_signed)
+
+    if RL is None:
+        AvT_signed = None
+        AvT = None
+    else:
+        AvT_signed = Av0_signed * ko * input_factor
+        AvT = abs(AvT_signed)
+
+    Vo = AvT * Vs if (Vs is not None and AvT is not None) else None
+
+    if RL is None:
+        avt_min = avt_max = vo_min = vo_max = None
+    else:
+        avt_at_min = _ce_avt_from_rx(Rx=rx_min, beta=beta, Rc=Rc, Rb=Rb, rpi=rpi, Rs=Rs, ko=ko)
+        avt_at_max = _ce_avt_from_rx(Rx=rx_max, beta=beta, Rc=Rc, Rb=Rb, rpi=rpi, Rs=Rs, ko=ko)
+        avt_min = min(avt_at_min, avt_at_max)
+        avt_max = max(avt_at_min, avt_at_max)
+        vo_min = avt_min * Vs if Vs is not None else None
+        vo_max = avt_max * Vs if Vs is not None else None
 
     return {
-        # DC
         "Vbb": Vbb,
         "Rb": Rb,
         "Ib": Ib,
@@ -325,30 +312,31 @@ def analyze_ce_general(
         "Vb": Vb,
         "Ve": Ve,
         "Vc": Vc,
+        "Vce": Vce,
         "rpi": rpi,
-
-        # AC
         "Rx": Rx,
         "Rx_calc": Rx_calc,
         "Rxx": Rxx,
         "Ri": Ri,
         "Ro": Ro,
         "Ko": ko,
-        "Rc_parallel_RL": ro_parallel_rl,
+        "Rc_parallel_RL": rc_parallel_rl,
         "Av0": Av0,
         "Av0_signed": Av0_signed,
         "AvT": AvT,
         "AvT_signed": AvT_signed,
-
-        # limits
+        "Vo": Vo,
+        "input_factor": input_factor,
         "rx_min": rx_min,
         "rx_max": rx_max,
         "ri_min": ri_min,
         "ri_max": ri_max,
-        "av0_min": avo_min,
-        "av0_max": avo_max,
-
-        # status
+        "av0_min": av0_min,
+        "av0_max": av0_max,
+        "avt_min": avt_min,
+        "avt_max": avt_max,
+        "vo_min": vo_min,
+        "vo_max": vo_max,
         "possible": possible,
         "warning": warning,
     }
@@ -357,124 +345,62 @@ def analyze_ce_general(
 def _ce_avt_from_rx(*, Rx, beta, Rc, Rb, rpi, Rs, ko):
     Rxx = rpi + (beta + 1) * Rx
     Ri = parallel(Rb, Rxx)
-
     Av0 = abs(beta * Rc / Rxx)
-
     input_factor = Ri / (Rs + Ri) if Rs > 0 else 1.0
+    return Av0 * ko * input_factor
 
-    return Av0 * input_factor * ko
 
+def _solve_ce_rx_for_avt(*, target_avt, beta, Rc, Rb, rpi, Rs, ko, rx_min, rx_max):
+    avt_at_min = _ce_avt_from_rx(Rx=rx_min, beta=beta, Rc=Rc, Rb=Rb, rpi=rpi, Rs=Rs, ko=ko)
+    avt_at_max = _ce_avt_from_rx(Rx=rx_max, beta=beta, Rc=Rc, Rb=Rb, rpi=rpi, Rs=Rs, ko=ko)
 
-def _solve_ce_rx_for_avt(
-    *,
-    target_avt,
-    beta,
-    Rc,
-    Rb,
-    rpi,
-    Rs,
-    ko,
-    rx_min,
-    rx_max,
-):
-    avt_at_min = _ce_avt_from_rx(
-        Rx=rx_min,
-        beta=beta,
-        Rc=Rc,
-        Rb=Rb,
-        rpi=rpi,
-        Rs=Rs,
-        ko=ko,
-    )
+    high_gain = max(avt_at_min, avt_at_max)
+    low_gain = min(avt_at_min, avt_at_max)
 
-    avt_at_max = _ce_avt_from_rx(
-        Rx=rx_max,
-        beta=beta,
-        Rc=Rc,
-        Rb=Rb,
-        rpi=rpi,
-        Rs=Rs,
-        ko=ko,
-    )
-
-    if target_avt > avt_at_min:
+    if target_avt > high_gain:
         raise ValueError("Impossible AvT: requested gain is higher than maximum possible.")
-
-    if target_avt < avt_at_max:
+    if target_avt < low_gain:
         raise ValueError("Impossible AvT: requested gain is lower than minimum possible.")
 
     low = rx_min
     high = rx_max
-
     for _ in range(100):
-        mid = (low + high) / 2
-
-        avt_mid = _ce_avt_from_rx(
-            Rx=mid,
-            beta=beta,
-            Rc=Rc,
-            Rb=Rb,
-            rpi=rpi,
-            Rs=Rs,
-            ko=ko,
-        )
-
-        # AvT decreases as Rx increases
+        mid = (low + high) / 2.0
+        avt_mid = _ce_avt_from_rx(Rx=mid, beta=beta, Rc=Rc, Rb=Rb, rpi=rpi, Rs=Rs, ko=ko)
         if avt_mid > target_avt:
             low = mid
         else:
             high = mid
-
-    return (low + high) / 2
-
-
-# ------------------ CC ANALYSIS ------------------
+    return (low + high) / 2.0
 
 
+# ---------------- CC ANALYSIS ----------------
 
-def analyze_cc_general(
-    *,
-    Vcc,
-    beta,
-    Rb,
-    Re,
-    Rs=0.0,
-    RL=None,
-):
+def analyze_cc_general(*, Vcc, beta, Rb, Re, Rs=None, RL=None, Vs=None, VT=VT_DEFAULT, VBE=VBE_DEFAULT):
     """
     Common-Collector / Emitter-Follower AC/DC analysis.
 
-    Units expected:
-        Vcc       volts
-        beta      unitless
-        Rb, Re    ohms
-        Rs, RL    ohms
+    Required:
+        Vcc, beta, Rb, Re
 
-    For CC:
-        Rc = 0
-        collector tied to Vcc
-        Ri = Rb || Rxx
-        Rxx = rpi + (beta + 1) * (Re || RL)
-        Av0 ≈ (beta + 1) * Re / (rpi + (beta + 1) * Re)
-        AvT includes source loading
-        Ro = Re || ((rpi + (Rs || Rb)) / (beta + 1))
+    Optional:
+        RL: load resistance. Needed for loaded Rxx, Ri, Av0.
+        Rs: source resistance. Needed for Ro, Ko, AvT.
+        Vs: source signal voltage. Needed for Vo.
+
+    Convention:
+        None means "not provided yet", so dependent results return None.
     """
 
     _check(Vcc=Vcc, beta=beta, Rb=Rb, Re=Re)
-
-    if Rs < 0:
-        raise ValueError("Rs must be zero or positive.")
-
-    if RL is not None and RL <= 0:
-        raise ValueError("RL must be positive if provided.")
-
-    VT = 0.025
+    _require_nonnegative_optional("Rs", Rs)
+    _require_positive_optional("RL", RL)
+    _require_nonnegative_optional("Vs", Vs)
 
     # -------------------------
     # DC ANALYSIS
     # -------------------------
-    Ib = (Vcc - 0.7) / (Rb + (beta + 1) * Re)
-
+    Ib = (Vcc - VBE) / (Rb + (beta + 1) * Re)
     if Ib <= 0:
         raise ValueError("Invalid bias: base current is zero or negative.")
 
@@ -486,42 +412,78 @@ def analyze_cc_general(
     Vc = Vcc
     Vce = Vc - Ve
 
-    rpi = VT / Ib
+    rpi = beta * VT / Ic
+
+    # Open-circuit emitter follower gain, useful as a reference only.
+    Rxx_unloaded = rpi + (beta + 1) * Re
+    Av0_unloaded = ((beta + 1) * Re) / Rxx_unloaded
+    Ri_unloaded = parallel(Rb, Rxx_unloaded)
 
     # -------------------------
-    # AC ANALYSIS
+    # AC VALUES THAT NEED RL
     # -------------------------
     if RL is None:
-        Re_ac = Re
+        Re_ac = None
+        Rxx = None
+        Ri = None
+        Av0 = None
+        Av_loaded = None
     else:
         Re_ac = parallel(Re, RL)
+        Rxx = rpi + (beta + 1) * Re_ac
+        Ri = parallel(Rb, Rxx)
 
-    Rxx = rpi + (beta + 1) * Re_ac
-    Ri = parallel(Rb, Rxx)
+        # Internal loaded gain from base to emitter/load.
+        # This depends on RL because the emitter AC resistance is Re || RL.
+        Av0 = ((beta + 1) * Re_ac) / Rxx
+        Av_loaded = Av0
 
-    # unloaded/open-circuit gain
-    Av0 = ((beta + 1) * Re) / (rpi + (beta + 1) * Re)
+    # -------------------------
+    # VALUES THAT NEED RS
+    # -------------------------
+    # Rs=None  -> user has not provided it yet, skip all dependent outputs
+    # Rs=0     -> ideal voltage source, valid: Rs||Rb=0, input_factor=1
+    if Rs is None:
+        Rs_parallel_Rb = None
+        Ro = None
+    else:
+        Rs_parallel_Rb = 0.0 if Rs == 0 else parallel(Rs, Rb)
+        Ro = parallel(Re, (rpi + Rs_parallel_Rb) / (beta + 1))
 
-    # loaded gain
-    Av_loaded = ((beta + 1) * Re_ac) / Rxx
+    # Ko is the output voltage divider: RL / (RL + Ro).
+    if RL is None or Ro is None:
+        Ko = None
+    else:
+        Ko = RL / (RL + Ro)
 
-    input_factor = Ri / (Rs + Ri) if Rs > 0 else 1.0
-    AvT = Av_loaded * input_factor
+    # AvT needs both RL (for Av0, Ri) and Rs (for input_factor, Ko).
+    if Ri is None or Rs is None or Ko is None:
+        input_factor = None
+        AvT = None
+    else:
+        # Rs=0: ideal source, full input voltage reaches base
+        input_factor = 1.0 if Rs == 0 else Ri / (Rs + Ri)
+        AvT = Av0 * input_factor * Ko   # Av0 already accounts for Re||RL loading
 
-    Rs_parallel_Rb = parallel(Rs, Rb) if Rs > 0 else Rb
-    Ro = parallel(Re, (rpi + Rs_parallel_Rb) / (beta + 1))
+    Vo = AvT * Vs if (Vs is not None and AvT is not None) else None
 
     # -------------------------
     # LIMITS
     # -------------------------
-    ri_min = parallel(Rb, rpi)
-    ri_max = parallel(Rb, rpi + (beta + 1) * Re)
+    # These are single-point display values once the required optional values exist.
+    # They are None until the required dependencies are provided by the GUI.
+    if RL is None:
+        ri_min = ri_max = av0_min = av0_max = None
+    else:
+        ri_min = ri_max = Ri
+        av0_min = av0_max = Av0
 
-    av0_min = 0.0
-    av0_max = Av0
-
-    ro_min = 0.0
-    ro_max = Ro
+    if AvT is None:
+        avt_min = avt_max = None
+        vo_min = vo_max = None
+    else:
+        avt_min = avt_max = AvT
+        vo_min = vo_max = AvT * Vs if Vs is not None else None
 
     return {
         # DC
@@ -541,23 +503,33 @@ def analyze_cc_general(
         "Ri": Ri,
         "Ro": Ro,
         "Av0": Av0,
+        "Av0_unloaded": Av0_unloaded,
         "Av_loaded": Av_loaded,
         "AvT": AvT,
+        "Vo": Vo,
+        "Ko": Ko,
+        "input_factor": input_factor,
+        "Rs_parallel_Rb": Rs_parallel_Rb,
 
-        # for GUI compatibility
-        "Ko": 1.0,
-        "Rx": 0.0,
+        # GUI compatibility
+        "Rx": None,
         "Rc": 0.0,
 
-        # limits
+        # Limits
         "ri_min": ri_min,
         "ri_max": ri_max,
+        "ri_unloaded": Ri_unloaded,
         "av0_min": av0_min,
         "av0_max": av0_max,
-        "ro_min": ro_min,
-        "ro_max": ro_max,
+        "av0_unloaded": Av0_unloaded,
+        "avt_min": avt_min,
+        "avt_max": avt_max,
+        "vo_min": vo_min,
+        "vo_max": vo_max,
+        "ro_min": Ro,
+        "ro_max": Ro,
 
-        # status
+        # Status
         "possible": True,
         "warning": "",
     }

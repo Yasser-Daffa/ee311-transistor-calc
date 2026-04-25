@@ -30,6 +30,10 @@ def fmt(value, unit, scale=None):
     fmt(0.0000023, "A")  →  "2.3000 µA"
     fmt(6.35, "V")  →  "6.3500 V"
     """
+    
+    if value is None:
+        return "—"
+    
     if unit == "Ω":
         if value is None:
             return "—"

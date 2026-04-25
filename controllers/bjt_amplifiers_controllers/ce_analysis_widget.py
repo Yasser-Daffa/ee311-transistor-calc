@@ -168,6 +168,16 @@ class CEAnalysisWidget(QWidget):
             self._set_mode(result["warning"], "#fff3cd", "#856404")
 
     def _push_outputs(self, r):
+
+        # Helper to format gain values, which can be None if not applicable in certain modes
+        # Button Send to AC wont work unless these exist, we show "—" instead of leaving blank or showing "None"
+        def _fmt_gain(value):
+            return f"{value:.4f}" if value is not None else "—"
+
+        def _fmt_val(value, unit):
+            return fmt(value, unit) if value is not None else "—"
+        
+
         # DC outputs
         self._set_label("labelOutputIb", fmt(r["Ib"], "A", scale="µA"))
         self._set_label("labelOutputRb", fmt(r["Rb"], "Ω"))
@@ -177,16 +187,16 @@ class CEAnalysisWidget(QWidget):
         self._set_label("labelOutputVb", fmt(r["Vb"], "V"))
 
         # AC outputs
-        self._set_label("labelOutputRx", fmt(r["Rx"], "Ω"))
-        self._set_label("labelOutputRxx", fmt(r["Rxx"], "Ω"))
-        self._set_label("labelOutputRi", fmt(r["Ri"], "Ω"))
-        self._set_label("labelOutputRo", fmt(r["Ro"], "Ω"))
-        self._set_label("labelOutputKo", f"{r['Ko']:.4f}")
-        self._set_label("labelOutputAvo", f"{r['Av0']:.4f}")
-        self._set_label("labelOutputAvt", f"{r['AvT']:.4f}")
+        self._set_label("labelOutputRx", _fmt_val(r["Rx"], "Ω"))
+        self._set_label("labelOutputRxx", _fmt_val(r["Rxx"], "Ω"))
+        self._set_label("labelOutputRi", _fmt_val(r["Ri"], "Ω"))
+        self._set_label("labelOutputRo", _fmt_val(r["Ro"], "Ω"))
+        self._set_label("labelOutputKo", _fmt_gain(r['Ko']))
+        self._set_label("labelOutputAvo", _fmt_gain(r['Av0']))
+        self._set_label("labelOutputAvt", _fmt_gain(r['AvT']))
 
         # Optional extra label from your UI
-        self._set_label("labelOutputAvot", f"{r['AvT_signed']:.4f}")
+        self._set_label("labelOutputAvot", _fmt_gain(r['AvT_signed']))
 
         # Limits
         self._set_label("labelAvoMin", f"{r['av0_min']:.4f}")

@@ -48,6 +48,10 @@ class CCDesignAnalysisMenuWidget(QWidget):
         _set("lineEditR1",   result["Rb"] / 1e3)  # CC uses R1 field as RB
         _set("lineEditRe",   result["Re"] / 1e3)
 
+        # change to analysis page
+        # and switch from design button to analysis button
+        self.buttonDesign.setChecked(False)
+        self.buttonAnalysis.setChecked(True)
         self.stackedWidget.setCurrentIndex(1)
 
     def _embed(self, page, widget):

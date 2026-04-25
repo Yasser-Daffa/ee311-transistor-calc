@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>884</width>
-    <height>577</height>
+    <width>1300</width>
+    <height>755</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -229,8 +229,8 @@ QScrollBar::sub-page:vertical {
            <rect>
             <x>0</x>
             <y>0</y>
-            <width>224</width>
-            <height>526</height>
+            <width>236</width>
+            <height>667</height>
            </rect>
           </property>
           <property name="styleSheet">
@@ -911,8 +911,8 @@ QScrollBar::sub-page:horizontal {
               <rect>
                <x>0</x>
                <y>0</y>
-               <width>622</width>
-               <height>555</height>
+               <width>1038</width>
+               <height>733</height>
               </rect>
              </property>
              <layout class="QVBoxLayout" name="verticalLayout_4">
