@@ -230,7 +230,7 @@ QScrollBar::sub-page:vertical {
             <x>0</x>
             <y>0</y>
             <width>224</width>
-            <height>494</height>
+            <height>526</height>
            </rect>
           </property>
           <property name="styleSheet">
@@ -333,6 +333,22 @@ QPushButton:pressed {
               <string notr="true">buttonGroupSubmenus</string>
              </attribute>
             </widget>
+           </item>
+           <item>
+            <spacer name="verticalSpacer_3">
+             <property name="orientation">
+              <enum>Qt::Orientation::Vertical</enum>
+             </property>
+             <property name="sizeType">
+              <enum>QSizePolicy::Policy::Fixed</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>20</width>
+               <height>15</height>
+              </size>
+             </property>
+            </spacer>
            </item>
            <item>
             <widget class="QLabel" name="userMgmtLabel">
@@ -502,6 +518,22 @@ QPushButton:pressed {
               <string notr="true">buttonGroupSubmenus</string>
              </attribute>
             </widget>
+           </item>
+           <item>
+            <spacer name="verticalSpacer_4">
+             <property name="orientation">
+              <enum>Qt::Orientation::Vertical</enum>
+             </property>
+             <property name="sizeType">
+              <enum>QSizePolicy::Policy::Fixed</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>20</width>
+               <height>15</height>
+              </size>
+             </property>
+            </spacer>
            </item>
            <item>
             <widget class="QLabel" name="courseMgmtLabel">
