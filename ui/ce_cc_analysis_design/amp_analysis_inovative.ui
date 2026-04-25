@@ -161,7 +161,7 @@
                </widget>
               </item>
               <item>
-               <widget class="QLineEdit" name="lineEditVcc">
+               <widget class="SmartLineEdit" name="lineEditVcc">
                 <property name="sizePolicy">
                  <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
                   <horstretch>0</horstretch>
@@ -278,7 +278,7 @@ QLineEdit:focus {
                </widget>
               </item>
               <item>
-               <widget class="QLineEdit" name="lineEditBeta">
+               <widget class="SmartLineEdit" name="lineEditBeta">
                 <property name="sizePolicy">
                  <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
                   <horstretch>0</horstretch>
@@ -395,7 +395,7 @@ QLineEdit:focus {
                </widget>
               </item>
               <item>
-               <widget class="QLineEdit" name="lineEditR1">
+               <widget class="SmartLineEdit" name="lineEditR1">
                 <property name="sizePolicy">
                  <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
                   <horstretch>0</horstretch>
@@ -512,7 +512,7 @@ QLineEdit:focus {
                </widget>
               </item>
               <item>
-               <widget class="QLineEdit" name="lineEditR2">
+               <widget class="SmartLineEdit" name="lineEditR2">
                 <property name="sizePolicy">
                  <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
                   <horstretch>0</horstretch>
@@ -640,7 +640,7 @@ QLineEdit:disabled {
                </widget>
               </item>
               <item>
-               <widget class="QLineEdit" name="lineEditRc">
+               <widget class="SmartLineEdit" name="lineEditRc">
                 <property name="sizePolicy">
                  <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
                   <horstretch>0</horstretch>
@@ -768,7 +768,7 @@ QLineEdit:disabled {
                </widget>
               </item>
               <item>
-               <widget class="QLineEdit" name="lineEditRe">
+               <widget class="SmartLineEdit" name="lineEditRe">
                 <property name="sizePolicy">
                  <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
                   <horstretch>0</horstretch>
@@ -885,7 +885,7 @@ QLineEdit:focus {
                </widget>
               </item>
               <item>
-               <widget class="QLineEdit" name="lineEditRs">
+               <widget class="SmartLineEdit" name="lineEditRs">
                 <property name="sizePolicy">
                  <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
                   <horstretch>0</horstretch>
@@ -1002,7 +1002,7 @@ QLineEdit:focus {
                </widget>
               </item>
               <item>
-               <widget class="QLineEdit" name="lineEditRl">
+               <widget class="SmartLineEdit" name="lineEditRl">
                 <property name="sizePolicy">
                  <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
                   <horstretch>0</horstretch>
@@ -1071,8 +1071,11 @@ QLineEdit:focus {
             <property name="spacing">
              <number>10</number>
             </property>
+            <property name="topMargin">
+             <number>50</number>
+            </property>
             <item>
-             <widget class="QLabel" name="labelInput_6">
+             <widget class="QLabel" name="labelGivenTitle">
               <property name="sizePolicy">
                <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
                 <horstretch>0</horstretch>
@@ -1369,7 +1372,7 @@ find Rx</string>
                  </widget>
                 </item>
                 <item>
-                 <widget class="QLineEdit" name="lineEditChoice">
+                 <widget class="SmartLineEdit" name="lineEditChoice">
                   <property name="sizePolicy">
                    <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
                     <horstretch>0</horstretch>
@@ -2325,7 +2328,7 @@ padding: 1rem;
          <property name="sizeHint" stdset="0">
           <size>
            <width>20</width>
-           <height>10</height>
+           <height>25</height>
           </size>
          </property>
         </spacer>
@@ -3473,6 +3476,12 @@ color: #1e293b;</string>
              </property>
              <item>
               <widget class="QLabel" name="labelAvoMin">
+               <property name="minimumSize">
+                <size>
+                 <width>60</width>
+                 <height>0</height>
+                </size>
+               </property>
                <property name="styleSheet">
                 <string notr="true">font-size:12px; font-weight:700; color:#1a5c1a; background:#e8f5e9; border:1px solid #a5d6a7; border-radius:3px; padding:2px 5px;</string>
                </property>
@@ -3499,6 +3508,12 @@ color: #1e293b;</string>
              </item>
              <item>
               <widget class="QLabel" name="labelAvoMax">
+               <property name="minimumSize">
+                <size>
+                 <width>60</width>
+                 <height>0</height>
+                </size>
+               </property>
                <property name="styleSheet">
                 <string notr="true">font-size:12px; font-weight:700; color:#1a5c1a; background:#e8f5e9; border:1px solid #a5d6a7; border-radius:3px; padding:2px 5px;</string>
                </property>
@@ -3524,6 +3539,12 @@ color: #1e293b;</string>
              </property>
              <item>
               <widget class="QLabel" name="labelRiMin">
+               <property name="minimumSize">
+                <size>
+                 <width>60</width>
+                 <height>0</height>
+                </size>
+               </property>
                <property name="styleSheet">
                 <string notr="true">font-size:12px; font-weight:700; color:#7B3F00; background:#FFF3E0; border:1px solid #FFCC80; border-radius:3px; padding:2px 5px;</string>
                </property>
@@ -3550,6 +3571,12 @@ color: #1e293b;</string>
              </item>
              <item>
               <widget class="QLabel" name="labelRiMax">
+               <property name="minimumSize">
+                <size>
+                 <width>60</width>
+                 <height>0</height>
+                </size>
+               </property>
                <property name="styleSheet">
                 <string notr="true">font-size:12px; font-weight:700; color:#7B3F00; background:#FFF3E0; border:1px solid #FFCC80; border-radius:3px; padding:2px 5px;</string>
                </property>
@@ -3575,6 +3602,12 @@ color: #1e293b;</string>
              </property>
              <item>
               <widget class="QLabel" name="labelRxMin">
+               <property name="minimumSize">
+                <size>
+                 <width>60</width>
+                 <height>0</height>
+                </size>
+               </property>
                <property name="styleSheet">
                 <string notr="true">font-size:12px; font-weight:700; color:#1a3c6e; background:#E3F2FD; border:1px solid #90CAF9; border-radius:3px; padding:2px 5px;</string>
                </property>
@@ -3601,6 +3634,12 @@ color: #1e293b;</string>
              </item>
              <item>
               <widget class="QLabel" name="labelRxMax">
+               <property name="minimumSize">
+                <size>
+                 <width>60</width>
+                 <height>0</height>
+                </size>
+               </property>
                <property name="styleSheet">
                 <string notr="true">font-size:12px; font-weight:700; color:#1a3c6e; background:#E3F2FD; border:1px solid #90CAF9; border-radius:3px; padding:2px 5px;</string>
                </property>
@@ -3727,6 +3766,13 @@ QPushButton:disabled {
    </item>
   </layout>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>SmartLineEdit</class>
+   <extends>QLineEdit</extends>
+   <header>core.smart_line_edit</header>
+  </customwidget>
+ </customwidgets>
  <resources/>
  <connections/>
  <buttongroups>

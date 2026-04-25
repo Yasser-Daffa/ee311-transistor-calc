@@ -111,7 +111,7 @@
 }</string>
              </property>
              <property name="text">
-              <string>Vcc</string>
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt; font-weight:700;&quot;&gt;Vcc&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
              </property>
             </widget>
            </item>
@@ -126,7 +126,7 @@
              <property name="styleSheet">
               <string notr="true">QLabel {
     color: rgb(80, 80, 80);                  /* soft dark gray */
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 500;
     font-family: &quot;Segoe UI&quot;, &quot;Roboto&quot;, sans-serif;
 }</string>
@@ -137,7 +137,7 @@
             </widget>
            </item>
            <item>
-            <widget class="QLineEdit" name="lineEditVcc">
+            <widget class="SmartLineEdit" name="lineEditVcc">
              <property name="sizePolicy">
               <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
                <horstretch>0</horstretch>
@@ -228,7 +228,7 @@ QLineEdit:focus {
 }</string>
              </property>
              <property name="text">
-              <string>Icmax</string>
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt; font-weight:700;&quot;&gt;Icmax&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
              </property>
             </widget>
            </item>
@@ -243,7 +243,7 @@ QLineEdit:focus {
              <property name="styleSheet">
               <string notr="true">QLabel {
     color: rgb(80, 80, 80);                  /* soft dark gray */
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 500;
     font-family: &quot;Segoe UI&quot;, &quot;Roboto&quot;, sans-serif;
 }</string>
@@ -254,7 +254,7 @@ QLineEdit:focus {
             </widget>
            </item>
            <item>
-            <widget class="QLineEdit" name="lineEditIcmax">
+            <widget class="SmartLineEdit" name="lineEditIcmax">
              <property name="sizePolicy">
               <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
                <horstretch>0</horstretch>
@@ -345,7 +345,7 @@ QLineEdit:focus {
 }</string>
              </property>
              <property name="text">
-              <string>β</string>
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt; font-weight:700;&quot;&gt;β&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
              </property>
             </widget>
            </item>
@@ -360,18 +360,18 @@ QLineEdit:focus {
              <property name="styleSheet">
               <string notr="true">QLabel {
     color: rgb(80, 80, 80);                  /* soft dark gray */
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 500;
     font-family: &quot;Segoe UI&quot;, &quot;Roboto&quot;, sans-serif;
 }</string>
              </property>
              <property name="text">
-              <string>Gain                      </string>
+              <string>Gain                   </string>
              </property>
             </widget>
            </item>
            <item>
-            <widget class="QLineEdit" name="lineEditBeta">
+            <widget class="SmartLineEdit" name="lineEditBeta">
              <property name="sizePolicy">
               <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
                <horstretch>0</horstretch>
@@ -451,7 +451,7 @@ QLineEdit:focus {
            <property name="sizeHint" stdset="0">
             <size>
              <width>20</width>
-             <height>40</height>
+             <height>30</height>
             </size>
            </property>
           </spacer>
@@ -502,6 +502,22 @@ QPushButton:disabled {
             <string>Clear</string>
            </property>
           </widget>
+         </item>
+         <item>
+          <spacer name="verticalSpacer_7">
+           <property name="orientation">
+            <enum>Qt::Orientation::Vertical</enum>
+           </property>
+           <property name="sizeType">
+            <enum>QSizePolicy::Policy::Fixed</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>20</width>
+             <height>30</height>
+            </size>
+           </property>
+          </spacer>
          </item>
          <item>
           <widget class="QLabel" name="labelCircuitTitle">
@@ -1518,6 +1534,22 @@ padding: 1rem;
         </layout>
        </item>
        <item>
+        <spacer name="verticalSpacer_8">
+         <property name="orientation">
+          <enum>Qt::Orientation::Vertical</enum>
+         </property>
+         <property name="sizeType">
+          <enum>QSizePolicy::Policy::Fixed</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item>
         <widget class="QLabel" name="labelSend">
          <property name="enabled">
           <bool>true</bool>
@@ -1546,7 +1578,7 @@ padding: 1rem;
         </widget>
        </item>
        <item>
-        <widget class="QPushButton" name="pushButtonSend">
+        <widget class="QPushButton" name="buttonSendToAc">
          <property name="maximumSize">
           <size>
            <width>200</width>
@@ -1893,6 +1925,13 @@ color: #1e293b;</string>
    </item>
   </layout>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>SmartLineEdit</class>
+   <extends>QLineEdit</extends>
+   <header>core.smart_line_edit</header>
+  </customwidget>
+ </customwidgets>
  <resources/>
  <connections/>
 </ui>

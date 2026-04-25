@@ -2,10 +2,9 @@ import sys, os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../..")))
 
 from PyQt6.QtWidgets import QApplication, QWidget, QLineEdit
-from PyQt6.QtGui import QDoubleValidator
 from PyQt6.uic import loadUi
 
-from core.core_helpers import fmt
+from core.core_helpers import fmt, signed_validator, positive_validator
 from core.bjt_amplifiers import analyze_cc_general
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -22,12 +21,14 @@ class CCAnalysisWidget(QWidget):
         self._setup_cc_ui()
         self._clear_outputs_only()
         self._set_mode("— awaiting input —", "#e8eaf6", "#3d3d9e")
+        
 
     def _setup_validators(self):
-        validator = QDoubleValidator(0.0, 1_000_000.0, 6, self)
-
-        for name in [
+        signed_fields = [
             "lineEditVcc",
+        ]
+
+        positive_fields = [
             "lineEditBeta",
             "lineEditR1",
             "lineEditR2",
@@ -36,9 +37,15 @@ class CCAnalysisWidget(QWidget):
             "lineEditRs",
             "lineEditRl",
             "lineEditChoice",
-        ]:
+        ]
+
+        for name in signed_fields:
             if hasattr(self, name):
-                getattr(self, name).setValidator(validator)
+                getattr(self, name).setValidator(signed_validator(self))
+
+        for name in positive_fields:
+            if hasattr(self, name):
+                getattr(self, name).setValidator(positive_validator(self))
 
     def _setup_connections(self):
         for name in [
@@ -74,7 +81,7 @@ class CCAnalysisWidget(QWidget):
         # hide whole choice section
         for name in [
             "labelGivenTitle",
-            "btnCaseRx", "btnCaseAvo", "btnCaseRi", "btnCaseAvt",
+            "pushButtonGivenRx", "pushButtonGivenAv0", "pushButtonGivenRi", "pushButtonGivenAvt",
             "labelChoiceSymbol", "labelChoiceInfo", "lineEditChoice", "labelChoiceUnit",
         ]:
             if hasattr(self, name):

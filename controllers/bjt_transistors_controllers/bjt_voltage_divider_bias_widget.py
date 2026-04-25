@@ -1,5 +1,6 @@
 
 import sys, os
+
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../..")))
 
 # always finds the .ui file next to this .py file, regardless of where you run from
@@ -11,8 +12,8 @@ UI_PATH = os.path.join(BASE_DIR, "..", "..", "ui", "bjt_transistors", "bjt_volta
 from PyQt6.QtWidgets import QApplication, QLineEdit, QWidget
 from PyQt6.uic import loadUi
 from PyQt6.QtWidgets import QWidget
-from core.bjt_transistor import BJT, fmt, solve_voltage_divider_bias
-from PyQt6.QtGui import QIntValidator
+from core.bjt_transistor import BJT, solve_voltage_divider_bias
+from core.core_helpers import positive_validator, signed_validator, fmt
 
 
 class BJTVoltageDividerBiasWidget(QWidget):
@@ -21,13 +22,17 @@ class BJTVoltageDividerBiasWidget(QWidget):
         loadUi(UI_PATH, self)
 
         # Set up validators for input fields
-        self.lineEditVcc.setValidator(QIntValidator())
-        self.lineEditR1.setValidator(QIntValidator())
-        self.lineEditR2.setValidator(QIntValidator())
-        self.lineEditRc.setValidator(QIntValidator())
-        self.lineEditVee.setValidator(QIntValidator())
-        self.lineEditRe.setValidator(QIntValidator())
-        self.lineEditBeta.setValidator(QIntValidator())
+
+        # Vcc and Vee can be negative, so use signed_validator
+        self.lineEditVcc.setValidator(signed_validator(self))
+        self.lineEditVee.setValidator(signed_validator(self))
+
+        # R1, R2, Rc, Re must be positive, so use positive_validator
+        self.lineEditR1.setValidator(positive_validator(self))
+        self.lineEditR2.setValidator(positive_validator(self))
+        self.lineEditRc.setValidator(positive_validator(self))
+        self.lineEditRe.setValidator(positive_validator(self))
+        self.lineEditBeta.setValidator(positive_validator(self))
 
         for field in [self.lineEditVcc, self.lineEditVee,
                       self.lineEditR1, self.lineEditR2, self.lineEditRc, self.lineEditRe, self.lineEditBeta]:

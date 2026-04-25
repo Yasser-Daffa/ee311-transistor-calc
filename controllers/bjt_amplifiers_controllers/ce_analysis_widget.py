@@ -2,10 +2,9 @@ import sys, os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../..")))
 
 from PyQt6.QtWidgets import QApplication, QWidget, QLineEdit
-from PyQt6.QtGui import QDoubleValidator
 from PyQt6.uic import loadUi
 
-from core.core_helpers import fmt
+from core.core_helpers import fmt, positive_validator, signed_validator
 from core.bjt_amplifiers import analyze_ce_general
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -21,15 +20,17 @@ class CEAnalysisWidget(QWidget):
 
         self._setup_validators()
         self._setup_connections()
-        self._set_choice_ui("Rx", "Emitter bypass resistor", "kΩ")
+        self._set_choice_ui("<b>R<sub>X</sub></b>", "Emitter bypass resistor", "kΩ")
         self._clear_outputs_only()
         self._set_mode("— awaiting input —", "#e8eaf6", "#3d3d9e")
 
-    def _setup_validators(self):
-        validator = QDoubleValidator(0.0, 1_000_000.0, 6, self)
 
-        for name in [
+    def _setup_validators(self):
+        signed_fields = [
             "lineEditVcc",
+        ]
+
+        positive_fields = [
             "lineEditBeta",
             "lineEditR1",
             "lineEditR2",
@@ -38,9 +39,16 @@ class CEAnalysisWidget(QWidget):
             "lineEditRs",
             "lineEditRl",
             "lineEditChoice",
-        ]:
+        ]
+
+        for name in signed_fields:
             if hasattr(self, name):
-                getattr(self, name).setValidator(validator)
+                getattr(self, name).setValidator(signed_validator(self))
+
+        for name in positive_fields:
+            if hasattr(self, name):
+                getattr(self, name).setValidator(positive_validator(self))
+
 
     def _setup_connections(self):
         for name in [
@@ -61,11 +69,16 @@ class CEAnalysisWidget(QWidget):
             self.pushButtonClear.clicked.connect(self.clear_fields)
 
         # Change these button names if your Designer names differ
+        # These buttons set which parameter is the "given" one that the user wants to specify directly
+
+        # the lambda is needed to capture the current value of data in the loop, otherwise it will always use the last value
+        # the <b> tags in the symbols are for bold formatting in the UI labels, the <sub> tags are for subscripts.
+
         button_map = {
-            "pushButtonGivenRx":   ("given_rx",  "Rx",   "Emitter bypass resistor", "kΩ"),
-            "pushButtonGivenAv0":  ("given_av0", "Av0",  "Open-circuit voltage gain", ""),
-            "pushButtonGivenRi":   ("given_ri",  "Ri",   "Input resistance", "kΩ"),
-            "pushButtonGivenAvt":  ("given_avt", "Avt",  "Total voltage gain", ""),
+            "pushButtonGivenRx":   ("given_rx",  "<b>R<sub>X</sub></b>",   "Emitter bypass resistor", "kΩ"),
+            "pushButtonGivenAv0":  ("given_av0", "<b>Av0</b>",  "Open-circuit voltage gain", ""),
+            "pushButtonGivenRi":   ("given_ri",  "<b>Ri</b>",   "Input resistance", "kΩ"),
+            "pushButtonGivenAvt":  ("given_avt", "<b>Avt</b>",  "Total voltage gain", ""),
         }
 
         for btn_name, data in button_map.items():
@@ -216,8 +229,6 @@ class CEAnalysisWidget(QWidget):
         for w in self.findChildren(QLineEdit):
             w.clear()
 
-        self.mode = "given_rx"
-        self._set_choice_ui("Rx", "Emitter bypass resistor", "kΩ")
         self._clear_outputs_only()
         self._set_mode("— awaiting input —", "#e8eaf6", "#3d3d9e")
 

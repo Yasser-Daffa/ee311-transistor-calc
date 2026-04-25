@@ -1,5 +1,3 @@
-# controllers/bjt_amplifiers_controllers/design_analysis_menu_widget.py
-
 import sys, os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../..")))
 
@@ -18,27 +16,50 @@ class CEDesignAnalysisMenuWidget(QWidget):
         super().__init__(parent)
         loadUi(UI_PATH, self)
 
-        self._embed(self.page0Design, CEDesignWidget())
-        self._embed(self.page1Analysis, CEAnalysisWidget())
+        # create once
+        self.design_widget   = CEDesignWidget()
+        self.analysis_widget = CEAnalysisWidget()
 
+        # embed the same instances
+        self._embed(self.page0Design,   self.design_widget)
+        self._embed(self.page1Analysis, self.analysis_widget)
+
+        # buttons switch the stack
         self.buttonDesign.clicked.connect(lambda: self.stackedWidget.setCurrentIndex(0))
         self.buttonAnalysis.clicked.connect(lambda: self.stackedWidget.setCurrentIndex(1))
 
+        # send to AC wires design -> analysis
+        self.design_widget.send_to_analysis.connect(self._populate_analysis)
+
         self.stackedWidget.setCurrentIndex(0)
+
+    def _populate_analysis(self, result: dict):
+        w = self.analysis_widget
+
+        def _set(field, value):
+            if hasattr(w, field):
+                getattr(w, field).setText(str(round(value, 6)))
+
+        _set("lineEditVcc",  result["Vcc"])
+        _set("lineEditBeta", result["beta"])
+        _set("lineEditR1",   result["R1"] / 1e3)
+        _set("lineEditR2",   result["R2"] / 1e3)
+        _set("lineEditRc",   result["Rc"] / 1e3)
+        _set("lineEditRe",   result["Re"] / 1e3)
+
+        self.stackedWidget.setCurrentIndex(1)
 
     def _embed(self, page, widget):
         layout = page.layout()
-
         if layout is None:
             layout = QVBoxLayout(page)
             layout.setContentsMargins(0, 0, 0, 0)
-
         layout.addWidget(widget)
 
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
     window = CEDesignAnalysisMenuWidget()
-    window.setWindowTitle("CC Design / Analysis")
+    window.setWindowTitle("CE Design / Analysis")
     window.show()
     sys.exit(app.exec())

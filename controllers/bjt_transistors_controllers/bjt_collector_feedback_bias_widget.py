@@ -12,8 +12,7 @@ from PyQt6.QtWidgets import QApplication, QLineEdit, QWidget
 from PyQt6.uic import loadUi
 from PyQt6.QtWidgets import QWidget
 from core.bjt_transistor import BJT, solve_collector_feedback_bias, solve_fixed_or_emitter_bias
-from core.core_helpers import fmt
-from PyQt6.QtGui import QIntValidator
+from core.core_helpers import fmt, signed_validator, positive_validator
 
 
 class BJTCollectorFeedbackBiasWidget(QWidget):
@@ -22,12 +21,16 @@ class BJTCollectorFeedbackBiasWidget(QWidget):
         loadUi(UI_PATH, self)
 
         # Set up validators for input fields
-        self.lineEditVcc.setValidator(QIntValidator())
-        self.lineEditRcb.setValidator(QIntValidator())
-        self.lineEditRc.setValidator(QIntValidator())
-        self.lineEditVee.setValidator(QIntValidator())
-        self.lineEditRe.setValidator(QIntValidator())
-        self.lineEditBeta.setValidator(QIntValidator())
+
+        # Vcc and Vee can be negative, so use signed_validator
+        self.lineEditVcc.setValidator(signed_validator(self))
+        self.lineEditVee.setValidator(signed_validator(self))
+        
+        # Rcb, Rc, Re must be positive, so use positive_validator
+        self.lineEditRcb.setValidator(positive_validator(self))
+        self.lineEditRc.setValidator(positive_validator(self))
+        self.lineEditRe.setValidator(positive_validator(self))
+        self.lineEditBeta.setValidator(positive_validator(self))
 
         for field in [self.lineEditVcc, self.lineEditVee,
                       self.lineEditRcb, self.lineEditRc, self.lineEditRe, self.lineEditBeta]:

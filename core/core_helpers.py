@@ -2,6 +2,8 @@
 import sys, os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 
+from PyQt6.QtGui import QDoubleValidator
+
 """
 Helper functions used across multiple controllers and widgets, such as input validation and output formatting.
 """
@@ -49,3 +51,15 @@ def fmt(value, unit, scale=None):
     if unit == "V":
         return f"{value:.4f} V"
     return f"{value:.4f} {unit}"
+
+
+def signed_validator(parent=None):
+    validator = QDoubleValidator(-1e12, 1e12, 10, parent)
+    validator.setNotation(QDoubleValidator.Notation.ScientificNotation)
+    return validator
+
+
+def positive_validator(parent=None):
+    validator = QDoubleValidator(0.0, 1e12, 10, parent)
+    validator.setNotation(QDoubleValidator.Notation.ScientificNotation)
+    return validator

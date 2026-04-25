@@ -20,6 +20,18 @@
    <property name="spacing">
     <number>0</number>
    </property>
+   <property name="leftMargin">
+    <number>0</number>
+   </property>
+   <property name="topMargin">
+    <number>0</number>
+   </property>
+   <property name="rightMargin">
+    <number>0</number>
+   </property>
+   <property name="bottomMargin">
+    <number>0</number>
+   </property>
    <item>
     <widget class="QFrame" name="topBarFrame">
      <property name="sizePolicy">
@@ -37,7 +49,7 @@
      <property name="maximumSize">
       <size>
        <width>16777215</width>
-       <height>70</height>
+       <height>75</height>
       </size>
      </property>
      <property name="styleSheet">
@@ -65,6 +77,15 @@
       </item>
       <item row="0" column="1">
        <layout class="QVBoxLayout" name="verticalLayout_2">
+        <property name="spacing">
+         <number>20</number>
+        </property>
+        <property name="topMargin">
+         <number>0</number>
+        </property>
+        <property name="bottomMargin">
+         <number>0</number>
+        </property>
         <item>
          <widget class="QLabel" name="labelTitle">
           <property name="sizePolicy">
@@ -76,7 +97,7 @@
           <property name="minimumSize">
            <size>
             <width>200</width>
-            <height>30</height>
+            <height>34</height>
            </size>
           </property>
           <property name="styleSheet">
@@ -98,6 +119,12 @@
         </item>
         <item>
          <widget class="QLabel" name="labelSubTitle">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>0</height>
+           </size>
+          </property>
           <property name="styleSheet">
            <string notr="true">QLabel {
     font-size: 13px;
@@ -107,7 +134,7 @@
 }</string>
           </property>
           <property name="text">
-           <string>Calculate design parameters or analyze an existing circuit</string>
+           <string>Design your CE amplifier and analyze it in AC analysis</string>
           </property>
          </widget>
         </item>
@@ -238,11 +265,9 @@ QPushButton:checked {
     background-color: #ffffff;
     border: none;
     
-    /* Rounding both bottom corners */
-    border-bottom-left-radius: 8px;
+    /* Only the bottom-right is rounded now */
     border-bottom-right-radius: 8px;
-    
-    /* Keeping top corners sharp */
+    border-bottom-left-radius: 0px;
     border-top-left-radius: 0px;
     border-top-right-radius: 0px;
 
@@ -270,7 +295,8 @@ QPushButton:checked {
     color: #374151;
     font-weight: 600;
 
-    /* The blue line now wraps around both bottom curves */
+    /* Re-stating the radius here ensures the blue line follows the bottom-right curve */
+    border-bottom-right-radius: 8px;
     border-bottom: 3px solid #667EEA;
 }</string>
        </property>
@@ -379,8 +405,8 @@ QScrollBar::sub-page:horizontal {
        <rect>
         <x>0</x>
         <y>0</y>
-        <width>782</width>
-        <height>462</height>
+        <width>800</width>
+        <height>475</height>
        </rect>
       </property>
       <layout class="QHBoxLayout" name="horizontalLayout_2">

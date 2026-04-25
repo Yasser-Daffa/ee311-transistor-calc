@@ -3,7 +3,7 @@
 import sys, os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 
-from PyQt6.QtWidgets import QApplication, QLabel, QMainWindow, QWidget, QVBoxLayout
+from PyQt6.QtWidgets import QApplication, QLabel, QMainWindow, QVBoxLayout
 from PyQt6.QtCore import Qt
 from PyQt6.uic import loadUi
 
@@ -35,6 +35,8 @@ class MainDashboardWidget(QMainWindow):
         self.buttonMultiStage.clicked.connect(lambda: self.stackedWidget.setCurrentIndex(3))
         self.buttonFrequencyCalculations.clicked.connect(lambda: self.stackedWidget.setCurrentIndex(4))
         self.buttonMosfets.clicked.connect(lambda: self.stackedWidget.setCurrentIndex(5))
+
+        self.buttonExit.clicked.connect(self.close)
 
         # start on page 0
         self.stackedWidget.setCurrentIndex(0)

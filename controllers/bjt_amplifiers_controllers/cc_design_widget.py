@@ -2,11 +2,11 @@ import sys, os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../..")))
 
 from PyQt6.QtWidgets import QApplication, QWidget, QLineEdit
-from PyQt6.QtGui import QDoubleValidator, QPixmap
+from PyQt6.QtGui import QPixmap
 from PyQt6.uic import loadUi
-from PyQt6.QtCore import Qt
+from PyQt6.QtCore import Qt, pyqtSignal
 
-from core.core_helpers import fmt
+from core.core_helpers import fmt, signed_validator, positive_validator
 from core.bjt_amplifiers import design_cc_from_specs
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -14,6 +14,9 @@ UI_PATH = os.path.join(BASE_DIR, "..", "..", "ui", "ce_cc_analysis_design", "amp
 
 
 class CCDesignWidget(QWidget):
+
+    send_to_analysis = pyqtSignal(dict)
+
     def __init__(self, parent=None):
         super().__init__(parent)
         loadUi(UI_PATH, self)
@@ -22,17 +25,9 @@ class CCDesignWidget(QWidget):
         self._set_circuit_image()
 
         # validators
-        vcc_validator = QDoubleValidator(0.0, 1000.0, 3, self)
-        icmax_validator = QDoubleValidator(0.0, 1000.0, 3, self)
-        beta_validator = QDoubleValidator(1.0, 10000.0, 3, self)
-
-        vcc_validator.setNotation(QDoubleValidator.Notation.StandardNotation)
-        icmax_validator.setNotation(QDoubleValidator.Notation.StandardNotation)
-        beta_validator.setNotation(QDoubleValidator.Notation.StandardNotation)
-
-        self.lineEditVcc.setValidator(vcc_validator)
-        self.lineEditIcmax.setValidator(icmax_validator)
-        self.lineEditBeta.setValidator(beta_validator)
+        self.lineEditVcc.setValidator(signed_validator(self))
+        self.lineEditIcmax.setValidator(positive_validator(self))
+        self.lineEditBeta.setValidator(positive_validator(self))
 
         self.labelCircuitTitle.setText("Common Collector (CC)")
 
@@ -44,6 +39,17 @@ class CCDesignWidget(QWidget):
 
         self._set_mode("— awaiting input —", "#e8eaf6", "#3d3d9e")
         self._clear_outputs_only()
+
+
+        # After clicking send to ac analysis, 
+        # the design widget will emit the last calculated result (if any) to the analysis widget
+        self.buttonSendToAc.clicked.connect(self._emit_send)
+        self._last_result = None  # initialize as None, calculate() will fill it
+
+    def _emit_send(self):
+        if hasattr(self, "_last_result") and self._last_result:
+            self.send_to_analysis.emit(self._last_result)
+
 
     def _set_circuit_image(self):
         if not hasattr(self, "labelCircuitImage"):
@@ -127,6 +133,10 @@ class CCDesignWidget(QWidget):
         self.labelRiMax.setText(fmt(result["ri_max"], "Ω"))
         self.labelRxMin.setText(fmt(result["rx_min"], "Ω"))
         self.labelRxMax.setText(fmt(result["rx_max"], "Ω"))
+
+        result["Vcc"]  = vcc
+        result["beta"] = beta
+        self._last_result = result   # store it for sending to analysis widget
 
         self._set_mode("DESIGNED", "#d4edda", "#155724")
 
