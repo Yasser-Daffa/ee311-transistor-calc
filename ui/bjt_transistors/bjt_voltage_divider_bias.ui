@@ -811,7 +811,7 @@ font: 700 13pt &quot;Rockwell&quot;;</string>
               </widget>
              </item>
              <item>
-              <widget class="QLineEdit" name="lineEditVcc">
+              <widget class="SmartLineEdit" name="lineEditVcc">
                <property name="minimumSize">
                 <size>
                  <width>100</width>
@@ -901,7 +901,7 @@ QLineEdit:focus {
               </widget>
              </item>
              <item>
-              <widget class="QLineEdit" name="lineEditVee">
+              <widget class="SmartLineEdit" name="lineEditVee">
                <property name="minimumSize">
                 <size>
                  <width>100</width>
@@ -991,7 +991,7 @@ QLineEdit:focus {
               </widget>
              </item>
              <item>
-              <widget class="QLineEdit" name="lineEditBeta">
+              <widget class="SmartLineEdit" name="lineEditBeta">
                <property name="minimumSize">
                 <size>
                  <width>100</width>
@@ -1081,7 +1081,7 @@ QLineEdit:focus {
               </widget>
              </item>
              <item>
-              <widget class="QLineEdit" name="lineEditR1">
+              <widget class="SmartLineEdit" name="lineEditR1">
                <property name="minimumSize">
                 <size>
                  <width>100</width>
@@ -1177,7 +1177,7 @@ QLineEdit:focus {
               </widget>
              </item>
              <item>
-              <widget class="QLineEdit" name="lineEditR2">
+              <widget class="SmartLineEdit" name="lineEditR2">
                <property name="minimumSize">
                 <size>
                  <width>100</width>
@@ -1273,7 +1273,7 @@ QLineEdit:focus {
               </widget>
              </item>
              <item>
-              <widget class="QLineEdit" name="lineEditRc">
+              <widget class="SmartLineEdit" name="lineEditRc">
                <property name="minimumSize">
                 <size>
                  <width>100</width>
@@ -1363,7 +1363,7 @@ QLineEdit:focus {
               </widget>
              </item>
              <item>
-              <widget class="QLineEdit" name="lineEditRe">
+              <widget class="SmartLineEdit" name="lineEditRe">
                <property name="minimumSize">
                 <size>
                  <width>100</width>
@@ -1595,6 +1595,13 @@ QPushButton:disabled {
    </item>
   </layout>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>SmartLineEdit</class>
+   <extends>QLineEdit</extends>
+   <header>core.smart_line_edit</header>
+  </customwidget>
+ </customwidgets>
  <resources>
   <include location="bjt_bias_images.qrc"/>
  </resources>

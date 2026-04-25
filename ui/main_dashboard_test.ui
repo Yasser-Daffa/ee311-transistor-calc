@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1185</width>
+    <width>920</width>
     <height>967</height>
    </rect>
   </property>
@@ -1890,13 +1890,1180 @@ QPushButton:pressed {
      <string>TextLabel</string>
     </property>
    </widget>
+   <widget class="QFrame" name="frame">
+    <property name="geometry">
+     <rect>
+      <x>620</x>
+      <y>160</y>
+      <width>406</width>
+      <height>589</height>
+     </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::Shape::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Shadow::Raised</enum>
+    </property>
+    <layout class="QVBoxLayout" name="verticalLayout_2">
+     <item>
+      <layout class="QVBoxLayout" name="verticalLayout">
+       <property name="sizeConstraint">
+        <enum>QLayout::SizeConstraint::SetDefaultConstraint</enum>
+       </property>
+       <item>
+        <widget class="QLabel" name="labelInput">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QLabel {
+    color: #374151;
+    font-size: 13px;
+    font-weight: 600;
+	background-color: transparent;
+    padding-bottom: 4px;
+    border: none;
+    border-bottom: 2px solid #6D63E8;
+	
+	
+	font: 13pt &quot;Rockwell&quot;;
+}</string>
+         </property>
+         <property name="text">
+          <string>INPUT</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_8">
+         <item>
+          <layout class="QHBoxLayout" name="horizontalLayout">
+           <property name="sizeConstraint">
+            <enum>QLayout::SizeConstraint::SetDefaultConstraint</enum>
+           </property>
+           <item>
+            <widget class="QLabel" name="labelVcc">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="minimumSize">
+              <size>
+               <width>50</width>
+               <height>20</height>
+              </size>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">QLabel {
+    color: rgb(80, 80, 80);                  /* soft dark gray */
+    font-size: 16px;
+    font-weight: 500;
+    font-family: &quot;Segoe UI&quot;, &quot;Roboto&quot;, sans-serif;
+}</string>
+             </property>
+             <property name="text">
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt; font-weight:700;&quot;&gt;Vcc&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="labelSupplyVoltage">
+             <property name="minimumSize">
+              <size>
+               <width>100</width>
+               <height>20</height>
+              </size>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">QLabel {
+    color: rgb(80, 80, 80);                  /* soft dark gray */
+    font-size: 14px;
+    font-weight: 500;
+    font-family: &quot;Segoe UI&quot;, &quot;Roboto&quot;, sans-serif;
+}</string>
+             </property>
+             <property name="text">
+              <string>Supply Voltage             </string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLineEdit" name="lineEditVcc">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="minimumSize">
+              <size>
+               <width>100</width>
+               <height>15</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>200</width>
+               <height>30</height>
+              </size>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">QLineEdit {
+    background-color: #ffffff;
+    border: 1px solid #d1d5db;
+    border-radius: 5px;
+
+    padding: 6px 8px;
+
+    color: #111827;
+    font-size: 13px;
+    font-family: &quot;JetBrains Mono&quot;, &quot;Consolas&quot;, monospace;
+}
+
+QLineEdit:focus {
+    border: 1px solid #667EEA;
+    background-color: #f9fafb;
+}</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <widget class="QLabel" name="labelV_1">
+           <property name="minimumSize">
+            <size>
+             <width>22</width>
+             <height>33</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QLabel {
+    color: rgb(80, 80, 80);                  /* soft dark gray */
+    font-size: 14px;
+    font-weight: 500;
+    font-family: &quot;Segoe UI&quot;, &quot;Roboto&quot;, sans-serif;
+}</string>
+           </property>
+           <property name="text">
+            <string>V</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_14">
+         <item>
+          <layout class="QHBoxLayout" name="horizontalLayout_4">
+           <item>
+            <widget class="QLabel" name="labelBeta">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="minimumSize">
+              <size>
+               <width>50</width>
+               <height>20</height>
+              </size>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">QLabel {
+    color: rgb(80, 80, 80);                  /* soft dark gray */
+    font-size: 16px;
+    font-weight: 500;
+    font-family: &quot;Segoe UI&quot;, &quot;Roboto&quot;, sans-serif;
+}</string>
+             </property>
+             <property name="text">
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt; font-weight:700;&quot;&gt;β&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="labelGain">
+             <property name="minimumSize">
+              <size>
+               <width>100</width>
+               <height>20</height>
+              </size>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">QLabel {
+    color: rgb(80, 80, 80);                  /* soft dark gray */
+    font-size: 14px;
+    font-weight: 500;
+    font-family: &quot;Segoe UI&quot;, &quot;Roboto&quot;, sans-serif;
+}</string>
+             </property>
+             <property name="text">
+              <string>Gain                             </string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLineEdit" name="lineEditBeta">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="minimumSize">
+              <size>
+               <width>100</width>
+               <height>15</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>200</width>
+               <height>30</height>
+              </size>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">QLineEdit {
+    background-color: #ffffff;
+    border: 1px solid #d1d5db;
+    border-radius: 5px;
+
+    padding: 6px 8px;
+
+    color: #111827;
+    font-size: 13px;
+    font-family: &quot;JetBrains Mono&quot;, &quot;Consolas&quot;, monospace;
+}
+
+QLineEdit:focus {
+    border: 1px solid #667EEA;
+    background-color: #f9fafb;
+}</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <widget class="QLabel" name="labelHiddenForB">
+           <property name="minimumSize">
+            <size>
+             <width>22</width>
+             <height>33</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QLabel {
+    color: rgb(80, 80, 80);                  /* soft dark gray */
+    font-size: 14px;
+    font-weight: 500;
+    font-family: &quot;Segoe UI&quot;, &quot;Roboto&quot;, sans-serif;
+}</string>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_16">
+         <item>
+          <layout class="QHBoxLayout" name="horizontalLayout_5">
+           <item>
+            <widget class="QLabel" name="labelR1">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="minimumSize">
+              <size>
+               <width>50</width>
+               <height>20</height>
+              </size>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">QLabel {
+    color: rgb(80, 80, 80);                  /* soft dark gray */
+    font-size: 16px;
+    font-weight: 500;
+    font-family: &quot;Segoe UI&quot;, &quot;Roboto&quot;, sans-serif;
+}</string>
+             </property>
+             <property name="text">
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt; font-weight:700;&quot;&gt;R1&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="labelGain_2">
+             <property name="minimumSize">
+              <size>
+               <width>100</width>
+               <height>20</height>
+              </size>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">QLabel {
+    color: rgb(80, 80, 80);                  /* soft dark gray */
+    font-size: 14px;
+    font-weight: 500;
+    font-family: &quot;Segoe UI&quot;, &quot;Roboto&quot;, sans-serif;
+}</string>
+             </property>
+             <property name="text">
+              <string>Upper Bias Resistor       </string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLineEdit" name="lineEditBeta_2">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="minimumSize">
+              <size>
+               <width>100</width>
+               <height>15</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>200</width>
+               <height>30</height>
+              </size>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">QLineEdit {
+    background-color: #ffffff;
+    border: 1px solid #d1d5db;
+    border-radius: 5px;
+
+    padding: 6px 8px;
+
+    color: #111827;
+    font-size: 13px;
+    font-family: &quot;JetBrains Mono&quot;, &quot;Consolas&quot;, monospace;
+}
+
+QLineEdit:focus {
+    border: 1px solid #667EEA;
+    background-color: #f9fafb;
+}</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <widget class="QLabel" name="labelHiddenForB_2">
+           <property name="minimumSize">
+            <size>
+             <width>22</width>
+             <height>33</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QLabel {
+    color: rgb(80, 80, 80);                  /* soft dark gray */
+    font-size: 14px;
+    font-weight: 500;
+    font-family: &quot;Segoe UI&quot;, &quot;Roboto&quot;, sans-serif;
+}</string>
+           </property>
+           <property name="text">
+            <string>kΩ</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_9">
+         <item>
+          <layout class="QHBoxLayout" name="horizontalLayout_2">
+           <item>
+            <widget class="QLabel" name="labelR2">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="minimumSize">
+              <size>
+               <width>50</width>
+               <height>20</height>
+              </size>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">QLabel {
+    color: rgb(80, 80, 80);                  /* soft dark gray */
+    font-size: 16px;
+    font-weight: 500;
+    font-family: &quot;Segoe UI&quot;, &quot;Roboto&quot;, sans-serif;
+}</string>
+             </property>
+             <property name="text">
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt; font-weight:700;&quot;&gt;R2&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="labelCollectorCurrent">
+             <property name="minimumSize">
+              <size>
+               <width>100</width>
+               <height>20</height>
+              </size>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">QLabel {
+    color: rgb(80, 80, 80);                  /* soft dark gray */
+    font-size: 14px;
+    font-weight: 500;
+    font-family: &quot;Segoe UI&quot;, &quot;Roboto&quot;, sans-serif;
+}</string>
+             </property>
+             <property name="text">
+              <string>Lower Bias Resistor       </string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLineEdit" name="lineEditIcmax">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="minimumSize">
+              <size>
+               <width>100</width>
+               <height>15</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>200</width>
+               <height>30</height>
+              </size>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">QLineEdit {
+    background-color: #ffffff;
+    border: 1px solid #d1d5db;
+    border-radius: 5px;
+
+    padding: 6px 8px;
+
+    color: #111827;
+    font-size: 13px;
+    font-family: &quot;JetBrains Mono&quot;, &quot;Consolas&quot;, monospace;
+}
+
+QLineEdit:focus {
+    border: 1px solid #667EEA;
+    background-color: #f9fafb;
+}</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <widget class="QLabel" name="labelmA">
+           <property name="minimumSize">
+            <size>
+             <width>22</width>
+             <height>33</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QLabel {
+    color: rgb(80, 80, 80);                  /* soft dark gray */
+    font-size: 14px;
+    font-weight: 500;
+    font-family: &quot;Segoe UI&quot;, &quot;Roboto&quot;, sans-serif;
+}</string>
+           </property>
+           <property name="text">
+            <string>kΩ</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_17">
+         <item>
+          <layout class="QHBoxLayout" name="horizontalLayout_6">
+           <item>
+            <widget class="QLabel" name="labelRc">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="minimumSize">
+              <size>
+               <width>50</width>
+               <height>20</height>
+              </size>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">QLabel {
+    color: rgb(80, 80, 80);                  /* soft dark gray */
+    font-size: 16px;
+    font-weight: 500;
+    font-family: &quot;Segoe UI&quot;, &quot;Roboto&quot;, sans-serif;
+}</string>
+             </property>
+             <property name="text">
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:700;&quot;&gt;R&lt;/span&gt;&lt;span style=&quot; font-weight:700; vertical-align:sub;&quot;&gt;C&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="labelGain_3">
+             <property name="minimumSize">
+              <size>
+               <width>100</width>
+               <height>20</height>
+              </size>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">QLabel {
+    color: rgb(80, 80, 80);                  /* soft dark gray */
+    font-size: 14px;
+    font-weight: 500;
+    font-family: &quot;Segoe UI&quot;, &quot;Roboto&quot;, sans-serif;
+}</string>
+             </property>
+             <property name="text">
+              <string>Collector Resistor          </string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLineEdit" name="lineEditBeta_3">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="minimumSize">
+              <size>
+               <width>100</width>
+               <height>15</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>200</width>
+               <height>30</height>
+              </size>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">QLineEdit {
+    background-color: #ffffff;
+    border: 1px solid #d1d5db;
+    border-radius: 5px;
+
+    padding: 6px 8px;
+
+    color: #111827;
+    font-size: 13px;
+    font-family: &quot;JetBrains Mono&quot;, &quot;Consolas&quot;, monospace;
+}
+
+QLineEdit:focus {
+    border: 1px solid #667EEA;
+    background-color: #f9fafb;
+}</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <widget class="QLabel" name="labelHiddenForB_3">
+           <property name="minimumSize">
+            <size>
+             <width>22</width>
+             <height>33</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QLabel {
+    color: rgb(80, 80, 80);                  /* soft dark gray */
+    font-size: 14px;
+    font-weight: 500;
+    font-family: &quot;Segoe UI&quot;, &quot;Roboto&quot;, sans-serif;
+}</string>
+           </property>
+           <property name="text">
+            <string>kΩ</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_18">
+         <item>
+          <layout class="QHBoxLayout" name="horizontalLayout_7">
+           <item>
+            <widget class="QLabel" name="labelRe">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="minimumSize">
+              <size>
+               <width>50</width>
+               <height>20</height>
+              </size>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">QLabel {
+    color: rgb(80, 80, 80);                  /* soft dark gray */
+    font-size: 16px;
+    font-weight: 500;
+    font-family: &quot;Segoe UI&quot;, &quot;Roboto&quot;, sans-serif;
+}</string>
+             </property>
+             <property name="text">
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:700;&quot;&gt;R&lt;/span&gt;&lt;span style=&quot; font-weight:700; vertical-align:sub;&quot;&gt;E&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="labelGain_4">
+             <property name="minimumSize">
+              <size>
+               <width>100</width>
+               <height>20</height>
+              </size>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">QLabel {
+    color: rgb(80, 80, 80);                  /* soft dark gray */
+    font-size: 14px;
+    font-weight: 500;
+    font-family: &quot;Segoe UI&quot;, &quot;Roboto&quot;, sans-serif;
+}</string>
+             </property>
+             <property name="text">
+              <string>Emitter Resistor             </string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLineEdit" name="lineEditBeta_4">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="minimumSize">
+              <size>
+               <width>100</width>
+               <height>15</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>200</width>
+               <height>30</height>
+              </size>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">QLineEdit {
+    background-color: #ffffff;
+    border: 1px solid #d1d5db;
+    border-radius: 5px;
+
+    padding: 6px 8px;
+
+    color: #111827;
+    font-size: 13px;
+    font-family: &quot;JetBrains Mono&quot;, &quot;Consolas&quot;, monospace;
+}
+
+QLineEdit:focus {
+    border: 1px solid #667EEA;
+    background-color: #f9fafb;
+}</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <widget class="QLabel" name="labelHiddenForB_4">
+           <property name="minimumSize">
+            <size>
+             <width>22</width>
+             <height>33</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QLabel {
+    color: rgb(80, 80, 80);                  /* soft dark gray */
+    font-size: 14px;
+    font-weight: 500;
+    font-family: &quot;Segoe UI&quot;, &quot;Roboto&quot;, sans-serif;
+}</string>
+           </property>
+           <property name="text">
+            <string>kΩ</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_19">
+         <item>
+          <layout class="QHBoxLayout" name="horizontalLayout_11">
+           <item>
+            <widget class="QLabel" name="labelRs">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="minimumSize">
+              <size>
+               <width>50</width>
+               <height>20</height>
+              </size>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">QLabel {
+    color: rgb(80, 80, 80);                  /* soft dark gray */
+    font-size: 16px;
+    font-weight: 500;
+    font-family: &quot;Segoe UI&quot;, &quot;Roboto&quot;, sans-serif;
+}</string>
+             </property>
+             <property name="text">
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt; font-weight:700;&quot;&gt;R&lt;/span&gt;&lt;span style=&quot; font-size:12pt; font-weight:700; vertical-align:sub;&quot;&gt;S&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="labelGain_6">
+             <property name="minimumSize">
+              <size>
+               <width>100</width>
+               <height>20</height>
+              </size>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">QLabel {
+    color: rgb(80, 80, 80);                  /* soft dark gray */
+    font-size: 14px;
+    font-weight: 500;
+    font-family: &quot;Segoe UI&quot;, &quot;Roboto&quot;, sans-serif;
+}</string>
+             </property>
+             <property name="text">
+              <string>Signal Source Resistance</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLineEdit" name="lineEditBeta_6">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="minimumSize">
+              <size>
+               <width>100</width>
+               <height>15</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>200</width>
+               <height>30</height>
+              </size>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">QLineEdit {
+    background-color: #ffffff;
+    border: 1px solid #d1d5db;
+    border-radius: 5px;
+
+    padding: 6px 8px;
+
+    color: #111827;
+    font-size: 13px;
+    font-family: &quot;JetBrains Mono&quot;, &quot;Consolas&quot;, monospace;
+}
+
+QLineEdit:focus {
+    border: 1px solid #667EEA;
+    background-color: #f9fafb;
+}</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <widget class="QLabel" name="labelHiddenForB_5">
+           <property name="minimumSize">
+            <size>
+             <width>22</width>
+             <height>33</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QLabel {
+    color: rgb(80, 80, 80);                  /* soft dark gray */
+    font-size: 14px;
+    font-weight: 500;
+    font-family: &quot;Segoe UI&quot;, &quot;Roboto&quot;, sans-serif;
+}</string>
+           </property>
+           <property name="text">
+            <string>kΩ</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_20">
+         <item>
+          <layout class="QHBoxLayout" name="horizontalLayout_12">
+           <item>
+            <widget class="QLabel" name="labelRl">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="minimumSize">
+              <size>
+               <width>50</width>
+               <height>20</height>
+              </size>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">QLabel {
+    color: rgb(80, 80, 80);                  /* soft dark gray */
+    font-size: 16px;
+    font-weight: 500;
+    font-family: &quot;Segoe UI&quot;, &quot;Roboto&quot;, sans-serif;
+}</string>
+             </property>
+             <property name="text">
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt; font-weight:700;&quot;&gt;R&lt;/span&gt;&lt;span style=&quot; font-size:12pt; font-weight:700; vertical-align:sub;&quot;&gt;L&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="labelGain_7">
+             <property name="minimumSize">
+              <size>
+               <width>100</width>
+               <height>20</height>
+              </size>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">QLabel {
+    color: rgb(80, 80, 80);                  /* soft dark gray */
+    font-size: 14px;
+    font-weight: 500;
+    font-family: &quot;Segoe UI&quot;, &quot;Roboto&quot;, sans-serif;
+}</string>
+             </property>
+             <property name="text">
+              <string>Load Resistance             </string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLineEdit" name="lineEditBeta_7">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="minimumSize">
+              <size>
+               <width>100</width>
+               <height>15</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>200</width>
+               <height>30</height>
+              </size>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">QLineEdit {
+    background-color: #ffffff;
+    border: 1px solid #d1d5db;
+    border-radius: 5px;
+
+    padding: 6px 8px;
+
+    color: #111827;
+    font-size: 13px;
+    font-family: &quot;JetBrains Mono&quot;, &quot;Consolas&quot;, monospace;
+}
+
+QLineEdit:focus {
+    border: 1px solid #667EEA;
+    background-color: #f9fafb;
+}</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <widget class="QLabel" name="labelHiddenForB_6">
+           <property name="minimumSize">
+            <size>
+             <width>22</width>
+             <height>33</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QLabel {
+    color: rgb(80, 80, 80);                  /* soft dark gray */
+    font-size: 14px;
+    font-weight: 500;
+    font-family: &quot;Segoe UI&quot;, &quot;Roboto&quot;, sans-serif;
+}</string>
+           </property>
+           <property name="text">
+            <string>kΩ</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <layout class="QVBoxLayout" name="verticalLayout_4">
+         <property name="spacing">
+          <number>10</number>
+         </property>
+         <item>
+          <widget class="QLabel" name="labelInput_2">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QLabel {
+    color: #374151;
+    font-size: 11px;
+    font-weight: 600;
+	background-color: transparent;
+    padding-bottom: 4px;
+    border: none;
+ 	border-top: 1px solid #d1d5db;
+    border-bottom: 2px solid rgb(69, 139, 208);
+	
+	
+	font: 11pt &quot;Rockwell&quot;;
+}</string>
+           </property>
+           <property name="text">
+            <string>Given? (Choose one)</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <spacer name="verticalSpacer_3">
+           <property name="orientation">
+            <enum>Qt::Orientation::Vertical</enum>
+           </property>
+           <property name="sizeType">
+            <enum>QSizePolicy::Policy::MinimumExpanding</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>20</width>
+             <height>40</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item>
+          <widget class="QPushButton" name="pushButtonClear">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>100</width>
+             <height>40</height>
+            </size>
+           </property>
+           <property name="cursor">
+            <cursorShape>PointingHandCursor</cursorShape>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QPushButton {
+    background-color: #f5576c;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600; /* 'Semi-bold' for the Inter font vibe */
+    padding: 10px 20px;
+}
+
+QPushButton:hover {
+    background-color: #e5475c;
+}
+
+QPushButton:pressed {
+    background-color: #d93f53; /* slightly darker for click feedback */
+}
+
+QPushButton:disabled {
+    background-color: #e0e0e0;
+    color: #999999;
+}
+</string>
+           </property>
+           <property name="text">
+            <string>Clear</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="labelCircuitTitle">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>230</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QLabel {
+    color: #374151;
+    font-size: 13px;
+    font-weight: 600;
+	background-color: transparent;
+    padding-bottom: 4px;
+    border: none;
+    border-bottom: 2px solid #6D63E8;
+	
+	
+	font: 13pt &quot;Rockwell&quot;;
+}</string>
+           </property>
+           <property name="text">
+            <string>Common Emitter Circuit</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <spacer name="verticalSpacer_2">
+         <property name="orientation">
+          <enum>Qt::Orientation::Vertical</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>40</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+      </layout>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QFrame" name="frame_2">
+    <property name="geometry">
+     <rect>
+      <x>940</x>
+      <y>90</y>
+      <width>171</width>
+      <height>491</height>
+     </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::Shape::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Shadow::Raised</enum>
+    </property>
+   </widget>
+   <widget class="QFrame" name="frame_3">
+    <property name="geometry">
+     <rect>
+      <x>1020</x>
+      <y>250</y>
+      <width>120</width>
+      <height>80</height>
+     </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::Shape::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Shadow::Raised</enum>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1185</width>
+     <width>920</width>
      <height>33</height>
     </rect>
    </property>
@@ -1905,4 +3072,7 @@ QPushButton:pressed {
  </widget>
  <resources/>
  <connections/>
+ <buttongroups>
+  <buttongroup name="buttonGroup"/>
+ </buttongroups>
 </ui>

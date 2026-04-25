@@ -30,6 +30,7 @@ imports:
  &#8226;   <a href="#controllers.bjt_amplifiers_controllers.ce_design_analysis_menu_widget">controllers.bjt_amplifiers_controllers.ce_design_analysis_menu_widget</a>
  &#8226;   <a href="#controllers.bjt_transistors_controllers.bjt_topologies_widget">controllers.bjt_transistors_controllers.bjt_topologies_widget</a>
  &#8226;   <a href="#copyreg">copyreg</a>
+ &#8226;   <a href="#core.smart_line_edit">core.smart_line_edit</a>
  &#8226;   <a href="#encodings">encodings</a>
  &#8226;   <a href="#encodings.aliases">encodings.aliases</a>
  &#8226;   <a href="#encodings.ascii">encodings.ascii</a>
@@ -331,6 +332,7 @@ imported by:
  &#8226;   <a href="#PyQt6.uic.Loader.loader">PyQt6.uic.Loader.loader</a>
  &#8226;   <a href="#PyQt6.uic.compile_ui">PyQt6.uic.compile_ui</a>
  &#8226;   <a href="#controllers.bjt_amplifiers_controllers.cc_design_widget">controllers.bjt_amplifiers_controllers.cc_design_widget</a>
+ &#8226;   <a href="#controllers.bjt_amplifiers_controllers.ce_design_widget">controllers.bjt_amplifiers_controllers.ce_design_widget</a>
  &#8226;   <a href="#main_dashboard_widget.py">main_dashboard_widget.py</a>
 
   </div>
@@ -358,13 +360,9 @@ imported by:
  &#8226;   <a href="#PyQt6.QtWidgets">PyQt6.QtWidgets</a>
  &#8226;   <a href="#PyQt6.uic.Loader.loader">PyQt6.uic.Loader.loader</a>
  &#8226;   <a href="#PyQt6.uic.Loader.qobjectcreator">PyQt6.uic.Loader.qobjectcreator</a>
- &#8226;   <a href="#controllers.bjt_amplifiers_controllers.cc_analysis_widget">controllers.bjt_amplifiers_controllers.cc_analysis_widget</a>
  &#8226;   <a href="#controllers.bjt_amplifiers_controllers.cc_design_widget">controllers.bjt_amplifiers_controllers.cc_design_widget</a>
- &#8226;   <a href="#controllers.bjt_amplifiers_controllers.ce_analysis_widget">controllers.bjt_amplifiers_controllers.ce_analysis_widget</a>
- &#8226;   <a href="#controllers.bjt_amplifiers_controllers.ce_design_widget">controllers.bjt_amplifiers_controllers.ce_design_widget</a>
- &#8226;   <a href="#controllers.bjt_transistors_controllers.bjt_collector_feedback_bias_widget">controllers.bjt_transistors_controllers.bjt_collector_feedback_bias_widget</a>
- &#8226;   <a href="#controllers.bjt_transistors_controllers.bjt_emitter_fixed_bias_widget">controllers.bjt_transistors_controllers.bjt_emitter_fixed_bias_widget</a>
- &#8226;   <a href="#controllers.bjt_transistors_controllers.bjt_voltage_divider_bias_widget">controllers.bjt_transistors_controllers.bjt_voltage_divider_bias_widget</a>
+ &#8226;   <a href="#core.core_helpers">core.core_helpers</a>
+ &#8226;   <a href="#core.smart_line_edit">core.smart_line_edit</a>
 
   </div>
 
@@ -401,6 +399,7 @@ imported by:
  &#8226;   <a href="#controllers.bjt_transistors_controllers.bjt_emitter_fixed_bias_widget">controllers.bjt_transistors_controllers.bjt_emitter_fixed_bias_widget</a>
  &#8226;   <a href="#controllers.bjt_transistors_controllers.bjt_topologies_widget">controllers.bjt_transistors_controllers.bjt_topologies_widget</a>
  &#8226;   <a href="#controllers.bjt_transistors_controllers.bjt_voltage_divider_bias_widget">controllers.bjt_transistors_controllers.bjt_voltage_divider_bias_widget</a>
+ &#8226;   <a href="#core.smart_line_edit">core.smart_line_edit</a>
  &#8226;   <a href="#main_dashboard_widget.py">main_dashboard_widget.py</a>
 
   </div>
@@ -2522,8 +2521,7 @@ imported by:
   <a target="code" href="///C:/Projects/ee311-transistor-calc/controllers/bjt_amplifiers_controllers/cc_analysis_widget.py" type="text/plain"><tt>controllers.bjt_amplifiers_controllers.cc_analysis_widget</tt></a>
 <span class="moduletype">SourceModule</span>  <div class="import">
 imports:
-    <a href="#PyQt6.QtGui">PyQt6.QtGui</a>
- &#8226;   <a href="#PyQt6.QtWidgets">PyQt6.QtWidgets</a>
+    <a href="#PyQt6.QtWidgets">PyQt6.QtWidgets</a>
  &#8226;   <a href="#PyQt6.uic">PyQt6.uic</a>
  &#8226;   <a href="#controllers.bjt_amplifiers_controllers">controllers.bjt_amplifiers_controllers</a>
  &#8226;   <a href="#core.bjt_amplifiers">core.bjt_amplifiers</a>
@@ -2591,8 +2589,7 @@ imported by:
   <a target="code" href="///C:/Projects/ee311-transistor-calc/controllers/bjt_amplifiers_controllers/ce_analysis_widget.py" type="text/plain"><tt>controllers.bjt_amplifiers_controllers.ce_analysis_widget</tt></a>
 <span class="moduletype">SourceModule</span>  <div class="import">
 imports:
-    <a href="#PyQt6.QtGui">PyQt6.QtGui</a>
- &#8226;   <a href="#PyQt6.QtWidgets">PyQt6.QtWidgets</a>
+    <a href="#PyQt6.QtWidgets">PyQt6.QtWidgets</a>
  &#8226;   <a href="#PyQt6.uic">PyQt6.uic</a>
  &#8226;   <a href="#controllers.bjt_amplifiers_controllers">controllers.bjt_amplifiers_controllers</a>
  &#8226;   <a href="#core.bjt_amplifiers">core.bjt_amplifiers</a>
@@ -2636,7 +2633,7 @@ imported by:
   <a target="code" href="///C:/Projects/ee311-transistor-calc/controllers/bjt_amplifiers_controllers/ce_design_widget.py" type="text/plain"><tt>controllers.bjt_amplifiers_controllers.ce_design_widget</tt></a>
 <span class="moduletype">SourceModule</span>  <div class="import">
 imports:
-    <a href="#PyQt6.QtGui">PyQt6.QtGui</a>
+    <a href="#PyQt6.QtCore">PyQt6.QtCore</a>
  &#8226;   <a href="#PyQt6.QtWidgets">PyQt6.QtWidgets</a>
  &#8226;   <a href="#PyQt6.uic">PyQt6.uic</a>
  &#8226;   <a href="#controllers.bjt_amplifiers_controllers">controllers.bjt_amplifiers_controllers</a>
@@ -2678,8 +2675,7 @@ imported by:
   <a target="code" href="///C:/Projects/ee311-transistor-calc/controllers/bjt_transistors_controllers/bjt_collector_feedback_bias_widget.py" type="text/plain"><tt>controllers.bjt_transistors_controllers.bjt_collector_feedback_bias_widget</tt></a>
 <span class="moduletype">SourceModule</span>  <div class="import">
 imports:
-    <a href="#PyQt6.QtGui">PyQt6.QtGui</a>
- &#8226;   <a href="#PyQt6.QtWidgets">PyQt6.QtWidgets</a>
+    <a href="#PyQt6.QtWidgets">PyQt6.QtWidgets</a>
  &#8226;   <a href="#PyQt6.uic">PyQt6.uic</a>
  &#8226;   <a href="#controllers.bjt_transistors_controllers">controllers.bjt_transistors_controllers</a>
  &#8226;   <a href="#core.bjt_transistor">core.bjt_transistor</a>
@@ -2701,11 +2697,11 @@ imported by:
   <a target="code" href="///C:/Projects/ee311-transistor-calc/controllers/bjt_transistors_controllers/bjt_emitter_fixed_bias_widget.py" type="text/plain"><tt>controllers.bjt_transistors_controllers.bjt_emitter_fixed_bias_widget</tt></a>
 <span class="moduletype">SourceModule</span>  <div class="import">
 imports:
-    <a href="#PyQt6.QtGui">PyQt6.QtGui</a>
- &#8226;   <a href="#PyQt6.QtWidgets">PyQt6.QtWidgets</a>
+    <a href="#PyQt6.QtWidgets">PyQt6.QtWidgets</a>
  &#8226;   <a href="#PyQt6.uic">PyQt6.uic</a>
  &#8226;   <a href="#controllers.bjt_transistors_controllers">controllers.bjt_transistors_controllers</a>
  &#8226;   <a href="#core.bjt_transistor">core.bjt_transistor</a>
+ &#8226;   <a href="#core.core_helpers">core.core_helpers</a>
  &#8226;   <a href="#os">os</a>
  &#8226;   <a href="#sys">sys</a>
 
@@ -2746,11 +2742,11 @@ imported by:
   <a target="code" href="///C:/Projects/ee311-transistor-calc/controllers/bjt_transistors_controllers/bjt_voltage_divider_bias_widget.py" type="text/plain"><tt>controllers.bjt_transistors_controllers.bjt_voltage_divider_bias_widget</tt></a>
 <span class="moduletype">SourceModule</span>  <div class="import">
 imports:
-    <a href="#PyQt6.QtGui">PyQt6.QtGui</a>
- &#8226;   <a href="#PyQt6.QtWidgets">PyQt6.QtWidgets</a>
+    <a href="#PyQt6.QtWidgets">PyQt6.QtWidgets</a>
  &#8226;   <a href="#PyQt6.uic">PyQt6.uic</a>
  &#8226;   <a href="#controllers.bjt_transistors_controllers">controllers.bjt_transistors_controllers</a>
  &#8226;   <a href="#core.bjt_transistor">core.bjt_transistor</a>
+ &#8226;   <a href="#core.core_helpers">core.core_helpers</a>
  &#8226;   <a href="#os">os</a>
  &#8226;   <a href="#sys">sys</a>
 
@@ -2821,6 +2817,7 @@ imported by:
     <a href="#core.bjt_amplifiers">core.bjt_amplifiers</a>
  &#8226;   <a href="#core.bjt_transistor">core.bjt_transistor</a>
  &#8226;   <a href="#core.core_helpers">core.core_helpers</a>
+ &#8226;   <a href="#core.smart_line_edit">core.smart_line_edit</a>
 
   </div>
 
@@ -2874,7 +2871,8 @@ imported by:
   <a target="code" href="///C:/Projects/ee311-transistor-calc/core/core_helpers.py" type="text/plain"><tt>core.core_helpers</tt></a>
 <span class="moduletype">SourceModule</span>  <div class="import">
 imports:
-    <a href="#core">core</a>
+    <a href="#PyQt6.QtGui">PyQt6.QtGui</a>
+ &#8226;   <a href="#core">core</a>
  &#8226;   <a href="#os">os</a>
  &#8226;   <a href="#sys">sys</a>
 
@@ -2886,8 +2884,29 @@ imported by:
  &#8226;   <a href="#controllers.bjt_amplifiers_controllers.ce_analysis_widget">controllers.bjt_amplifiers_controllers.ce_analysis_widget</a>
  &#8226;   <a href="#controllers.bjt_amplifiers_controllers.ce_design_widget">controllers.bjt_amplifiers_controllers.ce_design_widget</a>
  &#8226;   <a href="#controllers.bjt_transistors_controllers.bjt_collector_feedback_bias_widget">controllers.bjt_transistors_controllers.bjt_collector_feedback_bias_widget</a>
+ &#8226;   <a href="#controllers.bjt_transistors_controllers.bjt_emitter_fixed_bias_widget">controllers.bjt_transistors_controllers.bjt_emitter_fixed_bias_widget</a>
+ &#8226;   <a href="#controllers.bjt_transistors_controllers.bjt_voltage_divider_bias_widget">controllers.bjt_transistors_controllers.bjt_voltage_divider_bias_widget</a>
  &#8226;   <a href="#core.bjt_amplifiers">core.bjt_amplifiers</a>
  &#8226;   <a href="#core.bjt_transistor">core.bjt_transistor</a>
+
+  </div>
+
+</div>
+
+<div class="node">
+  <a name="core.smart_line_edit"></a>
+  <a target="code" href="///C:/Projects/ee311-transistor-calc/core/smart_line_edit.py" type="text/plain"><tt>core.smart_line_edit</tt></a>
+<span class="moduletype">SourceModule</span>  <div class="import">
+imports:
+    <a href="#PyQt6.QtGui">PyQt6.QtGui</a>
+ &#8226;   <a href="#PyQt6.QtWidgets">PyQt6.QtWidgets</a>
+ &#8226;   <a href="#core">core</a>
+ &#8226;   <a href="#re">re</a>
+
+  </div>
+  <div class="import">
+imported by:
+    <a href="#main_dashboard_widget.py">main_dashboard_widget.py</a>
 
   </div>
 
@@ -8929,6 +8948,7 @@ imported by:
  &#8226;   <a href="#argparse">argparse</a>
  &#8226;   <a href="#ast">ast</a>
  &#8226;   <a href="#base64">base64</a>
+ &#8226;   <a href="#core.smart_line_edit">core.smart_line_edit</a>
  &#8226;   <a href="#csv">csv</a>
  &#8226;   <a href="#dataclasses">dataclasses</a>
  &#8226;   <a href="#email._encoded_words">email._encoded_words</a>
