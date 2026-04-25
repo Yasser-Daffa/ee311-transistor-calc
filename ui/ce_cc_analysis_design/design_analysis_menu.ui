@@ -17,6 +17,9 @@
    <string notr="true">background-color: #f5f7fa;</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
+   <property name="spacing">
+    <number>0</number>
+   </property>
    <item>
     <widget class="QFrame" name="topBarFrame">
      <property name="sizePolicy">
@@ -89,7 +92,7 @@
 }</string>
           </property>
           <property name="text">
-           <string>Common Emitter (CE) Calculator</string>
+           <string>Common Emitter (CE) Design / Analysis</string>
           </property>
          </widget>
         </item>
@@ -104,7 +107,7 @@
 }</string>
           </property>
           <property name="text">
-           <string>Common Emitter calculator for analysis and design</string>
+           <string>Calculate design parameters or analyze an existing circuit</string>
           </property>
          </widget>
         </item>
@@ -158,7 +161,13 @@
         <string notr="true">QPushButton {
     background-color: #ffffff;
     border: none;
-    border-radius: 0px;
+    
+    /* Only the bottom-left is rounded */
+    border-bottom-left-radius: 8px;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+
     color: #6b7280;
     font-size: 13px;
     font-weight: 500;
@@ -172,7 +181,7 @@ QPushButton:hover {
     color: #667EEA;
 }
 
-/* While clicking → transparent */
+/* While clicking */
 QPushButton:pressed {
     background-color: transparent;
 }
@@ -183,6 +192,7 @@ QPushButton:checked {
     color: #374151;
     font-weight: 600;
 
+    /* The blue line will now follow the bottom-left curve */
     border-bottom: 3px solid #667EEA;
 }</string>
        </property>
@@ -227,7 +237,15 @@ QPushButton:checked {
         <string notr="true">QPushButton {
     background-color: #ffffff;
     border: none;
-    border-radius: 0px;
+    
+    /* Rounding both bottom corners */
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    
+    /* Keeping top corners sharp */
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+
     color: #6b7280;
     font-size: 13px;
     font-weight: 500;
@@ -241,7 +259,7 @@ QPushButton:hover {
     color: #667EEA;
 }
 
-/* While clicking → transparent */
+/* While clicking */
 QPushButton:pressed {
     background-color: transparent;
 }
@@ -252,6 +270,7 @@ QPushButton:checked {
     color: #374151;
     font-weight: 600;
 
+    /* The blue line now wraps around both bottom curves */
     border-bottom: 3px solid #667EEA;
 }</string>
        </property>
@@ -361,7 +380,7 @@ QScrollBar::sub-page:horizontal {
         <x>0</x>
         <y>0</y>
         <width>782</width>
-        <height>450</height>
+        <height>462</height>
        </rect>
       </property>
       <layout class="QHBoxLayout" name="horizontalLayout_2">
