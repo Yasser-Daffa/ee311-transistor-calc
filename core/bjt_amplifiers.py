@@ -16,6 +16,7 @@ from core.core_helpers import _check
 
 VT_DEFAULT = 0.025
 VBE_DEFAULT = 0.7
+VCE_SAT = 0.8
 
 
 def parallel(*values):
@@ -290,8 +291,27 @@ def analyze_ce_general(
     else:
         AvT_signed = Av0_signed * ko * input_factor
         AvT = abs(AvT_signed)
-
+    
+    # Output voltage depends on Vs and AvT, so only defined if both are provided.
     Vo = AvT * Vs if (Vs is not None and AvT is not None) else None
+
+
+    # Vs allowable range before clipping
+    swing_up = Vcc - Vc          # collector can swing upward toward Vcc
+    swing_down = max(0.0, Vc - Ve - VCE_SAT)         # collector can swing downward toward emitter
+
+    if AvT_signed is None or AvT_signed == 0:
+        Vs_min = None
+        Vs_max = None
+    else:
+        # output_signal = AvT_signed * input_signal
+        a = AvT_signed
+
+        low1 = -swing_down / a
+        high1 = swing_up / a
+
+        Vs_min = min(low1, high1)
+        Vs_max = max(low1, high1)
 
     if RL is None:
         avt_min = avt_max = vo_min = vo_max = None
@@ -325,7 +345,9 @@ def analyze_ce_general(
         "Av0_signed": Av0_signed,
         "AvT": AvT,
         "AvT_signed": AvT_signed,
-        "Vo": Vo,
+        "Vo": Vo,                         # actual output if Vs is entered
+        "Vs_min": Vs_min,     # maximum possible output swing before clipping, based on bias point
+        "Vs_max": Vs_max,                 # maximum input signal amplitude for given bias point and AvT before clipping occurs
         "input_factor": input_factor,
         "rx_min": rx_min,
         "rx_max": rx_max,

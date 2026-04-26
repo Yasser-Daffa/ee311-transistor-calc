@@ -205,6 +205,9 @@ class CEAnalysisWidget(QWidget):
         self._set_label("labelRiMax", fmt(r["ri_max"], "Ω"))
         self._set_label("labelRxMin", fmt(r["rx_min"], "Ω"))
         self._set_label("labelRxMax", fmt(r["rx_max"], "Ω"))
+        self._set_label("labelVsMax", _fmt_val(r.get("Vs_max"), "V"))
+        self._set_label("labelVsMin", _fmt_val(r.get("Vs_min"), "V"))
+
 
     def _set_label(self, name, text):
         if hasattr(self, name):

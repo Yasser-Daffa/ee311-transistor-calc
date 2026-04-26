@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1007</width>
+    <width>1081</width>
     <height>700</height>
    </rect>
   </property>
@@ -18,7 +18,7 @@
   </property>
   <property name="minimumSize">
    <size>
-    <width>1000</width>
+    <width>1080</width>
     <height>700</height>
    </size>
   </property>
@@ -1687,7 +1687,7 @@ QPushButton:disabled {
         <widget class="QFrame" name="frameLimitsTable">
          <property name="minimumSize">
           <size>
-           <width>200</width>
+           <width>300</width>
            <height>0</height>
           </size>
          </property>
