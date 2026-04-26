@@ -31,6 +31,14 @@ class CCDesignWidget(QWidget):
 
         self.labelCircuitTitle.setText("Common Collector (CC)")
 
+
+        # hide limit rows (unused in cc)
+        self.frameLimRow1.setVisible(False)
+        self.frameLimRow2.setVisible(False)
+        self.frameLimRow3.setVisible(False)
+        self.labelLimitsTitle.setText("Limits not available for CC mode")
+
+
         # live calculation
         for field in [self.lineEditVcc, self.lineEditIcmax, self.lineEditBeta]:
             field.textChanged.connect(self.calculate)

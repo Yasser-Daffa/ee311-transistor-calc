@@ -16,11 +16,13 @@ class CEAnalysisWidget(QWidget):
         super().__init__(parent)
         loadUi(UI_PATH, self)
 
-        self.mode = "given_rx"
+        # No given-mode is selected by default.
+        # If no button is checked, the choice row is hidden and Rx defaults to 0 for normal analysis.
+        self.mode = None
 
         self._setup_validators()
         self._setup_connections()
-        self._set_choice_ui("<b>R<sub>X</sub></b>", "Emitter bypass resistor", "kΩ")
+        self._update_choice_visibility()
         self._clear_outputs_only()
         self._set_mode("— awaiting input —", "#e8eaf6", "#3d3d9e")
 
@@ -81,16 +83,54 @@ class CEAnalysisWidget(QWidget):
             "pushButtonGivenAvt":  ("given_avt", "<b>Avt</b>",  "Total voltage gain", ""),
         }
 
+        self._given_buttons = []
+
         for btn_name, data in button_map.items():
             if hasattr(self, btn_name):
-                getattr(self, btn_name).clicked.connect(
-                    lambda checked=False, d=data: self._select_given_mode(*d)
+                btn = getattr(self, btn_name)
+                btn.setCheckable(True)
+                btn.setAutoExclusive(False)
+                self._given_buttons.append(btn)
+                btn.clicked.connect(
+                    lambda checked=False, d=data, b=btn: self._select_given_mode(*d, button=b, checked=checked)
                 )
 
-    def _select_given_mode(self, mode, symbol, desc, unit):
+    def _select_given_mode(self, mode, symbol, desc, unit, button=None, checked=True):
+        # If this button was already the active mode, clicking it again turns mode OFF.
+        if button is not None and self.mode == mode:
+            self.mode = None
+
+            # uncheck ALL buttons (fixes visual bug)
+            for btn in getattr(self, "_given_buttons", []):
+                btn.setChecked(False)
+
+            self._update_choice_visibility()
+            self.calculate()
+            return
+
+        # Otherwise, turn this mode ON and uncheck all other buttons.
         self.mode = mode
+
+        if button is not None:
+            for btn in getattr(self, "_given_buttons", []):
+                btn.setChecked(btn is button)
+
         self._set_choice_ui(symbol, desc, unit)
+        self._update_choice_visibility()
         self.calculate()
+
+    def _update_choice_visibility(self):
+        show = self.mode is not None
+
+        for name in [
+            "labelChoiceSymbol",
+            "labelChoiceInfo",
+            "lineEditChoice",
+            "labelChoiceUnit",
+            "labelChocieUnit",  # for your typo version, if it still exists
+        ]:
+            if hasattr(self, name):
+                getattr(self, name).setVisible(show)
 
     def _set_choice_ui(self, symbol, desc, unit):
         if hasattr(self, "labelChoiceSymbol"):
@@ -123,7 +163,9 @@ class CEAnalysisWidget(QWidget):
 
         choice_text = self.lineEditChoice.text().strip()
 
-        if choice_text == "":
+        if self.mode is None:
+            choice = 0.0
+        elif choice_text == "":
             choice = 0.0
         else:
             choice = float(choice_text)
@@ -152,7 +194,7 @@ class CEAnalysisWidget(QWidget):
                 Re=re,
                 Rs=rs,
                 RL=rl,
-                mode=self.mode,
+                mode=self.mode or "given_rx",
                 choice_value=choice,
             )
         except ValueError as e:
@@ -235,6 +277,8 @@ class CEAnalysisWidget(QWidget):
             "labelRiMax",
             "labelRxMin",
             "labelRxMax",
+            "labelVsMin",
+            "labelVsMax",
         ]:
             self._set_label(name, "-")
 
@@ -242,6 +286,12 @@ class CEAnalysisWidget(QWidget):
         for w in self.findChildren(QLineEdit):
             w.clear()
 
+        self.mode = None
+
+        for btn in getattr(self, "_given_buttons", []):
+            btn.setChecked(False)
+
+        self._update_choice_visibility()
         self._clear_outputs_only()
         self._set_mode("— awaiting input —", "#e8eaf6", "#3d3d9e")
 

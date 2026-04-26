@@ -21,7 +21,14 @@ class CCAnalysisWidget(QWidget):
         self._setup_cc_ui()
         self._clear_outputs_only()
         self._set_mode("— awaiting input —", "#e8eaf6", "#3d3d9e")
-        
+
+
+        # hide limit rows (unused in cc)
+        self.frameLimRow1.setVisible(False)
+        self.frameLimRow2.setVisible(False)
+        self.frameLimRow3.setVisible(False)
+        self.frameLimRow4.setVisible(False)
+        self.labelLimitsTitle.setText("Limits not available for CC mode")
 
     def _setup_validators(self):
         signed_fields = [
@@ -158,13 +165,14 @@ class CCAnalysisWidget(QWidget):
         self._set_label("labelOutputAvt",  _fmt_gain(r["AvT"]))
         self._set_label("labelOutputAvot", _fmt_gain(r.get("Av_loaded")))
 
-        # Limits
+        # Limits (unused in CC, but we can still show Av0 and Ri limits if RL is connected)
         self._set_label("labelAvoMin", _fmt_gain(r["av0_min"]))
         self._set_label("labelAvoMax", _fmt_gain(r["av0_max"]))
         self._set_label("labelRiMin",  _fmt_val(r["ri_min"], "Ω"))
         self._set_label("labelRiMax",  _fmt_val(r["ri_max"], "Ω"))
         self._set_label("labelRxMin",  "—")
         self._set_label("labelRxMax",  "—")
+
 
     def _set_label(self, name, text):
         if hasattr(self, name):

@@ -478,14 +478,14 @@ def analyze_cc_general(*, Vcc, beta, Rb, Re, Rs=None, RL=None, Vs=None, VT=VT_DE
     else:
         Ko = RL / (RL + Ro)
 
-    # AvT needs both RL (for Av0, Ri) and Rs (for input_factor, Ko).
+    # AvT needs RL for Av0/Ri and Rs for input_factor.
     if Ri is None or Rs is None or Ko is None:
         input_factor = None
         AvT = None
     else:
         # Rs=0: ideal source, full input voltage reaches base
         input_factor = 1.0 if Rs == 0 else Ri / (Rs + Ri)
-        AvT = Av0 * input_factor * Ko   # Av0 already accounts for Re||RL loading
+        AvT = Av0 * input_factor   # Av0 already accounts for Re||RL loading
 
     Vo = AvT * Vs if (Vs is not None and AvT is not None) else None
 
