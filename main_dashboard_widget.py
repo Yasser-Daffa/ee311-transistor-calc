@@ -10,6 +10,7 @@ from PyQt6.uic import loadUi
 from controllers.bjt_transistors_controllers.bjt_topologies_widget import BJTTopologiesWidget
 from controllers.bjt_amplifiers_controllers.ce_design_analysis_menu_widget import CEDesignAnalysisMenuWidget
 from controllers.bjt_amplifiers_controllers.cc_design_analysis_menu_widget import CCDesignAnalysisMenuWidget
+from controllers.bjt_multistage_controllers.multistage_choices_widget import MultistageChoicesWidget
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 UI_PATH = os.path.join(BASE_DIR, "ui", "main_dashboard.ui")
@@ -23,8 +24,9 @@ class MainDashboardWidget(QMainWindow):
         self._embed(self.page0BjtTransistor, BJTTopologiesWidget())
         self._embed(self.page1CommonEmitter, CEDesignAnalysisMenuWidget())
         self._embed(self.page2CommonCollector, CCDesignAnalysisMenuWidget())
+        self._embed(self.page3MultiStage, MultistageChoicesWidget())
 
-        self.add_placeholder(self.page3MultiStage, "Multi-Stage Amplifiers Under Development!")
+        # self.add_placeholder(self.page3MultiStage, "Multi-Stage Amplifiers Under Development!")
         self.add_placeholder(self.page4FrequencyCalculations, "Frequency Under Development!")
         self.add_placeholder(self.page5Mosfets, "MOSFETs Under Development!")
 

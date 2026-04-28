@@ -127,7 +127,6 @@ class CEAnalysisWidget(QWidget):
             "labelChoiceInfo",
             "lineEditChoice",
             "labelChoiceUnit",
-            "labelChocieUnit",  # for your typo version, if it still exists
         ]:
             if hasattr(self, name):
                 getattr(self, name).setVisible(show)
@@ -141,10 +140,6 @@ class CEAnalysisWidget(QWidget):
 
         if hasattr(self, "labelChoiceUnit"):
             self.labelChoiceUnit.setText(unit)
-
-        # for your typo version, if it still exists
-        if hasattr(self, "labelChocieUnit"):
-            self.labelChocieUnit.setText(unit)
 
     def _read_inputs(self):
         vcc = float(self.lineEditVcc.text())
