@@ -1,0 +1,5 @@
+<RCC>
+  <qresource prefix="transistors">
+    <file>fixed_bias.png</file>
+  </qresource>
+</RCC>

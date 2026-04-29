@@ -1,0 +1,4346 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Form</class>
+ <widget class="QWidget" name="Form">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1174</width>
+    <height>1110</height>
+   </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>1100</width>
+    <height>1110</height>
+   </size>
+  </property>
+  <property name="mouseTracking">
+   <bool>false</bool>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: #f5f7fa;</string>
+  </property>
+  <layout class="QGridLayout" name="gridLayout">
+   <property name="leftMargin">
+    <number>0</number>
+   </property>
+   <property name="topMargin">
+    <number>0</number>
+   </property>
+   <property name="rightMargin">
+    <number>20</number>
+   </property>
+   <property name="bottomMargin">
+    <number>0</number>
+   </property>
+   <property name="spacing">
+    <number>20</number>
+   </property>
+   <item row="0" column="0" rowspan="2">
+    <widget class="QFrame" name="frame">
+     <property name="minimumSize">
+      <size>
+       <width>250</width>
+       <height>0</height>
+      </size>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QFrame { background-color: #ffffff; border-right: 1px solid #e5e7eb; }</string>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::Shape::StyledPanel</enum>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Shadow::Raised</enum>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout">
+      <property name="spacing">
+       <number>14</number>
+      </property>
+      <property name="leftMargin">
+       <number>20</number>
+      </property>
+      <property name="topMargin">
+       <number>24</number>
+      </property>
+      <property name="rightMargin">
+       <number>20</number>
+      </property>
+      <property name="bottomMargin">
+       <number>20</number>
+      </property>
+      <item>
+       <widget class="QLabel" name="labelInput">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QLabel {
+    color: #374151;
+    font-size: 13px;
+    font-weight: 600;
+	background-color: transparent;
+    padding-bottom: 4px;
+    border: none;
+    border-bottom: 2px solid #6D63E8;
+	
+	
+	font: 13pt &quot;Rockwell&quot;;
+}</string>
+        </property>
+        <property name="text">
+         <string>BJT PARAMETERS</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout_8">
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout">
+          <property name="sizeConstraint">
+           <enum>QLayout::SizeConstraint::SetDefaultConstraint</enum>
+          </property>
+          <item>
+           <widget class="QLabel" name="labelVcc">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>50</width>
+              <height>20</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QLabel {
+    color: rgb(80, 80, 80);                  /* soft dark gray */
+    font-size: 16px;
+    font-weight: 500;
+    font-family: &quot;Segoe UI&quot;, &quot;Roboto&quot;, sans-serif;
+}</string>
+            </property>
+            <property name="text">
+             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt; font-weight:700;&quot;&gt;Vcc&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="labelSupplyVoltage">
+            <property name="minimumSize">
+             <size>
+              <width>100</width>
+              <height>20</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QLabel {
+    color: rgb(80, 80, 80);                  /* soft dark gray */
+    font-size: 14px;
+    font-weight: 500;
+    font-family: &quot;Segoe UI&quot;, &quot;Roboto&quot;, sans-serif;
+}</string>
+            </property>
+            <property name="text">
+             <string>Supply Voltage    </string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="SmartLineEdit" name="lineEditVcc">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>100</width>
+              <height>15</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>200</width>
+              <height>30</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QLineEdit {
+    background-color: #ffffff;
+    border: 1px solid #d1d5db;
+    border-radius: 5px;
+
+    padding: 6px 8px;
+
+    color: #111827;
+    font-size: 13px;
+    font-family: &quot;JetBrains Mono&quot;, &quot;Consolas&quot;, monospace;
+}
+
+QLineEdit:focus {
+    border: 1px solid #667EEA;
+    background-color: #f9fafb;
+}</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <widget class="QLabel" name="labelV_1">
+          <property name="minimumSize">
+           <size>
+            <width>22</width>
+            <height>33</height>
+           </size>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QLabel {
+    color: rgb(80, 80, 80);                  /* soft dark gray */
+    font-size: 14px;
+    font-weight: 500;
+    font-family: &quot;Segoe UI&quot;, &quot;Roboto&quot;, sans-serif;
+}</string>
+          </property>
+          <property name="text">
+           <string>V</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout_9">
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_2">
+          <item>
+           <widget class="QLabel" name="labelIcmax">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>50</width>
+              <height>20</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QLabel {
+    color: rgb(80, 80, 80);                  /* soft dark gray */
+    font-size: 16px;
+    font-weight: 500;
+    font-family: &quot;Segoe UI&quot;, &quot;Roboto&quot;, sans-serif;
+}</string>
+            </property>
+            <property name="text">
+             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt; font-weight:700;&quot;&gt;Icmax&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="labelCollectorCurrent">
+            <property name="minimumSize">
+             <size>
+              <width>100</width>
+              <height>20</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QLabel {
+    color: rgb(80, 80, 80);                  /* soft dark gray */
+    font-size: 14px;
+    font-weight: 500;
+    font-family: &quot;Segoe UI&quot;, &quot;Roboto&quot;, sans-serif;
+}</string>
+            </property>
+            <property name="text">
+             <string>Collector Current </string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="SmartLineEdit" name="lineEditIcmax">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>100</width>
+              <height>15</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>200</width>
+              <height>30</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QLineEdit {
+    background-color: #ffffff;
+    border: 1px solid #d1d5db;
+    border-radius: 5px;
+
+    padding: 6px 8px;
+
+    color: #111827;
+    font-size: 13px;
+    font-family: &quot;JetBrains Mono&quot;, &quot;Consolas&quot;, monospace;
+}
+
+QLineEdit:focus {
+    border: 1px solid #667EEA;
+    background-color: #f9fafb;
+}</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <widget class="QLabel" name="labelmA">
+          <property name="minimumSize">
+           <size>
+            <width>22</width>
+            <height>33</height>
+           </size>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QLabel {
+    color: rgb(80, 80, 80);                  /* soft dark gray */
+    font-size: 14px;
+    font-weight: 500;
+    font-family: &quot;Segoe UI&quot;, &quot;Roboto&quot;, sans-serif;
+}</string>
+          </property>
+          <property name="text">
+           <string>mA</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout_14">
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_4">
+          <item>
+           <widget class="QLabel" name="labelBeta">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>50</width>
+              <height>20</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QLabel {
+    color: rgb(80, 80, 80);                  /* soft dark gray */
+    font-size: 16px;
+    font-weight: 500;
+    font-family: &quot;Segoe UI&quot;, &quot;Roboto&quot;, sans-serif;
+}</string>
+            </property>
+            <property name="text">
+             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt; font-weight:700;&quot;&gt;β&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="labelGain">
+            <property name="minimumSize">
+             <size>
+              <width>100</width>
+              <height>20</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QLabel {
+    color: rgb(80, 80, 80);                  /* soft dark gray */
+    font-size: 14px;
+    font-weight: 500;
+    font-family: &quot;Segoe UI&quot;, &quot;Roboto&quot;, sans-serif;
+}</string>
+            </property>
+            <property name="text">
+             <string>Gain                    </string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="SmartLineEdit" name="lineEditBeta">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>100</width>
+              <height>15</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>200</width>
+              <height>30</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QLineEdit {
+    background-color: #ffffff;
+    border: 1px solid #d1d5db;
+    border-radius: 5px;
+
+    padding: 6px 8px;
+
+    color: #111827;
+    font-size: 13px;
+    font-family: &quot;JetBrains Mono&quot;, &quot;Consolas&quot;, monospace;
+}
+
+QLineEdit:focus {
+    border: 1px solid #667EEA;
+    background-color: #f9fafb;
+}</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <widget class="QLabel" name="labelHiddenForB">
+          <property name="minimumSize">
+           <size>
+            <width>22</width>
+            <height>33</height>
+           </size>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QLabel {
+    color: rgb(80, 80, 80);                  /* soft dark gray */
+    font-size: 14px;
+    font-weight: 500;
+    font-family: &quot;Segoe UI&quot;, &quot;Roboto&quot;, sans-serif;
+}</string>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout_15">
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_5">
+          <item>
+           <widget class="QLabel" name="labelRi">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>50</width>
+              <height>20</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QLabel {
+    color: rgb(80, 80, 80);                  /* soft dark gray */
+    font-size: 16px;
+    font-weight: 500;
+    font-family: &quot;Segoe UI&quot;, &quot;Roboto&quot;, sans-serif;
+}</string>
+            </property>
+            <property name="text">
+             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt; font-weight:700;&quot;&gt;R&lt;/span&gt;&lt;span style=&quot; font-size:12pt; font-weight:700; vertical-align:sub;&quot;&gt;i&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="labelInputResistor">
+            <property name="minimumSize">
+             <size>
+              <width>100</width>
+              <height>20</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QLabel {
+    color: rgb(80, 80, 80);                  /* soft dark gray */
+    font-size: 14px;
+    font-weight: 500;
+    font-family: &quot;Segoe UI&quot;, &quot;Roboto&quot;, sans-serif;
+}</string>
+            </property>
+            <property name="text">
+             <string>Input Resistor      </string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="SmartLineEdit" name="lineEditRi">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>100</width>
+              <height>15</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>200</width>
+              <height>30</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QLineEdit {
+    background-color: #ffffff;
+    border: 1px solid #d1d5db;
+    border-radius: 5px;
+
+    padding: 6px 8px;
+
+    color: #111827;
+    font-size: 13px;
+    font-family: &quot;JetBrains Mono&quot;, &quot;Consolas&quot;, monospace;
+}
+
+QLineEdit:focus {
+    border: 1px solid #667EEA;
+    background-color: #f9fafb;
+}</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <widget class="QLabel" name="labelRsUnit_2">
+          <property name="minimumSize">
+           <size>
+            <width>22</width>
+            <height>33</height>
+           </size>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QLabel {
+    color: rgb(80, 80, 80);                  /* soft dark gray */
+    font-size: 14px;
+    font-weight: 500;
+    font-family: &quot;Segoe UI&quot;, &quot;Roboto&quot;, sans-serif;
+}</string>
+          </property>
+          <property name="text">
+           <string>kΩ</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <layout class="QVBoxLayout" name="verticalLayout_4">
+        <property name="spacing">
+         <number>10</number>
+        </property>
+        <item>
+         <widget class="QFrame" name="div2">
+          <property name="styleSheet">
+           <string notr="true">color:#e5e7eb;</string>
+          </property>
+          <property name="frameShape">
+           <enum>QFrame::Shape::HLine</enum>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="labelBjtHead">
+          <property name="styleSheet">
+           <string notr="true">font: 600 9pt 'Segoe UI'; color: #6b7280; letter-spacing: 1px;</string>
+          </property>
+          <property name="text">
+           <string>DESIGN TARGET</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="_2">
+          <property name="spacing">
+           <number>6</number>
+          </property>
+          <item>
+           <widget class="QPushButton" name="pushButtonModeAv0">
+            <property name="minimumSize">
+             <size>
+              <width>50</width>
+              <height>25</height>
+             </size>
+            </property>
+            <property name="cursor">
+             <cursorShape>PointingHandCursor</cursorShape>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QPushButton{background:#667eea;color:white;border-radius:5px;font:700 8pt 'Segoe UI';padding:4px 8px;border:none;}QPushButton:!checked{background:#e8eaf6;color:#374151;}</string>
+            </property>
+            <property name="text">
+             <string>Av0</string>
+            </property>
+            <property name="checkable">
+             <bool>true</bool>
+            </property>
+            <property name="checked">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="pushButtonModeAvt">
+            <property name="minimumSize">
+             <size>
+              <width>50</width>
+              <height>25</height>
+             </size>
+            </property>
+            <property name="cursor">
+             <cursorShape>PointingHandCursor</cursorShape>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QPushButton{background:#e8eaf6;color:#374151;border-radius:5px;font:700 8pt 'Segoe UI';padding:4px 8px;border:none;}QPushButton:checked{background:#667eea;color:white;}</string>
+            </property>
+            <property name="text">
+             <string>AvT</string>
+            </property>
+            <property name="checkable">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer>
+            <property name="orientation">
+             <enum>Qt::Orientation::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>0</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_16">
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_6">
+            <item>
+             <widget class="QLabel" name="labelBeta_3">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="minimumSize">
+               <size>
+                <width>50</width>
+                <height>20</height>
+               </size>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">QLabel {
+    color: rgb(80, 80, 80);                  /* soft dark gray */
+    font-size: 16px;
+    font-weight: 500;
+    font-family: &quot;Segoe UI&quot;, &quot;Roboto&quot;, sans-serif;
+}</string>
+              </property>
+              <property name="text">
+               <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt; font-weight:700;&quot;&gt;Av0&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="labelGain_3">
+              <property name="minimumSize">
+               <size>
+                <width>100</width>
+                <height>20</height>
+               </size>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">QLabel {
+    color: rgb(80, 80, 80);                  /* soft dark gray */
+    font-size: 14px;
+    font-weight: 500;
+    font-family: &quot;Segoe UI&quot;, &quot;Roboto&quot;, sans-serif;
+}</string>
+              </property>
+              <property name="text">
+               <string>Internal Gain         </string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="SmartLineEdit" name="lineEditAv0">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="minimumSize">
+               <size>
+                <width>100</width>
+                <height>15</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>200</width>
+                <height>30</height>
+               </size>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">QLineEdit {
+    background-color: #ffffff;
+    border: 1px solid #d1d5db;
+    border-radius: 5px;
+
+    padding: 6px 8px;
+
+    color: #111827;
+    font-size: 13px;
+    font-family: &quot;JetBrains Mono&quot;, &quot;Consolas&quot;, monospace;
+}
+
+QLineEdit:focus {
+    border: 1px solid #667EEA;
+    background-color: #f9fafb;
+}</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <widget class="QLabel" name="labelHiddenForB_3">
+            <property name="minimumSize">
+             <size>
+              <width>22</width>
+              <height>33</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QLabel {
+    color: rgb(80, 80, 80);                  /* soft dark gray */
+    font-size: 14px;
+    font-weight: 500;
+    font-family: &quot;Segoe UI&quot;, &quot;Roboto&quot;, sans-serif;
+}</string>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <widget class="QFrame" name="div2_2">
+          <property name="styleSheet">
+           <string notr="true">color:#e5e7eb;</string>
+          </property>
+          <property name="frameShape">
+           <enum>QFrame::Shape::HLine</enum>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="labelBjtHead_2">
+          <property name="styleSheet">
+           <string notr="true">font: 600 9pt 'Segoe UI'; color: #6b7280; letter-spacing: 1px;</string>
+          </property>
+          <property name="text">
+           <string>OPTIONAL</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_41">
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_42">
+            <item>
+             <widget class="QLabel" name="labelRs">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="minimumSize">
+               <size>
+                <width>50</width>
+                <height>20</height>
+               </size>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">QLabel {
+    color: rgb(80, 80, 80);                  /* soft dark gray */
+    font-size: 16px;
+    font-weight: 500;
+    font-family: &quot;Segoe UI&quot;, &quot;Roboto&quot;, sans-serif;
+}</string>
+              </property>
+              <property name="text">
+               <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt; font-weight:700;&quot;&gt;R&lt;/span&gt;&lt;span style=&quot; font-size:12pt; font-weight:700; vertical-align:sub;&quot;&gt;S&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="labelRsInfo">
+              <property name="minimumSize">
+               <size>
+                <width>150</width>
+                <height>20</height>
+               </size>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">QLabel {
+    color: rgb(80, 80, 80);                  /* soft dark gray */
+    font-size: 14px;
+    font-weight: 500;
+    font-family: &quot;Segoe UI&quot;, &quot;Roboto&quot;, sans-serif;
+}</string>
+              </property>
+              <property name="text">
+               <string>Source Resistance          </string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="SmartLineEdit" name="lineEditRs">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="minimumSize">
+               <size>
+                <width>100</width>
+                <height>15</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>200</width>
+                <height>30</height>
+               </size>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">QLineEdit {
+    background-color: #ffffff;
+    border: 1px solid #d1d5db;
+    border-radius: 5px;
+
+    padding: 6px 8px;
+
+    color: #111827;
+    font-size: 13px;
+    font-family: &quot;JetBrains Mono&quot;, &quot;Consolas&quot;, monospace;
+}
+
+QLineEdit:focus {
+    border: 1px solid #667EEA;
+    background-color: #f9fafb;
+}</string>
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+              <property name="placeholderText">
+               <string>Optional</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <widget class="QLabel" name="labelRsUnit">
+            <property name="minimumSize">
+             <size>
+              <width>22</width>
+              <height>33</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QLabel {
+    color: rgb(80, 80, 80);                  /* soft dark gray */
+    font-size: 14px;
+    font-weight: 500;
+    font-family: &quot;Segoe UI&quot;, &quot;Roboto&quot;, sans-serif;
+}</string>
+            </property>
+            <property name="text">
+             <string>kΩ</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_43">
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_44">
+            <item>
+             <widget class="QLabel" name="labelRl">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="minimumSize">
+               <size>
+                <width>50</width>
+                <height>20</height>
+               </size>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">QLabel {
+    color: rgb(80, 80, 80);                  /* soft dark gray */
+    font-size: 16px;
+    font-weight: 500;
+    font-family: &quot;Segoe UI&quot;, &quot;Roboto&quot;, sans-serif;
+}</string>
+              </property>
+              <property name="text">
+               <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt; font-weight:700;&quot;&gt;R&lt;/span&gt;&lt;span style=&quot; font-size:12pt; font-weight:700; vertical-align:sub;&quot;&gt;L&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="labelRlInfo">
+              <property name="minimumSize">
+               <size>
+                <width>150</width>
+                <height>20</height>
+               </size>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">QLabel {
+    color: rgb(80, 80, 80);                  /* soft dark gray */
+    font-size: 14px;
+    font-weight: 500;
+    font-family: &quot;Segoe UI&quot;, &quot;Roboto&quot;, sans-serif;
+}</string>
+              </property>
+              <property name="text">
+               <string>Load Resistance             </string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="SmartLineEdit" name="lineEditRl">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="minimumSize">
+               <size>
+                <width>100</width>
+                <height>15</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>200</width>
+                <height>30</height>
+               </size>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">QLineEdit {
+    background-color: #ffffff;
+    border: 1px solid #d1d5db;
+    border-radius: 5px;
+
+    padding: 6px 8px;
+
+    color: #111827;
+    font-size: 13px;
+    font-family: &quot;JetBrains Mono&quot;, &quot;Consolas&quot;, monospace;
+}
+
+QLineEdit:focus {
+    border: 1px solid #667EEA;
+    background-color: #f9fafb;
+}</string>
+              </property>
+              <property name="placeholderText">
+               <string>Optional</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <widget class="QLabel" name="labelRlUnit">
+            <property name="minimumSize">
+             <size>
+              <width>22</width>
+              <height>33</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QLabel {
+    color: rgb(80, 80, 80);                  /* soft dark gray */
+    font-size: 14px;
+    font-weight: 500;
+    font-family: &quot;Segoe UI&quot;, &quot;Roboto&quot;, sans-serif;
+}</string>
+            </property>
+            <property name="text">
+             <string>kΩ</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_45">
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_46">
+            <item>
+             <widget class="QLabel" name="labelVs">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="minimumSize">
+               <size>
+                <width>50</width>
+                <height>20</height>
+               </size>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">QLabel {
+    color: rgb(80, 80, 80);                  /* soft dark gray */
+    font-size: 16px;
+    font-weight: 500;
+    font-family: &quot;Segoe UI&quot;, &quot;Roboto&quot;, sans-serif;
+}</string>
+              </property>
+              <property name="text">
+               <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt; font-weight:700;&quot;&gt;V&lt;/span&gt;&lt;span style=&quot; font-size:12pt; font-weight:700; vertical-align:sub;&quot;&gt;S&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="labelVsInfo">
+              <property name="minimumSize">
+               <size>
+                <width>150</width>
+                <height>20</height>
+               </size>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">QLabel {
+    color: rgb(80, 80, 80);                  /* soft dark gray */
+    font-size: 14px;
+    font-weight: 500;
+    font-family: &quot;Segoe UI&quot;, &quot;Roboto&quot;, sans-serif;
+}</string>
+              </property>
+              <property name="text">
+               <string>Input Signal Voltage</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="SmartLineEdit" name="lineEditVs">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="minimumSize">
+               <size>
+                <width>100</width>
+                <height>15</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>200</width>
+                <height>30</height>
+               </size>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">QLineEdit {
+    background-color: #ffffff;
+    border: 1px solid #d1d5db;
+    border-radius: 5px;
+
+    padding: 6px 8px;
+
+    color: #111827;
+    font-size: 13px;
+    font-family: &quot;JetBrains Mono&quot;, &quot;Consolas&quot;, monospace;
+}
+
+QLineEdit:focus {
+    border: 1px solid #667EEA;
+    background-color: #f9fafb;
+}</string>
+              </property>
+              <property name="placeholderText">
+               <string>Optional</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <widget class="QLabel" name="labelVsUnit">
+            <property name="minimumSize">
+             <size>
+              <width>22</width>
+              <height>33</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QLabel {
+    color: rgb(80, 80, 80);                  /* soft dark gray */
+    font-size: 14px;
+    font-weight: 500;
+    font-family: &quot;Segoe UI&quot;, &quot;Roboto&quot;, sans-serif;
+}</string>
+            </property>
+            <property name="text">
+             <string>V</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <spacer name="verticalSpacer_3">
+          <property name="orientation">
+           <enum>Qt::Orientation::Vertical</enum>
+          </property>
+          <property name="sizeType">
+           <enum>QSizePolicy::Policy::MinimumExpanding</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>20</width>
+            <height>30</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item>
+         <widget class="QPushButton" name="pushButtonClear">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>400</width>
+            <height>35</height>
+           </size>
+          </property>
+          <property name="cursor">
+           <cursorShape>PointingHandCursor</cursorShape>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QPushButton {
+    background-color: #f5576c;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600; /* 'Semi-bold' for the Inter font vibe */
+    padding: 10px 20px;
+}
+
+QPushButton:hover {
+    background-color: #e5475c;
+}
+
+QPushButton:pressed {
+    background-color: #d93f53; /* slightly darker for click feedback */
+}
+
+QPushButton:disabled {
+    background-color: #e0e0e0;
+    color: #999999;
+}
+</string>
+          </property>
+          <property name="text">
+           <string>Clear</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <spacer name="verticalSpacer_7">
+          <property name="orientation">
+           <enum>Qt::Orientation::Vertical</enum>
+          </property>
+          <property name="sizeType">
+           <enum>QSizePolicy::Policy::Fixed</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>20</width>
+            <height>30</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item>
+         <widget class="QLabel" name="labelCircuitTitle">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>230</width>
+            <height>16777215</height>
+           </size>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QLabel {
+    color: #374151;
+    font-size: 13px;
+    font-weight: 600;
+	background-color: transparent;
+    padding-bottom: 4px;
+    border: none;
+    border-bottom: 2px solid #6D63E8;
+	
+	
+	font: 13pt &quot;Rockwell&quot;;
+}</string>
+          </property>
+          <property name="text">
+           <string>CC-CE Circuit</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="labelCircuitImage">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>370</width>
+            <height>300</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>350</width>
+            <height>300</height>
+           </size>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QLabel {
+    color: #374151;
+    font-size: 13px;
+    font-weight: 600;
+	background-color: transparent;
+    border: none;
+	
+	
+	font: 13pt &quot;Rockwell&quot;;
+}</string>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+          <property name="pixmap">
+           <pixmap>../../assets/images/danger_placeholder.jpg</pixmap>
+          </property>
+          <property name="scaledContents">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <spacer name="verticalSpacer_2">
+        <property name="orientation">
+         <enum>Qt::Orientation::Vertical</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>369</width>
+          <height>6</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item row="1" column="2">
+    <layout class="QVBoxLayout" name="verticalLayout_12">
+     <property name="spacing">
+      <number>10</number>
+     </property>
+     <item>
+      <layout class="QVBoxLayout" name="verticalLayout_8">
+       <item>
+        <widget class="QLabel" name="labelStage2Output">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QLabel {
+    color: #374151;
+    font-size: 13px;
+    font-weight: 600;
+	background-color: transparent;
+    padding-bottom: 4px;
+    border: none;
+    border-bottom: 2px solid #6D63E8;
+	
+	
+	font: 13pt &quot;Rockwell&quot;;
+}</string>
+         </property>
+         <property name="text">
+          <string>STAGE 2 OUTPUT: CE</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QFrame" name="frameStage2Outputs">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>120</width>
+           <height>80</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>16777215</width>
+           <height>16777215</height>
+          </size>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background-color: #f8fafc;
+color: #334155;
+border-radius: 8px;
+border: 1px solid #e2e8f0;
+border-bottom: 3px solid #94a3b8;
+font-family: 'Inter', sans-serif;</string>
+         </property>
+         <property name="frameShape">
+          <enum>QFrame::Shape::StyledPanel</enum>
+         </property>
+         <layout class="QVBoxLayout" name="verticalLayout_9">
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_13">
+            <item>
+             <widget class="QLabel" name="labelIconRx_2">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="minimumSize">
+               <size>
+                <width>60</width>
+                <height>25</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>50</width>
+                <height>50</height>
+               </size>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">QLabel {
+    color: #374151;             /* The dark charcoal text from Image 1 */
+    font-family: &quot;Rockwell&quot;;    /* The serif font from Image 1 */
+    font-size: 13pt;
+    font-weight: bold;
+    background: transparent;    /* Crucial for the Image 2 flat look */
+    border: none;
+}</string>
+              </property>
+              <property name="text">
+               <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;R&lt;span style=&quot; vertical-align:sub;&quot;&gt;X 2&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignmentFlag::AlignCenter</set>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="labelOutputRx_2">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="minimumSize">
+               <size>
+                <width>100</width>
+                <height>20</height>
+               </size>
+              </property>
+              <property name="cursor">
+               <cursorShape>IBeamCursor</cursorShape>
+              </property>
+              <property name="mouseTracking">
+               <bool>true</bool>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">font-size: 16px; font-weight: bold; color: #2c3e50; background: #e8eaf6;
+
+</string>
+              </property>
+              <property name="text">
+               <string>-</string>
+              </property>
+              <property name="scaledContents">
+               <bool>false</bool>
+              </property>
+              <property name="textInteractionFlags">
+               <set>Qt::TextInteractionFlag::LinksAccessibleByMouse|Qt::TextInteractionFlag::TextSelectableByMouse</set>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_22">
+            <item>
+             <widget class="QLabel" name="labelIconRxx_2">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="minimumSize">
+               <size>
+                <width>60</width>
+                <height>25</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>50</width>
+                <height>50</height>
+               </size>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">QLabel {
+    color: #374151;             /* The dark charcoal text from Image 1 */
+    font-family: &quot;Rockwell&quot;;    /* The serif font from Image 1 */
+    font-size: 13pt;
+    font-weight: bold;
+    background: transparent;    /* Crucial for the Image 2 flat look */
+    border: none;
+}</string>
+              </property>
+              <property name="text">
+               <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;R&lt;span style=&quot; vertical-align:sub;&quot;&gt;XX 2&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignmentFlag::AlignCenter</set>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="labelOutputRxx2">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="minimumSize">
+               <size>
+                <width>100</width>
+                <height>20</height>
+               </size>
+              </property>
+              <property name="cursor">
+               <cursorShape>IBeamCursor</cursorShape>
+              </property>
+              <property name="mouseTracking">
+               <bool>true</bool>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">font-size: 16px; font-weight: bold; color: #2c3e50; background: #e8eaf6;
+
+</string>
+              </property>
+              <property name="text">
+               <string>-</string>
+              </property>
+              <property name="scaledContents">
+               <bool>false</bool>
+              </property>
+              <property name="textInteractionFlags">
+               <set>Qt::TextInteractionFlag::LinksAccessibleByMouse|Qt::TextInteractionFlag::TextSelectableByMouse</set>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_17">
+            <item>
+             <widget class="QLabel" name="labelIconRi_2">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="minimumSize">
+               <size>
+                <width>60</width>
+                <height>25</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>50</width>
+                <height>50</height>
+               </size>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">QLabel {
+    color: #374151;             /* The dark charcoal text from Image 1 */
+    font-family: &quot;Rockwell&quot;;    /* The serif font from Image 1 */
+    font-size: 13pt;
+    font-weight: bold;
+    background: transparent;    /* Crucial for the Image 2 flat look */
+    border: none;
+}</string>
+              </property>
+              <property name="text">
+               <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;R&lt;span style=&quot; vertical-align:sub;&quot;&gt;i 2&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignmentFlag::AlignCenter</set>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="labelOutputRi_2">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="minimumSize">
+               <size>
+                <width>100</width>
+                <height>20</height>
+               </size>
+              </property>
+              <property name="cursor">
+               <cursorShape>IBeamCursor</cursorShape>
+              </property>
+              <property name="mouseTracking">
+               <bool>true</bool>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">font-size: 16px; font-weight: bold; color: #2c3e50; background: #e8eaf6;</string>
+              </property>
+              <property name="text">
+               <string>-</string>
+              </property>
+              <property name="textInteractionFlags">
+               <set>Qt::TextInteractionFlag::LinksAccessibleByMouse|Qt::TextInteractionFlag::TextSelectableByMouse</set>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_18">
+            <item>
+             <widget class="QLabel" name="labelIconRo_2">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="minimumSize">
+               <size>
+                <width>60</width>
+                <height>25</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>50</width>
+                <height>50</height>
+               </size>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">QLabel {
+    color: #374151;             /* The dark charcoal text from Image 1 */
+    font-family: &quot;Rockwell&quot;;    /* The serif font from Image 1 */
+    font-size: 13pt;
+    font-weight: bold;
+    background: transparent;    /* Crucial for the Image 2 flat look */
+    border: none;
+}</string>
+              </property>
+              <property name="text">
+               <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;R&lt;span style=&quot; vertical-align:sub;&quot;&gt;O 2&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignmentFlag::AlignCenter</set>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="labelOutputRo_2">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="minimumSize">
+               <size>
+                <width>100</width>
+                <height>20</height>
+               </size>
+              </property>
+              <property name="cursor">
+               <cursorShape>IBeamCursor</cursorShape>
+              </property>
+              <property name="mouseTracking">
+               <bool>true</bool>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">font-size: 16px; font-weight: bold; color: #2c3e50; background: #e8eaf6;</string>
+              </property>
+              <property name="text">
+               <string>-</string>
+              </property>
+              <property name="scaledContents">
+               <bool>false</bool>
+              </property>
+              <property name="textInteractionFlags">
+               <set>Qt::TextInteractionFlag::LinksAccessibleByMouse|Qt::TextInteractionFlag::TextSelectableByMouse</set>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_19">
+            <item>
+             <widget class="QLabel" name="labelIconAvo_2">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="minimumSize">
+               <size>
+                <width>60</width>
+                <height>25</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>50</width>
+                <height>50</height>
+               </size>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">QLabel {
+    color: #374151;             /* The dark charcoal text from Image 1 */
+    font-family: &quot;Rockwell&quot;;    /* The serif font from Image 1 */
+    font-size: 13pt;
+    font-weight: bold;
+    background: transparent;    /* Crucial for the Image 2 flat look */
+    border: none;
+}</string>
+              </property>
+              <property name="text">
+               <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Av0 &lt;span style=&quot; vertical-align:sub;&quot;&gt;2&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignmentFlag::AlignCenter</set>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="labelOutputAvo_2">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="minimumSize">
+               <size>
+                <width>100</width>
+                <height>20</height>
+               </size>
+              </property>
+              <property name="cursor">
+               <cursorShape>IBeamCursor</cursorShape>
+              </property>
+              <property name="mouseTracking">
+               <bool>true</bool>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">font-size: 16px; font-weight: bold; color: #2c3e50; background: #e8eaf6;</string>
+              </property>
+              <property name="text">
+               <string>-</string>
+              </property>
+              <property name="textInteractionFlags">
+               <set>Qt::TextInteractionFlag::LinksAccessibleByMouse|Qt::TextInteractionFlag::TextSelectableByMouse</set>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <layout class="QVBoxLayout" name="verticalLayout_10">
+       <item>
+        <widget class="QLabel" name="labelOutputLimits_4">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QLabel {
+    color: #374151;
+    font-size: 13px;
+    font-weight: 600;
+	background-color: transparent;
+    padding-bottom: 4px;
+    border: none;
+    border-bottom: 2px solid #6D63E8;
+	
+	
+	font: 13pt &quot;Rockwell&quot;;
+}</string>
+         </property>
+         <property name="text">
+          <string>STAGE 2 LIMITS</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QFrame" name="frameLimitsTable_2">
+         <property name="minimumSize">
+          <size>
+           <width>300</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QFrame#frameLimitsTable {
+    /* Matches the clean, slightly cool background of your output box */
+    background-color: #f8fafc; 
+    
+    /* Replaces the gold border with a professional slate gray */
+    border: 1px solid #e2e8f0; 
+    
+    /* Kept your 6px radius for continuity */
+    border-radius: 6px; 
+}</string>
+         </property>
+         <property name="frameShape">
+          <enum>QFrame::Shape::StyledPanel</enum>
+         </property>
+         <layout class="QVBoxLayout" name="vl_limits_table_2">
+          <property name="spacing">
+           <number>0</number>
+          </property>
+          <item>
+           <widget class="QFrame" name="frameLimitsHeader_2">
+            <property name="styleSheet">
+             <string notr="true">background-color: #e2e8f0; 
+border-radius: 4px 4px 0 0;
+color: #1e293b;</string>
+            </property>
+            <layout class="QHBoxLayout" name="hl_limits_header_2">
+             <item>
+              <widget class="QLabel" name="labelLimitsTitle_2">
+               <property name="styleSheet">
+                <string notr="true">color: #374151; font-weight: 700; font-size: 12px; background: transparent;</string>
+               </property>
+               <property name="text">
+                <string>Min &amp; Max Values for stage</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignmentFlag::AlignCenter</set>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </item>
+          <item>
+           <widget class="QFrame" name="frameLimRow1_2">
+            <property name="styleSheet">
+             <string notr="true">background-color: #fffff0; border-bottom: 1px solid #e0d080;</string>
+            </property>
+            <layout class="QHBoxLayout" name="hl_lim1_2">
+             <property name="spacing">
+              <number>4</number>
+             </property>
+             <item>
+              <widget class="QLabel" name="labelAvoMin_2">
+               <property name="styleSheet">
+                <string notr="true">font-size:12px; font-weight:700; color:#1a5c1a; background:#e8f5e9; border:1px solid #a5d6a7; border-radius:3px; padding:2px 5px;</string>
+               </property>
+               <property name="text">
+                <string>1</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignmentFlag::AlignCenter</set>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLabel" name="labelAvoOp1_2">
+               <property name="styleSheet">
+                <string notr="true">font-size:11px; color:#555; background:transparent;</string>
+               </property>
+               <property name="text">
+                <string>&lt; |Av0| ≤</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignmentFlag::AlignCenter</set>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLabel" name="labelAvoMax_2">
+               <property name="styleSheet">
+                <string notr="true">font-size:12px; font-weight:700; color:#1a5c1a; background:#e8f5e9; border:1px solid #a5d6a7; border-radius:3px; padding:2px 5px;</string>
+               </property>
+               <property name="text">
+                <string>-</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignmentFlag::AlignCenter</set>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </item>
+          <item>
+           <widget class="QFrame" name="frameLimRow2_2">
+            <property name="styleSheet">
+             <string notr="true">background-color: #fff8e1; border-bottom: 1px solid #e0d080;</string>
+            </property>
+            <layout class="QHBoxLayout" name="hl_lim2_2">
+             <property name="spacing">
+              <number>4</number>
+             </property>
+             <item>
+              <widget class="QLabel" name="labelRiMin_2">
+               <property name="styleSheet">
+                <string notr="true">font-size:12px; font-weight:700; color:#7B3F00; background:#FFF3E0; border:1px solid #FFCC80; border-radius:3px; padding:2px 5px;</string>
+               </property>
+               <property name="text">
+                <string>-</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignmentFlag::AlignCenter</set>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLabel" name="labelRiOp_2">
+               <property name="styleSheet">
+                <string notr="true">font-size:11px; color:#555; background:transparent;</string>
+               </property>
+               <property name="text">
+                <string>≤ Ri &lt;</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignmentFlag::AlignCenter</set>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLabel" name="labelRiMax_2">
+               <property name="styleSheet">
+                <string notr="true">font-size:12px; font-weight:700; color:#7B3F00; background:#FFF3E0; border:1px solid #FFCC80; border-radius:3px; padding:2px 5px;</string>
+               </property>
+               <property name="text">
+                <string>-</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignmentFlag::AlignCenter</set>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <spacer name="verticalSpacer_4">
+       <property name="orientation">
+        <enum>Qt::Orientation::Vertical</enum>
+       </property>
+       <property name="sizeType">
+        <enum>QSizePolicy::Policy::Fixed</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>20</width>
+         <height>40</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+    </layout>
+   </item>
+   <item row="0" column="2">
+    <layout class="QVBoxLayout" name="verticalLayout_14">
+     <item>
+      <spacer name="verticalSpacer_6">
+       <property name="orientation">
+        <enum>Qt::Orientation::Vertical</enum>
+       </property>
+       <property name="sizeType">
+        <enum>QSizePolicy::Policy::Fixed</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>20</width>
+         <height>25</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="QLabel" name="labelOutput_2">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QLabel {
+    color: #374151;
+    font-size: 13px;
+    font-weight: 600;
+	background-color: transparent;
+    padding-bottom: 4px;
+    border: none;
+    border-bottom: 2px solid #6D63E8;
+	
+	
+	font: 13pt &quot;Rockwell&quot;;
+}</string>
+       </property>
+       <property name="text">
+        <string>TOTAL OUTPUTS</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <layout class="QVBoxLayout" name="verticalLayout_15">
+       <property name="spacing">
+        <number>0</number>
+       </property>
+       <property name="leftMargin">
+        <number>25</number>
+       </property>
+       <property name="topMargin">
+        <number>25</number>
+       </property>
+       <property name="rightMargin">
+        <number>25</number>
+       </property>
+       <property name="bottomMargin">
+        <number>25</number>
+       </property>
+       <item>
+        <widget class="QLabel" name="labelBjtHead_4">
+         <property name="styleSheet">
+          <string notr="true">font: 600 9pt 'Segoe UI'; color: #6b7280; letter-spacing: 1px;</string>
+         </property>
+         <property name="text">
+          <string>Total For System</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QFrame" name="frameTotals">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>120</width>
+           <height>80</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>16777215</width>
+           <height>16777215</height>
+          </size>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background-color: #f8fafc;
+color: #334155;
+border-radius: 8px;
+border: 1px solid #e2e8f0;
+border-bottom: 3px solid #94a3b8;
+font-family: 'Inter', sans-serif;</string>
+         </property>
+         <property name="frameShape">
+          <enum>QFrame::Shape::StyledPanel</enum>
+         </property>
+         <layout class="QVBoxLayout" name="verticalLayout_16">
+          <property name="spacing">
+           <number>5</number>
+          </property>
+          <property name="leftMargin">
+           <number>25</number>
+          </property>
+          <property name="topMargin">
+           <number>25</number>
+          </property>
+          <property name="rightMargin">
+           <number>25</number>
+          </property>
+          <property name="bottomMargin">
+           <number>25</number>
+          </property>
+          <item>
+           <widget class="QLabel" name="labelIconRiTotal">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>40</width>
+              <height>25</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>60</width>
+              <height>50</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QLabel {
+    color: #374151;             /* The dark charcoal text from Image 1 */
+    font-family: &quot;Rockwell&quot;;    /* The serif font from Image 1 */
+    font-size: 13pt;
+    font-weight: bold;
+    background: transparent;    /* Crucial for the Image 2 flat look */
+    border: none;
+}</string>
+            </property>
+            <property name="text">
+             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;R&lt;span style=&quot; vertical-align:sub;&quot;&gt;i Total&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignmentFlag::AlignCenter</set>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="labelOutputRiTotal">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>100</width>
+              <height>20</height>
+             </size>
+            </property>
+            <property name="cursor">
+             <cursorShape>IBeamCursor</cursorShape>
+            </property>
+            <property name="mouseTracking">
+             <bool>false</bool>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">font-size: 16px; font-weight: bold; color: #2c3e50; background: #e8eaf6;
+
+</string>
+            </property>
+            <property name="text">
+             <string>-</string>
+            </property>
+            <property name="scaledContents">
+             <bool>false</bool>
+            </property>
+            <property name="textInteractionFlags">
+             <set>Qt::TextInteractionFlag::LinksAccessibleByMouse|Qt::TextInteractionFlag::TextSelectableByMouse</set>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="labelIconAv0Total">
+            <property name="minimumSize">
+             <size>
+              <width>40</width>
+              <height>25</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>80</width>
+              <height>50</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QLabel {
+    color: #374151;             /* The dark charcoal text from Image 1 */
+    font-family: &quot;Rockwell&quot;;    /* The serif font from Image 1 */
+    font-size: 13pt;
+    font-weight: bold;
+    background: transparent;    /* Crucial for the Image 2 flat look */
+    border: none;
+}</string>
+            </property>
+            <property name="text">
+             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Av0 &lt;span style=&quot; vertical-align:sub;&quot;&gt;Total&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignmentFlag::AlignCenter</set>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="labelOutputAv0Total">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>100</width>
+              <height>20</height>
+             </size>
+            </property>
+            <property name="cursor">
+             <cursorShape>IBeamCursor</cursorShape>
+            </property>
+            <property name="mouseTracking">
+             <bool>true</bool>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">font-size: 16px; font-weight: bold; color: #2c3e50; background: #e8eaf6;
+
+</string>
+            </property>
+            <property name="text">
+             <string>-</string>
+            </property>
+            <property name="textInteractionFlags">
+             <set>Qt::TextInteractionFlag::LinksAccessibleByMouse|Qt::TextInteractionFlag::TextSelectableByMouse</set>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="labelIconAvtTotal">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>40</width>
+              <height>25</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>80</width>
+              <height>50</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QLabel {
+    color: #374151;             /* The dark charcoal text from Image 1 */
+    font-family: &quot;Rockwell&quot;;    /* The serif font from Image 1 */
+    font-size: 13pt;
+    font-weight: bold;
+    background: transparent;    /* Crucial for the Image 2 flat look */
+    border: none;
+}</string>
+            </property>
+            <property name="text">
+             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Avt &lt;span style=&quot; vertical-align:sub;&quot;&gt;Total&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignmentFlag::AlignCenter</set>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="labelOutputAvtTotal">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>100</width>
+              <height>20</height>
+             </size>
+            </property>
+            <property name="cursor">
+             <cursorShape>IBeamCursor</cursorShape>
+            </property>
+            <property name="mouseTracking">
+             <bool>true</bool>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">font-size: 16px; font-weight: bold; color: #2c3e50; background: #e8eaf6;
+
+</string>
+            </property>
+            <property name="text">
+             <string>-</string>
+            </property>
+            <property name="textInteractionFlags">
+             <set>Qt::TextInteractionFlag::LinksAccessibleByMouse|Qt::TextInteractionFlag::TextSelectableByMouse</set>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="labelIconRoTotal">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+              <horstretch>40</horstretch>
+              <verstretch>40</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>40</width>
+              <height>25</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>80</width>
+              <height>50</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QLabel {
+    color: #374151;             /* The dark charcoal text from Image 1 */
+    font-family: &quot;Rockwell&quot;;    /* The serif font from Image 1 */
+    font-size: 13pt;
+    font-weight: bold;
+    background: transparent;    /* Crucial for the Image 2 flat look */
+    border: none;
+}</string>
+            </property>
+            <property name="text">
+             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;R&lt;span style=&quot; vertical-align:sub;&quot;&gt;O Total&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignmentFlag::AlignCenter</set>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="labelOutputRoTotal">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>100</width>
+              <height>20</height>
+             </size>
+            </property>
+            <property name="cursor">
+             <cursorShape>IBeamCursor</cursorShape>
+            </property>
+            <property name="mouseTracking">
+             <bool>true</bool>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">font-size: 16px; font-weight: bold; color: #2c3e50; background: #e8eaf6;
+
+</string>
+            </property>
+            <property name="text">
+             <string>-</string>
+            </property>
+            <property name="textInteractionFlags">
+             <set>Qt::TextInteractionFlag::LinksAccessibleByMouse|Qt::TextInteractionFlag::TextSelectableByMouse</set>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="labelIconVoTotal">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>40</width>
+              <height>25</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>80</width>
+              <height>50</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QLabel {
+    color: #374151;             /* The dark charcoal text from Image 1 */
+    font-family: &quot;Rockwell&quot;;    /* The serif font from Image 1 */
+    font-size: 13pt;
+    font-weight: bold;
+    background: transparent;    /* Crucial for the Image 2 flat look */
+    border: none;
+}</string>
+            </property>
+            <property name="text">
+             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;V&lt;span style=&quot; vertical-align:sub;&quot;&gt;O Total&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignmentFlag::AlignCenter</set>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="labelOutputVoTotal">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>100</width>
+              <height>20</height>
+             </size>
+            </property>
+            <property name="cursor">
+             <cursorShape>IBeamCursor</cursorShape>
+            </property>
+            <property name="mouseTracking">
+             <bool>true</bool>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">font-size: 16px; font-weight: bold; color: #2c3e50; background: #e8eaf6;
+
+</string>
+            </property>
+            <property name="text">
+             <string>-</string>
+            </property>
+            <property name="textInteractionFlags">
+             <set>Qt::TextInteractionFlag::LinksAccessibleByMouse|Qt::TextInteractionFlag::TextSelectableByMouse</set>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+      </layout>
+     </item>
+    </layout>
+   </item>
+   <item row="1" column="1">
+    <layout class="QVBoxLayout" name="verticalLayout_11">
+     <property name="spacing">
+      <number>10</number>
+     </property>
+     <item>
+      <layout class="QVBoxLayout" name="verticalLayout_5">
+       <item>
+        <widget class="QLabel" name="labelStage1Output">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QLabel {
+    color: #374151;
+    font-size: 13px;
+    font-weight: 600;
+	background-color: transparent;
+    padding-bottom: 4px;
+    border: none;
+    border-bottom: 2px solid #6D63E8;
+	
+	
+	font: 13pt &quot;Rockwell&quot;;
+}</string>
+         </property>
+         <property name="text">
+          <string>STAGE 1 OUTPUT: CC</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QFrame" name="frameStage1Outputs">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>120</width>
+           <height>80</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>16777215</width>
+           <height>16777215</height>
+          </size>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background-color: #f8fafc;
+color: #334155;
+border-radius: 8px;
+border: 1px solid #e2e8f0;
+border-bottom: 3px solid #94a3b8;
+font-family: 'Inter', sans-serif;</string>
+         </property>
+         <property name="frameShape">
+          <enum>QFrame::Shape::StyledPanel</enum>
+         </property>
+         <layout class="QVBoxLayout" name="verticalLayout_7">
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_3">
+            <item>
+             <widget class="QLabel" name="labelIconRx1">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="minimumSize">
+               <size>
+                <width>60</width>
+                <height>25</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>50</width>
+                <height>50</height>
+               </size>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">QLabel {
+    color: #374151;             /* The dark charcoal text from Image 1 */
+    font-family: &quot;Rockwell&quot;;    /* The serif font from Image 1 */
+    font-size: 13pt;
+    font-weight: bold;
+    background: transparent;    /* Crucial for the Image 2 flat look */
+    border: none;
+}</string>
+              </property>
+              <property name="text">
+               <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;R&lt;span style=&quot; vertical-align:sub;&quot;&gt;X 1&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignmentFlag::AlignCenter</set>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="labelOutputRx1">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="minimumSize">
+               <size>
+                <width>100</width>
+                <height>20</height>
+               </size>
+              </property>
+              <property name="cursor">
+               <cursorShape>IBeamCursor</cursorShape>
+              </property>
+              <property name="mouseTracking">
+               <bool>true</bool>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">font-size: 16px; font-weight: bold; color: #2c3e50; background: #e8eaf6;
+
+</string>
+              </property>
+              <property name="text">
+               <string>-</string>
+              </property>
+              <property name="scaledContents">
+               <bool>false</bool>
+              </property>
+              <property name="textInteractionFlags">
+               <set>Qt::TextInteractionFlag::LinksAccessibleByMouse|Qt::TextInteractionFlag::TextSelectableByMouse</set>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_21">
+            <item>
+             <widget class="QLabel" name="labelIconRxx1">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="minimumSize">
+               <size>
+                <width>60</width>
+                <height>25</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>50</width>
+                <height>50</height>
+               </size>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">QLabel {
+    color: #374151;             /* The dark charcoal text from Image 1 */
+    font-family: &quot;Rockwell&quot;;    /* The serif font from Image 1 */
+    font-size: 13pt;
+    font-weight: bold;
+    background: transparent;    /* Crucial for the Image 2 flat look */
+    border: none;
+}</string>
+              </property>
+              <property name="text">
+               <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;R&lt;span style=&quot; vertical-align:sub;&quot;&gt;XX 1&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignmentFlag::AlignCenter</set>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="labelOutputRxx1">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="minimumSize">
+               <size>
+                <width>100</width>
+                <height>20</height>
+               </size>
+              </property>
+              <property name="cursor">
+               <cursorShape>IBeamCursor</cursorShape>
+              </property>
+              <property name="mouseTracking">
+               <bool>true</bool>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">font-size: 16px; font-weight: bold; color: #2c3e50; background: #e8eaf6;
+
+</string>
+              </property>
+              <property name="text">
+               <string>-</string>
+              </property>
+              <property name="scaledContents">
+               <bool>false</bool>
+              </property>
+              <property name="textInteractionFlags">
+               <set>Qt::TextInteractionFlag::LinksAccessibleByMouse|Qt::TextInteractionFlag::TextSelectableByMouse</set>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_7">
+            <item>
+             <widget class="QLabel" name="labelIconRi1">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="minimumSize">
+               <size>
+                <width>60</width>
+                <height>25</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>50</width>
+                <height>50</height>
+               </size>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">QLabel {
+    color: #374151;             /* The dark charcoal text from Image 1 */
+    font-family: &quot;Rockwell&quot;;    /* The serif font from Image 1 */
+    font-size: 13pt;
+    font-weight: bold;
+    background: transparent;    /* Crucial for the Image 2 flat look */
+    border: none;
+}</string>
+              </property>
+              <property name="text">
+               <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;R&lt;span style=&quot; vertical-align:sub;&quot;&gt;i 1&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignmentFlag::AlignCenter</set>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="labelOutputRi1">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="minimumSize">
+               <size>
+                <width>100</width>
+                <height>20</height>
+               </size>
+              </property>
+              <property name="cursor">
+               <cursorShape>IBeamCursor</cursorShape>
+              </property>
+              <property name="mouseTracking">
+               <bool>true</bool>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">font-size: 16px; font-weight: bold; color: #2c3e50; background: #e8eaf6;</string>
+              </property>
+              <property name="text">
+               <string>-</string>
+              </property>
+              <property name="textInteractionFlags">
+               <set>Qt::TextInteractionFlag::LinksAccessibleByMouse|Qt::TextInteractionFlag::TextSelectableByMouse</set>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_10">
+            <item>
+             <widget class="QLabel" name="labelIconRo">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="minimumSize">
+               <size>
+                <width>60</width>
+                <height>25</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>50</width>
+                <height>50</height>
+               </size>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">QLabel {
+    color: #374151;             /* The dark charcoal text from Image 1 */
+    font-family: &quot;Rockwell&quot;;    /* The serif font from Image 1 */
+    font-size: 13pt;
+    font-weight: bold;
+    background: transparent;    /* Crucial for the Image 2 flat look */
+    border: none;
+}</string>
+              </property>
+              <property name="text">
+               <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;R&lt;span style=&quot; vertical-align:sub;&quot;&gt;O 1&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignmentFlag::AlignCenter</set>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="labelOutputRo1">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="minimumSize">
+               <size>
+                <width>100</width>
+                <height>20</height>
+               </size>
+              </property>
+              <property name="cursor">
+               <cursorShape>IBeamCursor</cursorShape>
+              </property>
+              <property name="mouseTracking">
+               <bool>true</bool>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">font-size: 16px; font-weight: bold; color: #2c3e50; background: #e8eaf6;</string>
+              </property>
+              <property name="text">
+               <string>-</string>
+              </property>
+              <property name="scaledContents">
+               <bool>false</bool>
+              </property>
+              <property name="textInteractionFlags">
+               <set>Qt::TextInteractionFlag::LinksAccessibleByMouse|Qt::TextInteractionFlag::TextSelectableByMouse</set>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_11">
+            <item>
+             <widget class="QLabel" name="labelIconAvo">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="minimumSize">
+               <size>
+                <width>60</width>
+                <height>25</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>50</width>
+                <height>50</height>
+               </size>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">QLabel {
+    color: #374151;             /* The dark charcoal text from Image 1 */
+    font-family: &quot;Rockwell&quot;;    /* The serif font from Image 1 */
+    font-size: 13pt;
+    font-weight: bold;
+    background: transparent;    /* Crucial for the Image 2 flat look */
+    border: none;
+}</string>
+              </property>
+              <property name="text">
+               <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Av0 &lt;span style=&quot; vertical-align:sub;&quot;&gt;1&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignmentFlag::AlignCenter</set>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="labelOutputAvo">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="minimumSize">
+               <size>
+                <width>100</width>
+                <height>20</height>
+               </size>
+              </property>
+              <property name="cursor">
+               <cursorShape>IBeamCursor</cursorShape>
+              </property>
+              <property name="mouseTracking">
+               <bool>true</bool>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">font-size: 16px; font-weight: bold; color: #2c3e50; background: #e8eaf6;</string>
+              </property>
+              <property name="text">
+               <string>-</string>
+              </property>
+              <property name="textInteractionFlags">
+               <set>Qt::TextInteractionFlag::LinksAccessibleByMouse|Qt::TextInteractionFlag::TextSelectableByMouse</set>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <layout class="QVBoxLayout" name="verticalLayout_3">
+       <item>
+        <widget class="QLabel" name="labelOutputLimits_3">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QLabel {
+    color: #374151;
+    font-size: 13px;
+    font-weight: 600;
+	background-color: transparent;
+    padding-bottom: 4px;
+    border: none;
+    border-bottom: 2px solid #6D63E8;
+	
+	
+	font: 13pt &quot;Rockwell&quot;;
+}</string>
+         </property>
+         <property name="text">
+          <string>STAGE 1 LIMITS</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QFrame" name="frameLimitsTable">
+         <property name="minimumSize">
+          <size>
+           <width>300</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QFrame#frameLimitsTable {
+    /* Matches the clean, slightly cool background of your output box */
+    background-color: #f8fafc; 
+    
+    /* Replaces the gold border with a professional slate gray */
+    border: 1px solid #e2e8f0; 
+    
+    /* Kept your 6px radius for continuity */
+    border-radius: 6px; 
+}</string>
+         </property>
+         <property name="frameShape">
+          <enum>QFrame::Shape::StyledPanel</enum>
+         </property>
+         <layout class="QVBoxLayout" name="vl_limits_table">
+          <property name="spacing">
+           <number>0</number>
+          </property>
+          <item>
+           <widget class="QFrame" name="frameLimitsHeader">
+            <property name="styleSheet">
+             <string notr="true">background-color: #e2e8f0; 
+border-radius: 4px 4px 0 0;
+color: #1e293b;</string>
+            </property>
+            <layout class="QHBoxLayout" name="hl_limits_header">
+             <item>
+              <widget class="QLabel" name="labelLimitsTitle">
+               <property name="styleSheet">
+                <string notr="true">color: #374151; font-weight: 700; font-size: 12px; background: transparent;</string>
+               </property>
+               <property name="text">
+                <string>Min &amp; Max Values for stage</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignmentFlag::AlignCenter</set>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </item>
+          <item>
+           <widget class="QFrame" name="frameLimRow1">
+            <property name="styleSheet">
+             <string notr="true">background-color: #fffff0; border-bottom: 1px solid #e0d080;</string>
+            </property>
+            <layout class="QHBoxLayout" name="hl_lim1">
+             <property name="spacing">
+              <number>4</number>
+             </property>
+             <item>
+              <widget class="QLabel" name="labelAvoMin">
+               <property name="styleSheet">
+                <string notr="true">font-size:12px; font-weight:700; color:#1a5c1a; background:#e8f5e9; border:1px solid #a5d6a7; border-radius:3px; padding:2px 5px;</string>
+               </property>
+               <property name="text">
+                <string>1</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignmentFlag::AlignCenter</set>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLabel" name="labelAvoOp1">
+               <property name="styleSheet">
+                <string notr="true">font-size:11px; color:#555; background:transparent;</string>
+               </property>
+               <property name="text">
+                <string>&lt; |Av0| ≤</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignmentFlag::AlignCenter</set>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLabel" name="labelAvoMax">
+               <property name="styleSheet">
+                <string notr="true">font-size:12px; font-weight:700; color:#1a5c1a; background:#e8f5e9; border:1px solid #a5d6a7; border-radius:3px; padding:2px 5px;</string>
+               </property>
+               <property name="text">
+                <string>-</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignmentFlag::AlignCenter</set>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </item>
+          <item>
+           <widget class="QFrame" name="frameLimRow2">
+            <property name="styleSheet">
+             <string notr="true">background-color: #fff8e1; border-bottom: 1px solid #e0d080;</string>
+            </property>
+            <layout class="QHBoxLayout" name="hl_lim2">
+             <property name="spacing">
+              <number>4</number>
+             </property>
+             <item>
+              <widget class="QLabel" name="labelRiMin">
+               <property name="styleSheet">
+                <string notr="true">font-size:12px; font-weight:700; color:#7B3F00; background:#FFF3E0; border:1px solid #FFCC80; border-radius:3px; padding:2px 5px;</string>
+               </property>
+               <property name="text">
+                <string>-</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignmentFlag::AlignCenter</set>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLabel" name="labelRiOp">
+               <property name="styleSheet">
+                <string notr="true">font-size:11px; color:#555; background:transparent;</string>
+               </property>
+               <property name="text">
+                <string>≤ Ri &lt;</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignmentFlag::AlignCenter</set>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLabel" name="labelRiMax">
+               <property name="styleSheet">
+                <string notr="true">font-size:12px; font-weight:700; color:#7B3F00; background:#FFF3E0; border:1px solid #FFCC80; border-radius:3px; padding:2px 5px;</string>
+               </property>
+               <property name="text">
+                <string>-</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignmentFlag::AlignCenter</set>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <spacer name="verticalSpacer_5">
+       <property name="orientation">
+        <enum>Qt::Orientation::Vertical</enum>
+       </property>
+       <property name="sizeType">
+        <enum>QSizePolicy::Policy::Fixed</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>20</width>
+         <height>40</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+    </layout>
+   </item>
+   <item row="0" column="1">
+    <layout class="QVBoxLayout" name="verticalLayout_13">
+     <item>
+      <spacer name="verticalSpacer">
+       <property name="orientation">
+        <enum>Qt::Orientation::Vertical</enum>
+       </property>
+       <property name="sizeType">
+        <enum>QSizePolicy::Policy::Fixed</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>20</width>
+         <height>25</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="QLabel" name="labelOutput">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QLabel {
+    color: #374151;
+    font-size: 13px;
+    font-weight: 600;
+	background-color: transparent;
+    padding-bottom: 4px;
+    border: none;
+    border-bottom: 2px solid #6D63E8;
+	
+	
+	font: 13pt &quot;Rockwell&quot;;
+}</string>
+       </property>
+       <property name="text">
+        <string>DC OUTPUT</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="labelMode">
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>32</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>16777215</width>
+         <height>32</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QLabel {
+    background-color: #e8eaf6;
+    color: #3d3d9e;
+    border-radius: 6px;
+    font: 700 11pt &quot;Rockwell&quot;;
+    padding: 4px 14px;
+    qproperty-alignment: AlignCenter;
+}</string>
+       </property>
+       <property name="text">
+        <string>— awaiting calculation —</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignmentFlag::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <layout class="QVBoxLayout" name="verticalLayout_6">
+       <item>
+        <widget class="QLabel" name="labelBjtHead_3">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>20</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>16777215</width>
+           <height>25</height>
+          </size>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">font: 600 9pt 'Segoe UI'; color: #6b7280; letter-spacing: 1px;</string>
+         </property>
+         <property name="text">
+          <string>SHARED + CC-CE BJT BIAS</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_12">
+         <item>
+          <widget class="QFrame" name="frameOutputs_2">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>220</width>
+             <height>80</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>16777215</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: #f8fafc;
+color: #334155;
+border-radius: 8px;
+border: 1px solid #e2e8f0;
+border-bottom: 3px solid #94a3b8;
+font-family: 'Inter', sans-serif;</string>
+           </property>
+           <property name="frameShape">
+            <enum>QFrame::Shape::StyledPanel</enum>
+           </property>
+           <layout class="QVBoxLayout" name="verticalLayout_17">
+            <property name="spacing">
+             <number>5</number>
+            </property>
+            <property name="leftMargin">
+             <number>25</number>
+            </property>
+            <property name="topMargin">
+             <number>25</number>
+            </property>
+            <property name="rightMargin">
+             <number>25</number>
+            </property>
+            <property name="bottomMargin">
+             <number>25</number>
+            </property>
+            <item>
+             <widget class="QLabel" name="labelIconRb1">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="minimumSize">
+               <size>
+                <width>40</width>
+                <height>25</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>50</width>
+                <height>50</height>
+               </size>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">QLabel {
+    color: #374151;             /* The dark charcoal text from Image 1 */
+    font-family: &quot;Rockwell&quot;;    /* The serif font from Image 1 */
+    font-size: 13pt;
+    font-weight: bold;
+    background: transparent;    /* Crucial for the Image 2 flat look */
+    border: none;
+}</string>
+              </property>
+              <property name="text">
+               <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;R&lt;span style=&quot; vertical-align:sub;&quot;&gt;B 1&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignmentFlag::AlignCenter</set>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="labelOutputRb1">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="minimumSize">
+               <size>
+                <width>100</width>
+                <height>20</height>
+               </size>
+              </property>
+              <property name="cursor">
+               <cursorShape>IBeamCursor</cursorShape>
+              </property>
+              <property name="mouseTracking">
+               <bool>true</bool>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">font-size: 16px; font-weight: bold; color: #2c3e50; background: #e8eaf6;
+
+</string>
+              </property>
+              <property name="text">
+               <string>-</string>
+              </property>
+              <property name="textInteractionFlags">
+               <set>Qt::TextInteractionFlag::LinksAccessibleByMouse|Qt::TextInteractionFlag::TextSelectableByMouse</set>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="labelIconRe2_2">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="minimumSize">
+               <size>
+                <width>40</width>
+                <height>25</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>50</width>
+                <height>50</height>
+               </size>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">QLabel {
+    color: #374151;             /* The dark charcoal text from Image 1 */
+    font-family: &quot;Rockwell&quot;;    /* The serif font from Image 1 */
+    font-size: 13pt;
+    font-weight: bold;
+    background: transparent;    /* Crucial for the Image 2 flat look */
+    border: none;
+}</string>
+              </property>
+              <property name="text">
+               <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;R&lt;span style=&quot; vertical-align:sub;&quot;&gt;E 1&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignmentFlag::AlignCenter</set>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="labelOutputRe1">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="minimumSize">
+               <size>
+                <width>100</width>
+                <height>20</height>
+               </size>
+              </property>
+              <property name="cursor">
+               <cursorShape>IBeamCursor</cursorShape>
+              </property>
+              <property name="mouseTracking">
+               <bool>false</bool>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">font-size: 16px; font-weight: bold; color: #2c3e50; background: #e8eaf6;
+
+</string>
+              </property>
+              <property name="text">
+               <string>-</string>
+              </property>
+              <property name="scaledContents">
+               <bool>false</bool>
+              </property>
+              <property name="textInteractionFlags">
+               <set>Qt::TextInteractionFlag::LinksAccessibleByMouse|Qt::TextInteractionFlag::TextSelectableByMouse</set>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="labelIconVc1">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+                <horstretch>40</horstretch>
+                <verstretch>40</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="minimumSize">
+               <size>
+                <width>40</width>
+                <height>25</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>50</width>
+                <height>50</height>
+               </size>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">QLabel {
+    color: #374151;             /* The dark charcoal text from Image 1 */
+    font-family: &quot;Rockwell&quot;;    /* The serif font from Image 1 */
+    font-size: 13pt;
+    font-weight: bold;
+    background: transparent;    /* Crucial for the Image 2 flat look */
+    border: none;
+}</string>
+              </property>
+              <property name="text">
+               <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;V&lt;span style=&quot; vertical-align:sub;&quot;&gt;C 1&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignmentFlag::AlignCenter</set>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="labelOutputVc1">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="minimumSize">
+               <size>
+                <width>100</width>
+                <height>20</height>
+               </size>
+              </property>
+              <property name="cursor">
+               <cursorShape>IBeamCursor</cursorShape>
+              </property>
+              <property name="mouseTracking">
+               <bool>true</bool>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">font-size: 16px; font-weight: bold; color: #2c3e50; background: #e8eaf6;
+
+</string>
+              </property>
+              <property name="text">
+               <string>-</string>
+              </property>
+              <property name="textInteractionFlags">
+               <set>Qt::TextInteractionFlag::LinksAccessibleByMouse|Qt::TextInteractionFlag::TextSelectableByMouse</set>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="labelIconVb1">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="minimumSize">
+               <size>
+                <width>40</width>
+                <height>25</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>50</width>
+                <height>50</height>
+               </size>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">QLabel {
+    color: #374151;             /* The dark charcoal text from Image 1 */
+    font-family: &quot;Rockwell&quot;;    /* The serif font from Image 1 */
+    font-size: 13pt;
+    font-weight: bold;
+    background: transparent;    /* Crucial for the Image 2 flat look */
+    border: none;
+}</string>
+              </property>
+              <property name="text">
+               <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;V&lt;span style=&quot; vertical-align:sub;&quot;&gt;B 1&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignmentFlag::AlignCenter</set>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="labelOutputVb1">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="minimumSize">
+               <size>
+                <width>100</width>
+                <height>20</height>
+               </size>
+              </property>
+              <property name="cursor">
+               <cursorShape>IBeamCursor</cursorShape>
+              </property>
+              <property name="mouseTracking">
+               <bool>true</bool>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">font-size: 16px; font-weight: bold; color: #2c3e50; background: #e8eaf6;
+
+</string>
+              </property>
+              <property name="text">
+               <string>-</string>
+              </property>
+              <property name="textInteractionFlags">
+               <set>Qt::TextInteractionFlag::LinksAccessibleByMouse|Qt::TextInteractionFlag::TextSelectableByMouse</set>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+         </item>
+         <item>
+          <widget class="QFrame" name="frameOutputs">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>220</width>
+             <height>80</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>16777215</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: #f8fafc;
+color: #334155;
+border-radius: 8px;
+border: 1px solid #e2e8f0;
+border-bottom: 3px solid #94a3b8;
+font-family: 'Inter', sans-serif;</string>
+           </property>
+           <property name="frameShape">
+            <enum>QFrame::Shape::StyledPanel</enum>
+           </property>
+           <layout class="QVBoxLayout" name="verticalLayout_2">
+            <property name="spacing">
+             <number>5</number>
+            </property>
+            <property name="leftMargin">
+             <number>25</number>
+            </property>
+            <property name="topMargin">
+             <number>25</number>
+            </property>
+            <property name="rightMargin">
+             <number>25</number>
+            </property>
+            <property name="bottomMargin">
+             <number>25</number>
+            </property>
+            <item>
+             <widget class="QLabel" name="labelIconVbb_2">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="minimumSize">
+               <size>
+                <width>40</width>
+                <height>25</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>50</width>
+                <height>50</height>
+               </size>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">QLabel {
+    color: #374151;             /* The dark charcoal text from Image 1 */
+    font-family: &quot;Rockwell&quot;;    /* The serif font from Image 1 */
+    font-size: 13pt;
+    font-weight: bold;
+    background: transparent;    /* Crucial for the Image 2 flat look */
+    border: none;
+}</string>
+              </property>
+              <property name="text">
+               <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;V&lt;span style=&quot; vertical-align:sub;&quot;&gt;BB&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignmentFlag::AlignCenter</set>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="labelOutputVbb">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="minimumSize">
+               <size>
+                <width>100</width>
+                <height>20</height>
+               </size>
+              </property>
+              <property name="cursor">
+               <cursorShape>IBeamCursor</cursorShape>
+              </property>
+              <property name="mouseTracking">
+               <bool>false</bool>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">font-size: 16px; font-weight: bold; color: #2c3e50; background: #e8eaf6;
+
+</string>
+              </property>
+              <property name="text">
+               <string>-</string>
+              </property>
+              <property name="scaledContents">
+               <bool>false</bool>
+              </property>
+              <property name="textInteractionFlags">
+               <set>Qt::TextInteractionFlag::LinksAccessibleByMouse|Qt::TextInteractionFlag::TextSelectableByMouse</set>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="labelIconRb2">
+              <property name="minimumSize">
+               <size>
+                <width>40</width>
+                <height>25</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>100</width>
+                <height>50</height>
+               </size>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">QLabel {
+    color: #374151;             /* The dark charcoal text from Image 1 */
+    font-family: &quot;Rockwell&quot;;    /* The serif font from Image 1 */
+    font-size: 13pt;
+    font-weight: bold;
+    background: transparent;    /* Crucial for the Image 2 flat look */
+    border: none;
+}</string>
+              </property>
+              <property name="text">
+               <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;R&lt;span style=&quot; vertical-align:sub;&quot;&gt;B = R1||R2&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignmentFlag::AlignCenter</set>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="labelOutputRb">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="minimumSize">
+               <size>
+                <width>100</width>
+                <height>20</height>
+               </size>
+              </property>
+              <property name="cursor">
+               <cursorShape>IBeamCursor</cursorShape>
+              </property>
+              <property name="mouseTracking">
+               <bool>true</bool>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">font-size: 16px; font-weight: bold; color: #2c3e50; background: #e8eaf6;
+
+</string>
+              </property>
+              <property name="text">
+               <string>-</string>
+              </property>
+              <property name="textInteractionFlags">
+               <set>Qt::TextInteractionFlag::LinksAccessibleByMouse|Qt::TextInteractionFlag::TextSelectableByMouse</set>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="labelIconIb">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="minimumSize">
+               <size>
+                <width>100</width>
+                <height>25</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>50</width>
+                <height>50</height>
+               </size>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">QLabel {
+    color: #374151;             /* The dark charcoal text from Image 1 */
+    font-family: &quot;Rockwell&quot;;    /* The serif font from Image 1 */
+    font-size: 13pt;
+    font-weight: bold;
+    background: transparent;    /* Crucial for the Image 2 flat look */
+    border: none;
+}</string>
+              </property>
+              <property name="text">
+               <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;I&lt;span style=&quot; vertical-align:sub;&quot;&gt;B (SHARED)&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignmentFlag::AlignCenter</set>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="labelOutputIb">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="minimumSize">
+               <size>
+                <width>100</width>
+                <height>20</height>
+               </size>
+              </property>
+              <property name="cursor">
+               <cursorShape>IBeamCursor</cursorShape>
+              </property>
+              <property name="mouseTracking">
+               <bool>true</bool>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">font-size: 16px; font-weight: bold; color: #2c3e50; background: #e8eaf6;
+
+</string>
+              </property>
+              <property name="text">
+               <string>-</string>
+              </property>
+              <property name="textInteractionFlags">
+               <set>Qt::TextInteractionFlag::LinksAccessibleByMouse|Qt::TextInteractionFlag::TextSelectableByMouse</set>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="labelIconRpi">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="minimumSize">
+               <size>
+                <width>100</width>
+                <height>25</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>50</width>
+                <height>50</height>
+               </size>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">QLabel {
+    color: #374151;             /* The dark charcoal text from Image 1 */
+    font-family: &quot;Rockwell&quot;;    /* The serif font from Image 1 */
+    font-size: 13pt;
+    font-weight: bold;
+    background: transparent;    /* Crucial for the Image 2 flat look */
+    border: none;
+}</string>
+              </property>
+              <property name="text">
+               <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Rπ &lt;span style=&quot; vertical-align:sub;&quot;&gt;(SHARED)&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignmentFlag::AlignCenter</set>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="labelOutputRpi">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="minimumSize">
+               <size>
+                <width>100</width>
+                <height>20</height>
+               </size>
+              </property>
+              <property name="cursor">
+               <cursorShape>IBeamCursor</cursorShape>
+              </property>
+              <property name="mouseTracking">
+               <bool>true</bool>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">font-size: 16px; font-weight: bold; color: #2c3e50; background: #e8eaf6;
+
+</string>
+              </property>
+              <property name="text">
+               <string>-</string>
+              </property>
+              <property name="textInteractionFlags">
+               <set>Qt::TextInteractionFlag::LinksAccessibleByMouse|Qt::TextInteractionFlag::TextSelectableByMouse</set>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="labelIconVc2">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+                <horstretch>40</horstretch>
+                <verstretch>40</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="minimumSize">
+               <size>
+                <width>40</width>
+                <height>25</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>50</width>
+                <height>50</height>
+               </size>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">QLabel {
+    color: #374151;             /* The dark charcoal text from Image 1 */
+    font-family: &quot;Rockwell&quot;;    /* The serif font from Image 1 */
+    font-size: 13pt;
+    font-weight: bold;
+    background: transparent;    /* Crucial for the Image 2 flat look */
+    border: none;
+}</string>
+              </property>
+              <property name="text">
+               <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;V&lt;span style=&quot; vertical-align:sub;&quot;&gt;C 2&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignmentFlag::AlignCenter</set>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="labelOutputVc2">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="minimumSize">
+               <size>
+                <width>100</width>
+                <height>20</height>
+               </size>
+              </property>
+              <property name="cursor">
+               <cursorShape>IBeamCursor</cursorShape>
+              </property>
+              <property name="mouseTracking">
+               <bool>true</bool>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">font-size: 16px; font-weight: bold; color: #2c3e50; background: #e8eaf6;
+
+</string>
+              </property>
+              <property name="text">
+               <string>-</string>
+              </property>
+              <property name="textInteractionFlags">
+               <set>Qt::TextInteractionFlag::LinksAccessibleByMouse|Qt::TextInteractionFlag::TextSelectableByMouse</set>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="labelIconVb2">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="minimumSize">
+               <size>
+                <width>40</width>
+                <height>25</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>50</width>
+                <height>50</height>
+               </size>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">QLabel {
+    color: #374151;             /* The dark charcoal text from Image 1 */
+    font-family: &quot;Rockwell&quot;;    /* The serif font from Image 1 */
+    font-size: 13pt;
+    font-weight: bold;
+    background: transparent;    /* Crucial for the Image 2 flat look */
+    border: none;
+}</string>
+              </property>
+              <property name="text">
+               <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;V&lt;span style=&quot; vertical-align:sub;&quot;&gt;B 2&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignmentFlag::AlignCenter</set>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="labelOutputVb2">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="minimumSize">
+               <size>
+                <width>100</width>
+                <height>20</height>
+               </size>
+              </property>
+              <property name="cursor">
+               <cursorShape>IBeamCursor</cursorShape>
+              </property>
+              <property name="mouseTracking">
+               <bool>true</bool>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">font-size: 16px; font-weight: bold; color: #2c3e50; background: #e8eaf6;
+
+</string>
+              </property>
+              <property name="text">
+               <string>-</string>
+              </property>
+              <property name="textInteractionFlags">
+               <set>Qt::TextInteractionFlag::LinksAccessibleByMouse|Qt::TextInteractionFlag::TextSelectableByMouse</set>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="labelIconRc">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="minimumSize">
+               <size>
+                <width>40</width>
+                <height>25</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>50</width>
+                <height>50</height>
+               </size>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">QLabel {
+    color: #374151;             /* The dark charcoal text from Image 1 */
+    font-family: &quot;Rockwell&quot;;    /* The serif font from Image 1 */
+    font-size: 13pt;
+    font-weight: bold;
+    background: transparent;    /* Crucial for the Image 2 flat look */
+    border: none;
+}</string>
+              </property>
+              <property name="text">
+               <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;R&lt;span style=&quot; vertical-align:sub;&quot;&gt;C&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignmentFlag::AlignCenter</set>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="labelOutputRc">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="minimumSize">
+               <size>
+                <width>100</width>
+                <height>20</height>
+               </size>
+              </property>
+              <property name="cursor">
+               <cursorShape>IBeamCursor</cursorShape>
+              </property>
+              <property name="mouseTracking">
+               <bool>true</bool>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">font-size: 16px; font-weight: bold; color: #2c3e50; background: #e8eaf6;
+
+</string>
+              </property>
+              <property name="text">
+               <string>-</string>
+              </property>
+              <property name="textInteractionFlags">
+               <set>Qt::TextInteractionFlag::LinksAccessibleByMouse|Qt::TextInteractionFlag::TextSelectableByMouse</set>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="labelIconRe2">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="minimumSize">
+               <size>
+                <width>40</width>
+                <height>25</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>50</width>
+                <height>50</height>
+               </size>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">QLabel {
+    color: #374151;             /* The dark charcoal text from Image 1 */
+    font-family: &quot;Rockwell&quot;;    /* The serif font from Image 1 */
+    font-size: 13pt;
+    font-weight: bold;
+    background: transparent;    /* Crucial for the Image 2 flat look */
+    border: none;
+}</string>
+              </property>
+              <property name="text">
+               <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;R&lt;span style=&quot; vertical-align:sub;&quot;&gt;E 2&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignmentFlag::AlignCenter</set>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="labelOutputRe2">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="minimumSize">
+               <size>
+                <width>100</width>
+                <height>20</height>
+               </size>
+              </property>
+              <property name="cursor">
+               <cursorShape>IBeamCursor</cursorShape>
+              </property>
+              <property name="mouseTracking">
+               <bool>true</bool>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">font-size: 16px; font-weight: bold; color: #2c3e50; background: #e8eaf6;
+
+</string>
+              </property>
+              <property name="text">
+               <string>-</string>
+              </property>
+              <property name="textInteractionFlags">
+               <set>Qt::TextInteractionFlag::LinksAccessibleByMouse|Qt::TextInteractionFlag::TextSelectableByMouse</set>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="labelIconVc_2">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+                <horstretch>40</horstretch>
+                <verstretch>40</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="minimumSize">
+               <size>
+                <width>40</width>
+                <height>25</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>50</width>
+                <height>50</height>
+               </size>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">QLabel {
+    color: #374151;             /* The dark charcoal text from Image 1 */
+    font-family: &quot;Rockwell&quot;;    /* The serif font from Image 1 */
+    font-size: 13pt;
+    font-weight: bold;
+    background: transparent;    /* Crucial for the Image 2 flat look */
+    border: none;
+}</string>
+              </property>
+              <property name="text">
+               <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;R&lt;span style=&quot; vertical-align:sub;&quot;&gt;1&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignmentFlag::AlignCenter</set>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="labelOutputR1">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="minimumSize">
+               <size>
+                <width>100</width>
+                <height>20</height>
+               </size>
+              </property>
+              <property name="cursor">
+               <cursorShape>IBeamCursor</cursorShape>
+              </property>
+              <property name="mouseTracking">
+               <bool>true</bool>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">font-size: 16px; font-weight: bold; color: #2c3e50; background: #e8eaf6;
+
+</string>
+              </property>
+              <property name="text">
+               <string>-</string>
+              </property>
+              <property name="textInteractionFlags">
+               <set>Qt::TextInteractionFlag::LinksAccessibleByMouse|Qt::TextInteractionFlag::TextSelectableByMouse</set>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="labelIconVb">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="minimumSize">
+               <size>
+                <width>40</width>
+                <height>25</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>50</width>
+                <height>50</height>
+               </size>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">QLabel {
+    color: #374151;             /* The dark charcoal text from Image 1 */
+    font-family: &quot;Rockwell&quot;;    /* The serif font from Image 1 */
+    font-size: 13pt;
+    font-weight: bold;
+    background: transparent;    /* Crucial for the Image 2 flat look */
+    border: none;
+}</string>
+              </property>
+              <property name="text">
+               <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;R&lt;span style=&quot; vertical-align:sub;&quot;&gt;2&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignmentFlag::AlignCenter</set>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="labelOutputR2">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="minimumSize">
+               <size>
+                <width>100</width>
+                <height>20</height>
+               </size>
+              </property>
+              <property name="cursor">
+               <cursorShape>IBeamCursor</cursorShape>
+              </property>
+              <property name="mouseTracking">
+               <bool>true</bool>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">font-size: 16px; font-weight: bold; color: #2c3e50; background: #e8eaf6;
+
+</string>
+              </property>
+              <property name="text">
+               <string>-</string>
+              </property>
+              <property name="textInteractionFlags">
+               <set>Qt::TextInteractionFlag::LinksAccessibleByMouse|Qt::TextInteractionFlag::TextSelectableByMouse</set>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+         </item>
+        </layout>
+       </item>
+      </layout>
+     </item>
+    </layout>
+   </item>
+  </layout>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>SmartLineEdit</class>
+   <extends>QLineEdit</extends>
+   <header>core.smart_line_edit</header>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections/>
+</ui>
