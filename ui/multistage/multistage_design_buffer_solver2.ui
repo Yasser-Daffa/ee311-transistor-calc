@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1081</width>
-    <height>955</height>
+    <height>860</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -151,12 +151,12 @@ QPushButton:checked { background:#6D63E8; color:white; }</string>
        </layout>
       </item>
       <item>
-       <widget class="QLabel" name="labelCEStuff">
+       <widget class="QLabel" name="labelInput1">
         <property name="styleSheet">
          <string notr="true">font: 600 9pt 'Segoe UI'; color: #6b7280; letter-spacing: 1px;</string>
         </property>
         <property name="text">
-         <string>CE STUFF</string>
+         <string>Input</string>
         </property>
        </widget>
       </item>
@@ -174,8 +174,14 @@ QPushButton:checked { background:#6D63E8; color:white; }</string>
             </property>
             <property name="minimumSize">
              <size>
-              <width>50</width>
+              <width>40</width>
               <height>20</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>40</width>
+              <height>16777215</height>
              </size>
             </property>
             <property name="styleSheet">
@@ -197,6 +203,12 @@ QPushButton:checked { background:#6D63E8; color:white; }</string>
              <size>
               <width>100</width>
               <height>20</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
+              <height>16777215</height>
              </size>
             </property>
             <property name="styleSheet">
@@ -294,8 +306,14 @@ QLineEdit:focus {
             </property>
             <property name="minimumSize">
              <size>
-              <width>50</width>
+              <width>40</width>
               <height>20</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>40</width>
+              <height>16777215</height>
              </size>
             </property>
             <property name="styleSheet">
@@ -317,6 +335,12 @@ QLineEdit:focus {
              <size>
               <width>100</width>
               <height>20</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
+              <height>16777215</height>
              </size>
             </property>
             <property name="styleSheet">
@@ -411,8 +435,14 @@ QLineEdit:focus {
             </property>
             <property name="minimumSize">
              <size>
-              <width>50</width>
+              <width>40</width>
               <height>20</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>40</width>
+              <height>16777215</height>
              </size>
             </property>
             <property name="styleSheet">
@@ -445,7 +475,7 @@ QLineEdit:focus {
 }</string>
             </property>
             <property name="text">
-             <string>Output resis'</string>
+             <string>Output Resistor</string>
             </property>
            </widget>
           </item>
@@ -528,8 +558,14 @@ QLineEdit:focus {
             </property>
             <property name="minimumSize">
              <size>
-              <width>50</width>
+              <width>40</width>
               <height>20</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>40</width>
+              <height>16777215</height>
              </size>
             </property>
             <property name="styleSheet">
@@ -647,12 +683,12 @@ QLineEdit:focus {
          </widget>
         </item>
         <item>
-         <widget class="QLabel" name="labelBjtHead">
+         <widget class="QLabel" name="labelInput2">
           <property name="styleSheet">
            <string notr="true">font: 600 9pt 'Segoe UI'; color: #6b7280; letter-spacing: 1px;</string>
           </property>
           <property name="text">
-           <string>CC Stuff</string>
+           <string>Input</string>
           </property>
          </widget>
         </item>
@@ -670,8 +706,14 @@ QLineEdit:focus {
               </property>
               <property name="minimumSize">
                <size>
-                <width>50</width>
+                <width>40</width>
                 <height>20</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>40</width>
+                <height>16777215</height>
                </size>
               </property>
               <property name="styleSheet">
@@ -704,7 +746,7 @@ QLineEdit:focus {
 }</string>
               </property>
               <property name="text">
-               <string>Emittor Res</string>
+               <string>Emittor Resistor</string>
               </property>
              </widget>
             </item>
@@ -767,7 +809,7 @@ QLineEdit:focus {
 }</string>
             </property>
             <property name="text">
-             <string/>
+             <string>kΩ</string>
             </property>
            </widget>
           </item>
@@ -787,8 +829,14 @@ QLineEdit:focus {
               </property>
               <property name="minimumSize">
                <size>
-                <width>50</width>
+                <width>40</width>
                 <height>20</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>40</width>
+                <height>16777215</height>
                </size>
               </property>
               <property name="styleSheet">
@@ -821,7 +869,7 @@ QLineEdit:focus {
 }</string>
               </property>
               <property name="text">
-               <string>Base Res</string>
+               <string>Base Resistor</string>
               </property>
              </widget>
             </item>
@@ -884,7 +932,7 @@ QLineEdit:focus {
 }</string>
             </property>
             <property name="text">
-             <string/>
+             <string>kΩ</string>
             </property>
            </widget>
           </item>
@@ -904,8 +952,14 @@ QLineEdit:focus {
               </property>
               <property name="minimumSize">
                <size>
-                <width>50</width>
+                <width>40</width>
                 <height>20</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>40</width>
+                <height>16777215</height>
                </size>
               </property>
               <property name="styleSheet">
@@ -1024,8 +1078,14 @@ QLineEdit:focus {
               </property>
               <property name="minimumSize">
                <size>
-                <width>50</width>
+                <width>40</width>
                 <height>20</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>40</width>
+                <height>16777215</height>
                </size>
               </property>
               <property name="styleSheet">
@@ -1141,8 +1201,14 @@ QLineEdit:focus {
               </property>
               <property name="minimumSize">
                <size>
-                <width>50</width>
+                <width>40</width>
                 <height>20</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>40</width>
+                <height>16777215</height>
                </size>
               </property>
               <property name="styleSheet">
@@ -1276,7 +1342,7 @@ QLineEdit:focus {
           </property>
           <property name="maximumSize">
            <size>
-            <width>400</width>
+            <width>500</width>
             <height>35</height>
            </size>
           </property>
@@ -1328,82 +1394,6 @@ QPushButton:disabled {
            </size>
           </property>
          </spacer>
-        </item>
-        <item>
-         <widget class="QLabel" name="labelCircuitTitle">
-          <property name="sizePolicy">
-           <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-            <horstretch>0</horstretch>
-            <verstretch>0</verstretch>
-           </sizepolicy>
-          </property>
-          <property name="maximumSize">
-           <size>
-            <width>230</width>
-            <height>16777215</height>
-           </size>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">QLabel {
-    color: #374151;
-    font-size: 13px;
-    font-weight: 600;
-	background-color: transparent;
-    padding-bottom: 4px;
-    border: none;
-    border-bottom: 2px solid #6D63E8;
-	
-	
-	font: 13pt &quot;Rockwell&quot;;
-}</string>
-          </property>
-          <property name="text">
-           <string>not relevent</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QLabel" name="labelCircuitImage">
-          <property name="sizePolicy">
-           <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-            <horstretch>0</horstretch>
-            <verstretch>0</verstretch>
-           </sizepolicy>
-          </property>
-          <property name="minimumSize">
-           <size>
-            <width>370</width>
-            <height>300</height>
-           </size>
-          </property>
-          <property name="maximumSize">
-           <size>
-            <width>350</width>
-            <height>300</height>
-           </size>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">QLabel {
-    color: #374151;
-    font-size: 13px;
-    font-weight: 600;
-	background-color: transparent;
-    border: none;
-	
-	
-	font: 13pt &quot;Rockwell&quot;;
-}</string>
-          </property>
-          <property name="text">
-           <string/>
-          </property>
-          <property name="pixmap">
-           <pixmap>../../assets/images/ce_amp.png</pixmap>
-          </property>
-          <property name="scaledContents">
-           <bool>true</bool>
-          </property>
-         </widget>
         </item>
        </layout>
       </item>
@@ -1464,7 +1454,7 @@ QPushButton:disabled {
 }</string>
        </property>
        <property name="text">
-        <string>calc</string>
+        <string>Calculation</string>
        </property>
       </widget>
      </item>
@@ -1514,16 +1504,6 @@ QPushButton:disabled {
        <property name="bottomMargin">
         <number>25</number>
        </property>
-       <item>
-        <widget class="QLabel" name="labelBjtHead_3">
-         <property name="styleSheet">
-          <string notr="true">font: 600 9pt 'Segoe UI'; color: #6b7280; letter-spacing: 1px;</string>
-         </property>
-         <property name="text">
-          <string>idk solutioon ig</string>
-         </property>
-        </widget>
-       </item>
        <item>
         <widget class="QFrame" name="frameVbb_2">
          <property name="sizePolicy">
@@ -1581,7 +1561,7 @@ font-family: 'Inter', sans-serif;</string>
             </property>
             <property name="minimumSize">
              <size>
-              <width>40</width>
+              <width>240</width>
               <height>25</height>
              </size>
             </property>
@@ -1649,7 +1629,7 @@ font-family: 'Inter', sans-serif;</string>
            <widget class="QLabel" name="labelIconRoNew">
             <property name="minimumSize">
              <size>
-              <width>40</width>
+              <width>240</width>
               <height>25</height>
              </size>
             </property>
@@ -1720,7 +1700,7 @@ font-family: 'Inter', sans-serif;</string>
             </property>
             <property name="minimumSize">
              <size>
-              <width>40</width>
+              <width>240</width>
               <height>25</height>
              </size>
             </property>
@@ -1791,7 +1771,7 @@ font-family: 'Inter', sans-serif;</string>
             </property>
             <property name="minimumSize">
              <size>
-              <width>40</width>
+              <width>240</width>
               <height>25</height>
              </size>
             </property>
@@ -1862,7 +1842,7 @@ font-family: 'Inter', sans-serif;</string>
             </property>
             <property name="minimumSize">
              <size>
-              <width>40</width>
+              <width>240</width>
               <height>25</height>
              </size>
             </property>

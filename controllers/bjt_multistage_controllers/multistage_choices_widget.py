@@ -15,7 +15,7 @@ UI_PATH = os.path.join(PROJECT_ROOT, "ui", "multistage", "multistage_choices.ui"
 from controllers.bjt_multistage_controllers.ce_ce_design_widget import CECEDesignWidget
 from controllers.bjt_multistage_controllers.cc_ce_design_widget import CCCEDesignWidget
 from controllers.bjt_multistage_controllers.ce_cc_design_widget import CECCDesignWidget
-from controllers.bjt_multistage_controllers.buffer_analysis_widget import BufferAnalysisWidget
+from controllers.bjt_multistage_controllers.buffer_analysis_widget_automated import BufferAnalysisWidget
 
 
 class MultistageChoicesWidget(QWidget):

@@ -368,6 +368,9 @@ QPushButton:checked {
        <property name="checked">
         <bool>false</bool>
        </property>
+       <attribute name="buttonGroup">
+        <string notr="true">buttonGroup</string>
+       </attribute>
       </widget>
      </item>
      <item>

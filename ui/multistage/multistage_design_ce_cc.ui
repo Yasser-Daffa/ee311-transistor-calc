@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1174</width>
-    <height>1110</height>
+    <height>1112</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -51,7 +51,7 @@
     <widget class="QFrame" name="frame">
      <property name="minimumSize">
       <size>
-       <width>250</width>
+       <width>300</width>
        <height>0</height>
       </size>
      </property>
@@ -1278,7 +1278,7 @@ QPushButton:disabled {
 }</string>
           </property>
           <property name="text">
-           <string>CC-CE Circuit</string>
+           <string>CE-CC Circuit (No Image rn)</string>
           </property>
          </widget>
         </item>
@@ -1315,7 +1315,7 @@ QPushButton:disabled {
 }</string>
           </property>
           <property name="text">
-           <string/>
+           <string>CE-CC Circuit (No Image)</string>
           </property>
           <property name="pixmap">
            <pixmap>../../assets/images/placeholder2.jpg</pixmap>
@@ -2061,6 +2061,18 @@ color: #1e293b;</string>
        </property>
        <item>
         <widget class="QLabel" name="labelBjtHead_4">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>60</height>
+          </size>
+         </property>
          <property name="styleSheet">
           <string notr="true">font: 600 9pt 'Segoe UI'; color: #6b7280; letter-spacing: 1px;</string>
          </property>
@@ -3242,7 +3254,7 @@ color: #1e293b;</string>
            </property>
            <property name="minimumSize">
             <size>
-             <width>220</width>
+             <width>160</width>
              <height>80</height>
             </size>
            </property>
@@ -3999,7 +4011,7 @@ font-family: 'Inter', sans-serif;</string>
            </property>
            <property name="minimumSize">
             <size>
-             <width>220</width>
+             <width>160</width>
              <height>80</height>
             </size>
            </property>
