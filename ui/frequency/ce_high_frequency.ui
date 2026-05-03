@@ -1,0 +1,879 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Form</class>
+ <widget class="QWidget" name="Form">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1069</width>
+    <height>1327</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>1069</width>
+    <height>1327</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QWidget {
+background-color: #f5f7fa;
+}
+QLineEdit {
+    background-color: #ffffff;
+    border: 1px solid #d1d5db;
+    border-radius: 5px;
+    padding: 6px 8px;
+    color: #111827;
+    font-size: 13px;
+    font-family: "JetBrains Mono", "Consolas", monospace;
+}
+QLineEdit:focus {
+    border: 1px solid #667EEA;
+    background-color: #f9fafb;
+}
+QLabel {
+    color: #374151;
+    font-family: "Rockwell";
+    font-size: 13pt;
+    font-weight: bold;
+    background: transparent;
+    border: none;
+}</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout_5">
+   <property name="spacing">
+    <number>10</number>
+   </property>
+   <property name="leftMargin">
+    <number>20</number>
+   </property>
+   <property name="topMargin">
+    <number>20</number>
+   </property>
+   <property name="rightMargin">
+    <number>20</number>
+   </property>
+   <property name="bottomMargin">
+    <number>20</number>
+   </property>
+   <item>
+    <spacer name="verticalSpacer_2">
+     <property name="orientation">
+      <enum>Qt::Orientation::Vertical</enum>
+     </property>
+     <property name="sizeType">
+      <enum>QSizePolicy::Policy::Fixed</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>20</width>
+       <height>25</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="headerLayout">
+     <item>
+      <widget class="QLabel" name="titleLabel">
+       <property name="maximumSize">
+        <size>
+         <width>16777215</width>
+         <height>30</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QLabel {
+    color: #374151;
+    font-size: 16px;
+    font-weight: 600;
+    background-color: transparent;
+    padding-bottom: 4px;
+    border: none;
+    font: 16pt "Rockwell";
+}</string>
+       </property>
+       <property name="text">
+        <string>CE High Frequency Response</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <spacer name="headerSpacer">
+       <property name="orientation">
+        <enum>Qt::Orientation::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayout">
+     <property name="spacing">
+      <number>30</number>
+     </property>
+     <property name="topMargin">
+      <number>30</number>
+     </property>
+     <!-- LEFT COLUMN: Inputs + Outputs -->
+     <item>
+      <layout class="QVBoxLayout" name="verticalLayout_3">
+       <property name="spacing">
+        <number>15</number>
+       </property>
+       <!-- INPUT CARD -->
+       <item>
+        <widget class="QFrame" name="frameResistors">
+         <property name="maximumSize">
+          <size>
+           <width>1000</width>
+           <height>16777215</height>
+          </size>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">#frameResistors {
+    background-color: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 14px;
+}</string>
+         </property>
+         <property name="frameShape">
+          <enum>QFrame::Shape::StyledPanel</enum>
+         </property>
+         <layout class="QVBoxLayout" name="verticalLayout">
+          <property name="spacing">
+           <number>14</number>
+          </property>
+          <property name="leftMargin">
+           <number>20</number>
+          </property>
+          <property name="topMargin">
+           <number>24</number>
+          </property>
+          <property name="rightMargin">
+           <number>20</number>
+          </property>
+          <property name="bottomMargin">
+           <number>20</number>
+          </property>
+          <item>
+           <widget class="QLabel" name="labelInputs">
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
+              <height>30</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QLabel {
+    color: #374151;
+    font-size: 13px;
+    font-weight: 600;
+    background-color: transparent;
+    padding-bottom: 4px;
+    border: none;
+    border-bottom: 2px solid #6D63E8;
+    font: 13pt "Rockwell";
+}</string>
+            </property>
+            <property name="text">
+             <string>Inputs</string>
+            </property>
+           </widget>
+          </item>
+          <!-- Mode label -->
+          <item>
+           <widget class="QLabel" name="labelChoose">
+            <property name="styleSheet">
+             <string notr="true">font: 600 9pt 'Segoe UI'; color: #6b7280; letter-spacing: 1px;</string>
+            </property>
+            <property name="text">
+             <string>SELECT MODE</string>
+            </property>
+           </widget>
+          </item>
+          <!-- Mode buttons row -->
+          <item>
+           <layout class="QHBoxLayout" name="modeButtonsLayout">
+            <property name="spacing">
+             <number>8</number>
+            </property>
+            <item>
+             <widget class="QPushButton" name="buttonFullAnalysis">
+              <property name="checkable">
+               <bool>true</bool>
+              </property>
+              <property name="checked">
+               <bool>true</bool>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">QPushButton {
+    background-color: #f3f4f6;
+    color: #374151;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 6px 14px;
+}
+QPushButton:checked {
+    background-color: #6D63E8;
+    color: white;
+    border: 1px solid #6D63E8;
+}
+QPushButton:hover:!checked {
+    background-color: #e5e7eb;
+}</string>
+              </property>
+              <property name="text">
+               <string>Full Analysis</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="buttonGivenCpi">
+              <property name="checkable">
+               <bool>true</bool>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">QPushButton {
+    background-color: #f3f4f6;
+    color: #374151;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 6px 14px;
+}
+QPushButton:checked {
+    background-color: #6D63E8;
+    color: white;
+    border: 1px solid #6D63E8;
+}
+QPushButton:hover:!checked {
+    background-color: #e5e7eb;
+}</string>
+              </property>
+              <property name="text">
+               <string>Due to Cπ only</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="buttonGivenCmu">
+              <property name="checkable">
+               <bool>true</bool>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">QPushButton {
+    background-color: #f3f4f6;
+    color: #374151;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 6px 14px;
+}
+QPushButton:checked {
+    background-color: #6D63E8;
+    color: white;
+    border: 1px solid #6D63E8;
+}
+QPushButton:hover:!checked {
+    background-color: #e5e7eb;
+}</string>
+              </property>
+              <property name="text">
+               <string>Due to Cµ only</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <spacer>
+              <property name="orientation">
+               <enum>Qt::Orientation::Horizontal</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>40</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+           </layout>
+          </item>
+          <!-- Status label -->
+          <item>
+           <widget class="QLabel" name="labelChoicePicked">
+            <property name="styleSheet">
+             <string notr="true">font: 600 9pt 'Segoe UI'; color: #6D63E8;</string>
+            </property>
+            <property name="text">
+             <string>Choice picked: Full Analysis — calculates fπ and fµ</string>
+            </property>
+           </widget>
+          </item>
+          <!-- Section: Circuit Resistances (from slide analysis) -->
+          <item>
+           <widget class="QLabel" name="labelSectionResist">
+            <property name="styleSheet">
+             <string notr="true">font: 600 9pt 'Segoe UI'; color: #6b7280; letter-spacing: 1px;</string>
+            </property>
+            <property name="text">
+             <string>CIRCUIT RESISTANCES  (kΩ)</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <layout class="QGridLayout" name="gridResistances">
+            <property name="horizontalSpacing">
+             <number>16</number>
+            </property>
+            <property name="verticalSpacing">
+             <number>10</number>
+            </property>
+            <!-- RS -->
+            <item row="0" column="0">
+             <widget class="QLabel" name="labelRsTitle">
+              <property name="text"><string>RS</string></property>
+             </widget>
+            </item>
+            <item row="0" column="1">
+             <widget class="QLineEdit" name="lineRs">
+              <property name="placeholderText"><string>kΩ</string></property>
+             </widget>
+            </item>
+            <!-- RB -->
+            <item row="0" column="2">
+             <widget class="QLabel" name="labelRBTitle">
+              <property name="text"><string>RB</string></property>
+             </widget>
+            </item>
+            <item row="0" column="3">
+             <widget class="QLineEdit" name="lineRB">
+              <property name="placeholderText"><string>kΩ</string></property>
+             </widget>
+            </item>
+            <!-- rπ -->
+            <item row="1" column="0">
+             <widget class="QLabel" name="labelRpiTitle">
+              <property name="text"><string>rπ</string></property>
+             </widget>
+            </item>
+            <item row="1" column="1">
+             <widget class="QLineEdit" name="lineRpi">
+              <property name="placeholderText"><string>kΩ</string></property>
+             </widget>
+            </item>
+            <!-- RX -->
+            <item row="1" column="2">
+             <widget class="QLabel" name="labelRXTitle">
+              <property name="text"><string>RX</string></property>
+             </widget>
+            </item>
+            <item row="1" column="3">
+             <widget class="QLineEdit" name="lineRX">
+              <property name="placeholderText"><string>kΩ</string></property>
+             </widget>
+            </item>
+            <!-- RC -->
+            <item row="2" column="0">
+             <widget class="QLabel" name="labelRCTitle">
+              <property name="text"><string>RC</string></property>
+             </widget>
+            </item>
+            <item row="2" column="1">
+             <widget class="QLineEdit" name="lineRC">
+              <property name="placeholderText"><string>kΩ</string></property>
+             </widget>
+            </item>
+            <!-- RL -->
+            <item row="2" column="2">
+             <widget class="QLabel" name="labelRLTitle">
+              <property name="text"><string>RL</string></property>
+             </widget>
+            </item>
+            <item row="2" column="3">
+             <widget class="QLineEdit" name="lineRL">
+              <property name="placeholderText"><string>kΩ</string></property>
+             </widget>
+            </item>
+            <!-- beta -->
+            <item row="3" column="0">
+             <widget class="QLabel" name="labelBetaTitle">
+              <property name="text"><string>β</string></property>
+             </widget>
+            </item>
+            <item row="3" column="1">
+             <widget class="QLineEdit" name="lineBeta">
+              <property name="placeholderText"><string>dimensionless</string></property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <!-- Section: BJT Capacitances -->
+          <item>
+           <widget class="QLabel" name="labelSectionCaps">
+            <property name="styleSheet">
+             <string notr="true">font: 600 9pt 'Segoe UI'; color: #6b7280; letter-spacing: 1px;</string>
+            </property>
+            <property name="text">
+             <string>BJT CAPACITANCES</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <layout class="QGridLayout" name="gridCaps">
+            <property name="horizontalSpacing">
+             <number>16</number>
+            </property>
+            <property name="verticalSpacing">
+             <number>10</number>
+            </property>
+            <!-- Cpi -->
+            <item row="0" column="0">
+             <widget class="QLabel" name="labelCpiTitle">
+              <property name="text"><string>Cπ</string></property>
+             </widget>
+            </item>
+            <item row="0" column="1">
+             <widget class="QLineEdit" name="lineCpi">
+              <property name="placeholderText"><string>pF</string></property>
+             </widget>
+            </item>
+            <!-- Cmu -->
+            <item row="0" column="2">
+             <widget class="QLabel" name="labelCmuTitle">
+              <property name="text"><string>Cµ</string></property>
+             </widget>
+            </item>
+            <item row="0" column="3">
+             <widget class="QLineEdit" name="lineCmu">
+              <property name="placeholderText"><string>pF</string></property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <!-- Buttons row -->
+          <item>
+           <layout class="QHBoxLayout" name="buttonsLayout">
+            <property name="spacing">
+             <number>10</number>
+            </property>
+            <item>
+             <widget class="QPushButton" name="pushButtonClear">
+              <property name="maximumSize">
+               <size>
+                <width>160</width>
+                <height>36</height>
+               </size>
+              </property>
+              <property name="cursor">
+               <cursorShape>PointingHandCursor</cursorShape>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">QPushButton {
+    background-color: #f3f4f6;
+    color: #374151;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 6px 18px;
+}
+QPushButton:hover { background-color: #e5e7eb; }
+QPushButton:pressed { background-color: #d1d5db; }</string>
+              </property>
+              <property name="text">
+               <string>Clear</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="buttonOpen">
+              <property name="maximumSize">
+               <size>
+                <width>260</width>
+                <height>36</height>
+               </size>
+              </property>
+              <property name="cursor">
+               <cursorShape>PointingHandCursor</cursorShape>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">QPushButton {
+    background-color: rgb(34, 104, 190);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 6px 18px;
+}
+QPushButton:hover { background-color: rgb(46, 126, 219); }
+QPushButton:pressed { background-color: rgb(26, 86, 161); }</string>
+              </property>
+              <property name="text">
+               <string>Open CE Design Calculator</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <spacer>
+              <property name="orientation">
+               <enum>Qt::Orientation::Horizontal</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>40</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <!-- OUTPUT CARD -->
+       <item>
+        <widget class="QFrame" name="frameOutputs">
+         <property name="maximumSize">
+          <size>
+           <width>1000</width>
+           <height>16777215</height>
+          </size>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">#frameOutputs {
+    background-color: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 14px;
+}</string>
+         </property>
+         <property name="frameShape">
+          <enum>QFrame::Shape::StyledPanel</enum>
+         </property>
+         <layout class="QVBoxLayout" name="outputsLayout">
+          <property name="spacing">
+           <number>14</number>
+          </property>
+          <property name="leftMargin">
+           <number>20</number>
+          </property>
+          <property name="topMargin">
+           <number>24</number>
+          </property>
+          <property name="rightMargin">
+           <number>20</number>
+          </property>
+          <property name="bottomMargin">
+           <number>20</number>
+          </property>
+          <item>
+           <widget class="QLabel" name="labelOutputs">
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
+              <height>30</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QLabel {
+    color: #374151;
+    font-size: 13px;
+    font-weight: 600;
+    background-color: transparent;
+    padding-bottom: 4px;
+    border: none;
+    border-bottom: 2px solid #6D63E8;
+    font: 13pt "Rockwell";
+}</string>
+            </property>
+            <property name="text">
+             <string>Results</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <layout class="QGridLayout" name="gridOutputs">
+            <property name="horizontalSpacing">
+             <number>16</number>
+            </property>
+            <property name="verticalSpacing">
+             <number>12</number>
+            </property>
+            <!-- RSB -->
+            <item row="0" column="0">
+             <widget class="QLabel" name="labelRSBTitle">
+              <property name="maximumSize"><size><width>100</width><height>16777215</height></size></property>
+              <property name="text"><string>RSB</string></property>
+             </widget>
+            </item>
+            <item row="0" column="1">
+             <widget class="QLabel" name="labelRSB">
+              <property name="styleSheet">
+               <string notr="true">font-size: 16px; font-weight: bold; color: #2c3e50; background: #e8eaf6;</string>
+              </property>
+              <property name="text"><string>—</string></property>
+             </widget>
+            </item>
+            <!-- RCL -->
+            <item row="0" column="2">
+             <widget class="QLabel" name="labelRCLTitle">
+              <property name="maximumSize"><size><width>100</width><height>16777215</height></size></property>
+              <property name="text"><string>RCL</string></property>
+             </widget>
+            </item>
+            <item row="0" column="3">
+             <widget class="QLabel" name="labelRCL">
+              <property name="styleSheet">
+               <string notr="true">font-size: 16px; font-weight: bold; color: #2c3e50; background: #e8eaf6;</string>
+              </property>
+              <property name="text"><string>—</string></property>
+             </widget>
+            </item>
+            <!-- RXX -->
+            <item row="1" column="0">
+             <widget class="QLabel" name="labelRXXTitle">
+              <property name="maximumSize"><size><width>100</width><height>16777215</height></size></property>
+              <property name="text"><string>RXX</string></property>
+             </widget>
+            </item>
+            <item row="1" column="1">
+             <widget class="QLabel" name="labelRXX">
+              <property name="styleSheet">
+               <string notr="true">font-size: 16px; font-weight: bold; color: #2c3e50; background: #e8eaf6;</string>
+              </property>
+              <property name="text"><string>—</string></property>
+             </widget>
+            </item>
+            <!-- Rpi_eq -->
+            <item row="2" column="0">
+             <widget class="QLabel" name="labelRpiEqTitle">
+              <property name="maximumSize"><size><width>100</width><height>16777215</height></size></property>
+              <property name="text"><string>Rπ (eq)</string></property>
+             </widget>
+            </item>
+            <item row="2" column="1">
+             <widget class="QLabel" name="labelRpiEq">
+              <property name="styleSheet">
+               <string notr="true">font-size: 16px; font-weight: bold; color: #2c3e50; background: #e8eaf6;</string>
+              </property>
+              <property name="text"><string>—</string></property>
+             </widget>
+            </item>
+            <!-- Rmu_eq -->
+            <item row="2" column="2">
+             <widget class="QLabel" name="labelRmuEqTitle">
+              <property name="maximumSize"><size><width>100</width><height>16777215</height></size></property>
+              <property name="text"><string>Rµ (eq)</string></property>
+             </widget>
+            </item>
+            <item row="2" column="3">
+             <widget class="QLabel" name="labelRmuEq">
+              <property name="styleSheet">
+               <string notr="true">font-size: 16px; font-weight: bold; color: #2c3e50; background: #e8eaf6;</string>
+              </property>
+              <property name="text"><string>—</string></property>
+             </widget>
+            </item>
+            <!-- fpi -->
+            <item row="3" column="0">
+             <widget class="QLabel" name="labelFpiTitle">
+              <property name="maximumSize"><size><width>100</width><height>16777215</height></size></property>
+              <property name="text"><string>fπ</string></property>
+             </widget>
+            </item>
+            <item row="3" column="1">
+             <widget class="QLabel" name="labelFpi">
+              <property name="styleSheet">
+               <string notr="true">font-size: 16px; font-weight: bold; color: #2c3e50; background: #e8eaf6;</string>
+              </property>
+              <property name="text"><string>—</string></property>
+             </widget>
+            </item>
+            <!-- fmu -->
+            <item row="3" column="2">
+             <widget class="QLabel" name="labelFmuTitle">
+              <property name="maximumSize"><size><width>100</width><height>16777215</height></size></property>
+              <property name="text"><string>fµ</string></property>
+             </widget>
+            </item>
+            <item row="3" column="3">
+             <widget class="QLabel" name="labelFmu">
+              <property name="styleSheet">
+               <string notr="true">font-size: 16px; font-weight: bold; color: #2c3e50; background: #e8eaf6;</string>
+              </property>
+              <property name="text"><string>—</string></property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <!-- Conservative fH label -->
+          <item>
+           <widget class="QLabel" name="labelFHConservative">
+            <property name="styleSheet">
+             <string notr="true">QLabel {
+    background-color: #fff7ed;
+    border: 1px solid #fed7aa;
+    border-radius: 10px;
+    padding: 10px;
+    color: #9a3412;
+    font-size: 12px;
+    font-weight: 700;
+}</string>
+            </property>
+            <property name="text">
+             <string>fH conservative: —</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignmentFlag::AlignCenter</set>
+            </property>
+           </widget>
+          </item>
+          <!-- Range label -->
+          <item>
+           <widget class="QLabel" name="labelFHRange">
+            <property name="styleSheet">
+             <string notr="true">QLabel {
+    background-color: #f0f5ff;
+    border: 1px solid #dbeafe;
+    border-radius: 8px;
+    padding: 7px 5px;
+    color: #111827;
+    font-size: 12px;
+}</string>
+            </property>
+            <property name="text">
+             <string>Range: —</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignmentFlag::AlignCenter</set>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <!-- FORMULA CARD -->
+       <item>
+        <widget class="QFrame" name="cardFormula">
+         <property name="maximumSize">
+          <size>
+           <width>900</width>
+           <height>16777215</height>
+          </size>
+         </property>
+         <property name="frameShape">
+          <enum>QFrame::Shape::StyledPanel</enum>
+         </property>
+         <layout class="QVBoxLayout" name="formulaCardLayout">
+          <property name="leftMargin"><number>16</number></property>
+          <property name="topMargin"><number>16</number></property>
+          <property name="rightMargin"><number>16</number></property>
+          <property name="bottomMargin"><number>16</number></property>
+          <item>
+           <widget class="QLabel" name="labelFormulaTitle">
+            <property name="styleSheet">
+             <string notr="true">QLabel {
+    color: #374151;
+    font-size: 13px;
+    font-weight: 600;
+    background-color: transparent;
+    padding-bottom: 4px;
+    border: none;
+    border-bottom: 2px solid #6D63E8;
+    font: 13pt "Rockwell";
+}</string>
+            </property>
+            <property name="text">
+             <string>Slide Formula Reference</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="pushButtonShowFormulas">
+            <property name="maximumSize">
+             <size>
+              <width>500</width>
+              <height>30</height>
+             </size>
+            </property>
+            <property name="cursor">
+             <cursorShape>PointingHandCursor</cursorShape>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QPushButton {
+    background-color: rgb(34, 104, 190);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 5px 20px;
+}
+QPushButton:hover { background-color: rgb(46, 126, 219); }
+QPushButton:pressed { background-color: rgb(26, 86, 161); }</string>
+            </property>
+            <property name="text">
+             <string> Show Formulas</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="labelFormulaText">
+            <property name="styleSheet">
+             <string notr="true">QLabel {
+    color: rgb(80, 80, 80);
+    font-size: 13px;
+    font-weight: 500;
+    font-family: "Segoe UI", "Roboto", sans-serif;
+}</string>
+            </property>
+            <property name="text">
+             <string>CE HIGH FREQUENCY RESPONSE
+
+RXX = rπ + (β + 1)RX
+RSB = RS || RB
+RCL = RC || RL
+
+Rπ = rπ(RSB + RX) / (RSB + RXX)
+fπ = 1 / (2π Rπ Cπ)
+
+Rµ = [RXX(RSB + RCL) + (β+1)·RSB·RCL] / (RSB + RXX)
+fµ = 1 / (2π Rµ Cµ)
+
+fπ || fµ  ≤  fH  ≤  min(fπ, fµ)
+Conservative: fH = fπ || fµ</string>
+            </property>
+            <property name="wordWrap">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+      </layout>
+     </item>
+    </layout>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

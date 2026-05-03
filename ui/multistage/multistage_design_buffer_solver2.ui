@@ -156,7 +156,10 @@ QPushButton:checked { background:#6D63E8; color:white; }</string>
          <string notr="true">font: 600 9pt 'Segoe UI'; color: #6b7280; letter-spacing: 1px;</string>
         </property>
         <property name="text">
-         <string>Input</string>
+         <string>Input (NOTE: Use  Single-Stage CC or CE Design to obtain Resistor values if given Vcc, Icmax, and Beta.)</string>
+        </property>
+        <property name="wordWrap">
+         <bool>true</bool>
         </property>
        </widget>
       </item>
@@ -426,7 +429,7 @@ QLineEdit:focus {
         <item>
          <layout class="QHBoxLayout" name="horizontalLayout_22">
           <item>
-           <widget class="QLabel" name="labelRi_2">
+           <widget class="QLabel" name="labelRo">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
               <horstretch>0</horstretch>
@@ -549,7 +552,7 @@ QLineEdit:focus {
         <item>
          <layout class="QHBoxLayout" name="horizontalLayout_6">
           <item>
-           <widget class="QLabel" name="labelBeta_3">
+           <widget class="QLabel" name="labelAv0">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
               <horstretch>0</horstretch>
@@ -582,7 +585,7 @@ QLineEdit:focus {
            </widget>
           </item>
           <item>
-           <widget class="QLabel" name="labelGain_3">
+           <widget class="QLabel" name="labelInternalGain">
             <property name="minimumSize">
              <size>
               <width>100</width>
@@ -1691,7 +1694,7 @@ font-family: 'Inter', sans-serif;</string>
            </widget>
           </item>
           <item>
-           <widget class="QLabel" name="labelIconIb">
+           <widget class="QLabel" name="labelIconK">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
               <horstretch>0</horstretch>
@@ -1729,7 +1732,7 @@ font-family: 'Inter', sans-serif;</string>
            </widget>
           </item>
           <item>
-           <widget class="QLabel" name="labelOutputRxx">
+           <widget class="QLabel" name="labelOutputK">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
               <horstretch>0</horstretch>
@@ -1762,7 +1765,7 @@ font-family: 'Inter', sans-serif;</string>
            </widget>
           </item>
           <item>
-           <widget class="QLabel" name="labelIconReAc">
+           <widget class="QLabel" name="labelIconAvt">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
               <horstretch>0</horstretch>
@@ -1792,7 +1795,7 @@ font-family: 'Inter', sans-serif;</string>
 }</string>
             </property>
             <property name="text">
-             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;RE AC&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;AvT&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
             </property>
             <property name="alignment">
              <set>Qt::AlignmentFlag::AlignCenter</set>
@@ -1800,7 +1803,7 @@ font-family: 'Inter', sans-serif;</string>
            </widget>
           </item>
           <item>
-           <widget class="QLabel" name="labelOutputReAc">
+           <widget class="QLabel" name="labelOutputAvt">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
               <horstretch>0</horstretch>
@@ -1833,7 +1836,7 @@ font-family: 'Inter', sans-serif;</string>
            </widget>
           </item>
           <item>
-           <widget class="QLabel" name="labelIconVc">
+           <widget class="QLabel" name="labelIconAv0">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
               <horstretch>40</horstretch>
@@ -1863,7 +1866,7 @@ font-family: 'Inter', sans-serif;</string>
 }</string>
             </property>
             <property name="text">
-             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Av CC&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Av0&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
             </property>
             <property name="alignment">
              <set>Qt::AlignmentFlag::AlignCenter</set>
@@ -1871,7 +1874,7 @@ font-family: 'Inter', sans-serif;</string>
            </widget>
           </item>
           <item>
-           <widget class="QLabel" name="labelOutputAvCC">
+           <widget class="QLabel" name="labelOutputAv0">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
               <horstretch>0</horstretch>
