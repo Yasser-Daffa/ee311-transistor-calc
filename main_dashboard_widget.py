@@ -12,6 +12,9 @@ from controllers.bjt_amplifiers_controllers.ce_design_analysis_menu_widget impor
 from controllers.bjt_amplifiers_controllers.cc_design_analysis_menu_widget import CCDesignAnalysisMenuWidget
 from controllers.bjt_multistage_controllers.multistage_choices_widget import MultistageChoicesWidget
 
+from controllers.bjt_frequency.singlestage_frequency_choices_widget import SingleStageFrequencyChoicesWidget
+from controllers.bjt_frequency.multistage_frequency_choices_widget import MultistageFrequencyChoicesWidget
+
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 UI_PATH = os.path.join(BASE_DIR, "ui", "main_dashboard.ui")
 
@@ -25,18 +28,22 @@ class MainDashboardWidget(QMainWindow):
         self._embed(self.page1CommonEmitter, CEDesignAnalysisMenuWidget())
         self._embed(self.page2CommonCollector, CCDesignAnalysisMenuWidget())
         self._embed(self.page3MultiStage, MultistageChoicesWidget())
+        self._embed(self.page4SingleStageFrequency, SingleStageFrequencyChoicesWidget())
+        self._embed(self.page5MultiStageFrequency, MultistageFrequencyChoicesWidget())
 
         # self.add_placeholder(self.page3MultiStage, "Multi-Stage Amplifiers Under Development!")
-        self.add_placeholder(self.page4FrequencyCalculations, "Frequency Under Development!")
-        self.add_placeholder(self.page5Mosfets, "MOSFETs Under Development!")
+        # self.add_placeholder(self.page4SingleStageFrequency, "Single-Stage Frequency Calculations Under Development!")
+        self.add_placeholder(self.page7Mosfets, "MOSFETs Under Development!")
 
         
         self.buttonBjtTransistor.clicked.connect(lambda: self.stackedWidget.setCurrentIndex(0))
         self.buttonCommonEmitter.clicked.connect(lambda: self.stackedWidget.setCurrentIndex(1))
         self.buttonCommonCollector.clicked.connect(lambda: self.stackedWidget.setCurrentIndex(2))
         self.buttonMultiStage.clicked.connect(lambda: self.stackedWidget.setCurrentIndex(3))
-        self.buttonFrequencyCalculations.clicked.connect(lambda: self.stackedWidget.setCurrentIndex(4))
-        self.buttonMosfets.clicked.connect(lambda: self.stackedWidget.setCurrentIndex(5))
+        self.buttonSingleStageFrequency.clicked.connect(lambda: self.stackedWidget.setCurrentIndex(4))
+        self.buttonMultiStageFrequency.clicked.connect(lambda: self.stackedWidget.setCurrentIndex(5))
+        self.buttonCapacitorsCalc.clicked.connect(lambda: self.stackedWidget.setCurrentIndex(6))
+        self.buttonMosfets.clicked.connect(lambda: self.stackedWidget.setCurrentIndex(7))
 
         self.buttonExit.clicked.connect(self.close)
 

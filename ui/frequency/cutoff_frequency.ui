@@ -1,0 +1,974 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>CECCMultistageFrequencyWidget</class>
+ <widget class="QWidget" name="CECCMultistageFrequencyWidget">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1050</width>
+    <height>1012</height>
+   </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
+  <property name="windowTitle">
+   <string>CE-CC Multistage Frequency Response</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QWidget {
+background-color: #f5f7fa;
+}
+QLineEdit {
+    background-color: #ffffff;
+    border: 1px solid #d1d5db;
+    border-radius: 5px;
+
+    padding: 6px 8px;
+
+    color: #111827;
+    font-size: 13px;
+    font-family: &quot;JetBrains Mono&quot;, &quot;Consolas&quot;, monospace;
+}
+
+QLineEdit:focus {
+    border: 1px solid #667EEA;
+    background-color: #f9fafb;
+}
+QLabel {
+    color: #374151;
+    font-family: &quot;Rockwell&quot;;
+    font-size: 13pt;
+    font-weight: bold;
+    background: transparent;
+    border: none;
+}
+QLineEdit:disabled {
+    background-color: #f1f5f9;
+    color: #94a3b8;
+    border: 1px solid #cbd5e1;
+}</string>
+  </property>
+  <layout class="QHBoxLayout" name="horizontalLayout">
+   <property name="spacing">
+    <number>30</number>
+   </property>
+   <property name="leftMargin">
+    <number>20</number>
+   </property>
+   <property name="topMargin">
+    <number>20</number>
+   </property>
+   <property name="rightMargin">
+    <number>20</number>
+   </property>
+   <property name="bottomMargin">
+    <number>20</number>
+   </property>
+   <item>
+    <layout class="QVBoxLayout" name="layoutLeftColumn">
+     <item>
+      <widget class="QFrame" name="cardGeneral">
+       <property name="maximumSize">
+        <size>
+         <width>1000</width>
+         <height>16777215</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">#cardGeneral { 
+background-color: #f8fafc;
+color: #334155;
+border-radius: 8px;
+border: 1px solid #e2e8f0;
+}
+</string>
+       </property>
+       <property name="card" stdset="0">
+        <bool>true</bool>
+       </property>
+       <layout class="QVBoxLayout" name="verticalLayoutGeneral">
+        <property name="leftMargin">
+         <number>18</number>
+        </property>
+        <property name="topMargin">
+         <number>18</number>
+        </property>
+        <property name="rightMargin">
+         <number>18</number>
+        </property>
+        <property name="bottomMargin">
+         <number>18</number>
+        </property>
+        <item>
+         <widget class="QLabel" name="labelStartingTips">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QLabel {
+    color: #374151;
+    font-size: 13px;
+    font-weight: 600;
+	background-color: transparent;
+    padding-bottom: 4px;
+    border: none;
+    border-bottom: 2px solid #6D63E8;
+	
+	
+	font: 13pt &quot;Rockwell&quot;;
+}</string>
+          </property>
+          <property name="text">
+           <string>Starting tips</string>
+          </property>
+          <property name="sectionTitle" stdset="0">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="labelNote">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">font: 600 10pt 'Segoe UI'; color: rgb(85, 85, 85); letter-spacing: 1px;</string>
+          </property>
+          <property name="text">
+           <string>This page calculates given cutoff frequency points to get fL or fH
+
+Enter Values seperated By Comma, ex. 10, 12, 15, 20</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <spacer name="verticalSpacer_3">
+          <property name="orientation">
+           <enum>Qt::Orientation::Vertical</enum>
+          </property>
+          <property name="sizeType">
+           <enum>QSizePolicy::Policy::Fixed</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>20</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+       </layout>
+      </widget>
+     </item>
+     <item>
+      <widget class="QFrame" name="cardStages">
+       <property name="maximumSize">
+        <size>
+         <width>1000</width>
+         <height>16777215</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">#cardStages { 
+background-color: #f8fafc;
+color: #334155;
+border-radius: 8px;
+border: 1px solid #e2e8f0;
+}
+</string>
+       </property>
+       <property name="card" stdset="0">
+        <bool>true</bool>
+       </property>
+       <layout class="QHBoxLayout" name="layoutStages">
+        <property name="leftMargin">
+         <number>18</number>
+        </property>
+        <property name="topMargin">
+         <number>18</number>
+        </property>
+        <property name="rightMargin">
+         <number>18</number>
+        </property>
+        <property name="bottomMargin">
+         <number>18</number>
+        </property>
+        <item>
+         <layout class="QVBoxLayout" name="layoutCE">
+          <item>
+           <widget class="QLabel" name="labelCETitle">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QLabel {
+    color: #374151;
+    font-size: 13px;
+    font-weight: 600;
+	background-color: transparent;
+    padding-bottom: 4px;
+    border: none;
+    border-bottom: 2px solid #6D63E8;
+	
+	
+	font: 13pt &quot;Rockwell&quot;;
+}</string>
+            </property>
+            <property name="text">
+             <string>Low Cut-Off Frequency Points</string>
+            </property>
+            <property name="sectionTitle" stdset="0">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <layout class="QGridLayout" name="gridCE">
+            <property name="horizontalSpacing">
+             <number>12</number>
+            </property>
+            <property name="verticalSpacing">
+             <number>8</number>
+            </property>
+            <item row="0" column="0">
+             <widget class="QLabel" name="labelfn">
+              <property name="text">
+               <string>fn (Hz)</string>
+              </property>
+              <property name="fieldLabel" stdset="0">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="1">
+             <widget class="QLineEdit" name="lineLowPoints">
+              <property name="placeholderText">
+               <string>enter values seperated by comma; 10, 12, 14, 20, 25, etc</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </widget>
+     </item>
+     <item>
+      <widget class="QFrame" name="cardStages_2">
+       <property name="maximumSize">
+        <size>
+         <width>1000</width>
+         <height>16777215</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">#cardStages_2 { 
+background-color: #f8fafc;
+color: #334155;
+border-radius: 8px;
+border: 1px solid #e2e8f0;
+}
+</string>
+       </property>
+       <property name="card" stdset="0">
+        <bool>true</bool>
+       </property>
+       <layout class="QHBoxLayout" name="layoutStages_2">
+        <property name="leftMargin">
+         <number>18</number>
+        </property>
+        <property name="topMargin">
+         <number>18</number>
+        </property>
+        <property name="rightMargin">
+         <number>18</number>
+        </property>
+        <property name="bottomMargin">
+         <number>18</number>
+        </property>
+        <item>
+         <layout class="QVBoxLayout" name="layoutCC_2">
+          <item>
+           <widget class="QLabel" name="labelCCTitle">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QLabel {
+    color: #374151;
+    font-size: 13px;
+    font-weight: 600;
+	background-color: transparent;
+    padding-bottom: 4px;
+    border: none;
+    border-bottom: 2px solid #6D63E8;
+	
+	
+	font: 13pt &quot;Rockwell&quot;;
+}</string>
+            </property>
+            <property name="text">
+             <string>High Cut-Off Frequency Points</string>
+            </property>
+            <property name="sectionTitle" stdset="0">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <layout class="QGridLayout" name="gridCC">
+            <property name="horizontalSpacing">
+             <number>12</number>
+            </property>
+            <property name="verticalSpacing">
+             <number>8</number>
+            </property>
+            <item row="0" column="0">
+             <widget class="QLabel" name="labelHighfn">
+              <property name="text">
+               <string>fn (MHz)</string>
+              </property>
+              <property name="fieldLabel" stdset="0">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="1">
+             <widget class="QLineEdit" name="lineHighPoints">
+              <property name="placeholderText">
+               <string>enter values seperated by comma; 10, 12, 14, 20, 25, etc</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushButtonClear">
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton {
+    background-color: #f5576c;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600; /* 'Semi-bold' for the Inter font vibe */
+    padding: 10px 20px;
+}
+
+QPushButton:hover {
+    background-color: #e5475c;
+}
+
+QPushButton:pressed {
+    background-color: #d93f53; /* slightly darker for click feedback */
+}
+
+QPushButton:disabled {
+    background-color: #e0e0e0;
+    color: #999999;
+}
+</string>
+       </property>
+       <property name="text">
+        <string>Clear</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <spacer name="verticalSpacer">
+       <property name="orientation">
+        <enum>Qt::Orientation::Vertical</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>20</width>
+         <height>40</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <layout class="QVBoxLayout" name="verticalLayout_2">
+     <item>
+      <layout class="QVBoxLayout" name="verticalLayout">
+       <item>
+        <widget class="QFrame" name="cardOutputs">
+         <property name="styleSheet">
+          <string notr="true">#cardOutputs { 
+background-color: #f8fafc;
+color: #334155;
+border-radius: 8px;
+border: 1px solid #e2e8f0;
+}
+</string>
+         </property>
+         <property name="card" stdset="0">
+          <bool>true</bool>
+         </property>
+         <layout class="QVBoxLayout" name="verticalLayoutOutputs">
+          <property name="leftMargin">
+           <number>18</number>
+          </property>
+          <property name="topMargin">
+           <number>18</number>
+          </property>
+          <property name="rightMargin">
+           <number>18</number>
+          </property>
+          <property name="bottomMargin">
+           <number>18</number>
+          </property>
+          <item>
+           <widget class="QLabel" name="labelLowTitle">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QLabel {
+    color: #374151;
+    font-size: 13px;
+    font-weight: 600;
+	background-color: transparent;
+    padding-bottom: 4px;
+    border: none;
+    border-bottom: 2px solid #6D63E8;
+	
+	
+	font: 13pt &quot;Rockwell&quot;;
+}</string>
+            </property>
+            <property name="text">
+             <string>Low-Frequency Outputs</string>
+            </property>
+            <property name="sectionTitle" stdset="0">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="labelLowMode">
+            <property name="styleSheet">
+             <string notr="true">QLabel {
+    background-color: #e8eaf6;
+    color: #3d3d9e;
+    border-radius: 6px;
+    font: 700 11pt &quot;Rockwell&quot;;
+    padding: 4px 14px; 
+    qproperty-alignment: AlignCenter;
+}</string>
+            </property>
+            <property name="text">
+             <string>— awaiting calculation —</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignmentFlag::AlignCenter</set>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <layout class="QGridLayout" name="gridHighOutputs_2">
+            <property name="spacing">
+             <number>10</number>
+            </property>
+            <item row="1" column="0">
+             <widget class="QLabel" name="labelLowMaxTitle">
+              <property name="styleSheet">
+               <string notr="true">QLabel {
+    color: #374151;
+    font-family: &quot;Rockwell&quot;;
+    font-size: 13pt;
+    font-weight: bold;
+    background: transparent;
+    border: none;
+}</string>
+              </property>
+              <property name="text">
+               <string>Max Low Point</string>
+              </property>
+              <property name="fieldLabel" stdset="0">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="0">
+             <widget class="QLabel" name="labelLowCountTitle">
+              <property name="styleSheet">
+               <string notr="true">QLabel {
+    color: #374151;
+    font-family: &quot;Rockwell&quot;;
+    font-size: 13pt;
+    font-weight: bold;
+    background: transparent;
+    border: none;
+}</string>
+              </property>
+              <property name="text">
+               <string>Low Count</string>
+              </property>
+              <property name="fieldLabel" stdset="0">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="1">
+             <widget class="QLabel" name="labelLowMax">
+              <property name="text">
+               <string>—</string>
+              </property>
+              <property name="outputBox" stdset="0">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+            <item row="2" column="1">
+             <widget class="QLabel" name="labelLowSum">
+              <property name="text">
+               <string>—</string>
+              </property>
+              <property name="outputBox" stdset="0">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="1">
+             <widget class="QLabel" name="labelLowCount">
+              <property name="text">
+               <string>—</string>
+              </property>
+              <property name="outputBox" stdset="0">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+            <item row="2" column="0">
+             <widget class="QLabel" name="labelLowSumTitle">
+              <property name="text">
+               <string>Sum Low Points</string>
+              </property>
+              <property name="fieldLabel" stdset="0">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <widget class="QLabel" name="labelFLConservative">
+            <property name="styleSheet">
+             <string notr="true">QLabel {
+    background-color: #fff7ed;
+    border: 1px solid #fed7aa;
+    border-radius: 10px;
+    padding: 10px;
+    color: #9a3412;
+    font-size: 12px;
+    font-weight: 700;
+}</string>
+            </property>
+            <property name="text">
+             <string>fL conservative: —</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignmentFlag::AlignCenter</set>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="labelFLRange">
+            <property name="styleSheet">
+             <string notr="true">QLabel {
+    background-color: #f0f5ff;
+    border: 1px solid #dbeafe;
+    border-radius: 8px;
+    padding: 7px 5px;
+    color: #111827;
+    font-size: 12px;
+}</string>
+            </property>
+            <property name="text">
+             <string>Range: —</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignmentFlag::AlignCenter</set>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <widget class="QFrame" name="cardOutputs_2">
+         <property name="styleSheet">
+          <string notr="true">#cardOutputs_2 { 
+background-color: #f8fafc;
+color: #334155;
+border-radius: 8px;
+border: 1px solid #e2e8f0;
+}
+</string>
+         </property>
+         <property name="card" stdset="0">
+          <bool>true</bool>
+         </property>
+         <layout class="QVBoxLayout" name="verticalLayoutOutputs_2">
+          <property name="leftMargin">
+           <number>18</number>
+          </property>
+          <property name="topMargin">
+           <number>18</number>
+          </property>
+          <property name="rightMargin">
+           <number>18</number>
+          </property>
+          <property name="bottomMargin">
+           <number>18</number>
+          </property>
+          <item>
+           <widget class="QLabel" name="labelHighTitle">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QLabel {
+    color: #374151;
+    font-size: 13px;
+    font-weight: 600;
+	background-color: transparent;
+    padding-bottom: 4px;
+    border: none;
+    border-bottom: 2px solid #6D63E8;
+	
+	
+	font: 13pt &quot;Rockwell&quot;;
+}</string>
+            </property>
+            <property name="text">
+             <string>High-Frequency Outputs</string>
+            </property>
+            <property name="sectionTitle" stdset="0">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="labelHighMode">
+            <property name="styleSheet">
+             <string notr="true">QLabel {
+    background-color: #e8eaf6;
+    color: #3d3d9e;
+    border-radius: 6px;
+    font: 700 11pt &quot;Rockwell&quot;;
+    padding: 4px 14px; 
+    qproperty-alignment: AlignCenter;
+}</string>
+            </property>
+            <property name="text">
+             <string>— awaiting calculation —</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignmentFlag::AlignCenter</set>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <layout class="QGridLayout" name="gridHighOutputs">
+            <property name="spacing">
+             <number>10</number>
+            </property>
+            <item row="2" column="1">
+             <widget class="QLabel" name="labelHighMin">
+              <property name="text">
+               <string>—</string>
+              </property>
+              <property name="outputBox" stdset="0">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="1">
+             <widget class="QLabel" name="labelHighParallel">
+              <property name="text">
+               <string>—</string>
+              </property>
+              <property name="outputBox" stdset="0">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="0">
+             <widget class="QLabel" name="labelHighParallelTitle">
+              <property name="text">
+               <string>Parallel fH Points</string>
+              </property>
+              <property name="fieldLabel" stdset="0">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="1">
+             <widget class="QLabel" name="labelHighCount">
+              <property name="text">
+               <string>—</string>
+              </property>
+              <property name="outputBox" stdset="0">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+            <item row="2" column="0">
+             <widget class="QLabel" name="labelHighMinTitle">
+              <property name="text">
+               <string>Minimum fH Points</string>
+              </property>
+              <property name="fieldLabel" stdset="0">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="0">
+             <widget class="QLabel" name="labelHighCountTitle">
+              <property name="styleSheet">
+               <string notr="true">QLabel {
+    color: #374151;
+    font-family: &quot;Rockwell&quot;;
+    font-size: 13pt;
+    font-weight: bold;
+    background: transparent;
+    border: none;
+}</string>
+              </property>
+              <property name="text">
+               <string>High Count</string>
+              </property>
+              <property name="fieldLabel" stdset="0">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <widget class="QLabel" name="labelFHConservative">
+            <property name="styleSheet">
+             <string notr="true">QLabel {
+    background-color: #fff7ed;
+    border: 1px solid #fed7aa;
+    border-radius: 10px;
+    padding: 10px;
+    color: #9a3412;
+    font-size: 12px;
+    font-weight: 700;
+}</string>
+            </property>
+            <property name="text">
+             <string>fH conservative: —</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignmentFlag::AlignCenter</set>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="labelFHRange">
+            <property name="styleSheet">
+             <string notr="true">QLabel {
+    background-color: #f0f5ff;
+    border: 1px solid #dbeafe;
+    border-radius: 8px;
+    padding: 7px 5px;
+    color: #111827;
+    font-size: 12px;
+}</string>
+            </property>
+            <property name="text">
+             <string>Range: —</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignmentFlag::AlignCenter</set>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <widget class="QFrame" name="frameFormula">
+       <property name="styleSheet">
+        <string notr="true">#frameFormula { 
+	background-color: #ffffff; 
+	border-right: 1px solid #e5e7eb;
+    background-color: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 14px;
+}
+</string>
+       </property>
+       <property name="card" stdset="0">
+        <bool>true</bool>
+       </property>
+       <layout class="QVBoxLayout" name="verticalLayoutFormula">
+        <property name="leftMargin">
+         <number>18</number>
+        </property>
+        <property name="topMargin">
+         <number>18</number>
+        </property>
+        <property name="rightMargin">
+         <number>18</number>
+        </property>
+        <property name="bottomMargin">
+         <number>18</number>
+        </property>
+        <item>
+         <widget class="QLabel" name="labelFormulaTitle">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QLabel {
+    color: #374151;
+    font-size: 13px;
+    font-weight: 600;
+	background-color: transparent;
+    padding-bottom: 4px;
+    border: none;
+    border-bottom: 2px solid #6D63E8;
+	
+	
+	font: 13pt &quot;Rockwell&quot;;
+}</string>
+          </property>
+          <property name="text">
+           <string>Formula Reference</string>
+          </property>
+          <property name="sectionTitle" stdset="0">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="pushButtonShowFormulas">
+          <property name="styleSheet">
+           <string notr="true">QPushButton {
+    /* Your original blue */
+    background-color: rgb(34, 104, 190); 
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 5px 20px;
+}
+
+QPushButton:hover {
+    /* A slightly brighter, more vibrant version of your blue */
+    background-color: rgb(46, 126, 219); 
+}
+
+QPushButton:pressed {
+    /* A deeper, more saturated version for tactile feedback */
+    background-color: rgb(26, 86, 161); 
+}
+
+QPushButton:disabled {
+    background-color: #e2e8f0;
+    color: #94a3b8;
+}</string>
+          </property>
+          <property name="text">
+           <string>Show Formulas</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="labelFormulaText">
+          <property name="styleSheet">
+           <string notr="true">QLabel {
+    color: rgb(80, 80, 80);                  /* soft dark gray */
+    font-size: 13px;
+    font-weight: 500;
+    font-family: &quot;Segoe UI&quot;, &quot;Roboto&quot;, sans-serif;
+}</string>
+          </property>
+          <property name="text">
+           <string>DIRECT MULTISTAGE FREQUENCY POINTS
+
+Low cutoff range:
+max(fL1, fL2, ..., fLn) ≤ fL ≤ fL1 + fL2 + ... + fLn
+
+Conservative low cutoff:
+fL = max(fL points)
+
+High cutoff range:
+fH1 || fH2 || ... || fHn ≤ fH ≤ min(fH1, fH2, ..., fHn)
+
+Conservative high cutoff:
+fH = fH1 || fH2 || ... || fHn</string>
+          </property>
+          <property name="wordWrap">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </item>
+     <item>
+      <spacer name="verticalSpacer_2">
+       <property name="orientation">
+        <enum>Qt::Orientation::Vertical</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>20</width>
+         <height>40</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+    </layout>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

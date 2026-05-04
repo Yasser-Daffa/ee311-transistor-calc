@@ -51,10 +51,12 @@ class CELowFrequencyWidget(QWidget):
         self.mode_group.addButton(self.buttonGivenCE)
 
         self.buttonFullAnalysis.setChecked(True)
+        self.set_required_highlights()
 
         self.labelFormulaText.hide()
         self.clear_outputs()
-        self.set_status("Choice picked: Full Analysis — calculates any available f1, f2, and fE")
+        self.set_calc_status("— awaiting calculation —")
+        self.set_choice_text(self.get_mode_hint())
 
     def connect_signals(self):
         inputs = [
@@ -82,9 +84,158 @@ class CELowFrequencyWidget(QWidget):
         self.pushButtonShowFormulas.clicked.connect(self.toggle_formulas)
         self.buttonOpen.clicked.connect(self.open_ce_design_window)
 
+        self.lineR1.textChanged.connect(self.update_rb_input_lock)
+        self.lineR2.textChanged.connect(self.update_rb_input_lock)
+        self.lineRB.textChanged.connect(self.update_rb_input_lock)
+
     # ------------------------------------------------------------
     # Mode helpers
     # ------------------------------------------------------------
+    
+    def update_rb_input_lock(self):
+        """
+        Prevent invalid RB input combinations.
+
+        If user types in R1 or R2:
+            disable RB direct.
+
+        If user types in RB direct:
+            disable R1 and R2.
+
+        If all are empty:
+            enable all three.
+        """
+
+        has_r1_or_r2 = bool(self.lineR1.text().strip()) or bool(self.lineR2.text().strip())
+        has_rb = bool(self.lineRB.text().strip())
+
+        # If R1/R2 are being used, block RB direct.
+        if has_r1_or_r2 and not has_rb:
+            self.lineRB.setEnabled(False)
+            self.lineRB.setToolTip("Disabled because R1 or R2 is entered. Clear R1/R2 to use RB direct.")
+
+            self.lineR1.setEnabled(True)
+            self.lineR2.setEnabled(True)
+            self.lineR1.setToolTip("")
+            self.lineR2.setToolTip("")
+            return
+
+        # If RB direct is being used, block R1/R2.
+        if has_rb and not has_r1_or_r2:
+            self.lineR1.setEnabled(False)
+            self.lineR2.setEnabled(False)
+            self.lineR1.setToolTip("Disabled because RB direct is entered. Clear RB to use R1/R2.")
+            self.lineR2.setToolTip("Disabled because RB direct is entered. Clear RB to use R1/R2.")
+
+            self.lineRB.setEnabled(True)
+            self.lineRB.setToolTip("")
+            return
+
+        # If all are empty, enable all.
+        if not has_r1_or_r2 and not has_rb:
+            self.lineR1.setEnabled(True)
+            self.lineR2.setEnabled(True)
+            self.lineRB.setEnabled(True)
+
+            self.lineR1.setToolTip("")
+            self.lineR2.setToolTip("")
+            self.lineRB.setToolTip("")
+            return
+        
+    def refresh_line_styles(self, *widgets):
+        """
+        Forces Qt to re-apply stylesheet rules after changing dynamic properties.
+        """
+        for w in widgets:
+            w.style().unpolish(w)
+            w.style().polish(w)
+            w.update()
+
+
+    def set_required_highlights(self):
+        """
+        Highlight the inputs needed for the selected calculation mode.
+        This does NOT disable fields. It only visually guides the user.
+        """
+
+        all_lines = [
+            self.lineRs,
+            self.lineR1,
+            self.lineR2,
+            self.lineRB,
+            self.lineRC,
+            self.lineRE,
+            self.lineRX,
+            self.lineRL,
+            self.lineBeta,
+            self.lineRpi,
+            self.lineC1,
+            self.lineC2,
+            self.lineCE,
+        ]
+
+        # Clear old highlights
+        for line in all_lines:
+            line.setProperty("requiredInput", False)
+
+        mode = self.get_mode_key()
+
+        if mode == "c1_only":
+            required = [
+                self.lineRs,
+                self.lineR1,
+                self.lineR2,
+                self.lineRB,
+                self.lineBeta,
+                self.lineRpi,
+                self.lineRX,
+                self.lineC1,
+            ]
+
+        elif mode == "c2_only":
+            required = [
+                self.lineRC,
+                self.lineRL,
+                self.lineC2,
+            ]
+
+        elif mode == "ce_only":
+            required = [
+                self.lineRE,
+                self.lineRX,
+                self.lineBeta,
+                self.lineRpi,
+                self.lineRs,
+                self.lineR1,
+                self.lineR2,
+                self.lineRB,
+                self.lineCE,
+            ]
+
+        else:
+            # Full analysis: highlight all useful inputs.
+            # Capacitors are still optional, but highlighted because they define f1/f2/fE.
+            required = [
+                self.lineRs,
+                self.lineR1,
+                self.lineR2,
+                self.lineRB,
+                self.lineRC,
+                self.lineRE,
+                self.lineRX,
+                self.lineRL,
+                self.lineBeta,
+                self.lineRpi,
+                self.lineC1,
+                self.lineC2,
+                self.lineCE,
+            ]
+
+        for line in required:
+            line.setProperty("requiredInput", True)
+
+        self.refresh_line_styles(*all_lines)
+
 
     def open_ce_design_window(self):
         """
@@ -138,13 +289,24 @@ class CELowFrequencyWidget(QWidget):
         return "Choice picked: Full Analysis — calculates any available f1, f2, and fE"
 
     def on_mode_button_clicked(self):
+        self.set_required_highlights()
+        self.set_choice_text(self.get_mode_hint())
         self.calculate()
         self.animate_choice_label()
 
-    def set_status(self, text):
+    def set_calc_status(self, text):
+        """
+        labelMode = calculation status only.
+        Example: awaiting calculation, partial result, calculated, error.
+        """
         if hasattr(self, "labelMode"):
             self.labelMode.setText(text)
 
+
+    def set_choice_text(self, text):
+        """
+        labelChoicePicked = selected mode / required inputs.
+        """
         if hasattr(self, "labelChoicePicked"):
             self.labelChoicePicked.setText(text)
 
@@ -186,24 +348,20 @@ class CELowFrequencyWidget(QWidget):
 
     def get_rb(self, r1, r2, rb_direct):
         """
-        RB rule:
+        Return the base resistance RB.
 
-        Use one method only:
-        1. Enter RB direct.
-        2. OR enter R1 and R2.
+        The UI lock prevents using both methods at the same time:
+        - RB direct
+        - R1 and R2
 
-        Do not enter both RB and R1/R2 together.
+        If R1 and R2 are used:
+            RB = R1 || R2
         """
-        has_r1r2 = r1 is not None and r2 is not None
-        has_rb = rb_direct is not None
 
-        if has_rb and has_r1r2:
-            raise ValueError("Enter either RB directly OR R1 and R2, not both.")
-
-        if has_rb:
+        if rb_direct is not None:
             return rb_direct
 
-        if has_r1r2:
+        if r1 is not None and r2 is not None:
             return parallel(r1, r2)
 
         return None
@@ -333,14 +491,28 @@ class CELowFrequencyWidget(QWidget):
 
             self.show_result(result)
 
+
             if result["fL_conservative"] is None:
-                self.set_status(self.get_mode_hint())
+                # Still no selected-mode cutoff result yet
+                available = []
+
+                if result["f1"] is not None:
+                    available.append("f1")
+                if result["f2"] is not None:
+                    available.append("f2")
+                if result["fE"] is not None:
+                    available.append("fE")
+
+                if available:
+                    self.set_calc_status(f"Partial: calculated {', '.join(available)}")
+                else:
+                    self.set_calc_status("— awaiting required inputs —")
             else:
-                self.set_status(f"Choice picked: {self.get_mode_text()}")
+                self.set_calc_status("Calculated")
 
         except Exception as e:
             self.clear_outputs()
-            self.set_status(f"Error: {e}")
+            self.set_calc_status(f"Error: {e}")
 
     # ------------------------------------------------------------
     # Output helpers
@@ -409,10 +581,15 @@ class CELowFrequencyWidget(QWidget):
         for line in lines:
             line.clear()
 
-        self.buttonFullAnalysis.setChecked(True)
+        # Keep the currently selected mode.
+        # Do NOT force buttonFullAnalysis here.
+
+        self.update_rb_input_lock()
+        self.set_required_highlights()
 
         self.clear_outputs()
-        self.set_status("Choice picked: Full Analysis — calculates any available f1, f2, and fE")
+        self.set_calc_status("— awaiting calculation —")
+        self.set_choice_text(self.get_mode_hint())
         self.animate_choice_label()
 
     def toggle_formulas(self):

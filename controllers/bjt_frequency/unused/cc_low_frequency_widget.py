@@ -30,7 +30,6 @@ class CCLowFrequencyWidget(QWidget):
         loadUi(UI_PATH, self)
 
         self.choice_anim = None
-        self.mode_group = None
 
         self.setup_ui()
         self.connect_signals()
@@ -40,36 +39,22 @@ class CCLowFrequencyWidget(QWidget):
     # ------------------------------------------------------------
 
     def setup_ui(self):
-        """
-        Supports either:
-        1. New button UI:
-           buttonFullAnalysis, buttonGivenC1, buttonGivenC2
+        # Make the three mode buttons behave like radio buttons:
+        # only one can be checked at a time.
+        self.mode_group = QButtonGroup(self)
+        self.mode_group.setExclusive(True)
 
-        2. Old combo UI:
-           comboMode
-        """
+        self.mode_group.addButton(self.buttonFullAnalysis)
+        self.mode_group.addButton(self.buttonGivenC1)
+        self.mode_group.addButton(self.buttonGivenC2)
 
-        if self.has_mode_buttons():
-            self.mode_group = QButtonGroup(self)
-            self.mode_group.setExclusive(True)
-
-            self.mode_group.addButton(self.buttonFullAnalysis)
-            self.mode_group.addButton(self.buttonGivenC1)
-            self.mode_group.addButton(self.buttonGivenC2)
-
-            self.buttonFullAnalysis.setChecked(True)
-
-        elif hasattr(self, "comboMode"):
-            self.comboMode.clear()
-            self.comboMode.addItems([
-                "Full Analysis",
-                "Due to C1 only",
-                "Due to C2 only",
-            ])
+        self.buttonFullAnalysis.setChecked(True)
+        self.set_required_highlights()
 
         self.labelFormulaText.hide()
         self.clear_outputs()
-        self.set_status("Choice picked: Full Analysis — calculates any available f1 and f2")
+        self.set_calc_status("— awaiting calculation —")
+        self.set_choice_text(self.get_mode_hint())
 
     def connect_signals(self):
         inputs = [
@@ -86,67 +71,117 @@ class CCLowFrequencyWidget(QWidget):
         for line in inputs:
             line.textChanged.connect(self.calculate)
 
-        if self.mode_group is not None:
-            self.mode_group.buttonClicked.connect(self.on_mode_button_clicked)
-        elif hasattr(self, "comboMode"):
-            self.comboMode.currentIndexChanged.connect(self.on_mode_button_clicked)
+        self.mode_group.buttonClicked.connect(self.on_mode_button_clicked)
 
         self.pushButtonClear.clicked.connect(self.clear_inputs)
         self.pushButtonShowFormulas.clicked.connect(self.toggle_formulas)
-        self.buttonOpen.clicked.connect(self.open_cc_design_window)
-    def has_mode_buttons(self):
-        return (
-            hasattr(self, "buttonFullAnalysis")
-            and hasattr(self, "buttonGivenC1")
-            and hasattr(self, "buttonGivenC2")
-        )
+
+        if hasattr(self, "buttonOpen"):
+            self.buttonOpen.clicked.connect(self.open_cc_design_window)
 
     # ------------------------------------------------------------
     # Mode helpers
     # ------------------------------------------------------------
 
+    def refresh_line_styles(self, *widgets):
+        """
+        Forces Qt to re-apply stylesheet rules after changing dynamic properties.
+        """
+        for w in widgets:
+            w.style().unpolish(w)
+            w.style().polish(w)
+            w.update()
+
+    def set_required_highlights(self):
+        """
+        Highlight the inputs needed for the selected calculation mode.
+        This does NOT disable fields. It only visually guides the user.
+        """
+
+        all_lines = [
+            self.lineRs,
+            self.lineRB,
+            self.lineRE,
+            self.lineRL,
+            self.lineBeta,
+            self.lineRpi,
+            self.lineC1,
+            self.lineC2,
+        ]
+
+        # Clear old highlights
+        for line in all_lines:
+            line.setProperty("requiredInput", False)
+
+        mode = self.get_mode_key()
+
+        if mode == "c1_only":
+            required = [
+                self.lineRs,
+                self.lineRB,
+                self.lineRE,
+                self.lineRL,
+                self.lineBeta,
+                self.lineRpi,
+                self.lineC1,
+            ]
+
+        elif mode == "c2_only":
+            required = [
+                self.lineRs,
+                self.lineRB,
+                self.lineRE,
+                self.lineRL,
+                self.lineBeta,
+                self.lineRpi,
+                self.lineC2,
+            ]
+
+        else:
+            # Full analysis: highlight all useful inputs.
+            # C1 and C2 are highlighted because they define f1/f2.
+            required = [
+                self.lineRs,
+                self.lineRB,
+                self.lineRE,
+                self.lineRL,
+                self.lineBeta,
+                self.lineRpi,
+                self.lineC1,
+                self.lineC2,
+            ]
+
+        for line in required:
+            line.setProperty("requiredInput", True)
+
+        self.refresh_line_styles(*all_lines)
+
     def open_cc_design_window(self):
         """
-        Opens the CC Design calculator externally so the user can calculate
-        missing resistor values, then return to the frequency page.
+        Opens the CC Design/Analysis calculator externally so the user can
+        calculate missing resistor values, then return to the frequency page.
         """
         self.cc_design_window = CCDesignAnalysisMenuWidget()
-        self.cc_design_window.buttonAnalysis.clicked.emit()  # trigger analysis page setup
-        self.cc_design_window.buttonAnalysis.setChecked(True)  # set analysis page button as checked
+        self.cc_design_window.buttonAnalysis.clicked.emit()
+        self.cc_design_window.buttonAnalysis.setChecked(True)
         self.cc_design_window.setWindowTitle("CC Design/Analysis Calculator")
         self.cc_design_window.resize(1100, 750)
         self.cc_design_window.show()
 
-
-
     def get_mode_key(self):
-        if self.has_mode_buttons():
-            if self.buttonGivenC1.isChecked():
-                return "c1_only"
+        if self.buttonGivenC1.isChecked():
+            return "c1_only"
 
-            if self.buttonGivenC2.isChecked():
-                return "c2_only"
-
-            return "full"
-
-        if hasattr(self, "comboMode"):
-            text = self.comboMode.currentText()
-
-            if text == "Due to C1 only":
-                return "c1_only"
-
-            if text == "Due to C2 only":
-                return "c2_only"
+        if self.buttonGivenC2.isChecked():
+            return "c2_only"
 
         return "full"
 
     def get_mode_text(self):
-        mode = self.get_mode_key()
-
-        if mode == "c1_only":
+        if self.buttonGivenC1.isChecked():
             return "Due to C1 only"
 
-        if mode == "c2_only":
+        if self.buttonGivenC2.isChecked():
             return "Due to C2 only"
 
         return "Full Analysis"
@@ -163,13 +198,23 @@ class CCLowFrequencyWidget(QWidget):
         return "Choice picked: Full Analysis — calculates any available f1 and f2"
 
     def on_mode_button_clicked(self):
+        self.set_required_highlights()
+        self.set_choice_text(self.get_mode_hint())
         self.calculate()
         self.animate_choice_label()
 
-    def set_status(self, text):
+    def set_calc_status(self, text):
+        """
+        labelMode = calculation status only.
+        Example: awaiting calculation, partial result, calculated, error.
+        """
         if hasattr(self, "labelMode"):
             self.labelMode.setText(text)
 
+    def set_choice_text(self, text):
+        """
+        labelChoicePicked = selected mode / required inputs.
+        """
         if hasattr(self, "labelChoicePicked"):
             self.labelChoicePicked.setText(text)
 
@@ -256,7 +301,7 @@ class CCLowFrequencyWidget(QWidget):
             # ----------------------------------------------------
             # RXX = rπ + (β + 1)REL
             #
-            # This is a helper value for:
+            # Helper value for:
             # R11 = RS + (RB || RXX)
             # ----------------------------------------------------
             if (
@@ -285,7 +330,7 @@ class CCLowFrequencyWidget(QWidget):
             # ----------------------------------------------------
             # R22 and f2
             #
-            # R22 = RL + [ RE || ((rπ + RSB)/(β + 1)) ]
+            # R22 = RL + { RE || [(rπ + RSB)/(β + 1)] }
             # f2 = 1 / (2π R22 C2)
             # ----------------------------------------------------
             if (
@@ -321,13 +366,23 @@ class CCLowFrequencyWidget(QWidget):
             self.show_result(result)
 
             if result["fL_conservative"] is None:
-                self.set_status(self.get_mode_hint())
+                available = []
+
+                if result["f1"] is not None:
+                    available.append("f1")
+                if result["f2"] is not None:
+                    available.append("f2")
+
+                if available:
+                    self.set_calc_status(f"Partial: calculated {', '.join(available)}")
+                else:
+                    self.set_calc_status("— awaiting required inputs —")
             else:
-                self.set_status(f"Choice picked: {self.get_mode_text()}")
+                self.set_calc_status("Calculated")
 
         except Exception as e:
             self.clear_outputs()
-            self.set_status(f"Error: {e}")
+            self.set_calc_status(f"Error: {e}")
 
     # ------------------------------------------------------------
     # Output helpers
@@ -337,8 +392,6 @@ class CCLowFrequencyWidget(QWidget):
         self.labelREL.setText(self.fmt_res(r.get("REL")))
         self.labelRSB.setText(self.fmt_res(r.get("RSB")))
 
-        # If you added labelRXX to the UI, this will fill it.
-        # If not, the widget still works.
         if hasattr(self, "labelRXX"):
             self.labelRXX.setText(self.fmt_res(r.get("RXX")))
 
@@ -393,13 +446,14 @@ class CCLowFrequencyWidget(QWidget):
         for line in lines:
             line.clear()
 
-        if self.has_mode_buttons():
-            self.buttonFullAnalysis.setChecked(True)
-        elif hasattr(self, "comboMode"):
-            self.comboMode.setCurrentIndex(0)
+        # Keep the currently selected mode.
+        # Do NOT force buttonFullAnalysis here.
+
+        self.set_required_highlights()
 
         self.clear_outputs()
-        self.set_status("Choice picked: Full Analysis — calculates any available f1 and f2")
+        self.set_calc_status("— awaiting calculation —")
+        self.set_choice_text(self.get_mode_hint())
         self.animate_choice_label()
 
     def toggle_formulas(self):
