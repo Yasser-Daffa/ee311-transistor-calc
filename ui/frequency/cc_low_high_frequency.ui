@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1389</width>
-    <height>1101</height>
+    <width>1400</width>
+    <height>1234</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -461,7 +461,7 @@ QPushButton:pressed {
           <item>
            <widget class="QLabel" name="labelChoicePicked">
             <property name="toolTip">
-             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ffff00;&quot;&gt;Mode of calculation: if given C1 only, choose Due to C1. If given C2 only, choose Due to C2. If given CE only, choose Due to CE. if given all Capacitors Choose full analysis.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#00aaff;&quot;&gt;Mode of calculation: if given C1 only, choose Due to C1. If given C2 only, choose Due to C2.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
             </property>
             <property name="styleSheet">
              <string notr="true">font: 600 12pt 'Segoe UI'; color: #6D63E8;</string>

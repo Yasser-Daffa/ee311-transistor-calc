@@ -158,7 +158,7 @@ border: 1px solid #e2e8f0;
 
 4. If Cπ and Cµ were not given, 
    go to Capacitor Calculations page and calculate them there, 
-   based on the given transistor.</string>
+   based on the given transistor parameters or datasheet.</string>
           </property>
          </widget>
         </item>

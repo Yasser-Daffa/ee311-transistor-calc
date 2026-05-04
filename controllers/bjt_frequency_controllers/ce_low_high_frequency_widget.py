@@ -147,9 +147,12 @@ class CELowHighFrequencyWidget(QWidget):
 
     def set_required_highlights(self):
         """
-        Highlights the currently important inputs.
-        Low-frequency requirements depend on the low mode.
-        High-frequency CE inputs are also highlighted because they are automatic.
+        Highlight only the inputs needed for the selected LOW-frequency mode.
+
+        Important:
+        High-frequency inputs are only highlighted in Full Analysis mode.
+        This prevents Cπ/Cµ and high-only fields from being highlighted when
+        the user chooses Due to C1, Due to C2, or Due to CE.
         """
 
         all_lines = [
@@ -176,7 +179,7 @@ class CELowHighFrequencyWidget(QWidget):
         mode = self.get_mode_key()
 
         if mode == "c1_only":
-            low_required = [
+            required = [
                 self.lineRs,
                 self.lineR1,
                 self.lineR2,
@@ -188,14 +191,14 @@ class CELowHighFrequencyWidget(QWidget):
             ]
 
         elif mode == "c2_only":
-            low_required = [
+            required = [
                 self.lineRC,
                 self.lineRL,
                 self.lineC2,
             ]
 
         elif mode == "ce_only":
-            low_required = [
+            required = [
                 self.lineRE,
                 self.lineRX,
                 self.lineBeta,
@@ -208,7 +211,8 @@ class CELowHighFrequencyWidget(QWidget):
             ]
 
         else:
-            low_required = [
+            # Full Analysis = full low-frequency + high-frequency guidance.
+            required = [
                 self.lineRs,
                 self.lineR1,
                 self.lineR2,
@@ -222,23 +226,11 @@ class CELowHighFrequencyWidget(QWidget):
                 self.lineC1,
                 self.lineC2,
                 self.lineCE,
+                self.lineCpi,
+                self.lineCmu,
             ]
 
-        high_required = [
-            self.lineRs,
-            self.lineR1,
-            self.lineR2,
-            self.lineRB,
-            self.lineRC,
-            self.lineRX,
-            self.lineRL,
-            self.lineBeta,
-            self.lineRpi,
-            self.lineCpi,
-            self.lineCmu,
-        ]
-
-        for line in set(low_required + high_required):
+        for line in required:
             line.setProperty("requiredInput", True)
 
         self.refresh_line_styles(*all_lines)

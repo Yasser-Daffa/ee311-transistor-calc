@@ -12,6 +12,8 @@ from controllers.bjt_frequency_controllers.cutoff_frequency import CutoffFrequen
 
 from controllers.bjt_frequency_controllers.cc_ce_multistage_frequency_widget import CCCEMultistageFrequencyWidget
 
+from controllers.bjt_frequency_controllers.ce_ce_multistage_frequency_widget import CECEMultistageFrequencyWidget
+
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 UI_PATH = os.path.join(
@@ -63,8 +65,8 @@ class MultistageFrequencyChoicesWidget(QWidget):
         self.load_pages()
 
         # Default page
-        self.show_page(self.ce_cc_page)
-        self.buttonCECC.setChecked(True)
+        self.show_page(self.ce_ce_page)
+        self.buttonCECE.setChecked(True)
 
     def setup_button_group(self):
         self.mode_group = QButtonGroup(self)
@@ -96,10 +98,10 @@ class MultistageFrequencyChoicesWidget(QWidget):
         Remove placeholder pages from Qt Designer and insert real pages.
 
         Pages:
-        CE-CE              → placeholder for now
-        CC-CE              → placeholder for now
-        CE-CC              → real page
-        Cutoff freq points → placeholder for now
+        CE-CE
+        CC-CE
+        CE-CC
+        Cutoff freq points
         """
 
         while self.stackedWidget.count() > 0:
@@ -107,10 +109,7 @@ class MultistageFrequencyChoicesWidget(QWidget):
             self.stackedWidget.removeWidget(old_page)
             old_page.deleteLater()
 
-        self.ce_ce_page = PlaceholderPage(
-            "CE-CE Multistage Frequency page is not built yet.\n\n"
-            "This will later calculate CE-CE low/high cutoff points."
-        )
+        self.ce_ce_page = CECEMultistageFrequencyWidget()
 
         self.cc_ce_page = CCCEMultistageFrequencyWidget()
 

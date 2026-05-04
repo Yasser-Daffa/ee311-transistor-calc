@@ -138,6 +138,12 @@ class CCLowHighFrequencyWidget(QWidget):
             w.update()
 
     def set_required_highlights(self):
+        """
+        Highlight only the inputs needed for the selected LOW-frequency mode.
+
+        High-frequency inputs are only highlighted in Full Analysis mode.
+        """
+
         all_lines = [
             self.lineRs,
             self.lineRB,
@@ -157,7 +163,7 @@ class CCLowHighFrequencyWidget(QWidget):
         mode = self.get_mode_key()
 
         if mode == "c1_only":
-            low_required = [
+            required = [
                 self.lineRs,
                 self.lineRB,
                 self.lineRE,
@@ -168,7 +174,7 @@ class CCLowHighFrequencyWidget(QWidget):
             ]
 
         elif mode == "c2_only":
-            low_required = [
+            required = [
                 self.lineRs,
                 self.lineRB,
                 self.lineRE,
@@ -179,7 +185,8 @@ class CCLowHighFrequencyWidget(QWidget):
             ]
 
         else:
-            low_required = [
+            # Full Analysis = full low-frequency + high-frequency guidance.
+            required = [
                 self.lineRs,
                 self.lineRB,
                 self.lineRE,
@@ -188,20 +195,11 @@ class CCLowHighFrequencyWidget(QWidget):
                 self.lineRpi,
                 self.lineC1,
                 self.lineC2,
+                # self.lineCpi, cause its high-frequency only, but we won't require it for low-freq analysis.
+                # self.lineCmu, cause its high-frequency only, but we won't require it for low-freq analysis.
             ]
 
-        high_required = [
-            self.lineRs,
-            self.lineRB,
-            self.lineRE,
-            self.lineRL,
-            self.lineBeta,
-            self.lineRpi,
-            self.lineCpi,
-            self.lineCmu,
-        ]
-
-        for line in set(low_required + high_required):
+        for line in required:
             line.setProperty("requiredInput", True)
 
         self.refresh_line_styles(*all_lines)

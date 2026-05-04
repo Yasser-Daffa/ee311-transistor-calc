@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1280</width>
-    <height>1354</height>
+    <width>1400</width>
+    <height>1435</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -184,6 +184,32 @@ QLineEdit:disabled {
              <string>CE Low  &amp; High Frequency Response</string>
             </property>
            </widget>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_3">
+            <item>
+             <widget class="QLabel" name="labelImage">
+              <property name="maximumSize">
+               <size>
+                <width>300</width>
+                <height>200</height>
+               </size>
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+              <property name="pixmap">
+               <pixmap>../../assets/images/ce_capacitors.png</pixmap>
+              </property>
+              <property name="scaledContents">
+               <bool>true</bool>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignmentFlag::AlignCenter</set>
+              </property>
+             </widget>
+            </item>
+           </layout>
           </item>
           <item>
            <widget class="QLabel" name="labelChoose">
@@ -442,6 +468,12 @@ QPushButton {
                 <verstretch>0</verstretch>
                </sizepolicy>
               </property>
+              <property name="minimumSize">
+               <size>
+                <width>0</width>
+                <height>120</height>
+               </size>
+              </property>
               <property name="toolTip">
                <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#00aaff;&quot;&gt;Select the calculation mode based on which capacitor is given.&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; color:#00aaff;&quot;&gt;&lt;br/&gt;&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; color:#00aaff;&quot;&gt;• Full Analysis: use C1, C2, and/or CE together to find the overall low cutoff range.&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; color:#00aaff;&quot;&gt;• Due to C1 only: use only the input coupling capacitor C1.&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; color:#00aaff;&quot;&gt;• Due to C2 only: use only the output coupling capacitor C2.&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; color:#00aaff;&quot;&gt;• Due to CE only: use only the emitter bypass capacitor CE.&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; color:#00aaff;&quot;&gt;&lt;br/&gt;&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; color:#00aaff;&quot;&gt;For quiz questions that say “due to C1/C2/CE only,” choose the matching mode.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
               </property>
@@ -497,7 +529,7 @@ QPushButton:pressed {
           <item>
            <widget class="QLabel" name="labelChoicePicked">
             <property name="toolTip">
-             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ffff00;&quot;&gt;Mode of calculation: if given C1 only, choose Due to C1. If given C2 only, choose Due to C2. If given CE only, choose Due to CE. if given all Capacitors Choose full analysis.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#00aaff;&quot;&gt;Mode of calculation: if given C1 only, choose Due to C1. If given C2 only, choose Due to C2. If given CE only, choose Due to CE. if given all Capacitors Choose full analysis.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
             </property>
             <property name="styleSheet">
              <string notr="true">font: 600 12pt 'Segoe UI'; color: #6D63E8;</string>
@@ -1004,25 +1036,6 @@ QPushButton:disabled {
              </widget>
             </item>
            </layout>
-          </item>
-          <item>
-           <widget class="QLabel" name="labelImage">
-            <property name="maximumSize">
-             <size>
-              <width>300</width>
-              <height>200</height>
-             </size>
-            </property>
-            <property name="text">
-             <string/>
-            </property>
-            <property name="pixmap">
-             <pixmap>../../assets/images/ce_capacitors.png</pixmap>
-            </property>
-            <property name="scaledContents">
-             <bool>true</bool>
-            </property>
-           </widget>
           </item>
          </layout>
         </widget>

@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>CECCMultistageFrequencyWidget</class>
- <widget class="QWidget" name="CECCMultistageFrequencyWidget">
+ <class>CECEMultistageFrequencyWidget</class>
+ <widget class="QWidget" name="CECEMultistageFrequencyWidget">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1050</width>
-    <height>1811</height>
+    <width>1129</width>
+    <height>2266</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -17,7 +17,7 @@
    </sizepolicy>
   </property>
   <property name="windowTitle">
-   <string>CE-CC Multistage Frequency Response</string>
+   <string>CE-CE Multistage Frequency Response</string>
   </property>
   <property name="styleSheet">
    <string notr="true">QWidget {
@@ -135,6 +135,48 @@ border: 1px solid #e2e8f0;
          </widget>
         </item>
         <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_3">
+          <item>
+           <widget class="QLabel" name="labelImage">
+            <property name="maximumSize">
+             <size>
+              <width>500</width>
+              <height>350</height>
+             </size>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+            <property name="pixmap">
+             <pixmap>../../assets/images/ce_ce_capacitors.png</pixmap>
+            </property>
+            <property name="scaledContents">
+             <bool>true</bool>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignmentFlag::AlignCenter</set>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <spacer name="verticalSpacer_4">
+          <property name="orientation">
+           <enum>Qt::Orientation::Vertical</enum>
+          </property>
+          <property name="sizeType">
+           <enum>QSizePolicy::Policy::Fixed</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>20</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item>
          <widget class="QLabel" name="labelNote">
           <property name="sizePolicy">
            <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
@@ -146,10 +188,10 @@ border: 1px solid #e2e8f0;
            <string notr="true">font: 600 10pt 'Segoe UI'; color: rgb(85, 85, 85); letter-spacing: 1px;</string>
           </property>
           <property name="text">
-           <string>1. Use CE–CC design page to find:
+           <string>1. Use CE–CE design page to find:
    R1, R2, RC1, RE1, RX1, RB2, RE2, rπ values, etc.
 
-2. Enter those values into CE–CC multistage frequency page.
+2. Enter those values into CE–CE multistage frequency page.
 
 3. The page calculates:
    low cutoff points, high cutoff points,
@@ -181,7 +223,7 @@ QPushButton:pressed {
 }</string>
           </property>
           <property name="text">
-           <string>Open CE–CC Design/Analysis Externally</string>
+           <string>Open CE–CE Design/Analysis Externally</string>
           </property>
          </widget>
         </item>
@@ -324,27 +366,6 @@ QPushButton:pressed {
         </item>
         <item>
          <layout class="QGridLayout" name="gridCaps">
-          <item row="3" column="1">
-           <widget class="SmartLineEdit" name="lineCE">
-            <property name="placeholderText">
-             <string>emitter bypass</string>
-            </property>
-           </widget>
-          </item>
-          <item row="3" column="0">
-           <widget class="QLabel" name="labelCE">
-            <property name="text">
-             <string>CE (µF)</string>
-            </property>
-           </widget>
-          </item>
-          <item row="1" column="1">
-           <widget class="SmartLineEdit" name="lineC2">
-            <property name="placeholderText">
-             <string>interstage coupling</string>
-            </property>
-           </widget>
-          </item>
           <item row="0" column="1">
            <widget class="SmartLineEdit" name="lineC1">
             <property name="placeholderText">
@@ -352,10 +373,10 @@ QPushButton:pressed {
             </property>
            </widget>
           </item>
-          <item row="1" column="0">
-           <widget class="QLabel" name="labelC2">
+          <item row="3" column="0">
+           <widget class="QLabel" name="labelCE1">
             <property name="text">
-             <string>C2 (µF)</string>
+             <string>CE1 (µF)</string>
             </property>
            </widget>
           </item>
@@ -376,10 +397,45 @@ QPushButton:pressed {
             </property>
            </widget>
           </item>
+          <item row="3" column="1">
+           <widget class="SmartLineEdit" name="lineCE1">
+            <property name="placeholderText">
+             <string>stage 1 emitter bypass</string>
+            </property>
+           </widget>
+          </item>
           <item row="2" column="1">
            <widget class="SmartLineEdit" name="lineC3">
             <property name="placeholderText">
              <string>output coupling</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="0">
+           <widget class="QLabel" name="labelC2">
+            <property name="text">
+             <string>C2 (µF)</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="1">
+           <widget class="SmartLineEdit" name="lineC2">
+            <property name="placeholderText">
+             <string>interstage coupling</string>
+            </property>
+           </widget>
+          </item>
+          <item row="4" column="0">
+           <widget class="QLabel" name="labelCE2">
+            <property name="text">
+             <string>CE2 (µF)</string>
+            </property>
+           </widget>
+          </item>
+          <item row="4" column="1">
+           <widget class="SmartLineEdit" name="lineCE2">
+            <property name="placeholderText">
+             <string>stage 2 emitter bypass</string>
             </property>
            </widget>
           </item>
@@ -633,7 +689,7 @@ border: 1px solid #e2e8f0;
         <item>
          <layout class="QVBoxLayout" name="layoutCC_2">
           <item>
-           <widget class="QLabel" name="labelCCTitle">
+           <widget class="QLabel" name="labelCETitle_2">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
               <horstretch>0</horstretch>
@@ -655,7 +711,7 @@ border: 1px solid #e2e8f0;
 }</string>
             </property>
             <property name="text">
-             <string>CC Stage 2 Inputs</string>
+             <string>CE Stage 2 Inputs</string>
             </property>
             <property name="sectionTitle" stdset="0">
              <bool>true</bool>
@@ -663,17 +719,78 @@ border: 1px solid #e2e8f0;
            </widget>
           </item>
           <item>
-           <layout class="QGridLayout" name="gridCC">
+           <layout class="QGridLayout" name="gridCE_2">
             <property name="horizontalSpacing">
              <number>12</number>
             </property>
             <property name="verticalSpacing">
              <number>8</number>
             </property>
-            <item row="2" column="1">
-             <widget class="QLineEdit" name="lineRpi2"/>
+            <item row="0" column="0">
+             <widget class="QLabel" name="labelR3">
+              <property name="text">
+               <string>R3 (kΩ)</string>
+              </property>
+              <property name="fieldLabel" stdset="0">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="1">
+             <widget class="QLineEdit" name="lineR3">
+              <property name="placeholderText">
+               <string>leave blank if using RB2</string>
+              </property>
+             </widget>
             </item>
             <item row="1" column="0">
+             <widget class="QLabel" name="labelR4">
+              <property name="text">
+               <string>R4 (kΩ)</string>
+              </property>
+              <property name="fieldLabel" stdset="0">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="1">
+             <widget class="QLineEdit" name="lineR4">
+              <property name="placeholderText">
+               <string>leave blank if using RB2</string>
+              </property>
+             </widget>
+            </item>
+            <item row="2" column="0">
+             <widget class="QLabel" name="labelRB2">
+              <property name="text">
+               <string>RB2 direct (kΩ)</string>
+              </property>
+              <property name="fieldLabel" stdset="0">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+            <item row="2" column="1">
+             <widget class="QLineEdit" name="lineRB2">
+              <property name="placeholderText">
+               <string>R3 || R4</string>
+              </property>
+             </widget>
+            </item>
+            <item row="3" column="0">
+             <widget class="QLabel" name="labelRC2">
+              <property name="text">
+               <string>RC2 (kΩ)</string>
+              </property>
+              <property name="fieldLabel" stdset="0">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+            <item row="3" column="1">
+             <widget class="QLineEdit" name="lineRC2"/>
+            </item>
+            <item row="4" column="0">
              <widget class="QLabel" name="labelRE2">
               <property name="text">
                <string>RE2 (kΩ)</string>
@@ -683,23 +800,36 @@ border: 1px solid #e2e8f0;
               </property>
              </widget>
             </item>
-            <item row="3" column="1">
-             <widget class="QLineEdit" name="lineCpi2"/>
-            </item>
-            <item row="1" column="1">
+            <item row="4" column="1">
              <widget class="QLineEdit" name="lineRE2"/>
             </item>
-            <item row="4" column="0">
-             <widget class="QLabel" name="labelCmu2">
+            <item row="5" column="0">
+             <widget class="QLabel" name="labelRX2">
               <property name="text">
-               <string>Cµ2 (pF)</string>
+               <string>RX2 (kΩ)</string>
               </property>
               <property name="fieldLabel" stdset="0">
                <bool>true</bool>
               </property>
              </widget>
             </item>
-            <item row="3" column="0">
+            <item row="5" column="1">
+             <widget class="QLineEdit" name="lineRX2"/>
+            </item>
+            <item row="6" column="0">
+             <widget class="QLabel" name="labelRpi2">
+              <property name="text">
+               <string>rπ2 (kΩ)</string>
+              </property>
+              <property name="fieldLabel" stdset="0">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+            <item row="6" column="1">
+             <widget class="QLineEdit" name="lineRpi2"/>
+            </item>
+            <item row="7" column="0">
              <widget class="QLabel" name="labelCpi2">
               <property name="text">
                <string>Cπ2 (pF)</string>
@@ -709,31 +839,21 @@ border: 1px solid #e2e8f0;
               </property>
              </widget>
             </item>
-            <item row="4" column="1">
+            <item row="7" column="1">
+             <widget class="QLineEdit" name="lineCpi2"/>
+            </item>
+            <item row="8" column="0">
+             <widget class="QLabel" name="labelCmu2">
+              <property name="text">
+               <string>Cµ2 (pF)</string>
+              </property>
+              <property name="fieldLabel" stdset="0">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+            <item row="8" column="1">
              <widget class="QLineEdit" name="lineCmu2"/>
-            </item>
-            <item row="0" column="0">
-             <widget class="QLabel" name="labelRB2">
-              <property name="text">
-               <string>RB2 (kΩ)</string>
-              </property>
-              <property name="fieldLabel" stdset="0">
-               <bool>true</bool>
-              </property>
-             </widget>
-            </item>
-            <item row="0" column="1">
-             <widget class="QLineEdit" name="lineRB2"/>
-            </item>
-            <item row="2" column="0">
-             <widget class="QLabel" name="labelRpi2">
-              <property name="text">
-               <string>rπ2 (kΩ)</string>
-              </property>
-              <property name="fieldLabel" stdset="0">
-               <bool>true</bool>
-              </property>
-             </widget>
             </item>
            </layout>
           </item>
@@ -898,8 +1018,208 @@ border: 1px solid #e2e8f0;
               </property>
              </widget>
             </item>
+            <item row="3" column="0">
+             <widget class="QLabel" name="labelREE1Text">
+              <property name="styleSheet">
+               <string notr="true">QLabel {
+    color: #374151;
+    font-family: &quot;Rockwell&quot;;
+    font-size: 13pt;
+    font-weight: bold;
+    background: transparent;
+    border: none;
+}</string>
+              </property>
+              <property name="text">
+               <string>REE1</string>
+              </property>
+              <property name="fieldLabel" stdset="0">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+            <item row="4" column="1">
+             <widget class="QLabel" name="labelREE2">
+              <property name="text">
+               <string>—</string>
+              </property>
+              <property name="outputBox" stdset="0">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
             <item row="0" column="1">
              <widget class="QLabel" name="labelR11">
+              <property name="text">
+               <string>—</string>
+              </property>
+              <property name="outputBox" stdset="0">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+            <item row="7" column="0">
+             <widget class="QLabel" name="labelF3Text">
+              <property name="styleSheet">
+               <string notr="true">QLabel {
+    color: #374151;
+    font-family: &quot;Rockwell&quot;;
+    font-size: 13pt;
+    font-weight: bold;
+    background: transparent;
+    border: none;
+}</string>
+              </property>
+              <property name="text">
+               <string>f3</string>
+              </property>
+              <property name="fieldLabel" stdset="0">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+            <item row="2" column="0">
+             <widget class="QLabel" name="labelR33Text">
+              <property name="styleSheet">
+               <string notr="true">QLabel {
+    color: #374151;
+    font-family: &quot;Rockwell&quot;;
+    font-size: 13pt;
+    font-weight: bold;
+    background: transparent;
+    border: none;
+}</string>
+              </property>
+              <property name="text">
+               <string>R33</string>
+              </property>
+              <property name="fieldLabel" stdset="0">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+            <item row="6" column="0">
+             <widget class="QLabel" name="labelF2Text">
+              <property name="styleSheet">
+               <string notr="true">QLabel {
+    color: #374151;
+    font-family: &quot;Rockwell&quot;;
+    font-size: 13pt;
+    font-weight: bold;
+    background: transparent;
+    border: none;
+}</string>
+              </property>
+              <property name="text">
+               <string>f2</string>
+              </property>
+              <property name="fieldLabel" stdset="0">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+            <item row="2" column="1">
+             <widget class="QLabel" name="labelR33">
+              <property name="text">
+               <string>—</string>
+              </property>
+              <property name="outputBox" stdset="0">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+            <item row="5" column="0">
+             <widget class="QLabel" name="labelF1Text">
+              <property name="styleSheet">
+               <string notr="true">QLabel {
+    color: #374151;
+    font-family: &quot;Rockwell&quot;;
+    font-size: 13pt;
+    font-weight: bold;
+    background: transparent;
+    border: none;
+}</string>
+              </property>
+              <property name="text">
+               <string>f1</string>
+              </property>
+              <property name="fieldLabel" stdset="0">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+            <item row="5" column="1">
+             <widget class="QLabel" name="labelF1">
+              <property name="text">
+               <string>—</string>
+              </property>
+              <property name="outputBox" stdset="0">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+            <item row="7" column="1">
+             <widget class="QLabel" name="labelF3">
+              <property name="text">
+               <string>—</string>
+              </property>
+              <property name="outputBox" stdset="0">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+            <item row="4" column="0">
+             <widget class="QLabel" name="labelREE2Text">
+              <property name="styleSheet">
+               <string notr="true">QLabel {
+    color: #374151;
+    font-family: &quot;Rockwell&quot;;
+    font-size: 13pt;
+    font-weight: bold;
+    background: transparent;
+    border: none;
+}</string>
+              </property>
+              <property name="text">
+               <string>REE2</string>
+              </property>
+              <property name="fieldLabel" stdset="0">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+            <item row="8" column="0">
+             <widget class="QLabel" name="labelFEText">
+              <property name="styleSheet">
+               <string notr="true">QLabel {
+    color: #374151;
+    font-family: &quot;Rockwell&quot;;
+    font-size: 13pt;
+    font-weight: bold;
+    background: transparent;
+    border: none;
+}</string>
+              </property>
+              <property name="text">
+               <string>fE1</string>
+              </property>
+              <property name="fieldLabel" stdset="0">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+            <item row="8" column="1">
+             <widget class="QLabel" name="labelFE">
+              <property name="text">
+               <string>—</string>
+              </property>
+              <property name="outputBox" stdset="0">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+            <item row="6" column="1">
+             <widget class="QLabel" name="labelF2">
               <property name="text">
                <string>—</string>
               </property>
@@ -938,58 +1258,8 @@ border: 1px solid #e2e8f0;
               </property>
              </widget>
             </item>
-            <item row="2" column="0">
-             <widget class="QLabel" name="labelR33Text">
-              <property name="styleSheet">
-               <string notr="true">QLabel {
-    color: #374151;
-    font-family: &quot;Rockwell&quot;;
-    font-size: 13pt;
-    font-weight: bold;
-    background: transparent;
-    border: none;
-}</string>
-              </property>
-              <property name="text">
-               <string>R33</string>
-              </property>
-              <property name="fieldLabel" stdset="0">
-               <bool>true</bool>
-              </property>
-             </widget>
-            </item>
-            <item row="2" column="1">
-             <widget class="QLabel" name="labelR33">
-              <property name="text">
-               <string>—</string>
-              </property>
-              <property name="outputBox" stdset="0">
-               <bool>true</bool>
-              </property>
-             </widget>
-            </item>
-            <item row="3" column="0">
-             <widget class="QLabel" name="labelREEText">
-              <property name="styleSheet">
-               <string notr="true">QLabel {
-    color: #374151;
-    font-family: &quot;Rockwell&quot;;
-    font-size: 13pt;
-    font-weight: bold;
-    background: transparent;
-    border: none;
-}</string>
-              </property>
-              <property name="text">
-               <string>REE</string>
-              </property>
-              <property name="fieldLabel" stdset="0">
-               <bool>true</bool>
-              </property>
-             </widget>
-            </item>
             <item row="3" column="1">
-             <widget class="QLabel" name="labelREE">
+             <widget class="QLabel" name="labelREE1">
               <property name="text">
                <string>—</string>
               </property>
@@ -998,8 +1268,8 @@ border: 1px solid #e2e8f0;
               </property>
              </widget>
             </item>
-            <item row="4" column="0">
-             <widget class="QLabel" name="labelF1Text">
+            <item row="9" column="0">
+             <widget class="QLabel" name="labelFE2Text">
               <property name="styleSheet">
                <string notr="true">QLabel {
     color: #374151;
@@ -1011,105 +1281,15 @@ border: 1px solid #e2e8f0;
 }</string>
               </property>
               <property name="text">
-               <string>f1</string>
+               <string>fE2</string>
               </property>
               <property name="fieldLabel" stdset="0">
                <bool>true</bool>
               </property>
              </widget>
             </item>
-            <item row="4" column="1">
-             <widget class="QLabel" name="labelF1">
-              <property name="text">
-               <string>—</string>
-              </property>
-              <property name="outputBox" stdset="0">
-               <bool>true</bool>
-              </property>
-             </widget>
-            </item>
-            <item row="5" column="0">
-             <widget class="QLabel" name="labelF2Text">
-              <property name="styleSheet">
-               <string notr="true">QLabel {
-    color: #374151;
-    font-family: &quot;Rockwell&quot;;
-    font-size: 13pt;
-    font-weight: bold;
-    background: transparent;
-    border: none;
-}</string>
-              </property>
-              <property name="text">
-               <string>f2</string>
-              </property>
-              <property name="fieldLabel" stdset="0">
-               <bool>true</bool>
-              </property>
-             </widget>
-            </item>
-            <item row="5" column="1">
-             <widget class="QLabel" name="labelF2">
-              <property name="text">
-               <string>—</string>
-              </property>
-              <property name="outputBox" stdset="0">
-               <bool>true</bool>
-              </property>
-             </widget>
-            </item>
-            <item row="6" column="0">
-             <widget class="QLabel" name="labelF3Text">
-              <property name="styleSheet">
-               <string notr="true">QLabel {
-    color: #374151;
-    font-family: &quot;Rockwell&quot;;
-    font-size: 13pt;
-    font-weight: bold;
-    background: transparent;
-    border: none;
-}</string>
-              </property>
-              <property name="text">
-               <string>f3</string>
-              </property>
-              <property name="fieldLabel" stdset="0">
-               <bool>true</bool>
-              </property>
-             </widget>
-            </item>
-            <item row="6" column="1">
-             <widget class="QLabel" name="labelF3">
-              <property name="text">
-               <string>—</string>
-              </property>
-              <property name="outputBox" stdset="0">
-               <bool>true</bool>
-              </property>
-             </widget>
-            </item>
-            <item row="7" column="0">
-             <widget class="QLabel" name="labelFEText">
-              <property name="styleSheet">
-               <string notr="true">QLabel {
-    color: #374151;
-    font-family: &quot;Rockwell&quot;;
-    font-size: 13pt;
-    font-weight: bold;
-    background: transparent;
-    border: none;
-}</string>
-              </property>
-              <property name="text">
-               <string>fE</string>
-              </property>
-              <property name="fieldLabel" stdset="0">
-               <bool>true</bool>
-              </property>
-             </widget>
-            </item>
-            <item row="7" column="1">
-             <widget class="QLabel" name="labelFE">
+            <item row="9" column="1">
+             <widget class="QLabel" name="labelFE2">
               <property name="text">
                <string>—</string>
               </property>
@@ -1587,52 +1767,90 @@ QPushButton:disabled {
 }</string>
           </property>
           <property name="text">
-           <string>CE–CC MULTISTAGE FREQUENCY RESPONSE
+           <string>    &lt;div style=&quot;font-family: 'Segoe UI'; font-size: 12px; color: #1e293b;&quot;&gt;
 
-LOW FREQUENCY
-RB1 = R1 || R2
-RXX1 = rπ1 + (β + 1)RX1
-R11 = RS + (RB1 || RXX1)
+    &lt;h3 style=&quot;color:#185FA5; margin-bottom:6px;&quot;&gt;CE–CE Multistage Frequency Response&lt;/h3&gt;
 
-REL2 = RE2 || RL
-RXX2 = rπ2 + (β + 1)REL2
-Ri2 = RB2 || RXX2
-R22 = RC1 + Ri2
+    &lt;h4 style=&quot;color:#6d5dfc; margin-bottom:4px;&quot;&gt;Low Frequency&lt;/h4&gt;
 
-RSB2 = RC1 || RB2
-R33 = RL + { RE2 || [(rπ2 + RSB2)/(β + 1)] }
+    &lt;b&gt;Stage 1:&lt;/b&gt;&lt;br&gt;
+    R&lt;sub&gt;B1&lt;/sub&gt; = R&lt;sub&gt;1&lt;/sub&gt; ∥ R&lt;sub&gt;2&lt;/sub&gt;&lt;br&gt;
+    R&lt;sub&gt;XX1&lt;/sub&gt; = r&lt;sub&gt;π1&lt;/sub&gt; + (β + 1)R&lt;sub&gt;X1&lt;/sub&gt;&lt;br&gt;
+    R&lt;sub&gt;SB1&lt;/sub&gt; = R&lt;sub&gt;S&lt;/sub&gt; ∥ R&lt;sub&gt;B1&lt;/sub&gt;&lt;br&gt;&lt;br&gt;
 
-RSB1 = RS || RB1
-REE = RE1 || [ RX1 + (rπ1 + RSB1)/(β + 1) ]
+    &lt;b&gt;Stage 2:&lt;/b&gt;&lt;br&gt;
+    R&lt;sub&gt;B2&lt;/sub&gt; = R&lt;sub&gt;3&lt;/sub&gt; ∥ R&lt;sub&gt;4&lt;/sub&gt;&lt;br&gt;
+    R&lt;sub&gt;XX2&lt;/sub&gt; = r&lt;sub&gt;π2&lt;/sub&gt; + (β + 1)R&lt;sub&gt;X2&lt;/sub&gt;&lt;br&gt;
+    R&lt;sub&gt;i2&lt;/sub&gt; = R&lt;sub&gt;B2&lt;/sub&gt; ∥ R&lt;sub&gt;XX2&lt;/sub&gt;&lt;br&gt;&lt;br&gt;
 
-f1 = 1 / (2πR11C1)
-f2 = 1 / (2πR22C2)
-f3 = 1 / (2πR33C3)
-fE = 1 / (2πREECE)
+    &lt;b&gt;Input capacitor C&lt;sub&gt;1&lt;/sub&gt;:&lt;/b&gt;&lt;br&gt;
+    R&lt;sub&gt;11&lt;/sub&gt; = R&lt;sub&gt;S&lt;/sub&gt; + (R&lt;sub&gt;B1&lt;/sub&gt; ∥ R&lt;sub&gt;XX1&lt;/sub&gt;)&lt;br&gt;
+    f&lt;sub&gt;1&lt;/sub&gt; = 1 / (2πR&lt;sub&gt;11&lt;/sub&gt;C&lt;sub&gt;1&lt;/sub&gt;)&lt;br&gt;&lt;br&gt;
 
-max(f1, f2, f3, fE) ≤ fL ≤ f1 + f2 + f3 + fE
+    &lt;b&gt;Interstage capacitor C&lt;sub&gt;2&lt;/sub&gt;:&lt;/b&gt;&lt;br&gt;
+    R&lt;sub&gt;22&lt;/sub&gt; = R&lt;sub&gt;C1&lt;/sub&gt; + R&lt;sub&gt;i2&lt;/sub&gt;&lt;br&gt;
+    f&lt;sub&gt;2&lt;/sub&gt; = 1 / (2πR&lt;sub&gt;22&lt;/sub&gt;C&lt;sub&gt;2&lt;/sub&gt;)&lt;br&gt;&lt;br&gt;
 
-HIGH FREQUENCY
-RSB1 = RS || RB1
-RCL1 = RC1 || Ri2
-RXX1 = rπ1 + (β + 1)RX1
+    &lt;b&gt;Output capacitor C&lt;sub&gt;3&lt;/sub&gt;:&lt;/b&gt;&lt;br&gt;
+    R&lt;sub&gt;33&lt;/sub&gt; = R&lt;sub&gt;C2&lt;/sub&gt; + R&lt;sub&gt;L&lt;/sub&gt;&lt;br&gt;
+    f&lt;sub&gt;3&lt;/sub&gt; = 1 / (2πR&lt;sub&gt;33&lt;/sub&gt;C&lt;sub&gt;3&lt;/sub&gt;)&lt;br&gt;&lt;br&gt;
 
-Rπ1 = rπ1(RSB1 + RX1) / (RSB1 + RXX1)
-Rµ1 = [RXX1(RSB1 + RCL1) + (β + 1)RSB1RCL1] / (RSB1 + RXX1)
+    &lt;b&gt;Emitter bypass capacitors:&lt;/b&gt;&lt;br&gt;
+    R&lt;sub&gt;EE1&lt;/sub&gt; = R&lt;sub&gt;E1&lt;/sub&gt; ∥ [R&lt;sub&gt;X1&lt;/sub&gt; + (r&lt;sub&gt;π1&lt;/sub&gt; + R&lt;sub&gt;SB1&lt;/sub&gt;) / (β + 1)]&lt;br&gt;
+    f&lt;sub&gt;E1&lt;/sub&gt; = 1 / (2πR&lt;sub&gt;EE1&lt;/sub&gt;C&lt;sub&gt;E1&lt;/sub&gt;)&lt;br&gt;&lt;br&gt;
 
-RSB2 = RC1 || RB2
-REL2 = RE2 || RL
-RXX2 = rπ2 + (β + 1)REL2
+    R&lt;sub&gt;SB2&lt;/sub&gt; = R&lt;sub&gt;C1&lt;/sub&gt; ∥ R&lt;sub&gt;B2&lt;/sub&gt;&lt;br&gt;
+    R&lt;sub&gt;EE2&lt;/sub&gt; = R&lt;sub&gt;E2&lt;/sub&gt; ∥ [R&lt;sub&gt;X2&lt;/sub&gt; + (r&lt;sub&gt;π2&lt;/sub&gt; + R&lt;sub&gt;SB2&lt;/sub&gt;) / (β + 1)]&lt;br&gt;
+    f&lt;sub&gt;E2&lt;/sub&gt; = 1 / (2πR&lt;sub&gt;EE2&lt;/sub&gt;C&lt;sub&gt;E2&lt;/sub&gt;)&lt;br&gt;&lt;br&gt;
 
-Rµ2 = RSB2 || RXX2
-Rπ2 = rπ2 || [RSB2 + (β + 1)REL2]
+    &lt;b&gt;Low cutoff range:&lt;/b&gt;&lt;br&gt;
+    max(f&lt;sub&gt;1&lt;/sub&gt;, f&lt;sub&gt;2&lt;/sub&gt;, f&lt;sub&gt;3&lt;/sub&gt;, f&lt;sub&gt;E1&lt;/sub&gt;, f&lt;sub&gt;E2&lt;/sub&gt;)
+    ≤ f&lt;sub&gt;L&lt;/sub&gt; ≤
+    f&lt;sub&gt;1&lt;/sub&gt; + f&lt;sub&gt;2&lt;/sub&gt; + f&lt;sub&gt;3&lt;/sub&gt; + f&lt;sub&gt;E1&lt;/sub&gt; + f&lt;sub&gt;E2&lt;/sub&gt;&lt;br&gt;&lt;br&gt;
 
-fπ1 = 1 / (2πRπ1Cπ1)
-fµ1 = 1 / (2πRµ1Cµ1)
-fπ2 = 1 / (2πRπ2Cπ2)
-fµ2 = 1 / (2πRµ2Cµ2)
+    &lt;b&gt;Conservative:&lt;/b&gt;&lt;br&gt;
+    f&lt;sub&gt;L&lt;/sub&gt; = max(f&lt;sub&gt;1&lt;/sub&gt;, f&lt;sub&gt;2&lt;/sub&gt;, f&lt;sub&gt;3&lt;/sub&gt;, f&lt;sub&gt;E1&lt;/sub&gt;, f&lt;sub&gt;E2&lt;/sub&gt;)
 
-fπ1 || fµ1 || fπ2 || fµ2 ≤ fH ≤ min(fπ1, fµ1, fπ2, fµ2)</string>
+    &lt;hr&gt;
+
+    &lt;h4 style=&quot;color:#6d5dfc; margin-bottom:4px;&quot;&gt;High Frequency&lt;/h4&gt;
+
+    &lt;b&gt;Stage 1:&lt;/b&gt;&lt;br&gt;
+    R&lt;sub&gt;CL1&lt;/sub&gt; = R&lt;sub&gt;C1&lt;/sub&gt; ∥ R&lt;sub&gt;i2&lt;/sub&gt;&lt;br&gt;
+    R&lt;sub&gt;π1&lt;/sub&gt; =
+    r&lt;sub&gt;π1&lt;/sub&gt;(R&lt;sub&gt;SB1&lt;/sub&gt; + R&lt;sub&gt;X1&lt;/sub&gt;) /
+    (R&lt;sub&gt;SB1&lt;/sub&gt; + R&lt;sub&gt;XX1&lt;/sub&gt;)&lt;br&gt;
+
+    R&lt;sub&gt;µ1&lt;/sub&gt; =
+    [R&lt;sub&gt;XX1&lt;/sub&gt;(R&lt;sub&gt;SB1&lt;/sub&gt; + R&lt;sub&gt;CL1&lt;/sub&gt;) + (β + 1)R&lt;sub&gt;SB1&lt;/sub&gt;R&lt;sub&gt;CL1&lt;/sub&gt;]
+    / (R&lt;sub&gt;SB1&lt;/sub&gt; + R&lt;sub&gt;XX1&lt;/sub&gt;)&lt;br&gt;&lt;br&gt;
+
+    &lt;b&gt;Stage 2:&lt;/b&gt;&lt;br&gt;
+    R&lt;sub&gt;CL2&lt;/sub&gt; = R&lt;sub&gt;C2&lt;/sub&gt; ∥ R&lt;sub&gt;L&lt;/sub&gt;&lt;br&gt;
+    R&lt;sub&gt;π2&lt;/sub&gt; =
+    r&lt;sub&gt;π2&lt;/sub&gt;(R&lt;sub&gt;SB2&lt;/sub&gt; + R&lt;sub&gt;X2&lt;/sub&gt;) /
+    (R&lt;sub&gt;SB2&lt;/sub&gt; + R&lt;sub&gt;XX2&lt;/sub&gt;)&lt;br&gt;
+
+    R&lt;sub&gt;µ2&lt;/sub&gt; =
+    [R&lt;sub&gt;XX2&lt;/sub&gt;(R&lt;sub&gt;SB2&lt;/sub&gt; + R&lt;sub&gt;CL2&lt;/sub&gt;) + (β + 1)R&lt;sub&gt;SB2&lt;/sub&gt;R&lt;sub&gt;CL2&lt;/sub&gt;]
+    / (R&lt;sub&gt;SB2&lt;/sub&gt; + R&lt;sub&gt;XX2&lt;/sub&gt;)&lt;br&gt;&lt;br&gt;
+
+    &lt;b&gt;Frequency points:&lt;/b&gt;&lt;br&gt;
+    f&lt;sub&gt;π1&lt;/sub&gt; = 1 / (2πR&lt;sub&gt;π1&lt;/sub&gt;C&lt;sub&gt;π1&lt;/sub&gt;)&lt;br&gt;
+    f&lt;sub&gt;µ1&lt;/sub&gt; = 1 / (2πR&lt;sub&gt;µ1&lt;/sub&gt;C&lt;sub&gt;µ1&lt;/sub&gt;)&lt;br&gt;
+    f&lt;sub&gt;π2&lt;/sub&gt; = 1 / (2πR&lt;sub&gt;π2&lt;/sub&gt;C&lt;sub&gt;π2&lt;/sub&gt;)&lt;br&gt;
+    f&lt;sub&gt;µ2&lt;/sub&gt; = 1 / (2πR&lt;sub&gt;µ2&lt;/sub&gt;C&lt;sub&gt;µ2&lt;/sub&gt;)&lt;br&gt;&lt;br&gt;
+
+    &lt;b&gt;High cutoff range:&lt;/b&gt;&lt;br&gt;
+    f&lt;sub&gt;π1&lt;/sub&gt; ∥ f&lt;sub&gt;µ1&lt;/sub&gt; ∥ f&lt;sub&gt;π2&lt;/sub&gt; ∥ f&lt;sub&gt;µ2&lt;/sub&gt;
+    ≤ f&lt;sub&gt;H&lt;/sub&gt; ≤
+    min(f&lt;sub&gt;π1&lt;/sub&gt;, f&lt;sub&gt;µ1&lt;/sub&gt;, f&lt;sub&gt;π2&lt;/sub&gt;, f&lt;sub&gt;µ2&lt;/sub&gt;)&lt;br&gt;&lt;br&gt;
+
+    &lt;b&gt;Conservative:&lt;/b&gt;&lt;br&gt;
+    f&lt;sub&gt;H&lt;/sub&gt; =
+    f&lt;sub&gt;π1&lt;/sub&gt; ∥ f&lt;sub&gt;µ1&lt;/sub&gt; ∥ f&lt;sub&gt;π2&lt;/sub&gt; ∥ f&lt;sub&gt;µ2&lt;/sub&gt;
+
+    &lt;/div&gt;</string>
           </property>
           <property name="wordWrap">
            <bool>true</bool>
