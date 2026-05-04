@@ -12,8 +12,8 @@ from controllers.bjt_amplifiers_controllers.ce_design_analysis_menu_widget impor
 from controllers.bjt_amplifiers_controllers.cc_design_analysis_menu_widget import CCDesignAnalysisMenuWidget
 from controllers.bjt_multistage_controllers.multistage_choices_widget import MultistageChoicesWidget
 
-from controllers.bjt_frequency.singlestage_frequency_choices_widget import SingleStageFrequencyChoicesWidget
-from controllers.bjt_frequency.multistage_frequency_choices_widget import MultistageFrequencyChoicesWidget
+from controllers.bjt_frequency_controllers.singlestage_frequency_choices_widget import SingleStageFrequencyChoicesWidget
+from controllers.bjt_frequency_controllers.multistage_frequency_choices_widget import MultistageFrequencyChoicesWidget
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 UI_PATH = os.path.join(BASE_DIR, "ui", "main_dashboard.ui")

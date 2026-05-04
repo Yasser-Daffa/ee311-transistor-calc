@@ -333,74 +333,6 @@ QPushButton:checked {
     background-color: #ffffff;
     border: none;
     
-    color: #6b7280;
-    font-size: 13px;
-    font-weight: 500;
-    padding: 8px 14px;
-    text-align: center;
-}
-
-/* Hover */
-QPushButton:hover {
-    background-color: #f9fafb;
-    color: #667EEA;
-}
-
-/* While clicking */
-QPushButton:pressed {
-    background-color: transparent;
-}
-
-/* Selected (persistent state) */
-QPushButton:checked {
-    background-color: #e5e7eb;
-    color: #374151;
-    font-weight: 600;
-    border-bottom: 3px solid #667EEA;
-}</string>
-       </property>
-       <property name="text">
-        <string>Direct Rπ/Rµ, Cx</string>
-       </property>
-       <property name="checkable">
-        <bool>true</bool>
-       </property>
-       <property name="checked">
-        <bool>false</bool>
-       </property>
-       <attribute name="buttonGroup">
-        <string notr="true">buttonGroup</string>
-       </attribute>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="buttonDirectLowFreq">
-       <property name="sizePolicy">
-        <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
-         <horstretch>0</horstretch>
-         <verstretch>0</verstretch>
-        </sizepolicy>
-       </property>
-       <property name="minimumSize">
-        <size>
-         <width>130</width>
-         <height>48</height>
-        </size>
-       </property>
-       <property name="maximumSize">
-        <size>
-         <width>16777215</width>
-         <height>16777215</height>
-        </size>
-       </property>
-       <property name="cursor">
-        <cursorShape>PointingHandCursor</cursorShape>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">QPushButton {
-    background-color: #ffffff;
-    border: none;
-    
     /* Only the bottom-right is rounded now */
     border-bottom-right-radius: 8px;
     border-bottom-left-radius: 0px;
@@ -437,7 +369,7 @@ QPushButton:checked {
 }</string>
        </property>
        <property name="text">
-        <string>Direct Low-Frequency Points</string>
+        <string>Direct Rπ/Rµ, Cx</string>
        </property>
        <property name="checkable">
         <bool>true</bool>
