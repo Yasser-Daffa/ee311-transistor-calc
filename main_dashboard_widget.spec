@@ -1,12 +1,16 @@
 # -*- mode: python ; coding: utf-8 -*-
+from PyInstaller.utils.hooks import collect_submodules
+
+hiddenimports = ['core.smart_line_edit']
+hiddenimports += collect_submodules('core')
 
 
 a = Analysis(
     ['main_dashboard_widget.py'],
-    pathex=[],
+    pathex=['.'],
     binaries=[],
     datas=[('ui', 'ui'), ('assets', 'assets')],
-    hiddenimports=['core.smart_line_edit'],
+    hiddenimports=hiddenimports,
     hookspath=[],
     hooksconfig={},
     runtime_hooks=[],
@@ -25,7 +29,7 @@ exe = EXE(
     debug=False,
     bootloader_ignore_signals=False,
     strip=False,
-    upx=False,
+    upx=True,
     console=False,
     disable_windowed_traceback=False,
     argv_emulation=False,
@@ -38,7 +42,7 @@ coll = COLLECT(
     a.binaries,
     a.datas,
     strip=False,
-    upx=False,
+    upx=True,
     upx_exclude=[],
     name='main_dashboard_widget',
 )
