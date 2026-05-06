@@ -226,8 +226,6 @@ class CELowHighFrequencyWidget(QWidget):
                 self.lineC1,
                 self.lineC2,
                 self.lineCE,
-                self.lineCpi,
-                self.lineCmu,
             ]
 
         for line in required:
@@ -277,6 +275,124 @@ class CELowHighFrequencyWidget(QWidget):
     # ------------------------------------------------------------
     # Reading helpers
     # ------------------------------------------------------------
+
+    def ce_single_low_formula_html_alt_2(self):
+        return """
+        <div style="font-family:'Segoe UI'; font-size:13px; color:#1e293b; line-height:1.5;">
+
+        <h2 style="color:#185FA5; margin:0 0 12px 0;">
+            CE Low-Frequency Response
+        </h2>
+
+        <table width="100%" cellspacing="0" cellpadding="8" style="border-collapse:collapse;">
+            <tr>
+                <td style="background:#f8fafc; border:1px solid #dbe4f0;">
+                    <b style="color:#185FA5;">Input-side helper values</b><br>
+                    RB = R1 ∥ R2<br>
+                    RXX = r<sub style="font-size:85%;">π</sub> + (β + 1)RX<br>
+                    RSB = RS ∥ RB
+                </td>
+            </tr>
+
+            <tr><td height="6"></td></tr>
+
+            <tr>
+                <td style="background:#eef2ff; border:1px solid #c7d2fe;">
+                    <b>Input capacitor C1</b><br>
+                    R11 = RS + (RB ∥ RXX)<br>
+                    f1 = 1 / (2πR11C1)
+                </td>
+            </tr>
+
+            <tr><td height="6"></td></tr>
+
+            <tr>
+                <td style="background:#eef2ff; border:1px solid #c7d2fe;">
+                    <b>Output capacitor C2</b><br>
+                    R22 = RC + RL<br>
+                    f2 = 1 / (2πR22C2)
+                </td>
+            </tr>
+
+            <tr><td height="6"></td></tr>
+
+            <tr>
+                <td style="background:#fff7ed; border:1px solid #fed7aa;">
+                    <b>Emitter bypass capacitor CE</b><br>
+                    REE = RE ∥ [RX + (r<sub style="font-size:85%;">π</sub> + RSB) / (β + 1)]<br>
+                    fE = 1 / (2πREECE)
+                </td>
+            </tr>
+
+            <tr><td height="6"></td></tr>
+
+            <tr>
+                <td style="background:#ecfdf5; border:1px solid #bbf7d0;">
+                    <b>Low cutoff range</b><br>
+                    max(f1, f2, fE) ≤ fL ≤ f1 + f2 + fE<br><br>
+                    <b>Conservative:</b><br>
+                    fL = max(f1, f2, fE)
+                </td>
+            </tr>
+        </table>
+
+        </div>
+        """
+    
+
+    def ce_single_high_formula_html_alt_2(self):
+        return """
+        <div style="font-family:'Segoe UI'; font-size:13px; color:#1e293b; line-height:1.5;">
+
+        <h2 style="color:#185FA5; margin:0 0 12px 0;">
+            CE High-Frequency Response
+        </h2>
+
+        <table width="100%" cellspacing="0" cellpadding="8" style="border-collapse:collapse;">
+            <tr>
+                <td style="background:#f8fafc; border:1px solid #dbe4f0;">
+                    <b style="color:#185FA5;">Helper values</b><br>
+                    RB = R1 ∥ R2<br>
+                    RSB = RS ∥ RB<br>
+                    RCL = RC ∥ RL<br>
+                    RXX = r<sub style="font-size:85%;">π</sub> + (β + 1)RX
+                </td>
+            </tr>
+
+            <tr><td height="6"></td></tr>
+
+            <tr>
+                <td style="background:#eef2ff; border:1px solid #c7d2fe;">
+                    <b>Equivalent resistance for Cπ</b><br>
+                    Rπ = r<sub style="font-size:85%;">π</sub>(RSB + RX) / (RSB + RXX)<br>
+                    fπ = 1 / (2πRπCπ)
+                </td>
+            </tr>
+
+            <tr><td height="6"></td></tr>
+
+            <tr>
+                <td style="background:#eef2ff; border:1px solid #c7d2fe;">
+                    <b>Equivalent resistance for Cµ</b><br>
+                    Rµ = [RXX(RSB + RCL) + (β + 1)RSB·RCL] / (RSB + RXX)<br>
+                    fµ = 1 / (2πRµCµ)
+                </td>
+            </tr>
+
+            <tr><td height="6"></td></tr>
+
+            <tr>
+                <td style="background:#ecfdf5; border:1px solid #bbf7d0;">
+                    <b>High cutoff range</b><br>
+                    fπ ∥ fµ ≤ fH ≤ min(fπ, fµ)<br><br>
+                    <b>Conservative:</b><br>
+                    fH = fπ ∥ fµ
+                </td>
+            </tr>
+        </table>
+
+        </div>
+        """
 
     def read_float(self, line):
         text = line.text().strip()

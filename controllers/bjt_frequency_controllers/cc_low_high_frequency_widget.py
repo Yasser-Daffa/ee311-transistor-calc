@@ -207,6 +207,112 @@ class CCLowHighFrequencyWidget(QWidget):
     # ------------------------------------------------------------
     # Reading helpers
     # ------------------------------------------------------------
+    
+    def cc_single_low_formula_html_alt_2(self):
+        return """
+        <div style="font-family:'Segoe UI'; font-size:13px; color:#1e293b; line-height:1.5;">
+
+        <h2 style="color:#185FA5; margin:0 0 12px 0;">
+            CC Low-Frequency Response
+        </h2>
+
+        <table width="100%" cellspacing="0" cellpadding="8" style="border-collapse:collapse;">
+            <tr>
+                <td style="background:#f8fafc; border:1px solid #dbe4f0;">
+                    <b style="color:#185FA5;">Helper values</b><br>
+                    REL = RE ∥ RL<br>
+                    RSB = RS ∥ RB<br>
+                    RXX = r<sub style="font-size:85%;">π</sub> + (β + 1)REL
+                </td>
+            </tr>
+
+            <tr><td height="6"></td></tr>
+
+            <tr>
+                <td style="background:#eef2ff; border:1px solid #c7d2fe;">
+                    <b>Input capacitor C1</b><br>
+                    R11 = RS + (RB ∥ RXX)<br>
+                    f1 = 1 / (2πR11C1)
+                </td>
+            </tr>
+
+            <tr><td height="6"></td></tr>
+
+            <tr>
+                <td style="background:#eef2ff; border:1px solid #c7d2fe;">
+                    <b>Output capacitor C2</b><br>
+                    R22 = RL + { RE ∥ [(r<sub style="font-size:85%;">π</sub> + RSB) / (β + 1)] }<br>
+                    f2 = 1 / (2πR22C2)
+                </td>
+            </tr>
+
+            <tr><td height="6"></td></tr>
+
+            <tr>
+                <td style="background:#ecfdf5; border:1px solid #bbf7d0;">
+                    <b>Low cutoff range</b><br>
+                    max(f1, f2) ≤ fL ≤ f1 + f2<br><br>
+                    <b>Conservative:</b><br>
+                    fL = max(f1, f2)
+                </td>
+            </tr>
+        </table>
+
+        </div>
+        """
+
+    def cc_single_high_formula_html_alt_2(self):
+        return """
+        <div style="font-family:'Segoe UI'; font-size:13px; color:#1e293b; line-height:1.5;">
+
+        <h2 style="color:#185FA5; margin:0 0 12px 0;">
+            CC High-Frequency Response
+        </h2>
+
+        <table width="100%" cellspacing="0" cellpadding="8" style="border-collapse:collapse;">
+            <tr>
+                <td style="background:#f8fafc; border:1px solid #dbe4f0;">
+                    <b style="color:#185FA5;">Helper values</b><br>
+                    RSB = RS ∥ RB<br>
+                    REL = RE ∥ RL<br>
+                    RXX = r<sub style="font-size:85%;">π</sub> + (β + 1)REL
+                </td>
+            </tr>
+
+            <tr><td height="6"></td></tr>
+
+            <tr>
+                <td style="background:#eef2ff; border:1px solid #c7d2fe;">
+                    <b>Equivalent resistance for Cπ</b><br>
+                    Rπ = r<sub style="font-size:85%;">π</sub> ∥ [RSB + (β + 1)REL]<br>
+                    fπ = 1 / (2πRπCπ)
+                </td>
+            </tr>
+
+            <tr><td height="6"></td></tr>
+
+            <tr>
+                <td style="background:#eef2ff; border:1px solid #c7d2fe;">
+                    <b>Equivalent resistance for Cµ</b><br>
+                    Rµ = RSB ∥ RXX<br>
+                    fµ = 1 / (2πRµCµ)
+                </td>
+            </tr>
+
+            <tr><td height="6"></td></tr>
+
+            <tr>
+                <td style="background:#ecfdf5; border:1px solid #bbf7d0;">
+                    <b>High cutoff range</b><br>
+                    fπ ∥ fµ ≤ fH ≤ min(fπ, fµ)<br><br>
+                    <b>Conservative:</b><br>
+                    fH = fπ ∥ fµ
+                </td>
+            </tr>
+        </table>
+
+        </div>
+        """
 
     def read_float(self, line):
         text = line.text().strip()

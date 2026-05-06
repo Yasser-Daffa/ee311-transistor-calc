@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1050</width>
-    <height>1809</height>
+    <height>1811</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -157,7 +157,7 @@ border: 1px solid #e2e8f0;
 
 4. If Cπ and Cµ were not given, 
    go to Capacitor Calculations page and calculate them there, 
-   based on the given transistor.</string>
+   based on the given transistor parameters or datasheet.</string>
           </property>
          </widget>
         </item>
@@ -287,6 +287,99 @@ QPushButton:pressed {
            <widget class="QLineEdit" name="lineRL">
             <property name="placeholderText">
              <string>load resistance</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <widget class="QLabel" name="labelLowFreqCap">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QLabel {
+    color: #374151;
+    font-size: 13px;
+    font-weight: 600;
+	background-color: transparent;
+    padding-bottom: 4px;
+    border: none;
+    border-bottom: 2px solid #6D63E8;
+	
+	
+	font: 13pt &quot;Rockwell&quot;;
+}</string>
+          </property>
+          <property name="text">
+           <string>Low-Frequency Capacitors</string>
+          </property>
+          <property name="sectionTitle" stdset="0">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <layout class="QGridLayout" name="gridCaps">
+          <item row="3" column="1">
+           <widget class="SmartLineEdit" name="lineCE">
+            <property name="placeholderText">
+             <string>emitter bypass</string>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="0">
+           <widget class="QLabel" name="labelCE">
+            <property name="text">
+             <string>CE (µF)</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="1">
+           <widget class="SmartLineEdit" name="lineC2">
+            <property name="placeholderText">
+             <string>interstage coupling</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="1">
+           <widget class="SmartLineEdit" name="lineC1">
+            <property name="placeholderText">
+             <string>input coupling</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="0">
+           <widget class="QLabel" name="labelC2">
+            <property name="text">
+             <string>C2 (µF)</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="0">
+           <widget class="QLabel" name="labelC1">
+            <property name="text">
+             <string>C1 (µF)</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="0">
+           <widget class="QLabel" name="labelC3">
+            <property name="text">
+             <string>C3 (µF)</string>
+            </property>
+            <property name="fieldLabel" stdset="0">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="1">
+           <widget class="SmartLineEdit" name="lineC3">
+            <property name="placeholderText">
+             <string>output coupling</string>
             </property>
            </widget>
           </item>
@@ -577,6 +670,48 @@ border: 1px solid #e2e8f0;
             <property name="verticalSpacing">
              <number>8</number>
             </property>
+            <item row="2" column="1">
+             <widget class="QLineEdit" name="lineRpi2"/>
+            </item>
+            <item row="1" column="0">
+             <widget class="QLabel" name="labelRE2">
+              <property name="text">
+               <string>RE2 (kΩ)</string>
+              </property>
+              <property name="fieldLabel" stdset="0">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+            <item row="3" column="1">
+             <widget class="QLineEdit" name="lineCpi2"/>
+            </item>
+            <item row="1" column="1">
+             <widget class="QLineEdit" name="lineRE2"/>
+            </item>
+            <item row="4" column="0">
+             <widget class="QLabel" name="labelCmu2">
+              <property name="text">
+               <string>Cµ2 (pF)</string>
+              </property>
+              <property name="fieldLabel" stdset="0">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+            <item row="3" column="0">
+             <widget class="QLabel" name="labelCpi2">
+              <property name="text">
+               <string>Cπ2 (pF)</string>
+              </property>
+              <property name="fieldLabel" stdset="0">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+            <item row="4" column="1">
+             <widget class="QLineEdit" name="lineCmu2"/>
+            </item>
             <item row="0" column="0">
              <widget class="QLabel" name="labelRB2">
               <property name="text">
@@ -590,19 +725,6 @@ border: 1px solid #e2e8f0;
             <item row="0" column="1">
              <widget class="QLineEdit" name="lineRB2"/>
             </item>
-            <item row="1" column="0">
-             <widget class="QLabel" name="labelRE2">
-              <property name="text">
-               <string>RE2 (kΩ)</string>
-              </property>
-              <property name="fieldLabel" stdset="0">
-               <bool>true</bool>
-              </property>
-             </widget>
-            </item>
-            <item row="1" column="1">
-             <widget class="QLineEdit" name="lineRE2"/>
-            </item>
             <item row="2" column="0">
              <widget class="QLabel" name="labelRpi2">
               <property name="text">
@@ -610,103 +732,6 @@ border: 1px solid #e2e8f0;
               </property>
               <property name="fieldLabel" stdset="0">
                <bool>true</bool>
-              </property>
-             </widget>
-            </item>
-            <item row="2" column="1">
-             <widget class="QLineEdit" name="lineRpi2"/>
-            </item>
-            <item row="3" column="0">
-             <widget class="QLabel" name="labelCpi2">
-              <property name="text">
-               <string>Cπ2 (pF)</string>
-              </property>
-              <property name="fieldLabel" stdset="0">
-               <bool>true</bool>
-              </property>
-             </widget>
-            </item>
-            <item row="3" column="1">
-             <widget class="QLineEdit" name="lineCpi2"/>
-            </item>
-            <item row="4" column="0">
-             <widget class="QLabel" name="labelCmu2">
-              <property name="text">
-               <string>Cµ2 (pF)</string>
-              </property>
-              <property name="fieldLabel" stdset="0">
-               <bool>true</bool>
-              </property>
-             </widget>
-            </item>
-            <item row="4" column="1">
-             <widget class="QLineEdit" name="lineCmu2"/>
-            </item>
-            <item row="5" column="0">
-             <widget class="QLabel" name="labelC1">
-              <property name="text">
-               <string>C1 (µF)</string>
-              </property>
-              <property name="fieldLabel" stdset="0">
-               <bool>true</bool>
-              </property>
-             </widget>
-            </item>
-            <item row="5" column="1">
-             <widget class="QLineEdit" name="lineC1">
-              <property name="placeholderText">
-               <string>input coupling</string>
-              </property>
-             </widget>
-            </item>
-            <item row="6" column="0">
-             <widget class="QLabel" name="labelC2">
-              <property name="text">
-               <string>C2 (µF)</string>
-              </property>
-              <property name="fieldLabel" stdset="0">
-               <bool>true</bool>
-              </property>
-             </widget>
-            </item>
-            <item row="6" column="1">
-             <widget class="QLineEdit" name="lineC2">
-              <property name="placeholderText">
-               <string>interstage coupling</string>
-              </property>
-             </widget>
-            </item>
-            <item row="7" column="0">
-             <widget class="QLabel" name="labelC3">
-              <property name="text">
-               <string>C3 (µF)</string>
-              </property>
-              <property name="fieldLabel" stdset="0">
-               <bool>true</bool>
-              </property>
-             </widget>
-            </item>
-            <item row="7" column="1">
-             <widget class="QLineEdit" name="lineC3">
-              <property name="placeholderText">
-               <string>output coupling</string>
-              </property>
-             </widget>
-            </item>
-            <item row="8" column="0">
-             <widget class="QLabel" name="labelCE">
-              <property name="text">
-               <string>CE (µF)</string>
-              </property>
-              <property name="fieldLabel" stdset="0">
-               <bool>true</bool>
-              </property>
-             </widget>
-            </item>
-            <item row="8" column="1">
-             <widget class="QLineEdit" name="lineCE">
-              <property name="placeholderText">
-               <string>CE bypass</string>
               </property>
              </widget>
             </item>
@@ -1552,65 +1577,115 @@ QPushButton:disabled {
          </widget>
         </item>
         <item>
-         <widget class="QLabel" name="labelFormulaText">
+         <widget class="QTextBrowser" name="labelFormulaText">
           <property name="styleSheet">
-           <string notr="true">QLabel {
-    color: rgb(80, 80, 80);                  /* soft dark gray */
-    font-size: 13px;
-    font-weight: 500;
-    font-family: &quot;Segoe UI&quot;, &quot;Roboto&quot;, sans-serif;
+           <string notr="true">QTextBrowser {
+    background-color: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 15px;
+    color: #374151;
+    font-family: &quot;Segoe UI&quot;, sans-serif;
+    font-size: 14px;
+}
+
+QTextBrowser a {
+    color: #6D63E8;
+    text-decoration: underline;
+}
+
+QScrollBar:vertical {
+    border: none;
+    background: #cbd5e1;
+    width: 10px;
+    margin: 0px;
+    border-radius: 5px;
+}
+
+QScrollBar::handle:vertical {
+    background: #f1f5f9;
+    min-height: 20px;
+    border-radius: 5px;
+    margin: 2px;
+}
+
+QScrollBar::handle:vertical:hover {
+    background: #ffffff;
+}
+
+QScrollBar::add-line:vertical, QScrollBar::sub-line:vertical {
+    height: 0px;
+}
+
+QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
+    background: none;
 }</string>
           </property>
-          <property name="text">
-           <string>CE–CC MULTISTAGE FREQUENCY RESPONSE
-
-LOW FREQUENCY
-RB1 = R1 || R2
-RXX1 = rπ1 + (β + 1)RX1
-R11 = RS + (RB1 || RXX1)
-
-REL2 = RE2 || RL
-RXX2 = rπ2 + (β + 1)REL2
-Ri2 = RB2 || RXX2
-R22 = RC1 + Ri2
-
-RSB2 = RC1 || RB2
-R33 = RL + { RE2 || [(rπ2 + RSB2)/(β + 1)] }
-
-RSB1 = RS || RB1
-REE = RE1 || [ RX1 + (rπ1 + RSB1)/(β + 1) ]
-
-f1 = 1 / (2πR11C1)
-f2 = 1 / (2πR22C2)
-f3 = 1 / (2πR33C3)
-fE = 1 / (2πREECE)
-
-max(f1, f2, f3, fE) ≤ fL ≤ f1 + f2 + f3 + fE
-
-HIGH FREQUENCY
-RSB1 = RS || RB1
-RCL1 = RC1 || Ri2
-RXX1 = rπ1 + (β + 1)RX1
-
-Rπ1 = rπ1(RSB1 + RX1) / (RSB1 + RXX1)
-Rµ1 = [RXX1(RSB1 + RCL1) + (β + 1)RSB1RCL1] / (RSB1 + RXX1)
-
-RSB2 = RC1 || RB2
-REL2 = RE2 || RL
-RXX2 = rπ2 + (β + 1)REL2
-
-Rµ2 = RSB2 || RXX2
-Rπ2 = rπ2 || [RSB2 + (β + 1)REL2]
-
-fπ1 = 1 / (2πRπ1Cπ1)
-fµ1 = 1 / (2πRµ1Cµ1)
-fπ2 = 1 / (2πRπ2Cπ2)
-fµ2 = 1 / (2πRµ2Cµ2)
-
-fπ1 || fµ1 || fπ2 || fµ2 ≤ fH ≤ min(fπ1, fµ1, fπ2, fµ2)</string>
-          </property>
-          <property name="wordWrap">
-           <bool>true</bool>
+          <property name="html">
+           <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;meta charset=&quot;utf-8&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+hr { height: 1px; border-width: 0; }
+li.unchecked::marker { content: &quot;\2610&quot;; }
+li.checked::marker { content: &quot;\2612&quot;; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Segoe UI','sans-serif'; font-size:14px; font-weight:400; font-style:normal;&quot;&gt;
+&lt;h2 style=&quot; margin-top:0px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; line-height:150%;&quot;&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:x-large; font-weight:700; color:#185fa5;&quot;&gt;CE–CC Multistage Frequency Response &lt;/span&gt;&lt;/h2&gt;
+&lt;h3 style=&quot; margin-top:14px; margin-bottom:8px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:large; font-weight:700; color:#6d5dfc;&quot;&gt;Low Frequency&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:large; font-weight:700; color:#1e293b;&quot;&gt; &lt;/span&gt;&lt;/h3&gt;
+&lt;table border=&quot;0&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; border-collapse:collapse;&quot; width=&quot;100%&quot; cellspacing=&quot;0&quot; cellpadding=&quot;8&quot;&gt;
+&lt;tr&gt;
+&lt;td bgcolor=&quot;#f8fafc&quot; style=&quot; border-top:1px; border-right:1px; border-bottom:1px; border-left:1px; border-top-color:#dbe4f0; border-right-color:#dbe4f0; border-bottom-color:#dbe4f0; border-left-color:#dbe4f0; border-top-style:solid; border-right-style:solid; border-bottom-style:solid; border-left-style:solid;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; background-color:#f8fafc;&quot;&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:13px; font-weight:700; color:#185fa5;&quot;&gt;CE Stage 1&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:13px; color:#1e293b;&quot;&gt;&lt;br /&gt;RB&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:13px; color:#1e293b; vertical-align:sub;&quot;&gt;1&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:13px; color:#1e293b;&quot;&gt; = R1 ∥ R2&lt;br /&gt;RXX&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:13px; color:#1e293b; vertical-align:sub;&quot;&gt;1&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:13px; color:#1e293b;&quot;&gt; = r&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:13px; color:#1e293b; vertical-align:sub;&quot;&gt;π1&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:13px; color:#1e293b;&quot;&gt; + (β + 1)RX&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:13px; color:#1e293b; vertical-align:sub;&quot;&gt;1&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:13px; color:#1e293b;&quot;&gt;&lt;br /&gt;RSB&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:13px; color:#1e293b; vertical-align:sub;&quot;&gt;1&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:13px; color:#1e293b;&quot;&gt; = RS ∥ RB&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:13px; color:#1e293b; vertical-align:sub;&quot;&gt;1&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:13px; color:#1e293b;&quot;&gt; &lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td bgcolor=&quot;#f8fafc&quot; style=&quot; border-top:1px; border-right:1px; border-bottom:1px; border-left:1px; border-top-color:#dbe4f0; border-right-color:#dbe4f0; border-bottom-color:#dbe4f0; border-left-color:#dbe4f0; border-top-style:solid; border-right-style:solid; border-bottom-style:solid; border-left-style:solid;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; background-color:#f8fafc;&quot;&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:13px; font-weight:700; color:#185fa5;&quot;&gt;CC Stage 2&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:13px; color:#1e293b;&quot;&gt;&lt;br /&gt;REL&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:13px; color:#1e293b; vertical-align:sub;&quot;&gt;2&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:13px; color:#1e293b;&quot;&gt; = RE&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:13px; color:#1e293b; vertical-align:sub;&quot;&gt;2&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:13px; color:#1e293b;&quot;&gt; ∥ RL&lt;br /&gt;RXX&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:13px; color:#1e293b; vertical-align:sub;&quot;&gt;2&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:13px; color:#1e293b;&quot;&gt; = r&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:13px; color:#1e293b; vertical-align:sub;&quot;&gt;π2&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:13px; color:#1e293b;&quot;&gt; + (β + 1)REL&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:13px; color:#1e293b; vertical-align:sub;&quot;&gt;2&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:13px; color:#1e293b;&quot;&gt;&lt;br /&gt;Ri&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:13px; color:#1e293b; vertical-align:sub;&quot;&gt;2&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:13px; color:#1e293b;&quot;&gt; = RB&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:13px; color:#1e293b; vertical-align:sub;&quot;&gt;2&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:13px; color:#1e293b;&quot;&gt; ∥ RXX&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:13px; color:#1e293b; vertical-align:sub;&quot;&gt;2&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:13px; color:#1e293b;&quot;&gt; &lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td bgcolor=&quot;#eef2ff&quot; style=&quot; border-top:1px; border-right:1px; border-bottom:1px; border-left:1px; border-top-color:#c7d2fe; border-right-color:#c7d2fe; border-bottom-color:#c7d2fe; border-left-color:#c7d2fe; border-top-style:solid; border-right-style:solid; border-bottom-style:solid; border-left-style:solid;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; background-color:#eef2ff;&quot;&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:13px; font-weight:700; color:#1e293b;&quot;&gt;Input capacitor C&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:13px; font-weight:700; color:#1e293b; vertical-align:sub;&quot;&gt;1&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:13px; color:#1e293b;&quot;&gt;&lt;br /&gt;R11 = RS + (RB&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:13px; color:#1e293b; vertical-align:sub;&quot;&gt;1&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:13px; color:#1e293b;&quot;&gt; ∥ RXX&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:13px; color:#1e293b; vertical-align:sub;&quot;&gt;1&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:13px; color:#1e293b;&quot;&gt;)&lt;br /&gt;f1 = 1 / (2πR11C&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:13px; color:#1e293b; vertical-align:sub;&quot;&gt;1&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:13px; color:#1e293b;&quot;&gt;) &lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td bgcolor=&quot;#eef2ff&quot; style=&quot; border-top:1px; border-right:1px; border-bottom:1px; border-left:1px; border-top-color:#c7d2fe; border-right-color:#c7d2fe; border-bottom-color:#c7d2fe; border-left-color:#c7d2fe; border-top-style:solid; border-right-style:solid; border-bottom-style:solid; border-left-style:solid;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; background-color:#eef2ff;&quot;&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:13px; font-weight:700; color:#1e293b;&quot;&gt;Interstage capacitor C&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:13px; font-weight:700; color:#1e293b; vertical-align:sub;&quot;&gt;2&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:13px; color:#1e293b;&quot;&gt;&lt;br /&gt;R22 = RC&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:13px; color:#1e293b; vertical-align:sub;&quot;&gt;1&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:13px; color:#1e293b;&quot;&gt; + Ri&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:13px; color:#1e293b; vertical-align:sub;&quot;&gt;2&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:13px; color:#1e293b;&quot;&gt;&lt;br /&gt;f2 = 1 / (2πR22C&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:13px; color:#1e293b; vertical-align:sub;&quot;&gt;2&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:13px; color:#1e293b;&quot;&gt;) &lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td bgcolor=&quot;#eef2ff&quot; style=&quot; border-top:1px; border-right:1px; border-bottom:1px; border-left:1px; border-top-color:#c7d2fe; border-right-color:#c7d2fe; border-bottom-color:#c7d2fe; border-left-color:#c7d2fe; border-top-style:solid; border-right-style:solid; border-bottom-style:solid; border-left-style:solid;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; background-color:#eef2ff;&quot;&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:13px; font-weight:700; color:#1e293b;&quot;&gt;Output capacitor C&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:13px; font-weight:700; color:#1e293b; vertical-align:sub;&quot;&gt;3&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:13px; color:#1e293b;&quot;&gt;&lt;br /&gt;RSB&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:13px; color:#1e293b; vertical-align:sub;&quot;&gt;2&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:13px; color:#1e293b;&quot;&gt; = RC&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:13px; color:#1e293b; vertical-align:sub;&quot;&gt;1&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:13px; color:#1e293b;&quot;&gt; ∥ RB&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:13px; color:#1e293b; vertical-align:sub;&quot;&gt;2&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:13px; color:#1e293b;&quot;&gt;&lt;br /&gt;R33 = RL + { RE&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:13px; color:#1e293b; vertical-align:sub;&quot;&gt;2&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:13px; color:#1e293b;&quot;&gt; ∥ [(r&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:13px; color:#1e293b; vertical-align:sub;&quot;&gt;π2&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:13px; color:#1e293b;&quot;&gt; + RSB&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:13px; color:#1e293b; vertical-align:sub;&quot;&gt;2&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:13px; color:#1e293b;&quot;&gt;) / (β + 1)] }&lt;br /&gt;f3 = 1 / (2πR33C&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:13px; color:#1e293b; vertical-align:sub;&quot;&gt;3&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:13px; color:#1e293b;&quot;&gt;) &lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td bgcolor=&quot;#fff7ed&quot; style=&quot; border-top:1px; border-right:1px; border-bottom:1px; border-left:1px; border-top-color:#fed7aa; border-right-color:#fed7aa; border-bottom-color:#fed7aa; border-left-color:#fed7aa; border-top-style:solid; border-right-style:solid; border-bottom-style:solid; border-left-style:solid;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; background-color:#fff7ed;&quot;&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:13px; font-weight:700; color:#1e293b;&quot;&gt;Emitter bypass capacitor C&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:13px; font-weight:700; color:#1e293b; vertical-align:sub;&quot;&gt;E&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:13px; color:#1e293b;&quot;&gt;&lt;br /&gt;REE = RE&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:13px; color:#1e293b; vertical-align:sub;&quot;&gt;1&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:13px; color:#1e293b;&quot;&gt; ∥ [RX&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:13px; color:#1e293b; vertical-align:sub;&quot;&gt;1&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:13px; color:#1e293b;&quot;&gt; + (r&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:13px; color:#1e293b; vertical-align:sub;&quot;&gt;π1&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:13px; color:#1e293b;&quot;&gt; + RSB&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:13px; color:#1e293b; vertical-align:sub;&quot;&gt;1&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:13px; color:#1e293b;&quot;&gt;) / (β + 1)]&lt;br /&gt;fE = 1 / (2πREEC&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:13px; color:#1e293b; vertical-align:sub;&quot;&gt;E&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:13px; color:#1e293b;&quot;&gt;) &lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td bgcolor=&quot;#ecfdf5&quot; style=&quot; border-top:1px; border-right:1px; border-bottom:1px; border-left:1px; border-top-color:#bbf7d0; border-right-color:#bbf7d0; border-bottom-color:#bbf7d0; border-left-color:#bbf7d0; border-top-style:solid; border-right-style:solid; border-bottom-style:solid; border-left-style:solid;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; background-color:#ecfdf5;&quot;&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:13px; font-weight:700; color:#1e293b;&quot;&gt;Low cutoff range&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:13px; color:#1e293b;&quot;&gt;&lt;br /&gt;max(f1, f2, f3, fE) ≤ fL ≤ f1 + f2 + f3 + fE&lt;br /&gt;&lt;br /&gt;&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:13px; font-weight:700; color:#1e293b;&quot;&gt;Conservative:&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:13px; color:#1e293b;&quot;&gt;&lt;br /&gt;fL = max(f1, f2, f3, fE) &lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;hr /&gt;
+&lt;h3 style=&quot; margin-top:14px; margin-bottom:8px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:large; font-weight:700; color:#6d5dfc;&quot;&gt;High Frequency&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:large; font-weight:700; color:#1e293b;&quot;&gt; &lt;/span&gt;&lt;/h3&gt;
+&lt;table border=&quot;0&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; border-collapse:collapse;&quot; width=&quot;100%&quot; cellspacing=&quot;0&quot; cellpadding=&quot;8&quot;&gt;
+&lt;tr&gt;
+&lt;td bgcolor=&quot;#f8fafc&quot; style=&quot; border-top:1px; border-right:1px; border-bottom:1px; border-left:1px; border-top-color:#dbe4f0; border-right-color:#dbe4f0; border-bottom-color:#dbe4f0; border-left-color:#dbe4f0; border-top-style:solid; border-right-style:solid; border-bottom-style:solid; border-left-style:solid;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; background-color:#f8fafc;&quot;&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:13px; font-weight:700; color:#185fa5;&quot;&gt;CE Stage 1&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:13px; color:#1e293b;&quot;&gt;&lt;br /&gt;RCL&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:13px; color:#1e293b; vertical-align:sub;&quot;&gt;1&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:13px; color:#1e293b;&quot;&gt; = RC&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:13px; color:#1e293b; vertical-align:sub;&quot;&gt;1&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:13px; color:#1e293b;&quot;&gt; ∥ Ri&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:13px; color:#1e293b; vertical-align:sub;&quot;&gt;2&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:13px; color:#1e293b;&quot;&gt;&lt;br /&gt;Rπ&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:13px; color:#1e293b; vertical-align:sub;&quot;&gt;1&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:13px; color:#1e293b;&quot;&gt; = r&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:13px; color:#1e293b; vertical-align:sub;&quot;&gt;π1&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:13px; color:#1e293b;&quot;&gt;(RSB&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:13px; color:#1e293b; vertical-align:sub;&quot;&gt;1&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:13px; color:#1e293b;&quot;&gt; + RX&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:13px; color:#1e293b; vertical-align:sub;&quot;&gt;1&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:13px; color:#1e293b;&quot;&gt;) / (RSB&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:13px; color:#1e293b; vertical-align:sub;&quot;&gt;1&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:13px; color:#1e293b;&quot;&gt; + RXX&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:13px; color:#1e293b; vertical-align:sub;&quot;&gt;1&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:13px; color:#1e293b;&quot;&gt;)&lt;br /&gt;Rµ&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:13px; color:#1e293b; vertical-align:sub;&quot;&gt;1&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:13px; color:#1e293b;&quot;&gt; = [RXX&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:13px; color:#1e293b; vertical-align:sub;&quot;&gt;1&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:13px; color:#1e293b;&quot;&gt;(RSB&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:13px; color:#1e293b; vertical-align:sub;&quot;&gt;1&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:13px; color:#1e293b;&quot;&gt; + RCL&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:13px; color:#1e293b; vertical-align:sub;&quot;&gt;1&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:13px; color:#1e293b;&quot;&gt;) + (β + 1)RSB&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:13px; color:#1e293b; vertical-align:sub;&quot;&gt;1&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:13px; color:#1e293b;&quot;&gt;RCL&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:13px; color:#1e293b; vertical-align:sub;&quot;&gt;1&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:13px; color:#1e293b;&quot;&gt;] / (RSB&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:13px; color:#1e293b; vertical-align:sub;&quot;&gt;1&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:13px; color:#1e293b;&quot;&gt; + RXX&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:13px; color:#1e293b; vertical-align:sub;&quot;&gt;1&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:13px; color:#1e293b;&quot;&gt;) &lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td bgcolor=&quot;#f8fafc&quot; style=&quot; border-top:1px; border-right:1px; border-bottom:1px; border-left:1px; border-top-color:#dbe4f0; border-right-color:#dbe4f0; border-bottom-color:#dbe4f0; border-left-color:#dbe4f0; border-top-style:solid; border-right-style:solid; border-bottom-style:solid; border-left-style:solid;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; background-color:#f8fafc;&quot;&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:13px; font-weight:700; color:#185fa5;&quot;&gt;CC Stage 2&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:13px; color:#1e293b;&quot;&gt;&lt;br /&gt;Rπ&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:13px; color:#1e293b; vertical-align:sub;&quot;&gt;2&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:13px; color:#1e293b;&quot;&gt; = r&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:13px; color:#1e293b; vertical-align:sub;&quot;&gt;π2&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:13px; color:#1e293b;&quot;&gt; ∥ [RSB&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:13px; color:#1e293b; vertical-align:sub;&quot;&gt;2&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:13px; color:#1e293b;&quot;&gt; + (β + 1)REL&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:13px; color:#1e293b; vertical-align:sub;&quot;&gt;2&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:13px; color:#1e293b;&quot;&gt;]&lt;br /&gt;Rµ&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:13px; color:#1e293b; vertical-align:sub;&quot;&gt;2&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:13px; color:#1e293b;&quot;&gt; = RSB&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:13px; color:#1e293b; vertical-align:sub;&quot;&gt;2&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:13px; color:#1e293b;&quot;&gt; ∥ RXX&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:13px; color:#1e293b; vertical-align:sub;&quot;&gt;2&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:13px; color:#1e293b;&quot;&gt; &lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td bgcolor=&quot;#eef2ff&quot; style=&quot; border-top:1px; border-right:1px; border-bottom:1px; border-left:1px; border-top-color:#c7d2fe; border-right-color:#c7d2fe; border-bottom-color:#c7d2fe; border-left-color:#c7d2fe; border-top-style:solid; border-right-style:solid; border-bottom-style:solid; border-left-style:solid;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; background-color:#eef2ff;&quot;&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:13px; font-weight:700; color:#1e293b;&quot;&gt;Frequency points&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:13px; color:#1e293b;&quot;&gt;&lt;br /&gt;fπ&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:13px; color:#1e293b; vertical-align:sub;&quot;&gt;1&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:13px; color:#1e293b;&quot;&gt; = 1 / (2πRπ&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:13px; color:#1e293b; vertical-align:sub;&quot;&gt;1&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:13px; color:#1e293b;&quot;&gt;Cπ&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:13px; color:#1e293b; vertical-align:sub;&quot;&gt;1&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:13px; color:#1e293b;&quot;&gt;)&lt;br /&gt;fµ&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:13px; color:#1e293b; vertical-align:sub;&quot;&gt;1&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:13px; color:#1e293b;&quot;&gt; = 1 / (2πRµ&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:13px; color:#1e293b; vertical-align:sub;&quot;&gt;1&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:13px; color:#1e293b;&quot;&gt;Cµ&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:13px; color:#1e293b; vertical-align:sub;&quot;&gt;1&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:13px; color:#1e293b;&quot;&gt;)&lt;br /&gt;fπ&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:13px; color:#1e293b; vertical-align:sub;&quot;&gt;2&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:13px; color:#1e293b;&quot;&gt; = 1 / (2πRπ&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:13px; color:#1e293b; vertical-align:sub;&quot;&gt;2&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:13px; color:#1e293b;&quot;&gt;Cπ&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:13px; color:#1e293b; vertical-align:sub;&quot;&gt;2&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:13px; color:#1e293b;&quot;&gt;)&lt;br /&gt;fµ&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:13px; color:#1e293b; vertical-align:sub;&quot;&gt;2&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:13px; color:#1e293b;&quot;&gt; = 1 / (2πRµ&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:13px; color:#1e293b; vertical-align:sub;&quot;&gt;2&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:13px; color:#1e293b;&quot;&gt;Cµ&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:13px; color:#1e293b; vertical-align:sub;&quot;&gt;2&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:13px; color:#1e293b;&quot;&gt;) &lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td bgcolor=&quot;#ecfdf5&quot; style=&quot; border-top:1px; border-right:1px; border-bottom:1px; border-left:1px; border-top-color:#bbf7d0; border-right-color:#bbf7d0; border-bottom-color:#bbf7d0; border-left-color:#bbf7d0; border-top-style:solid; border-right-style:solid; border-bottom-style:solid; border-left-style:solid;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; background-color:#ecfdf5;&quot;&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:13px; font-weight:700; color:#1e293b;&quot;&gt;High cutoff range&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:13px; color:#1e293b;&quot;&gt;&lt;br /&gt;fπ&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:13px; color:#1e293b; vertical-align:sub;&quot;&gt;1&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:13px; color:#1e293b;&quot;&gt; ∥ fµ&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:13px; color:#1e293b; vertical-align:sub;&quot;&gt;1&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:13px; color:#1e293b;&quot;&gt; ∥ fπ&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:13px; color:#1e293b; vertical-align:sub;&quot;&gt;2&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:13px; color:#1e293b;&quot;&gt; ∥ fµ&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:13px; color:#1e293b; vertical-align:sub;&quot;&gt;2&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:13px; color:#1e293b;&quot;&gt; ≤ fH ≤ min(fπ&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:13px; color:#1e293b; vertical-align:sub;&quot;&gt;1&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:13px; color:#1e293b;&quot;&gt;, fµ&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:13px; color:#1e293b; vertical-align:sub;&quot;&gt;1&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:13px; color:#1e293b;&quot;&gt;, fπ&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:13px; color:#1e293b; vertical-align:sub;&quot;&gt;2&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:13px; color:#1e293b;&quot;&gt;, fµ&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:13px; color:#1e293b; vertical-align:sub;&quot;&gt;2&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:13px; color:#1e293b;&quot;&gt;)&lt;br /&gt;&lt;br /&gt;&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:13px; font-weight:700; color:#1e293b;&quot;&gt;Conservative:&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:13px; color:#1e293b;&quot;&gt;&lt;br /&gt;fH = fπ&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:13px; color:#1e293b; vertical-align:sub;&quot;&gt;1&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:13px; color:#1e293b;&quot;&gt; ∥ fµ&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:13px; color:#1e293b; vertical-align:sub;&quot;&gt;1&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:13px; color:#1e293b;&quot;&gt; ∥ fπ&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:13px; color:#1e293b; vertical-align:sub;&quot;&gt;2&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:13px; color:#1e293b;&quot;&gt; ∥ fµ&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:13px; color:#1e293b; vertical-align:sub;&quot;&gt;2&lt;/span&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:13px; color:#1e293b;&quot;&gt; &lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/body&gt;&lt;/html&gt;</string>
           </property>
          </widget>
         </item>
@@ -1634,6 +1709,13 @@ fπ1 || fµ1 || fπ2 || fµ2 ≤ fH ≤ min(fπ1, fµ1, fπ2, fµ2)</string>
    </item>
   </layout>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>SmartLineEdit</class>
+   <extends>QLineEdit</extends>
+   <header>core.smart_line_edit</header>
+  </customwidget>
+ </customwidgets>
  <resources/>
  <connections/>
 </ui>

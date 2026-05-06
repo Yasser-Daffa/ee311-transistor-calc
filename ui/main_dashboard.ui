@@ -656,6 +656,59 @@ QPushButton:pressed {
             </widget>
            </item>
            <item>
+            <widget class="QPushButton" name="buttonCutOffFrequency">
+             <property name="minimumSize">
+              <size>
+               <width>0</width>
+               <height>40</height>
+              </size>
+             </property>
+             <property name="cursor">
+              <cursorShape>PointingHandCursor</cursorShape>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">QPushButton {
+    background-color: transparent;
+    border: none;
+    border-radius: 8px;
+    color: #5a6c7d;
+    font-size: 14px;
+    text-align: left;
+    padding-left: 15px;
+}
+
+QPushButton:hover {
+    background-color: rgb(245, 248, 248);
+    color: #8c6fff;  /* slightly purple-ish on hover */
+}
+
+/* CHECKED / TOGGLED STATE */
+QPushButton:checked {
+    background-color: rgba(140, 111, 255, 0.10);  /* faint purple */
+    color: #8c6fff; 
+    font-weight: bold;
+    border-left: 3px solid #8c6fff;
+    padding-left: 10px; /* adjust so bar doesn’t push content too far */
+}
+
+/* PRESSED STATE (optional but clean) */
+QPushButton:pressed {
+    background-color: rgba(140, 111, 255, 0.18);  /* slightly darker purple on press */
+}
+</string>
+             </property>
+             <property name="text">
+              <string>Cut-off Frequency</string>
+             </property>
+             <property name="checkable">
+              <bool>true</bool>
+             </property>
+             <attribute name="buttonGroup">
+              <string notr="true">buttonGroupSubmenus</string>
+             </attribute>
+            </widget>
+           </item>
+           <item>
             <widget class="QPushButton" name="buttonCapacitorsCalc">
              <property name="minimumSize">
               <size>
@@ -827,7 +880,8 @@ QPushButton:pressed {
 </string>
              </property>
              <property name="text">
-              <string>Made by Yasser Daffa</string>
+              <string>Made by Yasser Daffa 
+ver. 0.9.3</string>
              </property>
              <property name="checkable">
               <bool>false</bool>
@@ -1068,7 +1122,7 @@ QScrollBar::sub-page:horizontal {
               <item>
                <widget class="QStackedWidget" name="stackedWidget">
                 <property name="currentIndex">
-                 <number>4</number>
+                 <number>8</number>
                 </property>
                 <widget class="QWidget" name="page0BjtTransistor"/>
                 <widget class="QWidget" name="page1CommonEmitter"/>
@@ -1076,8 +1130,9 @@ QScrollBar::sub-page:horizontal {
                 <widget class="QWidget" name="page3MultiStage"/>
                 <widget class="QWidget" name="page4SingleStageFrequency"/>
                 <widget class="QWidget" name="page5MultiStageFrequency"/>
-                <widget class="QWidget" name="page6CapacitorsCalc"/>
-                <widget class="QWidget" name="page7Mosfets"/>
+                <widget class="QWidget" name="page6CutOffFrequency"/>
+                <widget class="QWidget" name="page7CapacitorsCalc"/>
+                <widget class="QWidget" name="page8Mosfets"/>
                </widget>
               </item>
              </layout>

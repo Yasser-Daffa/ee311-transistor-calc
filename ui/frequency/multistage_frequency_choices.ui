@@ -383,7 +383,7 @@ QPushButton:checked {
        </property>
        <property name="minimumSize">
         <size>
-         <width>130</width>
+         <width>230</width>
          <height>48</height>
         </size>
        </property>
