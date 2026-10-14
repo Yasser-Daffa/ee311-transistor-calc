@@ -6,6 +6,6 @@ a calculator program for the subject electronics 311 that calculates common tran
 
 # Installation steps:
 
-1- Click on installer_output listed among the folders
-2- Download the latest setup file available
-3- Open the setup file and proceed normally
+1- Click on installer_output listed among the folders \n
+2- Download the latest setup file available \n
+3- Open the setup file and proceed normally \n
