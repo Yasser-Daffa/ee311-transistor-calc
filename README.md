@@ -1,5 +1,18 @@
 # EE311 Transistor Calculator 
-a calculator program for the subject electronics 311 that calculates common transistors.
+A calculator program for the subject Electronics 311 that calculates common BJT transistors.
+
+## Available modes:
+Common Emitter
+
+Common Collector
+
+Multistage: (CE-CE, CC-CE, CE-CC)
+
+Frequency Calculations
+
+Capacitor Calculations
+
+MOSFETs (Not Finished)
 
 <img width="1437" height="1213" alt="image" src="https://github.com/user-attachments/assets/83762d77-8ffe-4c84-ad9c-4fe68313630e" />
 
